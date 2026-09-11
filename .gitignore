@@ -19,5 +19,6 @@ mono_crash.*.json
 *.DotSettings.user
 temp
 tmp
-addons
+/addons/*
+!/addons/cherry
 docs/
