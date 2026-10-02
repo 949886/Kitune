@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://byn0fnpox4xjt"]
-
-[ext_resource type="Script" path="res://Game/UI/Joystick/Demo/JoystickDemo.gd" id="1_demo"]
-
-[node name="JoystickDemo" type="Node2D" unique_id=1111997064]
-script = ExtResource("1_demo")
