@@ -19,8 +19,11 @@ mono_crash.*.json
 *.DotSettings.user
 temp
 tmp
-/addons/*
-!/addons/cherry
-!/addons/custom
 docs/
 Samples/
+
+/addons/*
+!/addons/AS2P
+!/addons/cherry
+!/addons/custom
+!/addons/phantom_camera

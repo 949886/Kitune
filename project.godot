@@ -22,6 +22,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Chronos="*res://Game/Core/Time/Chronos.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
+
+[cherry]
+
+navigation/page_registry_path="res://addons/cherry/generated/page_registry.tres"
 
 [display]
 
@@ -30,7 +35,7 @@ mouse_cursor/custom_image="uid://cvsxhiaotg04e"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/cherry/plugin.cfg", "res://addons/custom/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/cherry/plugin.cfg", "res://addons/custom/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
