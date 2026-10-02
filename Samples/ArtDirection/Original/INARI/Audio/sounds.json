@@ -1,0 +1,143 @@
+{
+  "groups": {
+    "jump": [
+      "Player_Jump_4.wav",
+      "Player_Jump_2.wav",
+      "Player_Jump_1.wav",
+      "Player_Jump_3.wav"
+    ],
+    "double_jump": [
+      "Player_DobuleJump_1.wav",
+      "Player_DobuleJump_2.wav"
+    ],
+    "wall_jump": [
+      "Player_Wall_Jump.wav"
+    ],
+    "wall_hang": [
+      "Player_Wall_Hang_2.wav",
+      "Player_Wall_Hang_4.wav",
+      "Player_Wall_Hang_3.wav",
+      "Player_Wall_Hang_1.wav"
+    ],
+    "wall_up": [
+      "Player_Wall_Up_1.wav",
+      "Player_Wall_Up_2.wav",
+      "Player_Wall_Up_3.wav",
+      "Player_Wall_Up_4.wav"
+    ],
+    "dash": [
+      "Player_Dash.wav"
+    ],
+    "land_metal": [
+      "Player_Land_Metal_2.wav",
+      "Player_Land_Metal_3.wav",
+      "Player_Land_Metal_1.wav"
+    ],
+    "land_wood": [
+      "Player_Land_2.wav",
+      "Player_Land_3.wav",
+      "Player_Land_1.wav"
+    ],
+    "step_metal": [
+      "Player_Walk_Metal_8.wav",
+      "Player_Walk_Metal_3.wav",
+      "Player_Walk_Metal_6.wav",
+      "Player_Walk_Metal_4.wav",
+      "Player_Walk_Metal_5.wav",
+      "Player_Walk_Metal_7.wav",
+      "Player_Walk_Metal_1.wav",
+      "Player_Walk_Metal_2.wav"
+    ],
+    "step_wood": [
+      "Player_Walk_Wood_7.wav",
+      "Player_Walk_Wood_9.wav",
+      "Player_Walk_Wood_8.wav",
+      "Player_Walk_Wood_2.wav",
+      "Player_Walk_Wood_1.wav",
+      "Player_Walk_Wood_3.wav",
+      "Player_Walk_Wood_6.wav",
+      "Player_Walk_Wood_5.wav",
+      "Player_Walk_Wood_4.wav"
+    ],
+    "attack": [
+      "Player_Attack_12_2.wav",
+      "Player_Attack_12_3.wav",
+      "Player_Attack_12_1.wav"
+    ],
+    "attack3": [
+      "Player_Attack_3_3_1.wav",
+      "Player_Attack_3_2_4.wav",
+      "Player_Attack_3_1_2.wav",
+      "Player_Attack_3_2_2.wav",
+      "Player_Attack_3_1_3.wav",
+      "Player_Attack_3_2_1.wav",
+      "Player_Attack_3_1_1.wav",
+      "Player_Attack_3_2_3.wav"
+    ],
+    "heavy_attack": [
+      "Player_Attack_Strong_1_1.wav",
+      "Player_Attack_Strong_1_3.wav",
+      "Player_Attack_Strong_1_2.wav"
+    ],
+    "throw": [
+      "Player_Shuriken_Throw_1.wav",
+      "Player_Shuriken_Throw_2.wav",
+      "Player_Shuriken_Throw_3.wav",
+      "Player_Shuriken_Throw_5.wav",
+      "Player_Shuriken_Throw_6.wav",
+      "Player_Shuriken_Throw_4.wav"
+    ],
+    "teleport": [
+      "Player_Shuriken_Dash_4.wav",
+      "Player_Shuriken_Dash_3.wav",
+      "Player_Shuriken_Dash_1.wav",
+      "Player_Shuriken_Dash_2.wav"
+    ],
+    "stick": [
+      "Player_Shuriken_Stick_1.wav",
+      "Player_Shuriken_Stick_3.wav",
+      "Player_Shuriken_Stick_4.wav",
+      "Player_Shuriken_Stick_2.wav"
+    ],
+    "bounce": [
+      "Shuriken_Bounce_Stone_2.wav",
+      "Shuriken_Bounce_Stone_1.wav",
+      "Shuriken_Bounce_Stone_3.wav"
+    ],
+    "respawn": [
+      "Player_Revival_2.wav"
+    ],
+    "hit": [
+      "Player_Hit.wav"
+    ],
+    "door_break": [
+      "Door_Break_2.wav",
+      "Door_Break_4.wav",
+      "Door_Break_3.wav",
+      "Door_Break_1.wav"
+    ],
+    "metal_door_break": [
+      "Door_Strong_Break.wav"
+    ],
+    "metal_door_hit": [
+      "Door_Strong_Hit.wav"
+    ],
+    "rifle_reload": [
+      "Monster_Rifle_Reload_2.wav",
+      "Monster_Rifle_Reload_1.wav"
+    ],
+    "rifle_shot": [
+      "Monster_Rifle_Shot_2.wav",
+      "Monster_Rifle_Shot_1.wav"
+    ],
+    "rifle_kick": [
+      "Monster_Rifle_Kick.wav"
+    ]
+  },
+  "source_bank_sha256": {
+    "SFX_Player": "7d239268f4905b62fc2ef473f89889f5760d607af20ee4a0cf54c9cc02e68042",
+    "SFX_Shuriken": "958ada95dfede607d994b71da3d5e0114482e5d1cd7cfee0c9683bd8c19fc4d9",
+    "SFX_Object": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "SFX_Monster": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039"
+  }
+}

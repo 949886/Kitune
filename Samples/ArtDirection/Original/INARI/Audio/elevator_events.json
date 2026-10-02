@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "elevator_steam": [
+      "elevator_steam_01.wav"
+    ],
+    "elevator": [
+      "elevator_01.wav"
+    ]
+  },
+  "renders": {
+    "elevator_steam_01.wav": {
+      "guid": "c9793696-fa8d-4903-b429-e6cf32ed6220",
+      "path": "event:/SFX/Object/Elevator/Elevator_Steam",
+      "timeline_ms": 3866,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Elevator_Steam_1"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 187392,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "9f4c2e07cf4b5dbb0a97a5751cfb19b5a9ce1b0c0b823e27fba7019af2ec1049",
+      "pcm_sha256": "84916fb3f767f1135a2a6b9711c6f882844ca2469e729960a01328f1b3759555",
+      "frames": 187392
+    },
+    "elevator_01.wav": {
+      "guid": "06a28a31-1dde-4484-83af-719afeebef76",
+      "path": "event:/SFX/Object/Elevator/Elevator",
+      "timeline_ms": 27000,
+      "one_shot": false,
+      "distance_parameter": true,
+      "samples": [
+        "Elevator_Start",
+        "Elevator_Loop",
+        "Elevator_Start",
+        "Elevator_Loop"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 1296384,
+      "timeline_loop_frames": 1296000,
+      "random_seed": 0,
+      "loop_export_strategy": "Repeat one authored timeline length; internal FMOD loop regions and release envelopes are not reconstructed.",
+      "sha256": "67a9c2dd740040f5a74c1d4806a1e224f629bc7c3979e1a8e5f5f57098c368aa",
+      "pcm_sha256": "d69ef9922809fefda2e7de89d7289ec33b9fdeec90a4b334678ba4533b528d4a",
+      "frames": 1296000
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "ElevatorPlatform.cs": "9fc4470f0b3ffe9e8f96af8c570f88c469e60158c1a16f2cb1e70f5760f5ab16",
+    "InteractableObjectTrigger.cs": "2faa206ccf6855f4619cbf48800102a4dfed76f199666f50f6f79480dd374f34"
+  }
+}

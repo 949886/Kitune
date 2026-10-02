@@ -1,0 +1,30 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="EnvironmentWorkshop.gd" id="1"]
+[ext_resource type="Script" path="WorkshopPlayer.gd" id="2"]
+[ext_resource type="PackedScene" path="../Devices/EnvironmentAudio/EnvironmentAudio.tscn" id="3"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11055.tres" id="4"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11040.tres" id="5"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11102.tres" id="6"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11051.tres" id="7"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11086.tres" id="8"]
+[ext_resource type="Resource" path="../Devices/EnvironmentAudio/Presets/level15_11126.tres" id="9"]
+
+[sub_resource type="RectangleShape2D" id="body"]
+size = Vector2(18, 32)
+
+[node name="EnvironmentWorkshop" type="Node2D"]
+script = ExtResource("1")
+regions = Array[Dictionary]([{"title": "室内机房", "position": Vector2(380, 320), "size": Vector2(220, 170), "color": Color(0.3, 0.7, 0.8, 0.15), "presets": [ExtResource("4"), ExtResource("5"), ExtResource("6")]}, {"title": "室外通道", "position": Vector2(780, 320), "size": Vector2(220, 170), "color": Color(0.8, 0.6, 0.3, 0.15), "presets": [ExtResource("7"), ExtResource("8"), ExtResource("9")]}])
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(150, 400)
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("2")
+
+[node name="Shape" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -16)
+shape = SubResource("body")
+
+[node name="Audio" parent="." instance=ExtResource("3")]

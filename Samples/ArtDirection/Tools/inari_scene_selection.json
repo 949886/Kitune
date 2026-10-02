@@ -1,0 +1,112 @@
+[
+  {
+    "id": "inari_factory",
+    "game": "INARI",
+    "title": "01 · 机械工厂",
+    "kind": "original_2d",
+    "reference": "inari_shaft.jpg",
+    "scene_data": "level15.json",
+    "spawn": [
+      -5820,
+      5430
+    ],
+    "description": "从齿轮井下层平台出发，向右上墙面投掷苦无，命中后按 Q，再按空格蹬墙返回上层平台。",
+    "fidelity": "原版贴图、坐标、碰撞轮廓与角色动画；灯光和关卡逻辑仍在校准。",
+    "objectives": [
+      {
+        "name": "下层落脚点",
+        "position": [
+          -5820,
+          5440
+        ],
+        "radius": 35
+      },
+      {
+        "name": "命中右上墙面后按 Q，空格蹬墙回平台",
+        "position": [
+          -5668,
+          5200
+        ],
+        "radius": 40,
+        "kunai_anchor": [
+          -5520,
+          5160
+        ]
+      },
+      {
+        "name": "抵达弓兵通道",
+        "position": [
+          -5920,
+          5200
+        ],
+        "radius": 50
+      }
+    ],
+    "checkpoints": [
+      [
+        -5820,
+        5430
+      ],
+      [
+        -5700,
+        5190
+      ]
+    ],
+    "output": "res://Samples/ArtDirection/Scenes/Worlds/INARI_FactoryWorld.tscn"
+  },
+  {
+    "id": "inari_seal",
+    "game": "INARI",
+    "title": "02 · 圆印神殿",
+    "kind": "original_2d",
+    "reference": "inari_seal.jpg",
+    "scene_data": "level25.json",
+    "spawn": [
+      0,
+      -95
+    ],
+    "finish_cutscene_transition": true,
+    "ambient_animation": "shrine_ambient.json",
+    "letterbox_ratio": 0.1111111111111111,
+    "physics_only_tilemaps": true,
+    "hidden_sprite_names": [
+      "BoxShadow 1"
+    ],
+    "audio_surface": "wood",
+    "description": "穿过红色鸟居，来到圆印下方，再抵达神殿另一侧。",
+    "fidelity": "原版 TenshinLand 贴图与场景坐标；水面、灯光和过场动画仍在校准。",
+    "objectives": [
+      {
+        "name": "经过左侧鸟居",
+        "position": [
+          -240,
+          -80
+        ],
+        "radius": 50
+      },
+      {
+        "name": "抵达圆印下方",
+        "position": [
+          0,
+          -80
+        ],
+        "radius": 50
+      },
+      {
+        "name": "穿过右侧鸟居",
+        "position": [
+          240,
+          -80
+        ],
+        "radius": 50
+      }
+    ],
+    "checkpoints": [
+      [
+        0,
+        -95
+      ]
+    ],
+    "output": "res://Samples/ArtDirection/Scenes/Worlds/INARI_SealWorld.tscn"
+  }
+]

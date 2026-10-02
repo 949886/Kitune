@@ -1,0 +1,1558 @@
+{
+  "pixels_per_unit": 16,
+  "version": "INARI v0.2.1",
+  "projectile_body": {
+    "m_BodyType": 0,
+    "m_Simulated": true,
+    "m_UseFullKinematicContacts": false,
+    "m_UseAutoMass": false,
+    "m_Mass": 1.0,
+    "m_LinearDrag": 0.0,
+    "m_AngularDrag": 0.0,
+    "m_GravityScale": 0.0,
+    "m_IncludeLayers": {
+      "m_Bits": 0
+    },
+    "m_ExcludeLayers": {
+      "m_Bits": 0
+    },
+    "m_Interpolate": 0,
+    "m_SleepingMode": 1,
+    "m_CollisionDetection": 1,
+    "m_Constraints": 4
+  },
+  "projectile_layer": 26,
+  "attacks": {
+    "AttackInfo": {
+      "AttackInfos": [
+        {
+          "Damage": 40.0,
+          "InputBuffer": 0.4000000059604645,
+          "PostBuffer": 0.25,
+          "AddStamina": 5.0,
+          "AttackCheckInfo": {
+            "AttackCheckStartFrame": 3,
+            "AttackCheckEndFrame": 5,
+            "AttackRange": {
+              "x": 5.190000057220459,
+              "y": 4.900000095367432
+            },
+            "AttackOffset": {
+              "x": 2.5,
+              "y": 0.8799999952316284
+            }
+          },
+          "AttackMovementInfo": {
+            "Distance": 5.0,
+            "Time": 0.20000000298023224,
+            "PostTime": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "AttackKnockBackInfo": {
+            "Power": 1.75,
+            "Duration": 0.10000000149011612,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "GamePadHapticInfo": {
+            "LowFrequency": 0.20000000298023224,
+            "HighFrequency": 0.30000001192092896,
+            "Duration": 0.10000000149011612
+          }
+        },
+        {
+          "Damage": 50.0,
+          "InputBuffer": 0.4000000059604645,
+          "PostBuffer": 0.25,
+          "AddStamina": 10.0,
+          "AttackCheckInfo": {
+            "AttackCheckStartFrame": 3,
+            "AttackCheckEndFrame": 5,
+            "AttackRange": {
+              "x": 6.309999942779541,
+              "y": 4.329999923706055
+            },
+            "AttackOffset": {
+              "x": 1.9199999570846558,
+              "y": 0.2199999988079071
+            }
+          },
+          "AttackMovementInfo": {
+            "Distance": 7.0,
+            "Time": 0.20000000298023224,
+            "PostTime": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "AttackKnockBackInfo": {
+            "Power": 1.75,
+            "Duration": 0.10000000149011612,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "GamePadHapticInfo": {
+            "LowFrequency": 0.30000001192092896,
+            "HighFrequency": 0.30000001192092896,
+            "Duration": 0.10000000149011612
+          }
+        },
+        {
+          "Damage": 60.0,
+          "InputBuffer": 0.4000000059604645,
+          "PostBuffer": 0.25,
+          "AddStamina": 15.0,
+          "AttackCheckInfo": {
+            "AttackCheckStartFrame": 3,
+            "AttackCheckEndFrame": 5,
+            "AttackRange": {
+              "x": 7.099999904632568,
+              "y": 3.440000057220459
+            },
+            "AttackOffset": {
+              "x": 3.8399999141693115,
+              "y": 0.30000001192092896
+            }
+          },
+          "AttackMovementInfo": {
+            "Distance": 10.0,
+            "Time": 0.20000000298023224,
+            "PostTime": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "AttackKnockBackInfo": {
+            "Power": 4.0,
+            "Duration": 0.10000000149011612,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "GamePadHapticInfo": {
+            "LowFrequency": 0.30000001192092896,
+            "HighFrequency": 0.4000000059604645,
+            "Duration": 0.10000000149011612
+          }
+        }
+      ],
+      "JumpAttackInfos": [
+        {
+          "Damage": 40.0,
+          "InputBuffer": 0.4000000059604645,
+          "PostBuffer": 0.25,
+          "AddStamina": 5.0,
+          "AttackCheckInfo": {
+            "AttackCheckStartFrame": 3,
+            "AttackCheckEndFrame": 7,
+            "AttackRange": {
+              "x": 5.78000020980835,
+              "y": 4.429999828338623
+            },
+            "AttackOffset": {
+              "x": 2.4000000953674316,
+              "y": 0.36000001430511475
+            }
+          },
+          "AttackMovementInfo": {
+            "Distance": 15.0,
+            "Time": 0.0,
+            "PostTime": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "AttackKnockBackInfo": {
+            "Power": 0.0,
+            "Duration": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "GamePadHapticInfo": {
+            "LowFrequency": 0.30000001192092896,
+            "HighFrequency": 0.30000001192092896,
+            "Duration": 0.10000000149011612
+          }
+        }
+      ],
+      "StrongAttackInfos": [
+        {
+          "Damage": 280.0,
+          "InputBuffer": 0.0,
+          "PostBuffer": 1.75,
+          "AddStamina": 100.0,
+          "AttackCheckInfo": {
+            "AttackCheckStartFrame": 15,
+            "AttackCheckEndFrame": 35,
+            "AttackRange": {
+              "x": 8.930000305175781,
+              "y": 3.8399999141693115
+            },
+            "AttackOffset": {
+              "x": 3.5199999809265137,
+              "y": 0.44999998807907104
+            }
+          },
+          "AttackMovementInfo": {
+            "Distance": 90.0,
+            "Time": 0.5,
+            "PostTime": 0.0,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 1.0,
+                  "inSlope": 0.09950093924999237,
+                  "outSlope": -0.0017367092659696937,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.17554858326911926
+                },
+                {
+                  "time": 0.8812118768692017,
+                  "value": 0.9984695911407471,
+                  "inSlope": -0.0017367092659696937,
+                  "outSlope": -8.405466079711914,
+                  "weightedMode": 0,
+                  "inWeight": 0.3333333432674408,
+                  "outWeight": 0.3333333432674408
+                },
+                {
+                  "time": 1.0,
+                  "value": 0.0,
+                  "inSlope": -8.405466079711914,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "AttackKnockBackInfo": {
+            "Power": 5.0,
+            "Duration": 0.07999999821186066,
+            "Curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 2.0,
+                  "outSlope": 2.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 0
+            }
+          },
+          "GamePadHapticInfo": {
+            "LowFrequency": 0.6000000238418579,
+            "HighFrequency": 0.6000000238418579,
+            "Duration": 0.10000000149011612
+          }
+        }
+      ],
+      "ChromaticAberrationTime": [
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25
+      ],
+      "ChromaticAberrationIntensity": [
+        1.0,
+        1.5,
+        1.75
+      ]
+    },
+    "StrongAttackInfo": {
+      "AttackInfos": [],
+      "JumpAttackInfos": [],
+      "StrongAttackInfos": [],
+      "ChromaticAberrationTime": [],
+      "ChromaticAberrationIntensity": []
+    }
+  },
+  "combat": {
+    "WeakPointAttackInfo": {
+      "Damages": [
+        0.0,
+        125.0,
+        250.0,
+        500.0,
+        0.0
+      ],
+      "FrameStop": [
+        6,
+        8,
+        10,
+        0
+      ],
+      "Offset": [
+        6.0,
+        7.0,
+        8.0,
+        8.0
+      ],
+      "PostDelay": 0.25,
+      "AttackCheckInfo": {
+        "AttackCheckStartFrame": 1,
+        "AttackCheckEndFrame": 2,
+        "AttackRange": {
+          "x": 8.0,
+          "y": 4.0
+        },
+        "AttackOffset": {
+          "x": 4.0,
+          "y": 0.0
+        }
+      },
+      "AttackMovementInfo": {
+        "Distance": 3.5,
+        "Time": 0.10000000149011612,
+        "PostTime": 0.20000000298023224,
+        "Curve": {
+          "m_Curve": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "inSlope": 2.0,
+              "outSlope": 2.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            },
+            {
+              "time": 1.0,
+              "value": 1.0,
+              "inSlope": 0.0,
+              "outSlope": 0.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            }
+          ],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      },
+      "KnockbackInfos": [
+        {
+          "Power": 0.0,
+          "Duration": 0.10000000149011612,
+          "Curve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 2.0,
+                "outSlope": 2.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          }
+        },
+        {
+          "Power": 0.0,
+          "Duration": 0.10000000149011612,
+          "Curve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 2.0,
+                "outSlope": 2.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          }
+        },
+        {
+          "Power": 0.0,
+          "Duration": 0.10000000149011612,
+          "Curve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 2.0,
+                "outSlope": 2.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          }
+        },
+        {
+          "Power": 0.0,
+          "Duration": 0.10000000149011612,
+          "Curve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 2.0,
+                "outSlope": 2.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          }
+        },
+        {
+          "Power": 0.0,
+          "Duration": 0.10000000149011612,
+          "Curve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 2.0,
+                "outSlope": 2.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          }
+        }
+      ],
+      "GamePadHapticInfo": {
+        "LowFrequency": 0.4000000059604645,
+        "HighFrequency": 0.800000011920929,
+        "Duration": 0.10000000149011612
+      }
+    },
+    "ShurikenDashHapticInfo": {
+      "LowFrequency": 0.4000000059604645,
+      "HighFrequency": 0.4000000059604645,
+      "Duration": 0.20000000298023224
+    },
+    "ShurikenDashCamStopTime": 0.07500000298023224,
+    "DashCoolTime": 0.5,
+    "AirAttackCoolTime": 0.25,
+    "DashFadeTime": 0.019999999552965164,
+    "MaxStamina": 90.0,
+    "StaminaIncreaseAmount": 1.0,
+    "StaminaDefaultCost": 8.0,
+    "InvisibleTime": 1.0,
+    "InvisibleTerm": 0.05000000074505806,
+    "WeakPointSize": 3.0,
+    "ThrowShurikenCoolTime": 0.0,
+    "ShurikenDashDamage": 50.0,
+    "ShurikenMaxDistance": 35.0,
+    "ShurikenAiringDistance": 13.0,
+    "ShurikenStackDisappearTime": 5.0,
+    "CombatIdleTime": 0.0,
+    "ShurikenDashBufferTime": 0.20000000298023224,
+    "ShurikenThrowBufferTime": 1.0,
+    "MutipleThrowTimeScale": 0.009999999776482582,
+    "MutipleThrowAnimationSpeed": 0.25,
+    "MutipleThrowDecreaseAmount": 15.0,
+    "MutipleThrowMinWaitTime": 0.10000000149011612,
+    "MutipleThrowMaxWaitTime": 0.25,
+    "MutipleThrowShurikenDashDamage": 180.0,
+    "MultipleThrowShurikenCameraDis": 30.0,
+    "MultipleThrowShurikenDamping": 1.0,
+    "AirAttackDistance": 2.0,
+    "MaxSkillPoint": 100.0,
+    "MaxHp": 1,
+    "GroundShurikenDashFrameStopAmount": 9,
+    "AirShurikenDashFrameStopAmount": 9,
+    "DashTargetBufferFrame": 3,
+    "ClosestEnemyCeckBoxSize": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "ShurikenDamage": 0.0,
+    "AssistHpRecoveryTerm": 5.0,
+    "WindBuffBlinkDuration": 0.4000000059604645,
+    "WindBuffSpeeds": [
+      0.0,
+      4.0,
+      6.0
+    ],
+    "WindBuffDurations": [
+      0.0,
+      6.0,
+      12.0
+    ],
+    "gamePadSnapAssistRadius": 100.0,
+    "gamePadSnapReleaseDistance": 100.0,
+    "gamePadSnapReleaseAngle": 30.0,
+    "gamePadSnapAcquireAngle": 23.200000762939453,
+    "gamePadPlatformAssistDistance": 40.0,
+    "gamePadPlatformAssistRadius": 3.0,
+    "gamePadPlatformAssistSpeed": 20.0,
+    "gamePadPlatformReleaseAngle": 50.0,
+    "gamePadPlatformReleaseDistance": 6.0,
+    "gamePadAimRenderTime": 5.0
+  },
+  "physics": {
+    "maxJumpHeight": 3.0999999046325684,
+    "minJumpHeight": 1.0,
+    "airJumpScale": 1.149999976158142,
+    "timeToJumpApex": 0.2199999988079071,
+    "decreaseJumpHoldingScale": 0.699999988079071,
+    "airingGravityScale": 0.20000000298023224,
+    "moveSpeed": 21.0,
+    "MaxFallSpeed": -100.0,
+    "accelerationTimeAirborne": 0.0,
+    "accelerationTimeGrounded": 0.15000000596046448,
+    "CoyoteTimeFrame": 4,
+    "EnemyDrag": 6.0,
+    "accelerationCurve": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "deAccelerationCurve": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "maxWallSlidingSpeed": 30.0,
+    "WallHoldingTime": 1000000.0,
+    "WallUpSpeed": 13.0,
+    "WallDownSpeed": 18.0,
+    "WallClimbJumpTime": 0.3499999940395355,
+    "WallClimbJump": {
+      "x": 15.0,
+      "y": 32.0
+    },
+    "WallClimbUpJump": {
+      "x": 10.0,
+      "y": 32.0
+    },
+    "dashPhysicsCurve": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.0,
+          "inSlope": 2.0,
+          "outSlope": 2.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.40456265211105347,
+          "outSlope": 0.40456265211105347,
+          "weightedMode": 0,
+          "inWeight": 0.11040341854095459,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "dashFrame": 11,
+    "dashDistance": 11.0,
+    "ShurikenBalloonUpSpeed": 30.0,
+    "ShurikenBalloonGravity": 50.0
+  },
+  "projectile": {
+    "collsionMask": {
+      "m_Bits": 540288
+    },
+    "MoveSpeed": 95.0,
+    "ThrowRange": 0.0,
+    "brightDuration": 0.20000000298023224,
+    "fadeOutDuration": 0.20000000298023224
+  },
+  "gfx_offset": {
+    "x": 0.0,
+    "y": 0.6000000238418579,
+    "z": 0.0
+  },
+  "body_size": {
+    "x": 0.800000011920929,
+    "y": 2.799999952316284
+  },
+  "body_offset": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "sprite_sort": [
+    4,
+    0
+  ],
+  "fixed_timestep": 0.019999999552965164,
+  "projectile_collision_layers": [
+    "Default",
+    "TransparentFX",
+    "Ignore Raycast",
+    "BackEffect",
+    "Water",
+    "UI",
+    "Ground",
+    "Enemy",
+    "Wall",
+    "HardWall",
+    "EnemyWeakPoint",
+    "FrontEffect",
+    "InteractiveWall",
+    "Boss",
+    "WeakRange",
+    "Steam",
+    "Spike",
+    "Front Props",
+    "ThrowShuriken",
+    "MovingPlatform",
+    "InteractiveObject",
+    "OilBackground",
+    "ForceRender",
+    ""
+  ],
+  "bindings": [
+    {
+      "name": "",
+      "id": "cdd20dea-f1eb-4171-9ad3-d531375b2a44",
+      "path": "<Mouse>/leftButton",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "MS_Attack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "e34252ab-3d8e-40e3-936d-cc72ce121378",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "MS_Attack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "40817994-f75c-436a-9436-a8c992d09588",
+      "path": "<Mouse>/rightButton",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "MS_Throw",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "023f02e9-8568-4ca1-82c8-8c9d2ed01488",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "MS_Throw",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "e0c68ac4-f3de-4788-9b62-ddedf0ee27b5",
+      "path": "<Keyboard>/space",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Jump",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "1f36c97d-09e5-4a44-a81c-a54ab6fac4e3",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Jump",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "447117ee-46f7-4d12-ad38-d93af86c72b7",
+      "path": "<Keyboard>/q",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_ShurikenMove",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "d85eb9b0-2e21-4e0d-bf2c-0aa55be4f938",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_ShurikenMove",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "38ee4e59-99d2-4e7f-989b-c5f62a0cf8b1",
+      "path": "<Keyboard>/e",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_StrongAttack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "04af5395-f802-4b24-8e67-4c57d251bd58",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_StrongAttack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "d30a5fd9-4da3-423f-8788-715637285353",
+      "path": "<Keyboard>/f",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Interactive",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "a4ad3398-1657-4c9b-aa30-675c8352764c",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Interactive",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "68f09edb-c8b7-40a8-9380-31e37a59fcef",
+      "path": "<Keyboard>/escape",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Cancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "8da6a53c-af1c-4524-9da8-10d69c85f617",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Cancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "41f150df-0676-4b03-871d-16da01de8359",
+      "path": "<Mouse>/rightButton",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_ShurikenCancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "3244f617-5af3-43f5-8b1a-2709940fa21f",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_ShurikenCancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "10f0d09b-e226-487f-8d66-f0d68f033ae9",
+      "path": "<Keyboard>/leftShift",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Dash",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "eec0c02d-4dec-484f-8b69-0d20f8c9359d",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Dash",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "64b96f8b-f09e-4dd0-a308-c469b3b38bab",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Menu",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "a81d8593-36d7-4e63-9b10-97141eb7e74b",
+      "path": "<Gamepad>/rightStick",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_RightStick",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "41e0cbf5-9803-4c7a-8bb2-46367ac18e60",
+      "path": "<Gamepad>/leftStick",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_LeftStick",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "4c63d9af-99c7-46d5-a9db-e18da6bed5e8",
+      "path": "<Mouse>/delta",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "MS_Sensitivity",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "e3aebc2d-141b-4f89-8e8d-54f4d59ccd39",
+      "path": "<Gamepad>/leftTrigger",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Throw&ShurikenMove",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "d2e6f960-5e38-462a-ab0e-e7d8652a60b7",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Throw&ShurikenMove",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "488e523d-daca-46a4-b4bd-d2851f7f3e33",
+      "path": "<Gamepad>/buttonNorth",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Interactive",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "9df9033d-ef7e-4c51-8818-53b376ff496f",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Interactive",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "ebf0025b-32e1-48df-9ad3-6edd50ffb8f2",
+      "path": "<Gamepad>/buttonSouth",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Jump",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "0cfda930-4148-4e45-9069-64baaf109144",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Jump",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "d2b307d7-e227-46e1-b1db-db59b9d27f72",
+      "path": "<Gamepad>/leftShoulder",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Dash",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "8f69e3a7-5894-4a17-b0e1-c842203b0b0a",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Dash",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "4ebe0fba-4a94-4750-8b2e-ef2b419f5997",
+      "path": "<Gamepad>/rightTrigger",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_StrongAttack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "bd3e15d7-1377-4685-a7a8-4bd82194bbc4",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_StrongAttack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "ab0f0f8a-c33d-4272-9ac7-b58ca3b11750",
+      "path": "<Gamepad>/start",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Cancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "b8e3f56e-48f0-4745-b457-3d1f1a39e92f",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Cancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "cebfbdd9-f0b9-4ad3-aa60-5ae3827212cd",
+      "path": "<Gamepad>/select",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Menu",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "d1bce018-dab4-498a-af36-831bfc23dbfd",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Menu",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "e6c342af-75c6-4358-b549-59d05a7dbf62",
+      "path": "<Gamepad>/rightShoulder",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Attack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "60c5bf64-3bf7-4171-bdb2-cfef32e13da4",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Attack",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "58c6350f-8cd9-466d-8f19-ed5ee10b6667",
+      "path": "<Gamepad>/rightStickPress",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_ShurikenCancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "",
+      "id": "6793bc63-e8c8-4ef9-812f-8fa0cd5f1739",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_ShurikenCancel",
+      "isComposite": false,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "D-Pad",
+      "id": "e4cb5d0f-bbde-44e6-b74b-fa75a362a3e0",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Horizontal",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "0138200d-dc4b-4ce6-a014-0d6774ddbd9d",
+      "path": "<Gamepad>/dpad/left",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "da807654-5dc0-4b4b-98fb-e56bc3e12c14",
+      "path": "<Gamepad>/dpad/right",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "D-Pad",
+      "id": "feb6d10a-9f94-40d1-b35a-453d7ce7a7f1",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Vertical",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "2a810e1f-3b70-4b27-9ec3-05562852cc0b",
+      "path": "<Gamepad>/dpad/down",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "1a15964e-8196-4085-8e4a-8b07733b0d02",
+      "path": "<Gamepad>/dpad/up",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "GP_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "1D Axis",
+      "id": "e1c1be24-5a64-4d2e-866a-8c24815f2d5d",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "c412e434-fd1f-4e1f-83b4-6a0874907d93",
+      "path": "<Keyboard>/s",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "0f599d91-2372-4999-8fd0-216744f9c9e2",
+      "path": "<Keyboard>/w",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "1D Axis",
+      "id": "029dd3de-5bdd-4ca9-8c56-73ce58ad6a79",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "44456aaf-0c1b-4fc8-92b7-c88ba7c78bd1",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "80617cd0-67f7-4c34-b852-5bb61a03299b",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Vertical",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "1D Axis",
+      "id": "07530f90-4e4e-4ab8-b40e-bc0e48ad28b7",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "46f1ac5a-daf0-4c5f-ac70-8aedcd84d68a",
+      "path": "<Keyboard>/a",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "58306a20-8494-43e7-b6d7-014de0c1417a",
+      "path": "<Keyboard>/d",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "1D Axis",
+      "id": "a75b097f-7aad-48f7-9d9c-691de0638127",
+      "path": "1DAxis",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": true,
+      "isPartOfComposite": false
+    },
+    {
+      "name": "negative",
+      "id": "aee5417b-1f6f-40fc-93d3-afe8dfd33195",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    },
+    {
+      "name": "positive",
+      "id": "84ccef82-5b4a-4360-afc4-ab9cddaa9270",
+      "path": "",
+      "interactions": "",
+      "processors": "",
+      "groups": "",
+      "action": "KB_Horizontal",
+      "isComposite": false,
+      "isPartOfComposite": true
+    }
+  ],
+  "source_sha256": {
+    "sharedassets1.assets": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66",
+    "level1": "64804e2f52aaaeb3a8df41947f0a6fe9f8ad39dea5df18a542198dc6b7b352a8",
+    "globalgamemanagers": "b12fa8d378f5dfd580970f819ee0264c7a08c8f15f4c38175097e2d40c24b6e4",
+    "Managed/Assembly-CSharp.dll": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0"
+  }
+}

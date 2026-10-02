@@ -1,0 +1,545 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "bow_pull": [
+      "bow_pull_01.wav",
+      "bow_pull_02.wav",
+      "bow_pull_03.wav",
+      "bow_pull_04.wav",
+      "bow_pull_05.wav",
+      "bow_pull_06.wav",
+      "bow_pull_07.wav",
+      "bow_pull_08.wav"
+    ],
+    "bow_attack": [
+      "bow_attack_01.wav",
+      "bow_attack_02.wav",
+      "bow_attack_03.wav",
+      "bow_attack_04.wav",
+      "bow_attack_05.wav",
+      "bow_attack_06.wav",
+      "bow_attack_07.wav",
+      "bow_attack_08.wav"
+    ],
+    "bow_shoot": [
+      "bow_shoot_01.wav",
+      "bow_shoot_02.wav",
+      "bow_shoot_03.wav",
+      "bow_shoot_04.wav",
+      "bow_shoot_05.wav",
+      "bow_shoot_06.wav",
+      "bow_shoot_07.wav",
+      "bow_shoot_08.wav"
+    ],
+    "bow_death": [
+      "bow_death_01.wav",
+      "bow_death_02.wav",
+      "bow_death_03.wav",
+      "bow_death_04.wav",
+      "bow_death_05.wav",
+      "bow_death_06.wav",
+      "bow_death_07.wav",
+      "bow_death_08.wav"
+    ]
+  },
+  "renders": {
+    "bow_pull_01.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 0,
+      "sha256": "b3e2ff41046ab0519b8d964b67382a7ac82e0fc794e487c83f8265266aa6ce75",
+      "pcm_sha256": "80fc01d77d9ed771130bc9ee44bcfb017d838ff93be42223da3726ea0b389f03",
+      "frames": 21504
+    },
+    "bow_pull_02.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 1,
+      "sha256": "9b31a2c35c0546f17c4b39e88d82277a36f703701d359b7e27d6b5a117a00dc7",
+      "pcm_sha256": "df1f2b61d8c1032791a6e16655e6eee6416197cd7c3c95b4ed98ae3e8d96c8c9",
+      "frames": 21504
+    },
+    "bow_pull_03.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 2,
+      "sha256": "7e07d7875040fd51e3e747d8041ddcedcd95fe7e4031fbfcc73ec62e9dd76b7a",
+      "pcm_sha256": "81212b6be39cbd3b579c20ca2006b349de7a442da16c814695eae885fd84e82a",
+      "frames": 21504
+    },
+    "bow_pull_04.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 3,
+      "sha256": "d132d52cb6505bcde9775727adccef15dece8971a01e3a26f67cd7578ae4ffef",
+      "pcm_sha256": "5d37d493f24a0cae2a934b3c22fa02491b5af6db4d0c27022011fc47878d87cf",
+      "frames": 21504
+    },
+    "bow_pull_05.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_4"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 4,
+      "sha256": "2b1aa3286b5fd32df536879c498ed64ffbf1b3e46cfee8bcd74b7e9ca7e2ffa5",
+      "pcm_sha256": "cb3545caec7e0e46b4b71454ffc5fe8483bebf09ecb2195fac9820aa9762ccb1",
+      "frames": 21504
+    },
+    "bow_pull_06.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 5,
+      "sha256": "15c45cb920a5264d4b05a6de639a1264a6f67c1f9be1bbd6ccc88eed0877d2cc",
+      "pcm_sha256": "d19733fc9da9af15ba03abd14b8ce94aa2ec4e629442f582c44b9174a42b59f5",
+      "frames": 21504
+    },
+    "bow_pull_07.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 6,
+      "sha256": "8e0d1b791df1a00a70853fb80c49fb675454d62f26c07562dde3ad27ee76acd1",
+      "pcm_sha256": "8c59aa3f9f625a537a1c93a2bf3fa2c0e92438ab51a1bd3687dd1f7a23d1cc2c",
+      "frames": 21504
+    },
+    "bow_pull_08.wav": {
+      "guid": "c7bcad48-7fea-4655-ac13-62472cf3dfb0",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Pull",
+      "timeline_ms": 415,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Pull_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 21504,
+      "random_seed": 7,
+      "sha256": "f02cc49c5005a373e6c959e054c7496260affc2775a303a439f9782cf6a274c2",
+      "pcm_sha256": "6fd997cb5e6bbe6e3670eb20ba7d7d289a253072b88626844b8cda7d00bf8509",
+      "frames": 21504
+    },
+    "bow_attack_01.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 0,
+      "sha256": "ad299b14c689cfc0bb95009f93bf30229fb1a74a3ebb5ec2f07ce7d8db740b3f",
+      "pcm_sha256": "2e86d2a571699ae7f78e3f0bb73f77e025a055fdba644548f3b2ddd1f9ad0f86",
+      "frames": 44032
+    },
+    "bow_attack_02.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 1,
+      "sha256": "3c02eb675affec0a4a7fd3e64f06793cbf8dcbc3ec2c3c20b1e0527c059d7f2e",
+      "pcm_sha256": "f9a11e1f6b779ed89b4d0ffc47c107604b8c76f99776fa50aa6053f7e59361ce",
+      "frames": 44032
+    },
+    "bow_attack_03.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 2,
+      "sha256": "f49d308792570f666d6935143c67e54247f3c9b54c09d65b9ebceeca1f76d9b9",
+      "pcm_sha256": "c722dc32e858dcee69c140caf0014cbd7b37460a52b6e649c6319afbd2da691c",
+      "frames": 44032
+    },
+    "bow_attack_04.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 3,
+      "sha256": "ddd10f9cc4f79e2174d92192cd8bd4fdc598bbf1cc586228ee6b34fbcb43d999",
+      "pcm_sha256": "1c6782580ebb5f4ff270ed03b515f5a04d8b76043959b093887318060ca1cd05",
+      "frames": 44032
+    },
+    "bow_attack_05.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack4"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 4,
+      "sha256": "a6f6532332c1ee16f4e8a1a9fd4b6a27f41840eb658980bc7b17b6772a30e863",
+      "pcm_sha256": "bb2a70a5af28dd2f0713ee84e06b00b9bf261c4c68a119b61e6b4e51cd00ac75",
+      "frames": 44032
+    },
+    "bow_attack_06.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 5,
+      "sha256": "a74346258b04ed92c0632a6d827a21f04d12ea705cb40f59b5a4245e217ec138",
+      "pcm_sha256": "de63ea8da5d4fb2d588493ff789332e037fb339e796b555797f7b5b6b81da5fc",
+      "frames": 44032
+    },
+    "bow_attack_07.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 6,
+      "sha256": "ae1bbcfc9427d8cb285479986e1b5b74dac08bb01b3c9043579b05874f35f9f7",
+      "pcm_sha256": "8728ffe9d5d8575bf1649e66f3bef98432ee18518acc24a871e08e956fee80d5",
+      "frames": 44032
+    },
+    "bow_attack_08.wav": {
+      "guid": "dcce387f-1ae0-4404-9e63-618f6e5ba5d1",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Attack",
+      "timeline_ms": 880,
+      "one_shot": true,
+      "samples": [
+        "bowattack2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 44032,
+      "random_seed": 7,
+      "sha256": "a9092a9eb2124fa26c04911611b5c46f4fa6d628912ef8e0da7d4e2596106294",
+      "pcm_sha256": "5783caf3166cba9a963258d2f33e1c1980f11f638b79ee888abb6c1d23182625",
+      "frames": 44032
+    },
+    "bow_shoot_01.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 0,
+      "sha256": "18fc06f70e3ae93dd18c4ba475b80262bd729ba0408e42182647d45d59ea2e60",
+      "pcm_sha256": "871b42a188446127e17bec914f2d00fa1e43e06de7f8dfcef2f59bcfa0e467ce",
+      "frames": 16384
+    },
+    "bow_shoot_02.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 1,
+      "sha256": "a1cf6fc604f1c13bffe5bb08e720c1e4dba00f803dc845a6b7fc29bb339ae916",
+      "pcm_sha256": "f18f6bad54e2a7a4bd337e1ab84f85cb5f5a3427d09beb70cce69f3335048980",
+      "frames": 16384
+    },
+    "bow_shoot_03.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 2,
+      "sha256": "ff7274d5cc55f87da38d983f778e2afec0c09a3dec26342acede9cfce2aa836a",
+      "pcm_sha256": "23f7415c98da7fa78f3607331d9b23791a9e9e16e2f387fa1b841b01802bd12b",
+      "frames": 16384
+    },
+    "bow_shoot_04.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 3,
+      "sha256": "82d659d1232fa56baeebbd102759abb2667874a19908d3946e5744996c7ce17d",
+      "pcm_sha256": "697920ab2e7122c79c133d7f91daf46b367e6766b40d18af023da52d09ab954a",
+      "frames": 16384
+    },
+    "bow_shoot_05.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 4,
+      "sha256": "66366b9acf6580be9f77c717de05ae7ba5d3cc6ea81612299a79385716708177",
+      "pcm_sha256": "3ebd7547b33d6cd79ce90e3856ca3fecbf788cacb275399fa3f30fbd0bddfdf4",
+      "frames": 16384
+    },
+    "bow_shoot_06.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 5,
+      "sha256": "fc493cd4cfe2588343c66adf85240368f88f8603a789e7293964a24d04c815f9",
+      "pcm_sha256": "8975276559fcc13cf7e8381e2de0b4391f71205391427a5188bff825e50fabcb",
+      "frames": 16384
+    },
+    "bow_shoot_07.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 6,
+      "sha256": "4e3fd89e0370178446cc9a4b7d0dec8c1cec1a384f9a24e82c7309a5923d6ad3",
+      "pcm_sha256": "3d6778e95034b7c2d1e0e1b92341ecc38958dc1fef89fefafb7a33cf5ca716d5",
+      "frames": 16384
+    },
+    "bow_shoot_08.wav": {
+      "guid": "eb9ac11f-25e8-4c58-8a0e-cb61a8616203",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Shoot",
+      "timeline_ms": 303,
+      "one_shot": true,
+      "samples": [
+        "Monster_Bow_Shoot"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 16384,
+      "random_seed": 7,
+      "sha256": "e37ce27385a36aa8839981e15320ad37e761ee6286efc4df619475bed14e5489",
+      "pcm_sha256": "d5db2be4f01e0cc85eb9186e6089931a15c2c1105402e263192e05c0f1540421",
+      "frames": 16384
+    },
+    "bow_death_01.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 0,
+      "sha256": "af60c405133dc735fbdb82617811b771a967534968fb706ef1a4703f5b0ca9ff",
+      "pcm_sha256": "446c081667aa9785fdbdaadd8ac0f8ea78edd93e54e455ab306eeb13e180e846",
+      "frames": 46592
+    },
+    "bow_death_02.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 1,
+      "sha256": "eb048980901fc1fef5aeed5acb3eba508d263584362ea4aed5129c84fe02667b",
+      "pcm_sha256": "cf88c285d351524aa47ebdf2ff49a489e15032709a95c18a11b29e95bdeaab79",
+      "frames": 46592
+    },
+    "bow_death_03.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 2,
+      "sha256": "eb048980901fc1fef5aeed5acb3eba508d263584362ea4aed5129c84fe02667b",
+      "pcm_sha256": "cf88c285d351524aa47ebdf2ff49a489e15032709a95c18a11b29e95bdeaab79",
+      "frames": 46592
+    },
+    "bow_death_04.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 3,
+      "sha256": "db6165d2d7ca12a8e2d37784356b205d18ea1ef970ce7bdcc56bb4049687ea32",
+      "pcm_sha256": "03cb3da577baba612199d782e3bfd9cdb36ebc518d28ebdf0d7865ca1cf13857",
+      "frames": 46592
+    },
+    "bow_death_05.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 4,
+      "sha256": "db6165d2d7ca12a8e2d37784356b205d18ea1ef970ce7bdcc56bb4049687ea32",
+      "pcm_sha256": "03cb3da577baba612199d782e3bfd9cdb36ebc518d28ebdf0d7865ca1cf13857",
+      "frames": 46592
+    },
+    "bow_death_06.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 5,
+      "sha256": "af60c405133dc735fbdb82617811b771a967534968fb706ef1a4703f5b0ca9ff",
+      "pcm_sha256": "446c081667aa9785fdbdaadd8ac0f8ea78edd93e54e455ab306eeb13e180e846",
+      "frames": 46592
+    },
+    "bow_death_07.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 6,
+      "sha256": "eb048980901fc1fef5aeed5acb3eba508d263584362ea4aed5129c84fe02667b",
+      "pcm_sha256": "cf88c285d351524aa47ebdf2ff49a489e15032709a95c18a11b29e95bdeaab79",
+      "frames": 46592
+    },
+    "bow_death_08.wav": {
+      "guid": "73667aad-6866-4ba2-9b66-aaf680f26bd6",
+      "path": "event:/SFX/Voice/Monster/Bow/Voice_Monster_Bow_Death",
+      "timeline_ms": 937,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Bow_Death_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 46592,
+      "random_seed": 7,
+      "sha256": "db6165d2d7ca12a8e2d37784356b205d18ea1ef970ce7bdcc56bb4049687ea32",
+      "pcm_sha256": "03cb3da577baba612199d782e3bfd9cdb36ebc518d28ebdf0d7865ca1cf13857",
+      "frames": 46592
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Monster.bank": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039",
+    "StreamingAssets/SFX_Voice.bank": "070ff69430e8970c1d13ce9175ca0722835826b74dc014fe2f9776063be97ded",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy/EnemyBowMan.cs": "b09536b473d1c43b9815de55a6096a302531745915749c4357a2a3b616e5251e"
+  }
+}

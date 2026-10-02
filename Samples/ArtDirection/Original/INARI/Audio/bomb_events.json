@@ -1,0 +1,683 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "bomb_patrol_voice": [
+      "bomb_patrol_voice_01.wav",
+      "bomb_patrol_voice_02.wav",
+      "bomb_patrol_voice_03.wav",
+      "bomb_patrol_voice_04.wav",
+      "bomb_patrol_voice_05.wav",
+      "bomb_patrol_voice_06.wav",
+      "bomb_patrol_voice_07.wav",
+      "bomb_patrol_voice_08.wav"
+    ],
+    "bomb_chase": [
+      "bomb_chase_01.wav",
+      "bomb_chase_02.wav",
+      "bomb_chase_03.wav",
+      "bomb_chase_04.wav",
+      "bomb_chase_05.wav",
+      "bomb_chase_06.wav",
+      "bomb_chase_07.wav",
+      "bomb_chase_08.wav"
+    ],
+    "bomb_ready": [
+      "bomb_ready_01.wav",
+      "bomb_ready_02.wav",
+      "bomb_ready_03.wav",
+      "bomb_ready_04.wav",
+      "bomb_ready_05.wav",
+      "bomb_ready_06.wav",
+      "bomb_ready_07.wav",
+      "bomb_ready_08.wav"
+    ],
+    "bomb_ready_leg": [
+      "bomb_ready_leg_01.wav",
+      "bomb_ready_leg_02.wav",
+      "bomb_ready_leg_03.wav",
+      "bomb_ready_leg_04.wav",
+      "bomb_ready_leg_05.wav",
+      "bomb_ready_leg_06.wav",
+      "bomb_ready_leg_07.wav",
+      "bomb_ready_leg_08.wav"
+    ],
+    "bomb_explosion": [
+      "bomb_explosion_01.wav",
+      "bomb_explosion_02.wav",
+      "bomb_explosion_03.wav",
+      "bomb_explosion_04.wav",
+      "bomb_explosion_05.wav",
+      "bomb_explosion_06.wav",
+      "bomb_explosion_07.wav",
+      "bomb_explosion_08.wav"
+    ]
+  },
+  "renders": {
+    "bomb_patrol_voice_01.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 0,
+      "sha256": "68ad3a2b2c2418ff19f50f63af47b6a2ad9f8a2f077b776ad8776f012ec91b75",
+      "pcm_sha256": "4818180b65cb2ed7e43266779770167f0b655fcde761b8b6e750e6cbe6b98b35",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_02.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_5"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 1,
+      "sha256": "136d378e9409f924ec5a59d70b8811a5767c38fb6a0573d453960e00c9f082e6",
+      "pcm_sha256": "00c0fdf554096fc3c367d7ba1443268524de6e74118de800cf54b3eb3efb0760",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_03.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_5"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 2,
+      "sha256": "136d378e9409f924ec5a59d70b8811a5767c38fb6a0573d453960e00c9f082e6",
+      "pcm_sha256": "00c0fdf554096fc3c367d7ba1443268524de6e74118de800cf54b3eb3efb0760",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_04.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_8"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 3,
+      "sha256": "7d9bf3f70c34c3c21c5a905fa8098d0afbf925a18a46ae2ac43715f10f32c8d7",
+      "pcm_sha256": "b2ee1fcdf19bd83bc8b2a56c3e519c5570cef6a036fcda99f8cfda4c3e5ea840",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_05.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_8"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 4,
+      "sha256": "7d9bf3f70c34c3c21c5a905fa8098d0afbf925a18a46ae2ac43715f10f32c8d7",
+      "pcm_sha256": "b2ee1fcdf19bd83bc8b2a56c3e519c5570cef6a036fcda99f8cfda4c3e5ea840",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_06.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 5,
+      "sha256": "68ad3a2b2c2418ff19f50f63af47b6a2ad9f8a2f077b776ad8776f012ec91b75",
+      "pcm_sha256": "4818180b65cb2ed7e43266779770167f0b655fcde761b8b6e750e6cbe6b98b35",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_07.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_3"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 6,
+      "sha256": "a53c3fb34a1ec3006b55d6e37c9ff3b94c8ce418b9f50559f1c534c35197d45f",
+      "pcm_sha256": "641f2b7e3f03e2ade52806c39593fc28c19ad798a9bf80f447c5075ebbf25957",
+      "frames": 40960
+    },
+    "bomb_patrol_voice_08.wav": {
+      "guid": "cdd84f76-3dfc-4555-9131-65bff56e0b83",
+      "path": "event:/SFX/Voice/Monster/Boom/Voice_Monster_Boom_Patrol",
+      "timeline_ms": 640,
+      "one_shot": true,
+      "samples": [
+        "Voice_Monster_Boom_Patrol_6"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 40960,
+      "random_seed": 7,
+      "sha256": "a03f3ea49290068c175f3e6495b9676babb155222fa40d23d2b8d53c2e6395d4",
+      "pcm_sha256": "6e0d49346958559a4b525906196fb3c64e41497a5f9251c130af999828fa3bfb",
+      "frames": 40960
+    },
+    "bomb_chase_01.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_3",
+        "Monster_Boom_Chase_Metal_4"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 0,
+      "sha256": "4b73e3a432fdda9649e2a371c6d5a1bfec095efaab2f66baafe3210db303c234",
+      "pcm_sha256": "df57483b2fab491aa491842078a01ccd0d25c4f77d7ddfc736ac8777f9f7975f",
+      "frames": 9216
+    },
+    "bomb_chase_02.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_7",
+        "Monster_Boom_Chase_Metal_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 1,
+      "sha256": "cba65dbec6f013afff5e855b9b53a5ac9fc73144bcf19304723309362fdc5000",
+      "pcm_sha256": "e50bff9aeada56d58017f08f7d020cb80291720cbcf032f7ab6994a2bf6c3eb3",
+      "frames": 9216
+    },
+    "bomb_chase_03.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_1",
+        "Monster_Boom_Chase_Metal_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 2,
+      "sha256": "2bf787d12a75fde70baf45acf5771cceb929f7aa3b728524e7cb9a341d31950c",
+      "pcm_sha256": "fb61039773e2359802a29da0e7a4b8b306a45ba44882fc52e4dbc2e81c9d11fd",
+      "frames": 9216
+    },
+    "bomb_chase_04.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_2",
+        "Monster_Boom_Chase_Metal_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 3,
+      "sha256": "3745be96d7839d75fac7a2871ba36d50ad56a1a5465e2724340fed8afc22e9df",
+      "pcm_sha256": "177256cebe83e46d21360925a060da958801821e1aafeda94325a5994fd61352",
+      "frames": 9216
+    },
+    "bomb_chase_05.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_9",
+        "Monster_Boom_Chase_Metal_4"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 4,
+      "sha256": "d54e1725068512ce2ec94b030b05e07c74e2a3cf2f9b674eb346ce5a0711af64",
+      "pcm_sha256": "297aadec4b33875794a7850cdf5943ba1506f80237e60cf832e88d9e45ff475d",
+      "frames": 9216
+    },
+    "bomb_chase_06.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_1",
+        "Monster_Boom_Chase_Metal_4"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 5,
+      "sha256": "29b06fa16540f4882f8b95a2615c826048ec45b33a5e5a703e8f0e3865ba9296",
+      "pcm_sha256": "c38c36d7e33bd3a1ad8d1768aadc882936cce3f916586bd957338fd3747d3d67",
+      "frames": 9216
+    },
+    "bomb_chase_07.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_3",
+        "Monster_Boom_Chase_Metal_2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 6,
+      "sha256": "28c860b2238ea644c72e79fb9ea69de5be55627407b485561fdb22a318671323",
+      "pcm_sha256": "bcf8cc76bbca2adc2bbd0b0b948e4f70998ed1dbf638988c497ac6689d41c75f",
+      "frames": 9216
+    },
+    "bomb_chase_08.wav": {
+      "guid": "403050f2-ddca-49ef-86da-92d4487c41f2",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Chase",
+      "timeline_ms": 133,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Chase_Spider_5",
+        "Monster_Boom_Chase_Metal_1"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 9216,
+      "random_seed": 7,
+      "sha256": "a3f7695420af828d7095b105251e1b0452b689542b4bcc1b8a44f8357d9040bf",
+      "pcm_sha256": "e91c943907f9aa08f0210dda25e62ca277b40b62942448eb12f32cb8959fad13",
+      "frames": 9216
+    },
+    "bomb_ready_01.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 0,
+      "sha256": "5e0083d84cfe52b763d2603ef8fde7dcb477031faceb44b8b1ad240c73be56f6",
+      "pcm_sha256": "9654299dc407e0b10d3a8f87db7ff8aa8a46beab65123e9e227998c5d241b9ae",
+      "frames": 111616
+    },
+    "bomb_ready_02.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 1,
+      "sha256": "1928b0bdf3b6fbbe18b61e4eb45c50694869d52fb06e95eab4ac05edb4fde178",
+      "pcm_sha256": "c3f29e781a4b8aa2de9851ad048e9ee6667de1cb7e98f962201ee4ba10a87afc",
+      "frames": 111616
+    },
+    "bomb_ready_03.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 2,
+      "sha256": "58ddb948ebff1c6f55e044116449dc2b049b4732f1bedb707fee2ad5d229f4f8",
+      "pcm_sha256": "b3dcbdb29072a3522b55780d037e49aa44dd350ed463e46f34f42b9b78cd9f5b",
+      "frames": 111616
+    },
+    "bomb_ready_04.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 3,
+      "sha256": "b3ccd0f2ddc9b69108c7a36c7ae187481cc1ee59b8bf6ee2a2c0349117524e4f",
+      "pcm_sha256": "90e99cd9ca653a399b027872c1c0aa12c4afe14f05323ab6547ec71a7b5788cb",
+      "frames": 111616
+    },
+    "bomb_ready_05.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 4,
+      "sha256": "1fbdd50f6a1d1713d6ee576defc26f5428cc3c9ce775d402f91ea3934119ced6",
+      "pcm_sha256": "ae36a57d10b07c9456340e32b8b31ddd4ea9f05cdc53983952ba3fdf66c26e15",
+      "frames": 111616
+    },
+    "bomb_ready_06.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 5,
+      "sha256": "61e57d8006a28f1b587f7d67988500f942810230d919d15866e19278e25ed8e8",
+      "pcm_sha256": "13c37eef7f253f2a09f9660d50fe93fe3359eb07833e6893c8c5a3d500446e0e",
+      "frames": 111616
+    },
+    "bomb_ready_07.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 6,
+      "sha256": "c09f44095fe8a77edafb18230b81f0cb8f22c26a5c345acbf3d504703dc11c9f",
+      "pcm_sha256": "c4d9c6e01d791d22b7a158fd0d50d19af52d74e3712f8d49426b47e242113f0f",
+      "frames": 111616
+    },
+    "bomb_ready_08.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 7,
+      "sha256": "5f36e52121a393576c9d6519255ef13c15c58ac1fc08e5f467110b657654ba0d",
+      "pcm_sha256": "efe5d729c916df7349f603053f0daddd6f26080d7b1273e06a0ee014304a30e0",
+      "frames": 111616
+    },
+    "bomb_ready_leg_01.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 0,
+      "sha256": "5e0083d84cfe52b763d2603ef8fde7dcb477031faceb44b8b1ad240c73be56f6",
+      "pcm_sha256": "9654299dc407e0b10d3a8f87db7ff8aa8a46beab65123e9e227998c5d241b9ae",
+      "frames": 111616
+    },
+    "bomb_ready_leg_02.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 1,
+      "sha256": "1928b0bdf3b6fbbe18b61e4eb45c50694869d52fb06e95eab4ac05edb4fde178",
+      "pcm_sha256": "c3f29e781a4b8aa2de9851ad048e9ee6667de1cb7e98f962201ee4ba10a87afc",
+      "frames": 111616
+    },
+    "bomb_ready_leg_03.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 2,
+      "sha256": "58ddb948ebff1c6f55e044116449dc2b049b4732f1bedb707fee2ad5d229f4f8",
+      "pcm_sha256": "b3dcbdb29072a3522b55780d037e49aa44dd350ed463e46f34f42b9b78cd9f5b",
+      "frames": 111616
+    },
+    "bomb_ready_leg_04.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 3,
+      "sha256": "b3ccd0f2ddc9b69108c7a36c7ae187481cc1ee59b8bf6ee2a2c0349117524e4f",
+      "pcm_sha256": "90e99cd9ca653a399b027872c1c0aa12c4afe14f05323ab6547ec71a7b5788cb",
+      "frames": 111616
+    },
+    "bomb_ready_leg_05.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 4,
+      "sha256": "1fbdd50f6a1d1713d6ee576defc26f5428cc3c9ce775d402f91ea3934119ced6",
+      "pcm_sha256": "ae36a57d10b07c9456340e32b8b31ddd4ea9f05cdc53983952ba3fdf66c26e15",
+      "frames": 111616
+    },
+    "bomb_ready_leg_06.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 5,
+      "sha256": "61e57d8006a28f1b587f7d67988500f942810230d919d15866e19278e25ed8e8",
+      "pcm_sha256": "13c37eef7f253f2a09f9660d50fe93fe3359eb07833e6893c8c5a3d500446e0e",
+      "frames": 111616
+    },
+    "bomb_ready_leg_07.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 6,
+      "sha256": "c09f44095fe8a77edafb18230b81f0cb8f22c26a5c345acbf3d504703dc11c9f",
+      "pcm_sha256": "c4d9c6e01d791d22b7a158fd0d50d19af52d74e3712f8d49426b47e242113f0f",
+      "frames": 111616
+    },
+    "bomb_ready_leg_08.wav": {
+      "guid": "5b16338a-a5ce-4eab-8d0d-989d70ecfb4b",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_ExplosionReady",
+      "timeline_ms": 1750,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_ExplosionReady"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 111616,
+      "random_seed": 7,
+      "sha256": "5f36e52121a393576c9d6519255ef13c15c58ac1fc08e5f467110b657654ba0d",
+      "pcm_sha256": "efe5d729c916df7349f603053f0daddd6f26080d7b1273e06a0ee014304a30e0",
+      "frames": 111616
+    },
+    "bomb_explosion_01.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 0,
+      "sha256": "eefeaf7f435ec56910a87d51800b3d11946f751956e34a357789a220ee2b9b8e",
+      "pcm_sha256": "e4b443e58650a91e3ed225cfcbec9a754b808a1e8319b70a17901a76ad1f9566",
+      "frames": 62464
+    },
+    "bomb_explosion_02.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 1,
+      "sha256": "e11b909c3d80e722697ba1d02504946ec9ff14694733c7fb87696f9e274505bf",
+      "pcm_sha256": "1f66c711b138490bbaae133b85b90cc3c28efa257e9ac04fb7addc56fe4cca7c",
+      "frames": 62464
+    },
+    "bomb_explosion_03.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 2,
+      "sha256": "6f636c8f11b8e9828704969b23ab8b30969523547616286139ece32114f5823a",
+      "pcm_sha256": "cda6fc98117cc9d166d3d8754b754e6b3da0f17676ab092c1fff9c822591e83e",
+      "frames": 62464
+    },
+    "bomb_explosion_04.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 3,
+      "sha256": "20af5a80284435986a6bc88193154d4a0086b28f7b8fd83565b3f6351359450d",
+      "pcm_sha256": "183b952164b60fabcdddbba7975a45ecd2e608296cc31a6e6f51d7c52fe5c386",
+      "frames": 62464
+    },
+    "bomb_explosion_05.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 4,
+      "sha256": "a85bead734c30e03ac05d706a0c716f54482e5c25aac67c1eadc3aa15147fa47",
+      "pcm_sha256": "e264695fea0957fb25da6c064f19d23e0347aa1790e972a20260f3ae466c5b25",
+      "frames": 62464
+    },
+    "bomb_explosion_06.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 5,
+      "sha256": "ff0c7b0304fe908efe46e11996a568577a273a149d224839fdc80f2572facdd4",
+      "pcm_sha256": "0c7092d62064c7a1f98d1cfb6b8ea89988704019496434680a9ad5da4c40c134",
+      "frames": 62464
+    },
+    "bomb_explosion_07.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 6,
+      "sha256": "96e242cc9e25df26d9263e498b8ed742a3680db742041c4b30d138954fc7ce76",
+      "pcm_sha256": "552a7360ad6723d333e653b1300f15fd118027975215be528bf6956b1f42dbdd",
+      "frames": 62464
+    },
+    "bomb_explosion_08.wav": {
+      "guid": "1fa02623-51c6-4260-ada2-b1b72aea3fb3",
+      "path": "event:/SFX/Monster/Monster_Boom/Monster_Boom_Explosion",
+      "timeline_ms": 1260,
+      "one_shot": true,
+      "samples": [
+        "Monster_Boom_Explosion2"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 62464,
+      "random_seed": 7,
+      "sha256": "7b58a779689c14fcba3d37f611ef699292335b7b74487a2cf6df8d83b3974c59",
+      "pcm_sha256": "7f4fe3745a75b75d92a586efd4a52a7c5e3c17a22d88195d83b4297a645bada4",
+      "frames": 62464
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Monster.bank": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039",
+    "StreamingAssets/SFX_Voice.bank": "070ff69430e8970c1d13ce9175ca0722835826b74dc014fe2f9776063be97ded",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy/EnemyBombMan.cs": "bf07b1745d2a5ad3e67def493cde54a736bca72fa674e8cc6998d457e8199449"
+  }
+}

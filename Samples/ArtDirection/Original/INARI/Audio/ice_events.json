@@ -1,0 +1,67 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "ice_loop": [
+      "ice_loop_01.wav"
+    ],
+    "ice_start": [
+      "ice_start_01.wav"
+    ]
+  },
+  "renders": {
+    "ice_loop_01.wav": {
+      "guid": "699a38ed-3032-47b6-8bb8-e3eafd993e14",
+      "path": "event:/SFX/Object/IceMachine/IceMachine_Loop",
+      "timeline_ms": 124343,
+      "one_shot": false,
+      "distance_parameter": true,
+      "samples": [
+        "Machine_Loop",
+        "Machine_Loop"
+      ],
+      "pre_start_frames": 4608,
+      "playback_frames": 5968896,
+      "timeline_loop_frames": 5968464,
+      "random_seed": 0,
+      "loop_export_strategy": "Repeat one authored timeline length; internal FMOD loop regions and release envelopes are not reconstructed.",
+      "sha256": "f1dff619aa290b5bb632a67e2aa48681a707d405e578787e76825a9b3cbf2568",
+      "pcm_sha256": "d498f80975186733bae5bc74aea9714219a0350f06fd440fe5204ad714d61dc9",
+      "frames": 5968464
+    },
+    "ice_start_01.wav": {
+      "guid": "455c840b-7a4f-4e63-8c50-3afb3370d0f5",
+      "path": "event:/SFX/Object/IceMachine/IceMachine_Start",
+      "timeline_ms": 2666,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Machine_Start",
+        "IceMachine_Explosion"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 130560,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "cddab31a6053bb5a459a968ab54ca3f9b429223263ae3643df0d29e081e03eb5",
+      "pcm_sha256": "d8335b4d3b501a19645d2f13a6e0e7b285fbf3b2ab41c4386029a5be784f14e2",
+      "frames": 130560
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "ElectroBox.cs": "5449bc803f24fca0afd04713972f05b1fb33af43d7e9fc6e1d6c60fdf8cf5f1c"
+  }
+}

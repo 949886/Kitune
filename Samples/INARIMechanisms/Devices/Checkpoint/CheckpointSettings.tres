@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="CheckpointSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trigger_size = Vector2(198.372802734375, 219.703369140625)
+trigger_offset = Vector2(1.0699462890625, -57.2791748046875)
+spawn_offset = Vector2(-1.1200000047683716, -35.20000076293945)
+facing = 1

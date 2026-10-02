@@ -1,0 +1,28 @@
+{
+  "normal_hp": 1,
+  "story_hp": 3,
+  "blink_duration": 2.0,
+  "blink_interval": 0.1,
+  "blink_alpha": 0.1,
+  "immune_states": {
+    "dash": "PlayerDashState",
+    "teleport": "PlayerShurikenDashState",
+    "weakpoint_execution": "PlayerDashAttackState",
+    "hit": "PlayerHitState"
+  },
+  "source_methods": [
+    "OutGameData.StoryModeHp",
+    "PlayerStateMachine.OnDamaged",
+    "PlayerStateMachine.BlinkCoroutine",
+    "PlayerHitState.Enter/Update"
+  ],
+  "source_sha256": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0",
+  "decompiled_sha256": {
+    "PlayerStateMachine.cs": "6ee46a5bafdf5841f0178c1ec4168d85ed82ce2b08f5b110942fb33d06400056",
+    "OutGameData.cs": "86916e0068eebf0dfb98e772800cd6b7e7e0baedfb82426e2b19a38a9e1b3754",
+    "PlayerHitState.cs": "d2aaaeecc2bde50ae8e60e777ab5db278c2e277d3845356c0e5f2368d01dbc96",
+    "PlayerDashState.cs": "d08c221b462ecd70a944ed6dd5c30a98bec1e258b7939a64fe2d1823cd4023f9",
+    "PlayerShurikenDashState.cs": "b9524c313cd0c8dc07bbe4df509bc8b4edbac4084f8356ae7a7d3a118a9f63fc",
+    "PlayerDashAttackState.cs": "26fa2a57949024d3e9047b6847cea63ee94f36080b331c43ef1a5076c4c08ccd"
+  }
+}

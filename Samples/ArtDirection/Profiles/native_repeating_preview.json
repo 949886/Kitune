@@ -1,0 +1,8 @@
+{
+  "profile": "inari_machinery",
+  "entry_id": "repeating_bomb",
+  "label": "重复刷怪",
+  "spawn_offset": [-96, 0],
+  "objective": "击败原版 BombMan，等待它重生两次",
+  "minimum_replacements": 2
+}

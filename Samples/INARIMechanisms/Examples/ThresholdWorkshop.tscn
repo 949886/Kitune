@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="BattleWorkshop.tscn" id="1"]
+[ext_resource type="Script" path="ThresholdWorkshop.gd" id="2"]
+[ext_resource type="Resource" path="ThresholdSettings.tres" id="3"]
+
+[node name="ThresholdWorkshop" instance=ExtResource("1")]
+script = ExtResource("2")
+title_text = "INARI · 残血增援"
+instruction_text = "A / D 移动 · 空格跳跃 · J 普通攻击 / K 重击 · R 重试\n第三波紫色目标受到一次普通攻击后，最后一波增援入场；旧目标仍须击败。"
+
+[node name="Encounter" parent="." index="1"]
+settings = ExtResource("3")

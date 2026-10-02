@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../ZoneSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+kind = 1
+trigger_size = Vector2(9.842130661010742, 15.473901748657227)
+trigger_offset = Vector2(0.20312905311584473, -1.6518917083740234)
+initially_active = false
+once = false
+blend = Vector2(0.10000000149011612, 0.10000000149011612)
+distance = -1.0
+source_transform = Transform2D(70.0, -0.0, -0.0, 40.0, 38709.59997558594, 4472.0)

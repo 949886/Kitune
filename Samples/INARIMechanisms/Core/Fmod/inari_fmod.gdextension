@@ -1,0 +1,10 @@
+[configuration]
+entry_symbol = "inari_fmod_init"
+compatibility_minimum = "4.2"
+reloadable = false
+
+[libraries]
+windows.x86_64 = "bin/inari_fmod.dll"
+
+[dependencies]
+windows.x86_64 = { "bin/fmodstudio.dll": "" }

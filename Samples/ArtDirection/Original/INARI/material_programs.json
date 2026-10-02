@@ -1,0 +1,84 @@
+{
+  "AllIn1SpriteShader/AllIn1Urp2dRenderer": {
+    "source_file": "sharedassets0.assets",
+    "source_sha256": "b25fc0345018e4fd74750c48dfeda12b6825ee9d6eb29f293854cb1af495a657",
+    "shader_id": 94,
+    "program_sha256": {
+      "2601": "b87c24da237ddd2da207f87a558f6fa3772a33e1efeb70f7f268d59d7b8f9097",
+      "2602": "23b33bb52a9ea8b79719edfd4cc714a647608ea13a6736350b87bcc3036c55e6",
+      "2610": "33553d7f906c2a72631206cbbe7d1711d50ee80c47b26ee347593c93e0d47c7d",
+      "2612": "648c06151e124103a2f273b0cd131c659a0897b9aa45dc2da969caa6d10e91f9"
+    },
+    "method": "Read Unity compiled program entries; inspect DXBC with Windows D3DDisassemble",
+    "uv_programs": {
+      "Mat_JadeDistotion 1": {
+        "program_index": 2630,
+        "parameter_index": 1633,
+        "keywords": [
+          "DISTORT_ON",
+          "GLOW_ON",
+          "WAVEUV_ON"
+        ],
+        "program_sha256": "d2308f27434745f7ee12f632a6e9bbd198c2423d098f2797a5c1da293f4887f8",
+        "parameters_sha256": "cf600b5698019ca4b8b248012ec8a83f5d08f67ae372fbdcb6c48404e5400975"
+      },
+      "Mat_JadeDistotion": {
+        "program_index": 2633,
+        "parameter_index": 1636,
+        "keywords": [
+          "DISTORT_ON",
+          "GLOW_ON",
+          "ROUNDWAVEUV_ON",
+          "WAVEUV_ON"
+        ],
+        "program_sha256": "b316f36880edbd9636d2601aef4233d06b471a4604ccb62b12915b697a49649f",
+        "parameters_sha256": "691aca613600927d13408dcfba1eed9e00abc4262104616a95f49f1915726a62"
+      },
+      "Mat_EnemyWeakness 5": {
+        "program_index": 2634,
+        "parameter_index": 1637,
+        "keywords": [
+          "GLOWLIGHT_ON",
+          "WARP_ON"
+        ],
+        "program_sha256": "c879e788255c42edbfe1ee75dcb84f3d67d795002678ab0a658ffc99734d1554",
+        "parameters_sha256": "b30c70aac3f6f091154878fae809bc1a6fdaeedea4349ac6a4fe86596cc8bf93",
+        "source_material_id": 14,
+        "source_material_file": "sharedassets2.assets",
+        "source_material_file_sha256": "87a10be5e52c9486f53503d531d3c97c19b4487e2a2ac31743ef6a1421e28cf8"
+      }
+    },
+    "outline_programs": {
+      "Mat_Enemy 5": {
+        "program_index": 2625,
+        "parameter_index": 1628,
+        "keywords": [
+          "CHANGECOLOR2_ON",
+          "CHANGECOLOR3_ON",
+          "GLOWLIGHT_ON",
+          "GLOWTEX_ON",
+          "GLOW_ON",
+          "GRADIENT2COL_ON",
+          "HITEFFECT_ON",
+          "HOLOGRAM_ON",
+          "OFFSETUV_ON",
+          "OUTBASEPIXELPERF_ON",
+          "OUTBASE_ON",
+          "OVERLAYMULT_ON",
+          "RADIALGRADIENT_ON"
+        ],
+        "program_sha256": "6b8ef91f7c980e7b25f5e78af24346ff38acbe11fb619e7cfa005ea8ccfcfe85",
+        "parameters_sha256": "22871ac08a75f253f2d26f42d0360ae04319c505c66b3a516d77ce49f96beeeb"
+      }
+    }
+  },
+  "AllIn1SpriteShader/AllIn1SpriteShader": {
+    "source_file": "sharedassets0.assets",
+    "source_sha256": "b25fc0345018e4fd74750c48dfeda12b6825ee9d6eb29f293854cb1af495a657",
+    "shader_id": 96,
+    "program_sha256": {
+      "44": "18e53d2c2a71095bc41ac8f7028e23f8b750633c7eadaaa3ab446fd08e317313"
+    },
+    "method": "Read Unity compiled program entries; inspect DXBC with Windows D3DDisassemble"
+  }
+}

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="RepeatSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+wait_seconds = 8.0
+fade_seconds = 0.20000000298023224
+kinds = {"enemy_1": "EnemyBombMan"}
+placements = {"enemy_1": Vector2(8018.396484375, 3318.240234375)}

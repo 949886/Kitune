@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="CameraZoneWorkshop.gd" id="1"]
+[ext_resource type="Script" path="WorkshopPlayer.gd" id="2"]
+[ext_resource type="PackedScene" path="../Devices/CameraZone/CameraZoneController.tscn" id="3"]
+[ext_resource type="PackedScene" path="../Devices/CameraZone/CameraDistanceZone.tscn" id="4"]
+[ext_resource type="PackedScene" path="../Devices/CameraZone/CameraFixedZone.tscn" id="5"]
+
+[sub_resource type="RectangleShape2D" id="body"]
+size = Vector2(18, 32)
+
+[sub_resource type="RectangleShape2D" id="floor"]
+size = Vector2(6000, 80)
+
+[sub_resource type="RectangleShape2D" id="wall"]
+size = Vector2(40, 1000)
+
+[node name="CameraZoneWorkshop" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(180, 400)
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("2")
+
+[node name="Shape" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -16)
+shape = SubResource("body")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(2000, 440)
+
+[node name="Shape" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("floor")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(3450, 0)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("wall")
+
+[node name="Controller" parent="." instance=ExtResource("3")]
+
+[node name="Distance" parent="." instance=ExtResource("4")]
+position = Vector2(1000, 400)
+scale = Vector2(70, 40)
+
+[node name="Fixed" parent="." instance=ExtResource("5")]
+position = Vector2(2400, 300)
+scale = Vector2(70, 40)

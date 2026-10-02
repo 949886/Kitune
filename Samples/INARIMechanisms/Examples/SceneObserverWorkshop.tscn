@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="PortalWorkshop.tscn" id="1"]
+[ext_resource type="Script" path="SceneObserverWorkshop.gd" id="2"]
+[ext_resource type="PackedScene" path="ObserverRoomA.tscn" id="3"]
+[ext_resource type="PackedScene" path="ObserverRoomB.tscn" id="4"]
+[ext_resource type="PackedScene" path="ObserverMenu.tscn" id="5"]
+
+[node name="SceneObserverWorkshop" instance=ExtResource("1")]
+script = ExtResource("2")
+initial_scene = ExtResource("3")
+title_text = "INARI · 事件切场"
+instruction_text = "A / D 移动 · 空格跳跃 · J 攻击拉杆 · R 重试\n先保存并切换房间，再通过另一条事件返回示例菜单。"
+destinations = {"level22": ExtResource("4"), "menu": ExtResource("5")}

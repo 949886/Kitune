@@ -1,0 +1,62 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "lever": [
+      "lever_01.wav",
+      "lever_02.wav"
+    ]
+  },
+  "renders": {
+    "lever_01.wav": {
+      "guid": "cdf906b6-003d-426d-b529-e650d734f252",
+      "path": "event:/SFX/Object/Lever/Lever",
+      "timeline_ms": 558,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Lever_Metal",
+        "Lever_3"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 29696,
+      "random_seed": 0,
+      "sha256": "641954cd13df56efc23d4c766342d46e1977accd84338018b2afa345f4207f8f",
+      "pcm_sha256": "a9075701307cdbe192ee93b8f53fee097d4f2f4f9aab04ef11c85ff3228947e1",
+      "frames": 29696
+    },
+    "lever_02.wav": {
+      "guid": "cdf906b6-003d-426d-b529-e650d734f252",
+      "path": "event:/SFX/Object/Lever/Lever",
+      "timeline_ms": 558,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Lever_Metal",
+        "Lever_5"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 29696,
+      "random_seed": 1,
+      "sha256": "448da12fc34346edbe789c5257e5da035573ecc8dfeeac46afd9a70576391d2f",
+      "pcm_sha256": "547f4d5e24606a0212c1728efd976a8b18bcabf39d5fac9478cdb40d9ad50ab4",
+      "frames": 29696
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "InteractableTrigger.cs": "2088c36914a8fbf505b0bf7b4431fff70f7eecdb9f1d1042540c07d34f698dfa"
+  }
+}

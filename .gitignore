@@ -20,7 +20,6 @@ mono_crash.*.json
 temp
 tmp
 docs/
-Samples/
 
 /addons/*
 !/addons/AS2P

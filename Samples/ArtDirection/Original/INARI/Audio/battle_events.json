@@ -1,0 +1,105 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "door_gear_open": [
+      "door_gear_open_01.wav"
+    ],
+    "door_gear_close": [
+      "door_gear_close_01.wav"
+    ],
+    "wave_stamp": [
+      "wave_stamp_01.wav"
+    ],
+    "wave_rope": [
+      "wave_rope_01.wav"
+    ]
+  },
+  "renders": {
+    "door_gear_open_01.wav": {
+      "guid": "3e1a9584-7a38-49c3-89e1-e905ccc5f069",
+      "path": "event:/SFX/Object/Door_Gear/Door_Gear_Open",
+      "timeline_ms": 1308,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Door_Gear_Open"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 64512,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "cfaf03c7a3516f919676939cf40f6839b418565637df3273cc37f7b48145bb96",
+      "pcm_sha256": "c5a252f835bfcb8fbb6c63b58cf20f192b89a0371463d2adbfef3fb39f186f92",
+      "frames": 64512
+    },
+    "door_gear_close_01.wav": {
+      "guid": "5f736d65-c856-4738-862f-7942bf1eac84",
+      "path": "event:/SFX/Object/Door_Gear/Door_Gear_Close",
+      "timeline_ms": 1450,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Door_Gear_Close"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 71168,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "7beafea925ff7330ae8e28438ffc5c134f320f3f73fa229a9fffd56bcaad3a4e",
+      "pcm_sha256": "cd4af7b851cddb68ae78416747b33258d3cb10284c60a40bc27e5590aec185a6",
+      "frames": 71168
+    },
+    "wave_stamp_01.wav": {
+      "guid": "e23c6025-2c8b-4315-97d2-b4d6fa846899",
+      "path": "event:/SFX/Object/Stamp/Stamp_Down",
+      "timeline_ms": 2070,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Stamp_Down"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 101376,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "37a7be23fb5c9ba7a79e66d0f6e0439c6740df9b060205b11eeb59cf5e2e98b6",
+      "pcm_sha256": "1e70e8a64508c0f8670d39c9e438ba1e1e141f19e92be92b30c8618d9fca0358",
+      "frames": 101376
+    },
+    "wave_rope_01.wav": {
+      "guid": "f234f8a9-0fd8-468c-a103-6681d5c85d11",
+      "path": "event:/SFX/Object/Stamp/Stamp_Riffle",
+      "timeline_ms": 1985,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Stamp_Riffle_Land_2",
+        "Stamp_Riffle"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 98304,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "75243544dd73f9e992f74f75dfb7aa60a8fe0b6dc21efca49f44b436a01a0c10",
+      "pcm_sha256": "e6c5ce41254d4263f952d9d17215038140c28438577fa5cf06305d17028a52e9",
+      "frames": 98304
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Door.cs": "cff725f3c111b49596c0e51c4b42c62e7aefd64f9432e5f94103fe28909eb320"
+  }
+}

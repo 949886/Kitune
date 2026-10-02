@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../AudioZoneSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+family = "bgm"
+event_guid = "d8a1c750-4ec4-4bad-8f98-eb0cfe7642cc"
+parameters = {"Radiance_Room_4": 0.0, "Radiance_Roll": 0.0, "Radiance_Room_2": 0.8999999761581421, "Radiance_Bass": 0.0, "Radiance_Room_1": 0.8999999761581421, "Radiance_Room_3": 0.0, "Radiance_Room_Crash": 0.0}
+once = false
+source_layer_bits = 64
+initially_active = true
+persistence_id = "b8b51ca45d11746538a65323b4e010e5"
+trigger_size = Vector2(981.55078125, 287.38037109375)
+trigger_offset = Vector2(1470.240234375, -1093.143310546875)
+source_transform = Transform2D(1.0, -0.0, -0.0, 1.0, 34788.7998046875, -6900.800048828125)

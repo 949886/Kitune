@@ -1,0 +1,392 @@
+[
+  {
+    "id": "inari_factory",
+    "game": "INARI",
+    "title": "01 · 机械工厂",
+    "kind": "original_2d",
+    "reference": "inari_shaft.jpg",
+    "scene_data": "level15.json",
+    "description": "从齿轮井下层平台出发，向右上墙面投掷苦无，命中后按 Q，再按空格蹬墙返回上层平台。",
+    "fidelity": "原版场景贴图、坐标与碰撞；角色可切换；灯光和关卡逻辑仍在校准。",
+    "stage_scene": "res://Samples/ArtDirection/Scenes/Worlds/INARI_FactoryWorld.tscn"
+  },
+  {
+    "id": "inari_seal",
+    "game": "INARI",
+    "title": "02 · 圆印神殿",
+    "kind": "original_2d",
+    "reference": "inari_seal.jpg",
+    "scene_data": "level25.json",
+    "finish_cutscene_transition": true,
+    "ambient_animation": "shrine_ambient.json",
+    "letterbox_ratio": 0.1111111111111111,
+    "physics_only_tilemaps": true,
+    "hidden_sprite_names": [
+      "BoxShadow 1"
+    ],
+    "audio_surface": "wood",
+    "description": "穿过红色鸟居，来到圆印下方，再抵达神殿另一侧。",
+    "fidelity": "原版 TenshinLand 场景；角色可切换；水面、灯光和过场仍在校准。",
+    "stage_scene": "res://Samples/ArtDirection/Scenes/Worlds/INARI_SealWorld.tscn"
+  },
+  {
+    "id": "inari_machinery",
+    "game": "INARI",
+    "title": "03 · 机关工厂",
+    "kind": "original_2d",
+    "scene_data": "level22.json",
+    "viewport_size": [
+      1920,
+      1080
+    ],
+    "spawn": [
+      13408,
+      4150
+    ],
+    "description": "练习拉杆、移动平台与电梯，使用冰冻装置突破战斗门，或完成 30 秒挑战领取奖励。",
+    "fidelity": "原版机关练习：平台、电梯、战斗门、冰冻、计时奖励与镜头区域；其他事件仍在移植中。",
+    "route_driver": "machinery",
+    "objectives": [
+      {
+        "name": "攻击拉杆启动横向平台",
+        "position": [
+          13456,
+          4160
+        ],
+        "radius": 100,
+        "condition": {
+          "kind": "lever",
+          "go": 5116
+        }
+      },
+      {
+        "name": "跳上平台，搭乘抵达终点",
+        "position": [
+          14016,
+          4160
+        ],
+        "radius": 100,
+        "condition": {
+          "kind": "arrival",
+          "id": "17443"
+        }
+      }
+    ],
+    "checkpoints": [
+      [
+        13408,
+        4150
+      ]
+    ],
+    "enable_enemies": false,
+    "practice_entries": [
+      {
+        "label": "横向平台",
+        "spawn": [
+          13408,
+          4150
+        ],
+        "objectives": [
+          {
+            "name": "攻击拉杆启动横向平台",
+            "position": [
+              13456,
+              4160
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "lever",
+              "go": 5116
+            }
+          },
+          {
+            "name": "跳上平台，搭乘抵达终点",
+            "position": [
+              14016,
+              4160
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "arrival",
+              "id": "17443"
+            }
+          }
+        ],
+        "checkpoints": [
+          [
+            13408,
+            4150
+          ]
+        ]
+      },
+      {
+        "label": "纵向平台",
+        "spawn": [
+          14032,
+          3766
+        ],
+        "objectives": [
+          {
+            "name": "攻击拉杆启动纵向平台",
+            "position": [
+              14084,
+              3776
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "lever",
+              "go": 5117
+            }
+          },
+          {
+            "name": "向平台投掷并瞬移攀附，随它上升",
+            "position": [
+              14166,
+              3200
+            ],
+            "radius": 150,
+            "condition": {
+              "kind": "arrival",
+              "id": "17444"
+            }
+          }
+        ],
+        "checkpoints": [
+          [
+            14032,
+            3766
+          ]
+        ]
+      },
+      {
+        "label": "电梯",
+        "scene_data": "level14.json",
+        "spawn": [
+          -11840,
+          6034
+        ],
+        "objectives": [
+          {
+            "name": "靠近按钮，按 F 启动电梯",
+            "position": [
+              -11801,
+              6048
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "elevator_started",
+              "go": 3331
+            }
+          },
+          {
+            "name": "搭乘电梯，进入下一关",
+            "position": [
+              -11808,
+              4832
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "arrival",
+              "id": "10721"
+            }
+          }
+        ],
+        "checkpoints": [
+          [
+            -11840,
+            6034
+          ]
+        ],
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ]
+      },
+      {
+        "label": "战斗门",
+        "scene_data": "level5.json",
+        "spawn": [
+          3140,
+          3910
+        ],
+        "checkpoints": [
+          [
+            3140,
+            3910
+          ]
+        ],
+        "enable_enemies": true,
+        "enable_battle": true,
+        "battle_only": true,
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ],
+        "objectives": [
+          {
+            "name": "进入房间，击败两波敌人打开出口",
+            "position": [
+              4010,
+              3936
+            ],
+            "radius": 35,
+            "condition": {
+              "kind": "battle_complete",
+              "id": 11791
+            }
+          }
+        ]
+      },
+      {
+        "label": "冰冻装置",
+        "scene_data": "level5.json",
+        "spawn": [
+          3480,
+          3770
+        ],
+        "checkpoints": [
+          [
+            3480,
+            3770
+          ]
+        ],
+        "enable_enemies": true,
+        "enable_battle": true,
+        "battle_only": true,
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ],
+        "objectives": [
+          {
+            "name": "向上投掷苦无，按 Q 触发冰冻装置",
+            "position": [
+              3529,
+              3690
+            ],
+            "radius": 250,
+            "condition": {
+              "kind": "ice_fired",
+              "go": 3526,
+              "minimum_affected": 1
+            }
+          }
+        ]
+      },
+      {
+        "label": "计时挑战",
+        "scene_data": "level3.json",
+        "spawn": [
+          -3024,
+          5345
+        ],
+        "checkpoints": [
+          [
+            -3024,
+            5345
+          ]
+        ],
+        "enable_enemies": true,
+        "enable_battle": true,
+        "battle_only": true,
+        "enable_trial": true,
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ],
+        "objectives": [
+          {
+            "name": "按 F 启动，在 30 秒内清除敌人并按终点开关，领取右侧奖励",
+            "position": [
+              -69,
+              5175
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "trial_reward"
+            }
+          }
+        ]
+      },
+      {
+        "label": "镜头区域",
+        "scene_data": "level5.json",
+        "spawn": [
+          3310,
+          3930
+        ],
+        "enable_enemies": false,
+        "enable_battle": false,
+        "enable_trial": false,
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ],
+        "checkpoints": [
+          [
+            3310,
+            3930
+          ]
+        ],
+        "objectives": [
+          {
+            "name": "进入原版固定视角区域",
+            "position": [
+              3310,
+              3930
+            ],
+            "radius": 100,
+            "condition": {
+              "kind": "camera_zone",
+              "go": 3030
+            }
+          },
+          {
+            "name": "向左穿过入口，恢复角色跟随",
+            "position": [
+              3140,
+              3936
+            ],
+            "radius": 110,
+            "condition": {
+              "kind": "camera_zone",
+              "go": 3030,
+              "exited": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "repeating_bomb",
+        "label": "重复刷怪",
+        "scene_data": "level5.json",
+        "spawn": [
+          1159.679931640625,
+          4219.699951171875
+        ],
+        "checkpoints": [
+          [
+            1159.679931640625,
+            4219.699951171875
+          ]
+        ],
+        "enable_enemies": false,
+        "enable_battle": false,
+        "enable_repeating": true,
+        "hidden_sprite_names": [
+          "BoxShadow 1"
+        ],
+        "objectives": [
+          {
+            "name": "击败原版 BombMan，等待它重生两次",
+            "position": [
+              1255.679931640625,
+              4219.699951171875
+            ],
+            "radius": 300,
+            "condition": {
+              "kind": "repeat_count",
+              "minimum": 2
+            }
+          }
+        ]
+      }
+    ],
+    "preview": "res://Samples/ArtDirection/Previews/inari_machinery.png"
+  }
+]

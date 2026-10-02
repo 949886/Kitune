@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../SpawnTriggerSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trigger_transform = Transform2D(2.953399896621704, -0.0, -0.0, 2.953399896621704, 0, 0)
+trigger_size = Vector2(176.90582275390625, 147.19479370117188)
+trigger_offset = Vector2(2.014934539794922, -14.809707641601562)
+collider_enabled = true
+initially_active = true
+once = false
+on_field = false
+delay_seconds = 1.25

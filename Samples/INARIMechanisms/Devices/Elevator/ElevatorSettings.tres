@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="ElevatorSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+travel_offset = Vector2(0.0, -1216.0)
+speed_pixels_per_second = 160.0
+wait_seconds = 2.0
+ease_amount = 0.5
+door_release_seconds = 0.2
+outline_fade_seconds = 0.20000000298023224
+destination_key = "level2"
+scene_exit_offset = Vector2(-70.571533203125, -882.0364990234375)
+scene_exit_size = Vector2(347.16015625, 153.675048828125)

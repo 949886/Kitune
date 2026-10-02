@@ -1,0 +1,66 @@
+{
+  "actors": {
+    "3454": {
+      "attack_point_go": 3159,
+      "anchor_go": 1042,
+      "anchor_local": [
+        31.040000915527344,
+        -0.3200003504753113
+      ],
+      "source_position": [
+        -5890.242169499397,
+        5152.479980349541
+      ],
+      "can_alarm": 0,
+      "run_away_weight": 80.0,
+      "confirm_effect_frame": 6
+    }
+  },
+  "wall_damage": 10.0,
+  "source_sha256": {
+    "Enemy/EnemyBowMan.cs": "b09536b473d1c43b9815de55a6096a302531745915749c4357a2a3b616e5251e",
+    "Enemy.State/EnemyAttackReadyPattern.cs": "4be9569e46ca41c709e81a5532d417cf3a5c01f55f6600c1937250a041812005",
+    "Enemy.State/EnemyAttackConfirmPattern.cs": "92860c8ae7022e208371bac89693340db91aa10d51bb95dbec6396c3718a7786",
+    "Enemy.State/EnemyRangePattern.cs": "b5acb927d973643e04bbf095c98b2986b34a5b78742af7d0986c6757d9eba62c",
+    "Enemy.State/EnemyMeleePattern.cs": "476a720b098742919b0dde9f5371754fcb3b6e57707db8e2b9b97f4003c69027",
+    "Enemy.State/EnemyAttackPattern.cs": "e58a56d61911f0b49180d04328ce295f585189b1e9c05bb088dae5ec69fa67e3",
+    "Enemy.State/EnemyAttackPostPattern.cs": "c140542c0f33d42e54376a714144a8d439677bc73f9aabbd302fab8736382d93",
+    "Enemy.State/AttackState.cs": "eac60d5efbc3f7237b94c3224e78c7d6e5e187684726dde51c13639ad38bdd53",
+    "Enemy.State/EnemyAttackCancelPattern.cs": "ea3b40919a7d05ba49ce9bed8044e469b68304c6f5654ec219e36ab76f25ccb5",
+    "StateMachine.cs": "0f3896c51afc9becb11a9a1c0846ab0ada76e46034dab521c8d2432ec59e563b",
+    "Enemy.StateMachine/EnemyStateMachine.cs": "9f39be24dcfafe7aafb09d5836580a387f0c7f6fb1598c9d1fbc2415a5ecfa00",
+    "EnemyShurikenComponent.cs": "21510cd7d9e3a5951931887165e8cde2dfd04721e9a7c301e25f960e2ee0c4f9",
+    "WeakPointComponent.cs": "17fae6119d02456bf727f9303716b6c71b6f28eeffb6f66a404e010ee7e3576f",
+    "EnemyPattern.cs": "ef02c4f9be450ceb964e2a5856680078671566ededf8c033968c7e632d6f9cb6",
+    "RotationPart.cs": "de76893583b7cd097c3bdf3eb7a42824389df441a3d4f21efd7ac69eb76760b4",
+    "level15": "d225a7c98a11ea8f638106afedfb9255691569250617625d7a3f3a25524ac23c",
+    "Managed/Assembly-CSharp.dll": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0",
+    "Enemy.State/EnemyChasePattern.cs": "8dc3f292c07a300537a0fe04e8f3d2bda3f22c6131873f9c6401a2e440d3746b",
+    "Enemy.State/EnemyRunAwayPattern.cs": "76a7bac837e273a37c0fb8bd57dc2a29266bacca0b52590bf7e0a9a16833f99a",
+    "Enemy.State/EnemyLeashBackPattern.cs": "346a5e6a1d2c73c5605b6cadc2648fa5be5c899ee8084d91ff76e4705f484b71",
+    "Enemy.State/EnemyIdlePattern.cs": "64f4cc716f153449be6fe77c2fae2f4aebf45828e8b83983ac35eeea155aa9d9",
+    "Enemy.State/EnemyRetargetPattern.cs": "0d9d462943d0c4930f01bb4ea678b92f91e9c448f7d72443f77e21d4075ff6a5",
+    "EnemyCheckDoorPattern.cs": "21dea616f5b2efa0a6a62d2160baead28a1ed2d46df5882599cd403d39e07696",
+    "RangedPositioningRule.cs": "de9992f22302a13c055f869add8cda9037b7fbd1956d1c7d0ff0be1026316acb"
+  },
+  "common": {
+    "arrival_distance": 0.5,
+    "chase_path_fraction": 0.5,
+    "retreat": {
+      "minimum_distance": 2.0,
+      "separation_radius": 3.0,
+      "search_cells": 50
+    },
+    "positioning": {
+      "path_nodes": 5.0,
+      "count_threshold": 1
+    },
+    "door": {
+      "damage": 10.0,
+      "chase_skip_ready": false,
+      "chase_skip_confirm": false,
+      "retreat_skip_ready": false,
+      "retreat_skip_confirm": false
+    }
+  }
+}

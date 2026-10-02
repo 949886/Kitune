@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../DistanceSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+additive_distance = 20.0
+once = false
+source_layer_bits = 64
+persistence_id = "285b0ca158635e54895b1b2789a6074d"
+initially_active = true
+trigger_size = Vector2(664.21875, 429.7509765625)
+trigger_offset = Vector2(172.109375, 17.46044921875)
+source_transform = Transform2D(1.0, -0.0, -0.0, 1.0, 38544.9609375, 4424.799801647663)

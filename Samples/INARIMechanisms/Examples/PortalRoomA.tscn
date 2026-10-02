@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="PortalRoom.gd" id="1"]
+[ext_resource type="Resource" path="../Devices/ScenePortal/Presets/level11.tres" id="2"]
+
+[node name="RoomA" type="Node2D"]
+script = ExtResource("1")
+title = "第一间 · 保持向右移动的出口"
+portal_settings = ExtResource("2")

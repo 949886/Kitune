@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="TimeTrial.gd" id="1"]
+[ext_resource type="PackedScene" path="TimerStart.tscn" id="2"]
+[ext_resource type="PackedScene" path="TimerFinish.tscn" id="3"]
+
+[node name="TimeTrial" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Start" parent="." instance=ExtResource("2")]
+
+[node name="Finish" parent="." instance=ExtResource("3")]
+position = Vector2(2576.830322265625, -175.06777954101562)

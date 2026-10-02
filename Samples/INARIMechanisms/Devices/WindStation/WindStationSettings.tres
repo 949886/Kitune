@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="WindStationSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trigger_size = Vector2(128.0, 128.0)
+trigger_offset = Vector2(0.0, -0.0)
+cooldown_seconds = 5.0
+stamina_amount = 45.0
+story_heal_amount = 100

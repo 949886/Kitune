@@ -1,0 +1,971 @@
+{
+  "positioning": {
+    "path_nodes": 5.0,
+    "count_threshold": 1
+  },
+  "door": {
+    "damage": 10.0,
+    "chase_skip_ready": false,
+    "chase_skip_confirm": true,
+    "retreat_skip_ready": true,
+    "retreat_skip_confirm": true
+  },
+  "retreat": {
+    "minimum_distance": 2.0,
+    "separation_radius": 3.0,
+    "search_cells": 50
+  },
+  "chase_path_fraction": 0.5,
+  "arrival_distance": 0.5,
+  "tracking_fraction": 0.7,
+  "damage": 1.0,
+  "shot_distance": 10000.0,
+  "aim_distance": 1000.0,
+  "tracer_time": 0.5,
+  "source_sha256": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0",
+  "scene_sha256": "d225a7c98a11ea8f638106afedfb9255691569250617625d7a3f3a25524ac23c",
+  "decompiled_sha256": {
+    "Enemy/EnemyRifleMan.cs": "01c7c261f7d0e99dbf9d26300957b9019e2885b953769e30f0b46ce78185ad86",
+    "Enemy.State/EnemyRayAttackPattern.cs": "9b7368d291dbc7e621812da881d95bcca9f6cb3cc68949bed5aab953aa7f6f9c",
+    "Enemy.State/EnemyAttackReadyPattern.cs": "fa4deceeb61ae9b6cbb606be8d6c9e07a227d4c501821fdc97ad03cba7255f57",
+    "Enemy.State/EnemyAttackConfirmPattern.cs": "aba16419a059c770d61f27abd4f79b7190baee470c893cefb4110013910b7026",
+    "Enemy.State/EnemyAttackPostPattern.cs": "fd551bcf1b6b6a45d9afd2678e40d0deb493e9c1bac95e2d63dd9558d353c03b",
+    "DHUtil.RunTime/CoroutinUtil.cs": "8e77bf66ab72cd14f61c06e1f04ee1f119d094fc608cdd4236872075c274e9a8",
+    "Enemy.State/EnemyIdlePattern.cs": "64f4cc716f153449be6fe77c2fae2f4aebf45828e8b83983ac35eeea155aa9d9",
+    "Enemy.State/EnemyLeashBackPattern.cs": "346a5e6a1d2c73c5605b6cadc2648fa5be5c899ee8084d91ff76e4705f484b71",
+    "Enemy.StateMachine/EnemyStateMachine.cs": "ab4411fd12290cfe18727b16676e6994cecb5cccbfe8259ee00585c1ad8b2fd3",
+    "StateMachine.cs": "0cc3650e7e68572540e66eb5a042e2be67cff7942337550b4f73bbe565e1edac",
+    "Enemy.State/EnemyChasePattern.cs": "8dc3f292c07a300537a0fe04e8f3d2bda3f22c6131873f9c6401a2e440d3746b",
+    "Enemy.State/EnemyRunAwayPattern.cs": "76a7bac837e273a37c0fb8bd57dc2a29266bacca0b52590bf7e0a9a16833f99a",
+    "RaycastCollision2D.cs": "48b7d3bf74000339157cb2a9dd75f94f229610ddb29d83e26262f8f79ebe0a79",
+    "PathFindingManager.cs": "fe64456a6550920b318984dc9319229eaee80ed72382ab9d5c5535705fd487ec",
+    "GameManager.cs": "d53d34a053fbf34cb20299f28c64bd45fadd4139f8c561ec2bae634cf25d8561",
+    "EnemyCheckDoorPattern.cs": "21dea616f5b2efa0a6a62d2160baead28a1ed2d46df5882599cd403d39e07696",
+    "InteractiveDoor.cs": "77e5e987bf0e3b50e1b2628c7f975d0b3c6620cc2d857e67a65afaf0247aa747",
+    "RangedPositioningRule.cs": "de9992f22302a13c055f869add8cda9037b7fbd1956d1c7d0ff0be1026316acb",
+    "Enemy.State/EnemyRetargetPattern.cs": "0d9d462943d0c4930f01bb4ea678b92f91e9c448f7d72443f77e21d4075ff6a5",
+    "Enemy.State/AttackReadyState.cs": "137c6f93d429dbaae6622059e33c3df60bf438c9ce9c845cac1db3041be92717",
+    "Enemy.State/AttackState.cs": "f0f22f65d6bc32fcd40e55c36242f2e2f0649b67e060788efb3d2a7dba121450"
+  },
+  "actors": {
+    "3214": {
+      "aim": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -3541.250964164734,
+          4725.695586204529
+        ],
+        "anchor_go": 3083,
+        "parameters": {
+          "widthMultiplier": 0.4000000059604645,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.10227203369140625,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key2": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key3": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 65535,
+            "ctime2": 0,
+            "ctime3": 0,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 33153,
+            "atime2": 65535,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 2,
+            "m_NumAlphaKeys": 3
+          },
+          "numCornerVertices": 0,
+          "numCapVertices": 5,
+          "alignment": 0,
+          "textureMode": 0,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": null,
+        "material": {
+          "name": "Mat_Default",
+          "keywords": [
+            "ATLAS_ON",
+            "HITEFFECT_ON",
+            "OUTDIST_ON"
+          ],
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.4292452931404114,
+            0.4292452931404114,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 4.0,
+            "_GlowGlobal": 1.0
+          }
+        }
+      },
+      "tracer": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -3541.250964164734,
+          4725.695586204529
+        ],
+        "anchor_go": 3083,
+        "parameters": {
+          "widthMultiplier": 1.0,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              },
+              {
+                "time": 0.8737531900405884,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 0.1462264060974121,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key2": {
+              "r": 1.0,
+              "g": 0.6556603908538818,
+              "b": 0.6556603908538818,
+              "a": 0.0
+            },
+            "key3": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 31426,
+            "ctime2": 65535,
+            "ctime3": 65535,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 65535,
+            "atime2": 0,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 3,
+            "m_NumAlphaKeys": 2
+          },
+          "numCornerVertices": 7,
+          "numCapVertices": 7,
+          "alignment": 0,
+          "textureMode": 1,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": {
+          "path": "Textures/rifle_tracer.png",
+          "pixel_sha256": "4bb19bb040eea4e6730b3cd1ca52e660dbf36da3198f2cf7ff26ca3c48070f52"
+        },
+        "material": {
+          "name": "Mat_BossFX 1",
+          "keywords": [
+            "FADE_ON",
+            "GLOWLIGHT_ON",
+            "GLOW_ON"
+          ],
+          "color": [
+            1.0,
+            0.8272578120231628,
+            0.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.6857754588127136,
+            0.0,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 7.699999809265137,
+            "_GlowGlobal": 100.0
+          }
+        }
+      }
+    },
+    "3213": {
+      "aim": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -6147.651110649109,
+          4726.175810813904
+        ],
+        "anchor_go": 3082,
+        "parameters": {
+          "widthMultiplier": 0.4000000059604645,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.10227203369140625,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key2": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key3": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 65535,
+            "ctime2": 0,
+            "ctime3": 0,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 33153,
+            "atime2": 65535,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 2,
+            "m_NumAlphaKeys": 3
+          },
+          "numCornerVertices": 0,
+          "numCapVertices": 5,
+          "alignment": 0,
+          "textureMode": 0,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": null,
+        "material": {
+          "name": "Mat_Default",
+          "keywords": [
+            "ATLAS_ON",
+            "HITEFFECT_ON",
+            "OUTDIST_ON"
+          ],
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.4292452931404114,
+            0.4292452931404114,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 4.0,
+            "_GlowGlobal": 1.0
+          }
+        }
+      },
+      "tracer": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -6147.651110649109,
+          4726.175810813904
+        ],
+        "anchor_go": 3082,
+        "parameters": {
+          "widthMultiplier": 1.0,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              },
+              {
+                "time": 0.8737531900405884,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 0.1462264060974121,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key2": {
+              "r": 1.0,
+              "g": 0.6556603908538818,
+              "b": 0.6556603908538818,
+              "a": 0.0
+            },
+            "key3": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 31426,
+            "ctime2": 65535,
+            "ctime3": 65535,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 65535,
+            "atime2": 0,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 3,
+            "m_NumAlphaKeys": 2
+          },
+          "numCornerVertices": 7,
+          "numCapVertices": 7,
+          "alignment": 0,
+          "textureMode": 1,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": {
+          "path": "Textures/rifle_tracer.png",
+          "pixel_sha256": "4bb19bb040eea4e6730b3cd1ca52e660dbf36da3198f2cf7ff26ca3c48070f52"
+        },
+        "material": {
+          "name": "Mat_BossFX 1",
+          "keywords": [
+            "FADE_ON",
+            "GLOWLIGHT_ON",
+            "GLOW_ON"
+          ],
+          "color": [
+            1.0,
+            0.8272578120231628,
+            0.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.6857754588127136,
+            0.0,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 7.699999809265137,
+            "_GlowGlobal": 100.0
+          }
+        }
+      }
+    },
+    "3215": {
+      "aim": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -5143.011218070984,
+          4871.567412376404
+        ],
+        "anchor_go": 3081,
+        "parameters": {
+          "widthMultiplier": 0.4000000059604645,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 0.10227203369140625,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key2": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key3": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 65535,
+            "ctime2": 0,
+            "ctime3": 0,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 33153,
+            "atime2": 65535,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 2,
+            "m_NumAlphaKeys": 3
+          },
+          "numCornerVertices": 0,
+          "numCapVertices": 5,
+          "alignment": 0,
+          "textureMode": 0,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": null,
+        "material": {
+          "name": "Mat_Default",
+          "keywords": [
+            "ATLAS_ON",
+            "HITEFFECT_ON",
+            "OUTDIST_ON"
+          ],
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.4292452931404114,
+            0.4292452931404114,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 4.0,
+            "_GlowGlobal": 1.0
+          }
+        }
+      },
+      "tracer": {
+        "transform": [
+          0.9998476943878136,
+          -1.7506066041228507e-11,
+          -0.00030458800987158766,
+          0.9998476943878136,
+          -5143.011218070984,
+          4871.567412376404
+        ],
+        "anchor_go": 3081,
+        "parameters": {
+          "widthMultiplier": 1.0,
+          "widthCurve": {
+            "m_Curve": [
+              {
+                "time": 0.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.3333333432674408,
+                "outWeight": 0.3333333432674408
+              },
+              {
+                "time": 0.8737531900405884,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              },
+              {
+                "time": 1.0,
+                "value": 1.0,
+                "inSlope": 0.0,
+                "outSlope": 0.0,
+                "weightedMode": 0,
+                "inWeight": 0.0,
+                "outWeight": 0.0
+              }
+            ],
+            "m_PreInfinity": 2,
+            "m_PostInfinity": 2,
+            "m_RotationOrder": 4
+          },
+          "colorGradient": {
+            "key0": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key1": {
+              "r": 0.1462264060974121,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "key2": {
+              "r": 1.0,
+              "g": 0.6556603908538818,
+              "b": 0.6556603908538818,
+              "a": 0.0
+            },
+            "key3": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 0.0
+            },
+            "key4": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key5": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key6": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "key7": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "ctime0": 0,
+            "ctime1": 31426,
+            "ctime2": 65535,
+            "ctime3": 65535,
+            "ctime4": 0,
+            "ctime5": 0,
+            "ctime6": 0,
+            "ctime7": 0,
+            "atime0": 0,
+            "atime1": 65535,
+            "atime2": 0,
+            "atime3": 0,
+            "atime4": 0,
+            "atime5": 0,
+            "atime6": 0,
+            "atime7": 0,
+            "m_Mode": 0,
+            "m_ColorSpace": 0,
+            "m_NumColorKeys": 3,
+            "m_NumAlphaKeys": 2
+          },
+          "numCornerVertices": 7,
+          "numCapVertices": 7,
+          "alignment": 0,
+          "textureMode": 1,
+          "textureScale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "shadowBias": 0.5,
+          "generateLightingData": false
+        },
+        "sort": [
+          3,
+          -5
+        ],
+        "texture": {
+          "path": "Textures/rifle_tracer.png",
+          "pixel_sha256": "4bb19bb040eea4e6730b3cd1ca52e660dbf36da3198f2cf7ff26ca3c48070f52"
+        },
+        "material": {
+          "name": "Mat_BossFX 1",
+          "keywords": [
+            "FADE_ON",
+            "GLOWLIGHT_ON",
+            "GLOW_ON"
+          ],
+          "color": [
+            1.0,
+            0.8272578120231628,
+            0.0,
+            1.0
+          ],
+          "glow_color": [
+            1.0,
+            0.6857754588127136,
+            0.0,
+            1.0
+          ],
+          "floats": {
+            "_Alpha": 1.0,
+            "_FadeAmount": -0.10000000149011612,
+            "_Glow": 7.699999809265137,
+            "_GlowGlobal": 100.0
+          }
+        }
+      }
+    }
+  },
+  "material_file_sha256": {
+    "sharedassets0.assets": "b25fc0345018e4fd74750c48dfeda12b6825ee9d6eb29f293854cb1af495a657",
+    "sharedassets3.assets": "3bd827b0d629827dbfab3dcfe5f5ac5d93394e4e8865054d6b8664c9db9383cd"
+  }
+}

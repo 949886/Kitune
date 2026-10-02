@@ -1,0 +1,189 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "timer_start": [
+      "timer_start_01.wav"
+    ],
+    "timer_loop": [
+      "timer_loop_01.wav"
+    ],
+    "timer_stop": [
+      "timer_stop_01.wav"
+    ],
+    "timer_end": [
+      "timer_end_01.wav"
+    ],
+    "timer_tick": [
+      "timer_tick_01.wav"
+    ],
+    "timer_camera": [
+      "timer_camera_01.wav"
+    ],
+    "reward_soul": [
+      "reward_soul_01.wav"
+    ],
+    "reward_prism_get": [
+      "reward_prism_get_01.wav"
+    ]
+  },
+  "renders": {
+    "timer_start_01.wav": {
+      "guid": "2f8c7a33-0b0c-4714-a61e-dd33b2d07227",
+      "path": "event:/SFX/Object/Timer/Timer_Act",
+      "timeline_ms": 1125,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_Act_Alarm_1",
+        "Timer_Act_Gear"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 56832,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "a4ba12223d9105eb04416a13bd703347d8d736fe30c4dfc8802381b55b8c22a4",
+      "pcm_sha256": "b12ded964a5af0f32c91df2800185192d6f52068cc0755fc0e70aee743ed1495",
+      "frames": 56832
+    },
+    "timer_loop_01.wav": {
+      "guid": "602c6f8e-ed76-45ea-8401-7871fa1a156b",
+      "path": "event:/SFX/Object/Timer/Timer_Act_Loop",
+      "timeline_ms": 17834,
+      "one_shot": false,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_Act_Loop",
+        "Timer_Act_Loop"
+      ],
+      "pre_start_frames": 4608,
+      "playback_frames": 856064,
+      "timeline_loop_frames": 856032,
+      "random_seed": 0,
+      "loop_export_strategy": "Repeat one authored timeline length; internal FMOD loop regions and release envelopes are not reconstructed.",
+      "sha256": "31b4721d09d91a94e1ccc3e57ed7c853e5934bc6827d8a8910585795d112ecda",
+      "pcm_sha256": "48116b9a88c38ee45d08f9815c3177b22b92274ef8652fbda5cb06fa04a8ee1c",
+      "frames": 856032
+    },
+    "timer_stop_01.wav": {
+      "guid": "e073fc5f-9030-4c5c-b391-5ad68530b9b8",
+      "path": "event:/SFX/Object/Timer/Timer_Stop",
+      "timeline_ms": 1125,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_Act_Gear",
+        "Timer_Stop"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 56832,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "52d66262800c4f9e8080051ca63bfc19bdb7e3a594a95d4bdc79a95b99154296",
+      "pcm_sha256": "bf1695844eb83d956cf1f8d7f64aee60c45c562fee02cb9390647e43de29ba97",
+      "frames": 56832
+    },
+    "timer_end_01.wav": {
+      "guid": "6d68778d-4e9e-45b9-80a5-0d387d8ef5d7",
+      "path": "event:/SFX/Object/Timer/Timer_End",
+      "timeline_ms": 1125,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_End",
+        "Timer_Act_Gear"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 56832,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "2f4d5ca43e2f79dbd241340976388c4cfe9c6f4048315e6fcb09660e245959eb",
+      "pcm_sha256": "d4417606b028a7e16931609defdd8925fa21c7deb2f837631fadc437209e19c0",
+      "frames": 56832
+    },
+    "timer_tick_01.wav": {
+      "guid": "7fa92989-dcdd-41a7-b68d-e0638fe9a81f",
+      "path": "event:/SFX/Object/Timer/Timer_TimeDown",
+      "timeline_ms": 105,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_TimeDown_3"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 6656,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "75a46ed574154199d1dc6a3f2a4755f5be0778e05e6739438012542a0d661e0a",
+      "pcm_sha256": "cd81612ed8c37ba383df41a3ff34bf28970c33e74987f28c0bfffefd36f5f460",
+      "frames": 6656
+    },
+    "timer_camera_01.wav": {
+      "guid": "58656afa-ff5d-4856-a742-73ab2791f323",
+      "path": "event:/SFX/Object/Timer/Timer_Camera_Move",
+      "timeline_ms": 530,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Timer_Camera_Move"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 27136,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "f8b13ccb898e359b09eeef14f9d1ef5ccb50551c05d5263898bc7549e8a2f735",
+      "pcm_sha256": "5d4105b079c47d503a82ddbffa5e03d326aaa8f0b9ecaf040d711eeec209ddd7",
+      "frames": 27136
+    },
+    "reward_soul_01.wav": {
+      "guid": "e369011a-91c9-4ce6-bcaf-f90a404778ff",
+      "path": "event:/SFX/Object/Soul/Soul_Particle",
+      "timeline_ms": 2350,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Soul_Particle_1"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 114688,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "dda70cbaf6c3e2788711b6eeb683807cac57b2678da5a3f0e22dd05fa7efd952",
+      "pcm_sha256": "4ef0965adf2491a6186a2e6b9c3c61eeb2a41fc7c7ceae1a29ad6a10a7dad696",
+      "frames": 114688
+    },
+    "reward_prism_get_01.wav": {
+      "guid": "b8778c57-0aee-4302-a415-970fcfbffdce",
+      "path": "event:/SFX/Object/Prism/Prism_Particle_Get",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Prism_Particle_Get"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 69120,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "5bcfb0ec7f2d370976907d672c63a04a22bc05ebb2cd978d2b34619d69eece7f",
+      "pcm_sha256": "79335c0d2295e3ebc338bf4c6b414cece9b3365e4a7cf4ef9b6c1fb13fe4331b",
+      "frames": 69120
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "TimeAttackTrigger.cs": "59f8ec1433b24070cd17130c3051680e2e293c7036e7560e19698dd55c19ffc7"
+  }
+}

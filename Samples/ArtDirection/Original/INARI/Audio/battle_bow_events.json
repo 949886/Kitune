@@ -1,0 +1,45 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "bow_alarm": [
+      "bow_alarm_01.wav"
+    ]
+  },
+  "renders": {
+    "bow_alarm_01.wav": {
+      "guid": "e8016b90-de4e-44b4-9b3a-302a0cb19a4d",
+      "path": "event:/SFX/Monster/Monster_Bow/Monster_Bow_Call",
+      "timeline_ms": 2900,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Bow_Call"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 140800,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "71893ad1dc8e188af1a0ebe16e7a7773e34d601ad837333ddf073ec279d8c8fb",
+      "pcm_sha256": "50e9fafb8ce6f64e4626d7f79d7bb71326ee1a7f59e8edbeb6f608f6b38d50ac",
+      "frames": 140800
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Monster.bank": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039",
+    "StreamingAssets/SFX_Voice.bank": "070ff69430e8970c1d13ce9175ca0722835826b74dc014fe2f9776063be97ded",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy/EnemyBowMan.cs": "b09536b473d1c43b9815de55a6096a302531745915749c4357a2a3b616e5251e"
+  }
+}

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../AudioZoneSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+family = "ambient"
+event_guid = "71204b02-8028-4463-bd99-fc7a90a3f744"
+parameters = {"CutScene_FatePrincessDead": 0.0, "CutScene_PrincessSummon": 0.0, "Radiance_Hub": 0.0, "Radiance_Engine": 0.0, "Radiance_Boiler": 0.0, "Radiance_Out_5": 0.0, "Radiance_Roomtone": 1.0, "Radiance_Out_3": 0.0, "Radiance_Pressure": 0.0, "Radiance_WarningAlarm": 0.0, "Radiance_Metal": 0.0, "CutScene_Intro_Falling": 0.0, "Radiance_Out_1": 0.0, "Radiance_HeatTrap": 0.0, "Radiance_Out_4": 0.0, "Radiance_Out_2": 0.0}
+once = false
+source_layer_bits = 64
+initially_active = true
+persistence_id = "ebafbde23d3bc466f9655caf847eb77c"
+trigger_size = Vector2(1057.63671875, 432.30078125)
+trigger_offset = Vector2(1509.802734375, -1037.90478515625)
+source_transform = Transform2D(1.0, -0.0, -0.0, 1.0, 32825.60009765625, -6785.5999755859375)

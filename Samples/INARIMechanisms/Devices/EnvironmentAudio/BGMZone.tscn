@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="AudioParameterZone.gd" id="1"]
+[ext_resource type="Resource" path="Presets/level15_11102.tres" id="2"]
+
+[node name="BGMZone" type="Area2D"]
+script = ExtResource("1")
+settings = ExtResource("2")

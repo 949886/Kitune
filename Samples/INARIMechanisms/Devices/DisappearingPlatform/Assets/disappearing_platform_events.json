@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "activate": [
+      "activate_01.wav"
+    ]
+  },
+  "renders": {
+    "activate_01.wav": {
+      "guid": "3fbc10f9-e43b-40ac-b2e5-229b5e0902d0",
+      "path": "event:/SFX/Object/TrapPlatform/TrapPlatform",
+      "timeline_ms": 3245,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "TrapPlatform_Alarm",
+        "TrapPlatform_Close",
+        "TrapPlatform_Open_1"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 158720,
+      "timeline_loop_frames": 0,
+      "random_seed": 0,
+      "sha256": "1df8707a5987d67b22bf239e31a54000aa1446e0d0d50004cdfa0ee342d9bf68",
+      "pcm_sha256": "1fadf6baba71f520d3dd58b00df0615538baef13a920d4d5e19b20daab89f5bd",
+      "frames": 158720
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "DisappearTiles.cs": "3bff7edd6b42c15c46214b952afa4c542556765db396de8685899d5ccf34dcaf"
+  }
+}

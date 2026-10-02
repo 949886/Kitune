@@ -1,0 +1,12 @@
+[
+  {
+    "id": "shiro",
+    "name": "Shiro",
+    "appearance_path": ""
+  },
+  {
+    "id": "white_sailor",
+    "name": "白发水手服",
+    "appearance_path": "res://Game/Characters/WhiteSailor/appearance.json"
+  }
+]

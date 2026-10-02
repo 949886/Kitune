@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="ScenePortal.tscn" id="1"]
+[ext_resource type="Resource" path="Presets/level11.tres" id="2"]
+
+[node name="MaintainedInputPortal" instance=ExtResource("1")]
+settings = ExtResource("2")

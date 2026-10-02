@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="BattleWorkshop.gd" id="1"]
+[ext_resource type="PackedScene" path="../Devices/BattleEncounter/BattleEncounter.tscn" id="2"]
+[ext_resource type="PackedScene" path="../Devices/DoorContact/DoorContact.tscn" id="3"]
+[ext_resource type="PackedScene" path="../Devices/MachineDoor/MachineDoor.tscn" id="4"]
+[ext_resource type="Script" path="WorkshopPlayer.gd" id="5"]
+[ext_resource type="Script" path="../Devices/MachineDoor/DoorSettings.gd" id="6"]
+
+[sub_resource type="Resource" id="EntrySettings"]
+script = ExtResource("6")
+initial_open = true
+collider_release_fraction = 0.801
+
+[sub_resource type="RectangleShape2D" id="PlayerShape"]
+size = Vector2(18, 32)
+
+[node name="BattleWorkshop" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Floor" type="Node2D" parent="Platforms"]
+position = Vector2(512, 424)
+metadata/size = Vector2(1024, 48)
+
+[node name="UpperLeft" type="Node2D" parent="Platforms"]
+position = Vector2(395, 248)
+metadata/size = Vector2(144, 16)
+
+[node name="UpperRight" type="Node2D" parent="Platforms"]
+position = Vector2(718, 248)
+metadata/size = Vector2(144, 16)
+
+[node name="StepLeft" type="Node2D" parent="Platforms"]
+position = Vector2(288, 328)
+metadata/size = Vector2(60, 16)
+
+[node name="StepRight" type="Node2D" parent="Platforms"]
+position = Vector2(810, 328)
+metadata/size = Vector2(60, 16)
+
+[node name="Encounter" parent="." instance=ExtResource("2")]
+position = Vector2(230, 343)
+
+[node name="Contact" parent="." instance=ExtResource("3")]
+position = Vector2(230, 343)
+
+[node name="Entry" parent="." instance=ExtResource("4")]
+position = Vector2(185, 400)
+scale = Vector2(0.7, 0.7)
+settings = SubResource("EntrySettings")
+
+[node name="Exit" parent="." instance=ExtResource("4")]
+position = Vector2(900, 400)
+scale = Vector2(0.7, 0.7)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(120, 400)
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("5")
+jump_speed = 460.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -16)
+shape = SubResource("PlayerShape")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../AudioZoneSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+family = "bgm"
+event_guid = "37ae8689-bdba-4122-ab18-ed08cc7cb747"
+parameters = {"Elite_Battle_Volume": 0.0}
+once = false
+source_layer_bits = 64
+initially_active = true
+persistence_id = "b1318819f630d42f1bc92452d157cbea"
+trigger_size = Vector2(1039.5, 415.12890625)
+trigger_offset = Vector2(-3998.546875, -634.634765625)
+source_transform = Transform2D(1.0, -0.0, -0.0, 1.0, 43593.60009765625, 5067.200012207031)

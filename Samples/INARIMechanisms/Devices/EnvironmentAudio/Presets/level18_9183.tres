@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../AudioZoneSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+family = "reverb"
+event_guid = "42629516-dee9-4503-912e-d320dbb5f786"
+parameters = {"Radiance_Reverb_Room_1": 1.0, "Radiance_Reverb_Room_2": 0.0, "Radiance_Reverb_Room_3": 0.0, "Radiance_Reverb_Room_4": 0.0, "Radiance_Reverb_Gear_1": 0.0, "Radiance_Reverb_Gear_2": 0.0, "Radiance_Reverb_Out_1": 0.0, "Radiance_Reverb_Out_2": 0.0, "Radiance_Reverb_Out_3": 0.0, "Radiance_STG12_MonsterVolume": 0.0, "Radiance_Reverb_Out_4": 0.0, "Hub": 0.0}
+once = false
+source_layer_bits = 64
+initially_active = true
+persistence_id = "20ef6678ec6be024e93e3f867d1ac504"
+trigger_size = Vector2(3240.689453125, 1991.16455078125)
+trigger_offset = Vector2(7609.5341796875, -1508.682373046875)
+source_transform = Transform2D(1.0, -0.0, -0.0, 1.0, -25758.8798828125, 8222.879638671875)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="ObserverRoom.gd" id="1"]
+
+[node name="ObserverMenu" type="Node2D"]
+script = ExtResource("1")
+title = "已返回示例菜单 · 关卡存档保持不变 · R 重新体验"
+background = Color(0.19, 0.14, 0.23, 1)

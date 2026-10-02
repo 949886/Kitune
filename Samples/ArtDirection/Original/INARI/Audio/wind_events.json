@@ -1,0 +1,304 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "wind_buff_trigger": [
+      "wind_buff_trigger_01.wav",
+      "wind_buff_trigger_02.wav",
+      "wind_buff_trigger_03.wav",
+      "wind_buff_trigger_04.wav",
+      "wind_buff_trigger_05.wav",
+      "wind_buff_trigger_06.wav",
+      "wind_buff_trigger_07.wav",
+      "wind_buff_trigger_08.wav"
+    ],
+    "wind_buff_renewal": [
+      "wind_buff_renewal_01.wav",
+      "wind_buff_renewal_02.wav",
+      "wind_buff_renewal_03.wav",
+      "wind_buff_renewal_04.wav",
+      "wind_buff_renewal_05.wav",
+      "wind_buff_renewal_06.wav",
+      "wind_buff_renewal_07.wav",
+      "wind_buff_renewal_08.wav"
+    ]
+  },
+  "renders": {
+    "wind_buff_trigger_01.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 0,
+      "sha256": "285494a28280dc39731bf0c11dbc00c611c1f5181997e179fe861dbd17a8ee41",
+      "pcm_sha256": "7a4c66de8059f0676b98a6c69c1d7f6973318f07d061812af0796a72563ef4b2",
+      "frames": 90624
+    },
+    "wind_buff_trigger_02.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 1,
+      "sha256": "8ddd40af2fd39bd13eb65e68389b45b7afb8393935e056d7af3c894d051bd50e",
+      "pcm_sha256": "7958ce92bd5a9e57e22671b00a2e7f5d64760d52320bfce5c002ca80e60880be",
+      "frames": 90624
+    },
+    "wind_buff_trigger_03.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 2,
+      "sha256": "306cb7b9c672322fbdbf3463648e48e64a845ce8f6d15805a72651f886527ec4",
+      "pcm_sha256": "d7073ab03eb7a18307d9660d7cd42e504ba2b149bf082900ffaa4fa56635cca1",
+      "frames": 90624
+    },
+    "wind_buff_trigger_04.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 3,
+      "sha256": "0c8d5dbb5e6726a0735e127ee262d27781231b9d03038dc3ca5f1fdcf30450ae",
+      "pcm_sha256": "e5fa2eaaf34d7fd1d871950bd1db394df12f05c03ac9ac66a36530d3932673c2",
+      "frames": 90624
+    },
+    "wind_buff_trigger_05.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 4,
+      "sha256": "085d1212d0f89cebeb5727759834aa5448af89c0106b77f2e2d5c34e9a69c297",
+      "pcm_sha256": "5571bf551031e6c7ae46199b303dbcbf82515cb21249713f5b62545583f2ac10",
+      "frames": 90624
+    },
+    "wind_buff_trigger_06.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 5,
+      "sha256": "8ea531e2a8a480832a9bc1823a2084fe334c2d0d0aabce817c6edec301bba149",
+      "pcm_sha256": "63107322d41ca1e67009176cb97eb61b166eb0bc6411f93a84e16890d1846433",
+      "frames": 90624
+    },
+    "wind_buff_trigger_07.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 6,
+      "sha256": "d9797075f598ffc5b632077173e9fc42e5b9e25f3ea94fcba2706a6fddcea1b8",
+      "pcm_sha256": "9a8b3e3ac5a6c1c4c949d81ff84a184ba6ff110a0ad3c2b68d7e026e623c87eb",
+      "frames": 90624
+    },
+    "wind_buff_trigger_08.wav": {
+      "guid": "779d64e9-ebd8-4540-95e9-7c81cd8f57a1",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Object",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Object"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 7,
+      "sha256": "90c1815a6107512eb1d7c777da1ddbec47f7d56a094e2f746e4c40bcfc77d6eb",
+      "pcm_sha256": "ce5740486fbe1960dffd39ff94af6fec73d52289181f265e577b2cdb4fa06b21",
+      "frames": 90624
+    },
+    "wind_buff_renewal_01.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 0,
+      "sha256": "8bc1e90fc70c9678f7ca6237b2b0effaf75173455fef9d8f8dfba391fde2ef31",
+      "pcm_sha256": "4281f5d2d8af7c97da0609dc135bca4b60743e0e7b737cbe63f3ee71912c402d",
+      "frames": 90624
+    },
+    "wind_buff_renewal_02.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 1,
+      "sha256": "4a21f43ecedefc1fece366246973467b9b9ee9b2c622b0b0df34a7dd41e473a5",
+      "pcm_sha256": "255733d4bcddb09e2ebad00195fbd7ecac0c8449554f90b7ee5a4d53f18ec6eb",
+      "frames": 90624
+    },
+    "wind_buff_renewal_03.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 2,
+      "sha256": "9b272fbdc2933d932f4bcf41b81b01c2ced8873e35a286fac97f34718f443495",
+      "pcm_sha256": "5e3246d224fa173dc3d7f97332ba3ebfc66860cfada5a8b016923fc2326d0b0b",
+      "frames": 90624
+    },
+    "wind_buff_renewal_04.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 3,
+      "sha256": "3f601c5157bf5058e45865d5fd9a8dc29c2728af10a302d9bfe32a81bc9799a5",
+      "pcm_sha256": "86ddc38986696550d9d55687767846046bc554902c448300b648d672120d7411",
+      "frames": 90624
+    },
+    "wind_buff_renewal_05.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 4,
+      "sha256": "176a2075cd1a0769f3195f374afffd41ee912c705406d90771ee7116ad370256",
+      "pcm_sha256": "43315fe302e8987312bb992a81435708e9d333a2ead9f829fede5592f2fc1358",
+      "frames": 90624
+    },
+    "wind_buff_renewal_06.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 5,
+      "sha256": "ed4559d7268f9c206ede5fb0b856321c59688da5cac819fd161300c6e7c21074",
+      "pcm_sha256": "b5cbe9c508366b3a312082a13de99e3a37c5c25bf2df086c4b26aceb3840a0e5",
+      "frames": 90624
+    },
+    "wind_buff_renewal_07.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 6,
+      "sha256": "cd13f35ab21c241cf3e46aabeea5c24456e29a74c323e4623b6eba044be0874b",
+      "pcm_sha256": "3630e66234875ac7a56de47eaa87fa576eede0961e871786506baadc0a27ef0b",
+      "frames": 90624
+    },
+    "wind_buff_renewal_08.wav": {
+      "guid": "ada01035-2e99-4d6f-a13a-8bd5d41aa441",
+      "path": "event:/SFX/Object/WindBuff/WindBuff_Player",
+      "timeline_ms": 1850,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "WindBuff_Player"
+      ],
+      "pre_start_frames": 5120,
+      "playback_frames": 90624,
+      "random_seed": 7,
+      "sha256": "f8114c0d3abd2d7afe27083aaf5fbdc6fc4328fe917fc61bc45644f7d3c777f1",
+      "pcm_sha256": "e53b4db8ae29114e5919ab9300d3d126a11af677ab5cf8c92c65d8b3ca2ba606",
+      "frames": 90624
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Object.bank": "0b08e60592f53ef49d51c2c490178c3c9a154fd61383ff7805d49077e679d5fa",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy.StateMachine/EnemyStateMachine.cs": "9f39be24dcfafe7aafb09d5836580a387f0c7f6fb1598c9d1fbc2415a5ecfa00",
+    "MoveSpeedChangeTrigger.cs": "6d2b8295a3ba566031e3715de3403a0df7028dff82cded035a5cfe9ef6246ebd",
+    "Enemy/EnemyRifleMan.cs": "1486b3ab2c1e165ef68d6c42254fcf55675307022ffd5e692014fa02ea4ad8cf",
+    "Enemy/EnemyBowMan.cs": "b09536b473d1c43b9815de55a6096a302531745915749c4357a2a3b616e5251e",
+    "Enemy/EnemyBombMan.cs": "bf07b1745d2a5ad3e67def493cde54a736bca72fa674e8cc6998d457e8199449"
+  }
+}

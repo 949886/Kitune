@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="RangeSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+base_distance = 35.0
+pixels_per_unit = 16
+flight_speed = 95.0

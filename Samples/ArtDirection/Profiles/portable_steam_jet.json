@@ -1,0 +1,16 @@
+[
+  {
+    "asset_folder": "SteamJet",
+    "scene": "level13",
+    "root_go": 687,
+    "root_name": "SteamTrap",
+    "scene_path": "Assets/Scenes/Stage_ART/Scene_GameDesign_STG0_1_ART.unity"
+  },
+  {
+    "asset_folder": "TutorialFlame",
+    "scene": "level24",
+    "root_go": 566,
+    "root_name": "SteamTrap (2)",
+    "scene_path": "Assets/Scenes/Stage_ART/Scene_GameDesign_STG0_2_ART.unity"
+  }
+]

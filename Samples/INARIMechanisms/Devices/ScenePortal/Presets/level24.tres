@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../PortalSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trigger_size = Vector2(470.5107421875, 687.6799926757812)
+trigger_offset = Vector2(143.98291015625, -0.0)
+destination = "level26"
+once = true
+maintain_input = true
+input_direction = Vector2(1.0, -0.0)

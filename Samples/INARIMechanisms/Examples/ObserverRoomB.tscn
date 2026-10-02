@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="ObserverRoom.gd" id="1"]
+[ext_resource type="PackedScene" path="../Devices/Lever/Lever.tscn" id="2"]
+[ext_resource type="PackedScene" path="../Devices/SceneObserver/SceneObserver.tscn" id="3"]
+[ext_resource type="Resource" path="../Devices/SceneObserver/Presets/level28_8972.tres" id="4"]
+
+[node name="ObserverRoomB" type="Node2D"]
+script = ExtResource("1")
+title = "场景记录已保存 · 再拨动拉杆返回示例菜单"
+background = Color(0.12, 0.22, 0.21, 1)
+return_to_menu = true
+
+[node name="Lever" parent="." instance=ExtResource("2")]
+position = Vector2(480, 400)
+
+[node name="Observer" parent="." instance=ExtResource("3")]
+settings = ExtResource("4")

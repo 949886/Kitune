@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="DoorSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+initial_open = false
+collider_release_fraction = 0.8009999990463257

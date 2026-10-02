@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="WindBuffSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+extra_speed_pixels = PackedFloat32Array(0.0, 64.0, 96.0)
+durations = PackedFloat32Array(0.0, 6.0, 12.0)

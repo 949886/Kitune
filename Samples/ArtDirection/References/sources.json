@@ -1,0 +1,32 @@
+[
+  {
+    "file": "inari_shaft.jpg",
+    "game": "INARI",
+    "developer": [
+      "1HP STUDIO"
+    ],
+    "store": "https://store.steampowered.com/app/3910680/",
+    "screenshot_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3910680/9a5e847ff0a81a1ec908b24e865fde5a46bdd56b/ss_9a5e847ff0a81a1ec908b24e865fde5a46bdd56b.1920x1080.jpg?t=1785728900",
+    "source": "Official Steam screenshot, unchanged",
+    "sha256": "4D1BBE58540471B0CE01B17FE3C235069DDE4DCB249898179F77265587EC0FF2"
+  },
+  {
+    "file": "inari_seal.jpg",
+    "game": "INARI",
+    "developer": [
+      "1HP STUDIO"
+    ],
+    "store": "https://store.steampowered.com/app/3910680/",
+    "screenshot_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3910680/21842047fd1d83aebbea9872e699fb3d5acd8619/ss_21842047fd1d83aebbea9872e699fb3d5acd8619.1920x1080.jpg?t=1785728900",
+    "source": "Official Steam screenshot, unchanged",
+    "sha256": "294B97109A206E863957F7DE3B65AAD8018F854D746475449DD2A00519AED1B6"
+  },
+  {
+    "file": "inari_tutorial_flame_user.png",
+    "game": "INARI",
+    "source": "User-provided tutorial flamethrower screenshot, unchanged",
+    "received": "2026-09-23",
+    "context": "User identifies the tutorial after leaving the temple; ceiling nozzle with continuous downward yellow-to-orange flame.",
+    "sha256": "1e63d5585fc38df4290af308ec42a3fbf8f825d6bb8f0dff18e1eab20dd16893"
+  }
+]

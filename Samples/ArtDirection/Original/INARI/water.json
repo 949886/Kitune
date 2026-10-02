@@ -1,0 +1,144 @@
+{
+  "scene": "level25",
+  "pixels_per_unit": 16,
+  "camera": {
+    "fov": 123.0,
+    "near": 0.30000001192092896,
+    "far": 4529.5,
+    "offset": {
+      "x": 43.0,
+      "y": -21.0
+    },
+    "target_size": [
+      1,
+      1
+    ],
+    "projection_note": "Perspective aspect derives from Camera.targetTexture (1x1), not the feature's later 1920x1080 color target."
+  },
+  "feature": {
+    "resolution": {
+      "x": 1920,
+      "y": 1080
+    },
+    "textureFormat": 0,
+    "layerMask": {
+      "m_Bits": 4294967295
+    },
+    "clearColor": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "useDepth": 0,
+    "updateEveryFrame": 1
+  },
+  "material": {
+    "_Speed": 0.009999999776482582,
+    "_Strength": 0.003000000026077032,
+    "_Tilling": 2.0,
+    "_SurfaceSpeed": 1.0
+  },
+  "normal": {
+    "name": "723-normal",
+    "color_space": 0,
+    "format": 12,
+    "mips": [
+      {
+        "path": "Textures/WaterNormal/mip_0.png",
+        "width": 512,
+        "height": 512,
+        "rgba_sha256": "f2cfc21a102284a91736bf17ab1a3a58b5aa3afdf15f82216c3b4bc473eabe64"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_1.png",
+        "width": 256,
+        "height": 256,
+        "rgba_sha256": "a309eaa7162a1cfa885c4ffe1d7d1058f1764c67325ae466f9d7ab8df0d88e4f"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_2.png",
+        "width": 128,
+        "height": 128,
+        "rgba_sha256": "8bc1457d7f7397461c5cf6ce59ff78fe119216d7ddb40d310a9312e445f7c4dd"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_3.png",
+        "width": 64,
+        "height": 64,
+        "rgba_sha256": "9ee612f0c1ca069384bcb4e4f300fcd88babcfaf180d1155f8b54cbe748f010c"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_4.png",
+        "width": 32,
+        "height": 32,
+        "rgba_sha256": "58f38383c7a9ab676bb598b406e353fba9924d83e94bb6b56aede61e2138df10"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_5.png",
+        "width": 16,
+        "height": 16,
+        "rgba_sha256": "347ea97d1ebe1270b1ca8d79c7b92eab49065b5932c19a10372a01b346a38d4f"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_6.png",
+        "width": 8,
+        "height": 8,
+        "rgba_sha256": "345ddcc3bfe5ba8ed06197afa38278011d344395655491298be6dc1c0441cb8a"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_7.png",
+        "width": 4,
+        "height": 4,
+        "rgba_sha256": "ef1167cf39643d5ba4a76da7acc3fa12707fc18e71793365b104fd9b757ce4d9"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_8.png",
+        "width": 2,
+        "height": 2,
+        "rgba_sha256": "3406919d3b999c8ffe50869bafffbf3d6224979e495b875e0907bcd65ab03682"
+      },
+      {
+        "path": "Textures/WaterNormal/mip_9.png",
+        "width": 1,
+        "height": 1,
+        "rgba_sha256": "bab6f18e8d49b1b8969f1fa43319477cecd4f2ec80725cee1007543503238eb8"
+      }
+    ],
+    "settings": {
+      "m_FilterMode": 1,
+      "m_Aniso": 1,
+      "m_MipBias": 0.0,
+      "m_WrapU": 0,
+      "m_WrapV": 0,
+      "m_WrapW": 0
+    }
+  },
+  "program": {
+    "program_index": 8,
+    "parameter_index": 6,
+    "keywords": [],
+    "program_sha256": "c6211c71854599d6a8344b61f927589f0ddab8e72568d6463bb494b8c05898f2",
+    "parameters_sha256": "933aa9d77e06670b526ebaf8521aa0015620cb88043012ed366d16998a154a5b",
+    "bindings": {
+      "$Globals": {
+        "_GlobalMipBias": 80,
+        "_TimeParameters": 304,
+        "_WorldSpaceCameraPos": 320
+      },
+      "UnityPerMaterial": {
+        "_Speed": 16,
+        "_Strength": 20,
+        "_Tilling": 24,
+        "_SurfaceSpeed": 28
+      }
+    }
+  },
+  "source_files": {
+    "level25": "82c3e33581c75f45082de164f8dd70d375ab061d0e1b43dc5adb02cfac334e2f",
+    "sharedassets25.assets": "b52b67cca03ee0f77275b4f23e0830128825c96b897ed30535e91e3269e4bfb0",
+    "sharedassets25.assets.resS": "0328d03e5e55ea484453533bbde683963fe68ba44851af804d86ffeeb9ca7fad",
+    "globalgamemanagers.assets": "4d03b313f73e1c5b96e76edd48977427dc52710d14cb490406b9d28b025c9589",
+    "Managed/Assembly-CSharp.dll": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0"
+  }
+}

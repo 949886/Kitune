@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="../EncounterSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+on_field = false
+phase_delay = 0.25
+end_delay = 0.5
+arrival_delay = 1.2
+peaceful_delay = 0.25
+waves = Array[PackedStringArray]([PackedStringArray("wave_1_enemy_1", "wave_1_enemy_2"), PackedStringArray("wave_2_enemy_1", "wave_2_enemy_2", "wave_2_enemy_3"), PackedStringArray("wave_3_enemy_1"), PackedStringArray("wave_4_enemy_1", "wave_4_enemy_2")])
+placements = {"wave_1_enemy_1": Vector2(251.361328125, 310.88426971435547), "wave_1_enemy_2": Vector2(41.119140625, 134.88449096679688), "wave_2_enemy_1": Vector2(-107.197265625, 310.88426971435547), "wave_2_enemy_2": Vector2(78.560546875, 134.8844757080078), "wave_2_enemy_3": Vector2(267.361328125, 310.88427734375), "wave_3_enemy_1": Vector2(184.962890625, 310.88427734375), "wave_4_enemy_1": Vector2(-112.955078125, 310.88427734375), "wave_4_enemy_2": Vector2(256.16015625, 134.88436889648438)}
+arrival_kinds = {"wave_1_enemy_1": "stamp", "wave_1_enemy_2": "rope", "wave_2_enemy_1": "stamp", "wave_2_enemy_2": "stamp", "wave_2_enemy_3": "stamp", "wave_3_enemy_1": "stamp", "wave_4_enemy_1": "rope", "wave_4_enemy_2": "rope"}
+thresholds = {"wave_3_enemy_1": 0.75}
+arrival_offsets = {"stamp": Vector2(0, -73.5999984741211), "rope": Vector2(0, -32.0)}

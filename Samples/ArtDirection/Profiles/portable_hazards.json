@@ -1,0 +1,9 @@
+{
+  "scene": "level22",
+  "checkpoint_index": 0,
+  "spike_index": 0,
+  "spike_shape": 0,
+  "spike_path": 0,
+  "visual_root_prefix": "HeatTrap",
+  "visual_parent_name": "Trap"
+}

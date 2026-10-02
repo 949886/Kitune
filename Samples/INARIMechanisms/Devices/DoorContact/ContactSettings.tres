@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="ContactSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+trigger_size = Vector2(24.0, 383.42462158203125)
+trigger_offset = Vector2(0.0, -133.79232788085938)
+once = false
+door_once = true

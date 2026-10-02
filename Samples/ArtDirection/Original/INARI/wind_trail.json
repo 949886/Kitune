@@ -1,0 +1,1 @@
+{"trail":"PlayerAmbientTrail","dust":"Eff_Player_Run","frames":[0,15,35],"previous_normalized_time":1.0,"source_sha256":{"PlayerStateMachine.cs":"22ccef4936bf7abd844841db0863b56d546aac34ebe2a0cc9077c5383a13e68d","PlayerRunTimeEffectManager.cs":"720235569c428e0513790969afe87e9508616d7ce9357ffa5118693a886e2c03"}}

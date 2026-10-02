@@ -1,0 +1,4356 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/AuthoredInariStage.gd" id="1_6yp7f"]
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/InariSceneSprite.gd" id="2_0bwfk"]
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/InariSceneLight.gd" id="3_4qr5a"]
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/StudyRoute.gd" id="4_wsqh0"]
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/StudyWaypoint.gd" id="5_j6sv2"]
+[ext_resource type="Script" path="res://Samples/ArtDirection/Runtime/InariCameraRig.gd" id="6_1w0fi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrida"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7836k"]
+size = Vector2(21200, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qmo1"]
+size = Vector2(21200, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgk6y"]
+size = Vector2(21200, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb3tr"]
+size = Vector2(21200, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xtfk"]
+size = Vector2(160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68ecq"]
+size = Vector2(160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el1bi"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btqbk"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs3j8"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj6ed"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avcsk"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h5hw"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x4id"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cafcm"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_536ni"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jxvo"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgmkc"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfm5j"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q00sn"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lppyl"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe5h7"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ngy"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uut5t"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hsgp"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws2vc"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80kfa"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5osda"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwfeq"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vow"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fac13"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grv6l"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77fsj"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lp0u"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0phf"]
+size = Vector2(144, 16)
+
+[node name="INARI_SealWorld" type="Node2D" unique_id=1277027023 node_paths=PackedStringArray("scenery_root", "terrain_root", "light_root", "spawn_root", "trigger_root", "authored_route", "authored_camera")]
+script = ExtResource("1_6yp7f")
+source_archive = "res://Samples/ArtDirection/Original/INARI/level25.json"
+scenery_root = NodePath("Scenery")
+terrain_root = NodePath("Terrain")
+light_root = NodePath("Lights")
+spawn_root = NodePath("EnemySpawns")
+trigger_root = NodePath("WindStations")
+authored_route = NodePath("Route")
+authored_camera = NodePath("OriginalCameraRig")
+camera_settings = {
+"damping": [0.55, 0.55, 0.55],
+"distance": 21.5,
+"excerpt": {
+"bindings": [{
+"asset": 501.0,
+"clip": 46.0,
+"duration": 14.016666666666708,
+"start": 75.10000000000001,
+"track": 556.0,
+"values": {
+"position": {
+"x": 0.0,
+"y": 11.5,
+"z": 0.0
+}
+}
+}, {
+"asset": 607.0,
+"clip": 44.0,
+"duration": 2.8833333611488343,
+"start": 46.53333333333332,
+"track": 640.0,
+"values": {
+"m_AmplitudeGain": 0.0,
+"m_FrequencyGain": 0.0
+}
+}],
+"duration": 25.78939395745587,
+"sample_time": 83.825,
+"shot": 513.0,
+"start": 77.54393937587746
+},
+"follow": {
+"fixed_position": [0.0, -184.0],
+"game_object": "ShotPoint",
+"transform": 357.0
+},
+"framing": {
+"m_AdjustmentMode": 0.0,
+"m_BiasX": 0.0,
+"m_BiasY": 0.0,
+"m_CameraDistance": 21.5,
+"m_CenterOnActivate": 1.0,
+"m_DeadZoneDepth": 0.0,
+"m_DeadZoneHeight": 0.0,
+"m_DeadZoneWidth": 0.0,
+"m_GroupFramingMode": 2.0,
+"m_GroupFramingSize": 0.8,
+"m_LookaheadIgnoreY": 0.0,
+"m_LookaheadSmoothing": 0.0,
+"m_LookaheadTime": 0.0,
+"m_MaxDollyIn": 5000.0,
+"m_MaxDollyOut": 5000.0,
+"m_MaximumDistance": 5000.0,
+"m_MaximumFOV": 60.0,
+"m_MaximumOrthoSize": 5000.0,
+"m_MinimumDistance": 1.0,
+"m_MinimumFOV": 3.0,
+"m_MinimumOrthoSize": 1.0,
+"m_ScreenX": 0.5,
+"m_ScreenY": 0.5,
+"m_SoftZoneHeight": 0.8,
+"m_SoftZoneWidth": 0.8,
+"m_TargetMovementOnly": 1.0,
+"m_TrackedObjectOffset": {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"m_UnlimitedSoftZone": 0.0,
+"m_XDamping": 0.55,
+"m_YDamping": 0.55,
+"m_ZDamping": 0.55
+},
+"implementation_sha256": "a695b469f0376ac5aebd6c14ae2b6d2ca386bacf92d604e04e48e2adf1acc1af",
+"impulses": {
+"default_setting": "Full",
+"entries": {
+"Attack": {
+"definition": {
+"m_AmplitudeGain": 5.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.2,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1910.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"CashPack": {
+"definition": {
+"m_AmplitudeGain": 5.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.2,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1910.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"Damaged": {
+"definition": {
+"m_AmplitudeGain": 5.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 500.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.45,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1940.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"InteractiveWall": {
+"definition": {
+"m_AmplitudeGain": 7.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.3,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1907.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"MovingPlatformTrigger": {
+"definition": {
+"m_AmplitudeGain": 5.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.2,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1910.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenDash": {
+"definition": {
+"m_AmplitudeGain": 0.65,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 500.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.15,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1864.0,
+"noise_name": "Cinemachine_ShurikenMove",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1944.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenDashDie": {
+"definition": {
+"m_AmplitudeGain": 3.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.35,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1908.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenDispenser": {
+"definition": {
+"m_AmplitudeGain": 5.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.2,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1910.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenStack1": {
+"definition": {
+"m_AmplitudeGain": 8.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 500.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.3,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1862.0,
+"noise_name": "Cinemachine_PlayerAttack",
+"position_noise": [{
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1942.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenStack2": {
+"definition": {
+"m_AmplitudeGain": 11.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 500.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.4,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1862.0,
+"noise_name": "Cinemachine_PlayerAttack",
+"position_noise": [{
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1943.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"ShurikenStack3": {
+"definition": {
+"m_AmplitudeGain": 14.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 500.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.5,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1862.0,
+"noise_name": "Cinemachine_PlayerAttack",
+"position_noise": [{
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1941.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+},
+"StrongAttack": {
+"definition": {
+"m_AmplitudeGain": 10.0,
+"m_CustomImpulseShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DirectionMode": 1.0,
+"m_DissipationDistance": 1000.0,
+"m_DissipationMode": 0.0,
+"m_DissipationRate": 0.0,
+"m_FrequencyGain": 8.0,
+"m_ImpactRadius": 0.0,
+"m_ImpulseChannel": 1.0,
+"m_ImpulseDuration": 0.2,
+"m_ImpulseShape": 0.0,
+"m_ImpulseType": 3.0,
+"m_PropagationSpeed": 100000.0,
+"m_Randomize": 1.0,
+"m_RepeatMode": 0.0,
+"m_TimeEnvelope": {
+"m_AttackShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_AttackTime": 0.0,
+"m_DecayShape": {
+"m_Curve": [],
+"m_PostInfinity": 2.0,
+"m_PreInfinity": 2.0,
+"m_RotationOrder": 4.0
+},
+"m_DecayTime": 0.4,
+"m_HoldForever": 0.0,
+"m_ScaleWithImpact": 1.0,
+"m_SustainTime": 0.05
+}
+},
+"noise_id": 1863.0,
+"noise_name": "Cinemachine_PlayerDamaged",
+"position_noise": [{
+"X": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Y": {
+"Amplitude": 0.3,
+"Constant": 1.0,
+"Frequency": 1.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}, {
+"X": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Y": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+},
+"Z": {
+"Amplitude": 0.0,
+"Constant": 0.0,
+"Frequency": 0.0
+}
+}],
+"source_id": 1909.0,
+"velocity": {
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+}
+}
+},
+"listener": {
+"m_ApplyAfter": 3.0,
+"m_ChannelMask": 1.0,
+"m_Gain": 1.0,
+"m_ReactionSettings": {
+"m_AmplitudeGain": 0.0,
+"m_Duration": 0.0,
+"m_FrequencyGain": 0.0,
+"m_NoiseOffsets": {
+"x": -752.94165,
+"y": 383.77475,
+"z": -304.7217
+},
+"m_SecondaryNoise": {
+"m_FileID": 0.0,
+"m_PathID": 0.0
+}
+},
+"m_Use2DDistance": 1.0,
+"m_UseCameraSpace": 0.0
+},
+"source_sha256": {
+"Managed/Assembly-CSharp.dll": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0",
+"Managed/Cinemachine.dll": "a695b469f0376ac5aebd6c14ae2b6d2ca386bacf92d604e04e48e2adf1acc1af",
+"level1": "64804e2f52aaaeb3a8df41947f0a6fe9f8ad39dea5df18a542198dc6b7b352a8",
+"sharedassets1.assets": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+},
+"strengths": {
+"Full": 1.0,
+"Half": 0.5,
+"Off": 0.0
+}
+},
+"lens": {
+"Dutch": 0.0,
+"FarClipPlane": 1000.0,
+"FieldOfView": 60.000004,
+"FocusDistance": 10.0,
+"GateFit": 2.0,
+"LensShift": {
+"x": 0.0,
+"y": 0.0
+},
+"ModeOverride": 0.0,
+"NearClipPlane": 0.3,
+"OrthographicSize": 5.0,
+"m_SensorSize": {
+"x": 1.0,
+"y": 1.0
+}
+},
+"screen_position": [0.5, 0.5],
+"sha256": "82c3e33581c75f45082de164f8dd70d375ab061d0e1b43dc5adb02cfac334e2f",
+"source": "level25",
+"tracked_offset": {
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"virtual_camera": 683.0
+}
+
+[node name="Scenery" type="Node2D" parent="." unique_id=2100900751]
+
+[node name="Depth_000" type="Node2D" parent="Scenery" unique_id=810294595]
+scale = Vector2(0.71666664, 0.71666664)
+metadata/native_depth = 8.5
+metadata/follow_camera_x = false
+
+[node name="Sprite_0000_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=453454491]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(4043.9993, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 43.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (38)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 4043.9993591308594, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 4043.9993591308594, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0001_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1037654984]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-4936, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 44.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (29)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -4936.000152587891, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -4936.000152587891, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0002_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=87956433]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(2923.9993, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 46.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (39)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 2923.9993591308594, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 2923.9993591308594, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0004_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1968106665]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-1536, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 55.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (19)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -1536.000030517578, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -1536.000030517578, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0005_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=402404006]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(2359.9983, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 61.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (42)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 2359.9983825683594, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 2359.9983825683594, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0006_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=979495803]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-4348, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 63.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (35)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -4348.000152587891, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -4348.000152587891, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0007_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1046133234]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-6111.9995, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 65.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (30)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -6111.999664306641, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -6111.999664306641, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0008_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1777300518]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(4655.998, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 72.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (44)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 4655.997894287109, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 4655.997894287109, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0009_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=2077121474]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-7231.9995, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 26.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (31)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -7231.999664306641, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -7231.999664306641, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0010_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1571913850]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(688, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 82.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (17)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 688.0, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 688.0, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0011_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1975564465]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-2100.0002, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 88.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (37)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -2100.0001525878906, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -2100.0001525878906, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0013_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=340833348]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(3479.9983, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 20.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (43)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 3479.9983825683594, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 3479.9983825683594, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0015_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=922631378]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-5500.001, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 99.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (34)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5500.001129150391, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -5500.001129150391, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0016_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1213160551]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-3240.0005, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 100.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (36)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -3240.0003967285156, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -3240.0003967285156, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0017_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=2043838674]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(1215.9989, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 101.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (41)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1215.9988708496094, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 1215.9988708496094, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0018_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=612682964]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(1779.9989, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 105.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (40)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1779.9988708496094, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 1779.9988708496094, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0019_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1860681846]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-6676.0005, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 106.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (32)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -6676.000640869141, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -6676.000640869141, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0020_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=2120549649]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-976, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 8.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (18)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -976.000030517578, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -976.000030517578, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0021_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=1611695957]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-2676.0002, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 3.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (20)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -2676.0001525878906, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -2676.0001525878906, -731.0607833862305],
+"visible": true
+}
+
+[node name="Sprite_0022_props_TenshinLand_5" type="Node2D" parent="Scenery/Depth_000" unique_id=568443664]
+modulate = Color(0.1981132, 0.1981132, 0.1981132, 1)
+z_index = 2
+position = Vector2(-3784.0002, -731.0608)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.19811320304870603, 0.19811320304870603, 0.19811320304870603, 1.0],
+"flip": [false, false],
+"go": 2.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (21)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 8.5,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -3784.0001525878906, -731.0607833862305]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -3784.0001525878906, -731.0607833862305],
+"visible": true
+}
+
+[node name="Depth_001" type="Node2D" parent="Scenery" unique_id=1754292952]
+scale = Vector2(0.61870503, 0.61870503)
+metadata/native_depth = 13.25
+metadata/follow_camera_x = false
+
+[node name="Sprite_0003_props_TenshinLand_4" type="Node2D" parent="Scenery/Depth_001" unique_id=402639086]
+modulate = Color(0.2924528, 0.2924528, 0.2924528, 1)
+z_index = 2
+position = Vector2(0.4608, 1.552002)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.2924528, 0.2924528, 0.2924528, 1.0],
+"flip": [false, false],
+"go": 38.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (3)",
+"size": [21179.2, 157.20436],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 13.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, 1.552002]
+},
+"sprite": "sharedassets25_142",
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, 1.552002],
+"visible": true
+}
+
+[node name="Sprite_0014_props_TenshinLand_15" type="Node2D" parent="Scenery/Depth_001" unique_id=745754737]
+modulate = Color(0.2924528, 0.2924528, 0.2924528, 1)
+z_index = 2
+position = Vector2(0.4608, -63.679996)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.2924528, 0.2924528, 0.2924528, 1.0],
+"flip": [false, false],
+"go": 98.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (6)",
+"size": [21179.2, 52.969975],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 13.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -63.67999649047851]
+},
+"sprite": "sharedassets25_303",
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -63.67999649047851],
+"visible": true
+}
+
+[node name="Depth_002" type="Node2D" parent="Scenery" unique_id=368140467]
+scale = Vector2(0.89359933, 0.89359933)
+metadata/native_depth = 2.56
+metadata/follow_camera_x = false
+
+[node name="Sprite_0012_props_TenshinLand_4" type="Node2D" parent="Scenery/Depth_002" unique_id=551767666]
+modulate = Color(0.2924528, 0.2924528, 0.2924528, 1)
+z_index = 2
+position = Vector2(0.4608, -72)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.2924528, 0.2924528, 0.2924528, 1.0],
+"flip": [false, false],
+"go": 97.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (2)",
+"size": [21179.2, 28.47988],
+"sort": [1.0, -22.0],
+"spatial": {
+"depth": 2.56,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -71.99999713897705]
+},
+"sprite": "sharedassets25_142",
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -71.99999713897705],
+"visible": true
+}
+
+[node name="Sprite_0025_props_TenshinLand_16" type="Node2D" parent="Scenery/Depth_002" unique_id=821754138]
+modulate = Color(0.5283019, 0.5283019, 0.5283019, 1)
+z_index = 4
+position = Vector2(-5284.019, -638.4)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5283019, 0.5283019, 0.5283019, 1.0],
+"flip": [false, false],
+"go": 110.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (8)",
+"size": [10574.927, 405.44882],
+"sort": [1.0, -21.0],
+"spatial": {
+"depth": 2.56,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5284.0191804766655, -638.4000091552734]
+},
+"sprite": "sharedassets25_158",
+"transform": [1.0, 0.0, 0.0, 1.0, -5284.0191804766655, -638.4000091552734],
+"visible": true
+}
+
+[node name="Sprite_0029_props_TenshinLand_16" type="Node2D" parent="Scenery/Depth_002" unique_id=880913765]
+modulate = Color(0.5283019, 0.5283019, 0.5283019, 1)
+z_index = 6
+position = Vector2(5284.941, -265.60962)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5283019, 0.5283019, 0.5283019, 1.0],
+"flip": [false, false],
+"go": 121.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (7)",
+"size": [10574.927, 405.44882],
+"sort": [1.0, -20.0],
+"spatial": {
+"depth": 2.56,
+"parallel": true,
+"transform": [-1.0, 0.0, 0.0, 1.0, 5284.9407804608345, -265.60960388183594]
+},
+"sprite": "sharedassets25_158",
+"transform": [-1.0, 0.0, 0.0, 1.0, 5284.9407804608345, -265.60960388183594],
+"visible": true
+}
+
+[node name="Sprite_0030_props_TenshinLand_16" type="Node2D" parent="Scenery/Depth_002" unique_id=1928376451]
+modulate = Color(0.5283019, 0.5283019, 0.5283019, 1)
+z_index = 6
+position = Vector2(-5284.019, -265.60962)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5283019, 0.5283019, 0.5283019, 1.0],
+"flip": [false, false],
+"go": 62.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (5)",
+"size": [10574.927, 405.44882],
+"sort": [1.0, -20.0],
+"spatial": {
+"depth": 2.56,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5284.0191804766655, -265.60960388183594]
+},
+"sprite": "sharedassets25_158",
+"transform": [1.0, 0.0, 0.0, 1.0, -5284.0191804766655, -265.60960388183594],
+"visible": true
+}
+
+[node name="Depth_003" type="Node2D" parent="Scenery" unique_id=1783060872]
+scale = Vector2(0.69941443, 0.69941443)
+metadata/native_depth = 9.24
+metadata/follow_camera_x = false
+
+[node name="Sprite_0023_props_TenshinLand_9" type="Node2D" parent="Scenery/Depth_003" unique_id=896700416]
+modulate = Color(0.28555533, 0.46807045, 0.6509434, 1)
+z_index = 4
+position = Vector2(280.8, -59.68)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.28555533, 0.46807045, 0.6509434, 1.0],
+"flip": [false, false],
+"go": 85.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Pill (46)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -21.0],
+"spatial": {
+"depth": 9.24,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 280.8, -59.68]
+},
+"sprite": "sharedassets25_309",
+"transform": [1.0, 0.0, 0.0, 1.0, 280.8, -59.68],
+"visible": true
+}
+
+[node name="Sprite_0024_props_TenshinLand_9" type="Node2D" parent="Scenery/Depth_003" unique_id=683223889]
+modulate = Color(0.28555533, 0.46807045, 0.6509434, 1)
+z_index = 4
+position = Vector2(639.1808, -59.68)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.28555533, 0.46807045, 0.6509434, 1.0],
+"flip": [false, false],
+"go": 70.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Pill (45)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -21.0],
+"spatial": {
+"depth": 9.24,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 639.1808, -59.68]
+},
+"sprite": "sharedassets25_309",
+"transform": [1.0, 0.0, 0.0, 1.0, 639.1808, -59.68],
+"visible": true
+}
+
+[node name="Sprite_0026_props_TenshinLand_9" type="Node2D" parent="Scenery/Depth_003" unique_id=1857094053]
+modulate = Color(0.28555533, 0.46807045, 0.6509434, 1)
+z_index = 4
+position = Vector2(-268.8, -59.68)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.28555533, 0.46807045, 0.6509434, 1.0],
+"flip": [false, false],
+"go": 119.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Pill (47)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -21.0],
+"spatial": {
+"depth": 9.24,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -268.8, -59.68]
+},
+"sprite": "sharedassets25_309",
+"transform": [1.0, 0.0, 0.0, 1.0, -268.8, -59.68],
+"visible": true
+}
+
+[node name="Sprite_0027_props_TenshinLand_9" type="Node2D" parent="Scenery/Depth_003" unique_id=354917406]
+modulate = Color(0.28555533, 0.46807045, 0.6509434, 1)
+z_index = 4
+position = Vector2(-719.52, -59.68)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.28555533, 0.46807045, 0.6509434, 1.0],
+"flip": [false, false],
+"go": 11.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Pill (48)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -21.0],
+"spatial": {
+"depth": 9.24,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -719.52, -59.68]
+},
+"sprite": "sharedassets25_309",
+"transform": [1.0, 0.0, 0.0, 1.0, -719.52, -59.68],
+"visible": true
+}
+
+[node name="Depth_004" type="Node2D" parent="Scenery" unique_id=1147386352]
+scale = Vector2(0.95174855, 0.95174855)
+metadata/native_depth = 1.09
+metadata/follow_camera_x = false
+
+[node name="Sprite_0028_props_TenshinLand_4" type="Node2D" parent="Scenery/Depth_004" unique_id=318437017]
+modulate = Color(0.2924528, 0.2924528, 0.2924528, 1)
+z_index = 6
+position = Vector2(0.4608, -67.1472)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.2924528, 0.2924528, 0.2924528, 1.0],
+"flip": [false, false],
+"go": 122.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (1)",
+"size": [21179.2, 28.47988],
+"sort": [1.0, -20.0],
+"spatial": {
+"depth": 1.09,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -67.14719772338867]
+},
+"sprite": "sharedassets25_142",
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -67.14719772338867],
+"visible": true
+}
+
+[node name="Sprite_0037_props_TenshinLand_15" type="Node2D" parent="Scenery/Depth_004" unique_id=1033406495]
+modulate = Color(0.4528302, 0.4528302, 0.4528302, 1)
+z_index = 12
+position = Vector2(0.4608, -91.84)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4528302, 0.4528302, 0.4528302, 1.0],
+"flip": [false, false],
+"go": 52.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform (4)",
+"size": [21179.2, 28.028723],
+"sort": [1.0, -16.0],
+"spatial": {
+"depth": 1.09,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -91.83999729156494]
+},
+"sprite": "sharedassets25_303",
+"transform": [1.0, 0.0, 0.0, 1.0, 0.4608, -91.83999729156494],
+"visible": true
+}
+
+[node name="Depth_005" type="Node2D" parent="Scenery" unique_id=873679561]
+scale = Vector2(0.9885057, 0.9885057)
+metadata/native_depth = 0.25
+metadata/follow_camera_x = false
+
+[node name="Sprite_0041_props_TenshinLand_2" type="Node2D" parent="Scenery/Depth_005" unique_id=81813041]
+modulate = Color(0.5377358, 0.5377358, 0.5377358, 1)
+z_index = 18
+position = Vector2(-80, -124)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5377358, 0.5377358, 0.5377358, 1.0],
+"flip": [false, false],
+"go": 42.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "ShamanPlatform (2)",
+"size": [326.1509, 34.75932],
+"sort": [1.0, -11.0],
+"spatial": {
+"depth": 0.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -80.00000017881393, -124.0]
+},
+"sprite": "sharedassets25_150",
+"transform": [1.0, 0.0, 0.0, 1.0, -80.00000017881393, -124.0],
+"visible": true
+}
+
+[node name="Sprite_0042_props_TenshinLand_2" type="Node2D" parent="Scenery/Depth_005" unique_id=1245676942]
+modulate = Color(0.5377358, 0.5377358, 0.5377358, 1)
+z_index = 18
+position = Vector2(92, -124)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5377358, 0.5377358, 0.5377358, 1.0],
+"flip": [false, false],
+"go": 21.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "ShamanPlatform (3)",
+"size": [326.1509, 34.75932],
+"sort": [1.0, -11.0],
+"spatial": {
+"depth": 0.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 91.99999982118608, -124.0]
+},
+"sprite": "sharedassets25_150",
+"transform": [1.0, 0.0, 0.0, 1.0, 91.99999982118608, -124.0],
+"visible": true
+}
+
+[node name="Sprite_0043_props_TenshinLand_2" type="Node2D" parent="Scenery/Depth_005" unique_id=217483849]
+modulate = Color(0.5377358, 0.5377358, 0.5377358, 1)
+z_index = 18
+position = Vector2(44, -124)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5377358, 0.5377358, 0.5377358, 1.0],
+"flip": [false, false],
+"go": 66.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "ShamanPlatform (5)",
+"size": [326.1509, 34.75932],
+"sort": [1.0, -11.0],
+"spatial": {
+"depth": 0.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 43.999999821186066, -124.0]
+},
+"sprite": "sharedassets25_150",
+"transform": [1.0, 0.0, 0.0, 1.0, 43.999999821186066, -124.0],
+"visible": true
+}
+
+[node name="Sprite_0044_props_TenshinLand_2" type="Node2D" parent="Scenery/Depth_005" unique_id=1487975677]
+modulate = Color(0.5377358, 0.5377358, 0.5377358, 1)
+z_index = 18
+position = Vector2(-32, -124)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5377358, 0.5377358, 0.5377358, 1.0],
+"flip": [false, false],
+"go": 76.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "ShamanPlatform (4)",
+"size": [326.1509, 34.75932],
+"sort": [1.0, -11.0],
+"spatial": {
+"depth": 0.25,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -32.000000178813934, -124.0]
+},
+"sprite": "sharedassets25_150",
+"transform": [1.0, 0.0, 0.0, 1.0, -32.000000178813934, -124.0],
+"visible": true
+}
+
+[node name="Depth_006" type="Node2D" parent="Scenery" unique_id=1820276356]
+scale = Vector2(0.98623854, 0.98623854)
+metadata/native_depth = 0.3
+metadata/follow_camera_x = false
+
+[node name="Sprite_0045_props_TenshinLand_14" type="Node2D" parent="Scenery/Depth_006" unique_id=371754342]
+modulate = Color(0.8301887, 0.43467426, 0.43467426, 1)
+z_index = 20
+position = Vector2(3.9999998, -108)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.43467426, 0.43467426, 1.0],
+"flip": [false, false],
+"go": 115.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "ShamanPlatform (1)",
+"size": [326.1509, 34.75932],
+"sort": [1.0, -10.0],
+"spatial": {
+"depth": 0.3,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 3.9999998211860657, -108.0]
+},
+"sprite": "sharedassets25_129",
+"transform": [1.0, 0.0, 0.0, 1.0, 3.9999998211860657, -108.0],
+"visible": true
+}
+
+[node name="Depth_007" type="Node2D" parent="Scenery" unique_id=1374787597]
+scale = Vector2(0.95555556, 0.95555556)
+metadata/native_depth = 1.0
+metadata/follow_camera_x = false
+
+[node name="Sprite_0079_texture_6" type="Node2D" parent="Scenery/Depth_007" unique_id=84319052]
+modulate = Color(1, 1, 1, 0.4)
+z_index = 34
+position = Vector2(0.4608, -115.824)
+scale = Vector2(144.1939, 0.8175248)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 0.4],
+"flip": [false, false],
+"go": 22.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "fog",
+"size": [21179.2, 52.969975],
+"sort": [1.0, 50.0],
+"spatial": {
+"depth": 1.0,
+"parallel": true,
+"transform": [144.1939, 0.0, 0.0, 0.8175248, 0.4608, -115.824]
+},
+"sprite": "sharedassets17_126",
+"transform": [144.1939, 0.0, 0.0, 0.8175248, 0.4608, -115.824],
+"visible": true
+}
+
+[node name="Depth_008" type="Node2D" parent="Scenery" unique_id=857012383]
+metadata/native_depth = 0.0
+metadata/follow_camera_x = true
+
+[node name="Sprite_0095_1" type="Node2D" parent="Scenery/Depth_008" unique_id=580221584]
+modulate = Color(0.5660378, 0.5660378, 0.5660378, 1)
+z_index = 54
+position = Vector2(0, 366.40002)
+scale = Vector2(7745, 5440.1914)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5660378, 0.5660378, 0.5660378, 1.0],
+"flip": [false, false],
+"go": 35.0,
+"layer_id": -788304379.0,
+"material": "Mat_Water",
+"mode": 0.0,
+"name": "Water",
+"size": [3062.6326, 106.08000183105467],
+"sort": [6.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"follow_camera_x": true,
+"parallel": true,
+"transform": [7745.0, 0.0, 0.0, 5440.1914, 0.0, 366.40002]
+},
+"sprite": "sharedassets25_221",
+"transform": [7745.0, 0.0, 0.0, 5440.1914, 0.0, 366.40002],
+"visible": true
+}
+
+[node name="Sprite_0031_props_TenshinLand_7" type="Node2D" parent="Scenery" unique_id=513266253]
+modulate = Color(0.3301887, 0, 0, 1)
+z_index = 8
+position = Vector2(-484.64, -470.56)
+rotation = 0.5981649
+scale = Vector2(1.6034, 1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.3301887, 0.0, 0.0, 1.0],
+"flip": [true, false],
+"go": 45.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror (4)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -18.0],
+"spatial": {
+"depth": 1.7100000381469729,
+"depth_gradient": [-0.00406864330757463, 0.00172917649694989],
+"parallel": false,
+"transform": [1.3234021314985074, 0.9029178562449844, -0.5624469622290604, 0.82637037952463, -484.64, -470.56]
+},
+"sprite": "sharedassets25_148",
+"transform": [1.3250022941109865, 0.9029177453740644, -0.5631269489118111, 0.8263704008550128, -484.64, -470.56],
+"visible": true
+}
+
+[node name="Sprite_0032_props_TenshinLand_7" type="Node2D" parent="Scenery" unique_id=805691002]
+modulate = Color(0.3301887, 0, 0, 1)
+z_index = 8
+position = Vector2(-469.6768, -379.36)
+rotation = 0.32525536
+scale = Vector2(1.4267, 0.99999994)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.3301887, 0.0, 0.0, 1.0],
+"flip": [true, false],
+"go": 39.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror (5)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -18.0],
+"spatial": {
+"depth": 1.7100000381469729,
+"depth_gradient": [-0.00362026417803227, 0.00172917842187029],
+"parallel": false,
+"transform": [1.3505258177424917, 0.45628685168183614, -0.3188958876560109, 0.9473858581516096, -469.6768, -379.36]
+},
+"sprite": "sharedassets25_148",
+"transform": [1.351896917372686, 0.4559030635662901, -0.3195507568838782, 0.9475691604178244, -469.6768, -379.36],
+"visible": true
+}
+
+[node name="Sprite_0033_props_TenshinLand_7" type="Node2D" parent="Scenery" unique_id=1725390832]
+modulate = Color(0.49056602, 0, 0, 1)
+z_index = 8
+position = Vector2(436.8, -367.68)
+rotation = -0.33259794
+scale = Vector2(1.491, 1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.49056602, 0.0, 0.0, 1.0],
+"flip": [true, false],
+"go": 14.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror (3)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -18.0],
+"spatial": {
+"depth": 1.2100000381469729,
+"depth_gradient": [0.00042905650163675, -0.00083306048968441],
+"parallel": false,
+"transform": [1.409289228791067, -0.4867627150120962, 0.3264997335584746, 0.945103315106479, 436.7999877929687, -367.6799926757813]
+},
+"sprite": "sharedassets25_148",
+"transform": [1.4092892389289111, -0.4868110607070526, 0.3264996930489367, 0.9451973076765244, 436.7999877929687, -367.6799926757813],
+"visible": true
+}
+
+[node name="Sprite_0034_props_TenshinLand_7" type="Node2D" parent="Scenery" unique_id=323600936]
+modulate = Color(0.49056602, 0, 0, 1)
+z_index = 8
+position = Vector2(246.88, -129.91998)
+rotation = 0.6329784
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.49056602, 0.0, 0.0, 1.0],
+"flip": [true, false],
+"go": 59.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror (2)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -18.0],
+"spatial": {
+"depth": 3.25,
+"depth_gradient": [0.01051078684294604, -0.02512641225742157],
+"parallel": false,
+"transform": [0.7732190773796872, 0.6114329554390006, -0.5125412030420327, 0.7587353749347976, 246.88, -129.91998]
+},
+"sprite": "sharedassets25_148",
+"transform": [0.8062692368729125, 0.591548744967286, -0.591548744967286, 0.8062692368729125, 246.88, -129.91998],
+"visible": true
+}
+
+[node name="Sprite_0035_props_TenshinLand_7" type="Node2D" parent="Scenery" unique_id=100272710]
+modulate = Color(0.49056602, 0, 0, 1)
+z_index = 10
+position = Vector2(-209.28001, -98.399994)
+rotation = -0.76483494
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.49056602, 0.0, 0.0, 1.0],
+"flip": [false, false],
+"go": 32.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror (1)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -17.0],
+"spatial": {
+"depth": 2.25,
+"depth_gradient": [-0.00822697850701956, 0.00080898354200911],
+"parallel": false,
+"transform": [0.7158108538970052, -0.685775495835033, 0.6929771422707045, 0.7208434228721508, -209.2800140380859, -98.399994]
+},
+"sprite": "sharedassets25_148",
+"transform": [0.7214966547856134, -0.6924179208636714, 0.6924179208636714, 0.7214966547856134, -209.2800140380859, -98.399994],
+"visible": true
+}
+
+[node name="Sprite_0036_props_TenshinLand_17" type="Node2D" parent="Scenery" unique_id=1721411273]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 12
+position = Vector2(625.12, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 111.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (50)",
+"size": [88.91976, 1536.393],
+"sort": [1.0, -16.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 625.12, -834.7408]
+},
+"sprite": "sharedassets25_252",
+"transform": [1.0, 0.0, 0.0, 1.0, 625.12, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0038_props_TenshinLand_17" type="Node2D" parent="Scenery" unique_id=724177800]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 14
+position = Vector2(185.92, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 77.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (45)",
+"size": [88.91976, 1536.393],
+"sort": [1.0, -15.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 185.92, -834.7408]
+},
+"sprite": "sharedassets25_252",
+"transform": [1.0, 0.0, 0.0, 1.0, 185.92, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0039_props_TenshinLand_17" type="Node2D" parent="Scenery" unique_id=1851559376]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 14
+position = Vector2(-170.56, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 67.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (49)",
+"size": [88.91976, 1536.393],
+"sort": [1.0, -15.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -170.56, -834.7408]
+},
+"sprite": "sharedassets25_252",
+"transform": [1.0, 0.0, 0.0, 1.0, -170.56, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0040_props_TenshinLand_17" type="Node2D" parent="Scenery" unique_id=1191073792]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 16
+position = Vector2(-707.52, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 17.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (51)",
+"size": [88.91976, 1536.393],
+"sort": [1.0, -12.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -707.52, -834.7408]
+},
+"sprite": "sharedassets25_252",
+"transform": [1.0, 0.0, 0.0, 1.0, -707.52, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0046_props_TenshinLand_14" type="Node2D" parent="Scenery" unique_id=1960790465]
+modulate = Color(0.6792453, 0.6792453, 0.6792453, 1)
+z_index = 22
+position = Vector2(3.9999998, -88)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.6792453, 0.6792453, 0.6792453, 1.0],
+"flip": [false, false],
+"go": 116.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "ShamanPlatform",
+"size": [471.85583, 34.75932],
+"sort": [1.0, -9.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 3.9999998211860657, -88.0]
+},
+"sprite": "sharedassets25_129",
+"transform": [1.0, 0.0, 0.0, 1.0, 3.9999998211860657, -88.0],
+"visible": true
+}
+
+[node name="Sprite_0047_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=18953858]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-5955.9995, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 92.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (14)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5955.999664306641, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -5955.999664306641, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0048_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1920409507]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-820, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 95.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (5)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -820.0000305175781, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -820.0000305175781, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0049_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=23071745]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-4192, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 89.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (11)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -4192.000152587891, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -4192.000152587891, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0050_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=211666710]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-5344.001, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 23.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (13)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5344.001129150391, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -5344.001129150391, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0051_props_TenshinLand_0" type="Node2D" parent="Scenery" unique_id=798621511]
+z_index = 24
+position = Vector2(8, -456)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 1.0],
+"flip": [false, false],
+"go": 91.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "jade mirror",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 8.0, -456.0]
+},
+"sprite": "sharedassets25_278",
+"transform": [1.0, 0.0, 0.0, 1.0, 8.0, -456.0],
+"visible": true
+}
+
+[node name="Sprite_0052_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1031735384]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(4811.998, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 90.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (28)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 4811.997894287109, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 4811.997894287109, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0053_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=618008523]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(1935.9989, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 13.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (24)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1935.9988708496096, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 1935.9988708496096, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0054_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=249687008]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-3628, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 12.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (10)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -3627.9999084472656, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -3627.9999084472656, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0055_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=716727484]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(3079.9993, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 104.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (23)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 3079.9993591308594, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 3079.9993591308594, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0056_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=195846523]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(3635.9983, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 9.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (27)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 3635.9983825683594, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 3635.9983825683594, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0057_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1717052145]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(4199.9995, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 108.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (22)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 4199.999359130859, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 4199.999359130859, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0058_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=710557068]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(1371.9989, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 113.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (25)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1371.9988708496094, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 1371.9988708496094, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0059_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1339939994]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(2515.9983, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 117.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (26)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 2515.9983825683594, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 2515.9983825683594, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0060_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1920197078]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-1944.0001, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 4.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (7)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -1944.0001525878904, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -1944.0001525878904, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0061_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1610247508]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-6520.0005, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 40.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (15)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -6520.000640869141, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -6520.000640869141, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0062_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=185278793]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-4780, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 37.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (12)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -4780.000152587891, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -4780.000152587891, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0063_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1642380477]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-1380, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 75.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (6)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -1380.000030517578, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -1380.000030517578, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0064_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1973513189]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-3084.0005, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 73.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (9)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -3084.0003967285156, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -3084.0003967285156, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0065_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1775250494]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(844, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 51.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (4)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 844.0, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, 844.0, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0066_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=880363249]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-2520.0002, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 64.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (8)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -2520.0001525878906, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -2520.0001525878906, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0067_props_TenshinLand_5" type="Node2D" parent="Scenery" unique_id=1826226074]
+modulate = Color(0.4811321, 0.4811321, 0.4811321, 1)
+z_index = 24
+position = Vector2(-7075.9995, -834.7408)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4811321, 0.4811321, 0.4811321, 1.0],
+"flip": [false, false],
+"go": 53.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Pill (16)",
+"size": [208.0104827880859, 1536.393],
+"sort": [1.0, -5.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -7075.999664306641, -834.7408]
+},
+"sprite": "sharedassets25_188",
+"transform": [1.0, 0.0, 0.0, 1.0, -7075.999664306641, -834.7408],
+"visible": true
+}
+
+[node name="Sprite_0068_Inhance_Core" type="Node2D" parent="Scenery" unique_id=1483191019]
+modulate = Color(0.4669811, 1, 0.7210809, 0)
+z_index = 26
+position = Vector2(-5657.2417, -126.1888)
+scale = Vector2(1.4889048, 1.3868)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.4669811, 1.0, 0.7210809, 0.0],
+"flip": [false, false],
+"go": 71.0,
+"layer_id": 517122237.0,
+"material": "Mat_Light 12",
+"mode": 0.0,
+"name": "Inhance_Core",
+"size": [32.0, 32.0],
+"sort": [1.0, -2.0, 3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -126.18880081176758]
+},
+"sprite": "sharedassets14_158",
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -126.18880081176758],
+"visible": true
+}
+
+[node name="Sprite_0069_Inhance_Core_Taxture" type="Node2D" parent="Scenery" unique_id=428825966]
+modulate = Color(0.3584906, 0, 0, 1)
+z_index = 28
+position = Vector2(-5659.2974, -130.12509)
+scale = Vector2(2.1860168, 3.5583537)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.3584906, 0.0, 0.0, 1.0],
+"flip": [false, true],
+"go": 36.0,
+"layer_id": 517122237.0,
+"material": "Mat_Inhance_Core 5",
+"mode": 0.0,
+"name": "Inhance_Core_Taxture",
+"size": [5.12, 5.12],
+"sort": [1.0, -2.0, 3.0, 1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [2.186016774503059, 0.0, 0.0, 3.558353670410611, -5659.297510361765, -130.12509391918456]
+},
+"sprite": "sharedassets14_159",
+"transform": [2.186016774503059, 0.0, 0.0, 3.558353670410611, -5659.297510361765, -130.12509391918456],
+"visible": true
+}
+
+[node name="Sprite_0070_props_TenshinLand_12" type="Node2D" parent="Scenery" unique_id=2040339246]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(-5656, -144)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [false, false],
+"go": 107.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Portal1",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -5656.000030517578, -144.0]
+},
+"sprite": "sharedassets25_255",
+"transform": [1.0, 0.0, 0.0, 1.0, -5656.000030517578, -144.0],
+"visible": true
+}
+
+[node name="Sprite_0071_props_TenshinLand_6" type="Node2D" parent="Scenery" unique_id=677939873]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(306.06076, -172.16)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [true, false],
+"go": 60.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3 (5)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 306.06076, -172.16]
+},
+"sprite": "sharedassets25_283",
+"transform": [1.0, 0.0, 0.0, 1.0, 306.06076, -172.16],
+"visible": true
+}
+
+[node name="Sprite_0072_props_TenshinLand_12" type="Node2D" parent="Scenery" unique_id=1584697515]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(-1096, -144)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [false, false],
+"go": 54.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3 (3)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -1096.000030517578, -144.0]
+},
+"sprite": "sharedassets25_255",
+"transform": [1.0, 0.0, 0.0, 1.0, -1096.000030517578, -144.0],
+"visible": true
+}
+
+[node name="Sprite_0073_props_TenshinLand_6" type="Node2D" parent="Scenery" unique_id=1667149896]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(-494.88, -172.16)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [true, false],
+"go": 34.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3 (2)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -494.88, -172.16]
+},
+"sprite": "sharedassets25_283",
+"transform": [1.0, 0.0, 0.0, 1.0, -494.88, -172.16],
+"visible": true
+}
+
+[node name="Sprite_0074_props_TenshinLand_12" type="Node2D" parent="Scenery" unique_id=1538371851]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(1116, -144)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [false, false],
+"go": 33.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3 (1)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1115.999969482422, -144.0]
+},
+"sprite": "sharedassets25_255",
+"transform": [1.0, 0.0, 0.0, 1.0, 1115.999969482422, -144.0],
+"visible": true
+}
+
+[node name="Sprite_0075_props_TenshinLand_6" type="Node2D" parent="Scenery" unique_id=1355079375]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(495.99997, -172.16)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [true, false],
+"go": 78.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 495.99997, -172.16]
+},
+"sprite": "sharedassets25_283",
+"transform": [1.0, 0.0, 0.0, 1.0, 495.99997, -172.16],
+"visible": true
+}
+
+[node name="Sprite_0076_props_TenshinLand_6" type="Node2D" parent="Scenery" unique_id=1103280787]
+modulate = Color(0.745283, 0.745283, 0.745283, 1)
+z_index = 30
+position = Vector2(-301.61923, -172.16)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.745283, 0.745283, 0.745283, 1.0],
+"flip": [true, false],
+"go": 120.0,
+"layer_id": -256207055.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Torii 3 (4)",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -301.61923, -172.16]
+},
+"sprite": "sharedassets25_283",
+"transform": [1.0, 0.0, 0.0, 1.0, -301.61923, -172.16],
+"visible": true
+}
+
+[node name="Sprite_0077_JadeCircle" type="Node2D" parent="Scenery" unique_id=1075262506]
+modulate = Color(0, 0.6132076, 0.4565441, 0)
+z_index = 32
+position = Vector2(86.928, -273.264)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.0, 0.6132076, 0.4565441, 0.0],
+"flip": [false, false],
+"go": 47.0,
+"layer_id": -256207055.0,
+"material": "Mat_JadeDistotion 1",
+"mode": 0.0,
+"name": "MeiSoul",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, 4.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [0.5, 0.0, 0.0, 0.5, 86.928, -273.264]
+},
+"sprite": "sharedassets25_222",
+"transform": [0.5, 0.0, 0.0, 0.5, 86.928, -273.264],
+"visible": true
+}
+
+[node name="Sprite_0078_JadeCircle" type="Node2D" parent="Scenery" unique_id=451123864]
+modulate = Color(0.39, 0.39, 0.39, 1)
+z_index = 32
+position = Vector2(1.9200001, -272.8)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.39, 0.39, 0.39, 1.0],
+"flip": [false, false],
+"go": 57.0,
+"layer_id": -256207055.0,
+"material": "Mat_JadeDistotion",
+"mode": 0.0,
+"name": "LordSoul",
+"size": [1559.1298, 63.146374],
+"sort": [1.0, 4.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 1.920000076293945, -272.8000030517578]
+},
+"sprite": "sharedassets25_222",
+"transform": [1.0, 0.0, 0.0, 1.0, 1.920000076293945, -272.8000030517578],
+"visible": true
+}
+
+[node name="Sprite_0080_texture_CircleLight" type="Node2D" parent="Scenery" unique_id=1287153852]
+modulate = Color(1, 0.1462264, 0.6260331, 0.29803923)
+z_index = 42
+position = Vector2(-4474.672, -80)
+rotation = -3.1415927
+scale = Vector2(4.227342, -4.227342)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 0.1462264, 0.6260331, 0.29803923],
+"flip": [false, false],
+"go": 49.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Square",
+"size": [16.0, 16.0],
+"sort": [3.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-4.227342, 0.0, 0.0, 4.227342, -4474.672, -80.0]
+},
+"sprite": "sharedassets0_458",
+"transform": [-4.227342, 0.0, 0.0, 4.227342, -4474.672, -80.0],
+"visible": true
+}
+
+[node name="Sprite_0081_texture_CircleLight" type="Node2D" parent="Scenery" unique_id=1883274569]
+modulate = Color(1, 0.1462264, 0.6260331, 0.36078432)
+z_index = 42
+position = Vector2(-2214.4, -80)
+rotation = -3.1415927
+scale = Vector2(4.2273397, -4.2273397)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 0.1462264, 0.6260331, 0.36078432],
+"flip": [false, false],
+"go": 103.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Square",
+"size": [16.0, 16.0],
+"sort": [3.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-4.2273397, 0.0, 0.0, 4.2273397, -2214.4, -80.0]
+},
+"sprite": "sharedassets0_458",
+"transform": [-4.2273397, 0.0, 0.0, 4.2273397, -2214.4, -80.0],
+"visible": true
+}
+
+[node name="Sprite_0082_texture_CircleLight" type="Node2D" parent="Scenery" unique_id=905686507]
+modulate = Color(1, 0.495283, 0.495283, 0.05882353)
+z_index = 42
+position = Vector2(-5655.288, -138.4992)
+scale = Vector2(8.1233, 5.3660297)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 0.495283, 0.495283, 0.05882353],
+"flip": [false, false],
+"go": 96.0,
+"layer_id": 517122237.0,
+"material": "Sprite-Lit-Default",
+"mode": 0.0,
+"name": "Square (2)",
+"size": [16.0, 16.0],
+"sort": [3.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [8.1233, 0.0, 0.0, 5.3660297, -5655.288116455078, -138.4992]
+},
+"sprite": "sharedassets0_458",
+"transform": [8.1233, 0.0, 0.0, 5.3660297, -5655.288116455078, -138.4992],
+"visible": true
+}
+
+[node name="Sprite_0083_texture_CircleLight" type="Node2D" parent="Scenery" unique_id=1367875845]
+modulate = Color(1, 0.1462264, 0.6260331, 0.36078432)
+z_index = 42
+position = Vector2(-3342.4, -80)
+rotation = -3.1415927
+scale = Vector2(4.2273397, -4.2273397)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 0.1462264, 0.6260331, 0.36078432],
+"flip": [false, false],
+"go": 84.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Square",
+"size": [16.0, 16.0],
+"sort": [3.0, -1.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-4.2273397, 0.0, 0.0, 4.2273397, -3342.4, -80.00000381469727]
+},
+"sprite": "sharedassets0_458",
+"transform": [-4.2273397, 0.0, 0.0, 4.2273397, -3342.4, -80.00000381469727],
+"visible": true
+}
+
+[node name="Sprite_0084_Sprite_Shaman_Idle_18" type="Node2D" parent="Scenery" unique_id=1713361176]
+modulate = Color(0.8301887, 0.8301887, 0.8301887, 1)
+z_index = 44
+position = Vector2(-224, -112.64)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.8301887, 0.8301887, 1.0],
+"flip": [false, false],
+"go": 126.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman1",
+"size": [96.0, 96.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -224.0, -112.64]
+},
+"sprite": "sharedassets25_133",
+"transform": [1.0, 0.0, 0.0, 1.0, -224.0, -112.64],
+"visible": true
+}
+
+[node name="Sprite_0085_Sprite_Shaman_Idle_11" type="Node2D" parent="Scenery" unique_id=851387870]
+modulate = Color(0.8301887, 0.8301887, 0.8301887, 1)
+z_index = 44
+position = Vector2(368, -112.64)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.8301887, 0.8301887, 1.0],
+"flip": [true, false],
+"go": 167.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman_ex1 (2)",
+"size": [96.0, 96.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 368.0, -112.64]
+},
+"sprite": "sharedassets25_146",
+"transform": [1.0, 0.0, 0.0, 1.0, 368.0, -112.64],
+"visible": true
+}
+
+[node name="Sprite_0086_Sprite_Shaman_Idle_0" type="Node2D" parent="Scenery" unique_id=397042551]
+z_index = 44
+position = Vector2(-2214.4, -113.44)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 1.0],
+"flip": [false, false],
+"go": 143.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman",
+"size": [256.0, 256.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-1.0, 0.0, 0.0, 1.0, -2214.4, -113.44000244140624]
+},
+"sprite": "sharedassets25_183",
+"transform": [-1.0, 0.0, 0.0, 1.0, -2214.4, -113.44000244140624],
+"visible": true
+}
+
+[node name="Sprite_0087_Sprite_Shaman_Idle_0" type="Node2D" parent="Scenery" unique_id=974366523]
+z_index = 44
+position = Vector2(-3342.4, -113.44)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 1.0],
+"flip": [false, false],
+"go": 142.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman",
+"size": [256.0, 256.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-1.0, 0.0, 0.0, 1.0, -3342.4, -113.44000244140624]
+},
+"sprite": "sharedassets25_183",
+"transform": [-1.0, 0.0, 0.0, 1.0, -3342.4, -113.44000244140624],
+"visible": true
+}
+
+[node name="Sprite_0088_Sprite_Shaman_Idle_1" type="Node2D" parent="Scenery" unique_id=17705369]
+modulate = Color(0.8301887, 0.8301887, 0.8301887, 1)
+z_index = 44
+position = Vector2(-80, -112.64)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.8301887, 0.8301887, 1.0],
+"flip": [false, false],
+"go": 182.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman2",
+"size": [96.0, 96.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -80.0, -112.64]
+},
+"sprite": "sharedassets25_305",
+"transform": [1.0, 0.0, 0.0, 1.0, -80.0, -112.64],
+"visible": true
+}
+
+[node name="Sprite_0089_Sprite_Shaman_Idle_9" type="Node2D" parent="Scenery" unique_id=1529022138]
+modulate = Color(0.8301887, 0.8301887, 0.8301887, 1)
+z_index = 44
+position = Vector2(224, -112.64)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.8301887, 0.8301887, 1.0],
+"flip": [true, false],
+"go": 159.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman4",
+"size": [96.0, 96.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 224.0, -112.64]
+},
+"sprite": "sharedassets25_225",
+"transform": [1.0, 0.0, 0.0, 1.0, 224.0, -112.64],
+"visible": true
+}
+
+[node name="Sprite_0090_Sprite_Shaman_Idle_0" type="Node2D" parent="Scenery" unique_id=1426159473]
+z_index = 44
+position = Vector2(-4474.672, -113.44)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 1.0],
+"flip": [false, false],
+"go": 136.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman",
+"size": [256.0, 256.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [-1.0, 0.0, 0.0, 1.0, -4474.672, -113.44000244140624]
+},
+"sprite": "sharedassets25_183",
+"transform": [-1.0, 0.0, 0.0, 1.0, -4474.672, -113.44000244140624],
+"visible": true
+}
+
+[node name="Sprite_0091_Sprite_Shaman_BowIdle_3" type="Node2D" parent="Scenery" unique_id=1951416435]
+modulate = Color(0.8301887, 0.8301887, 0.8301887, 1)
+z_index = 44
+position = Vector2(80, -112.64)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.8301887, 0.8301887, 0.8301887, 1.0],
+"flip": [true, false],
+"go": 147.0,
+"layer_id": 517122237.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Shaman3",
+"size": [96.0, 96.0],
+"sort": [3.0, 0.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, 80.0, -112.64]
+},
+"sprite": "sharedassets25_232",
+"transform": [1.0, 0.0, 0.0, 1.0, 80.0, -112.64],
+"visible": true
+}
+
+[node name="Sprite_0092_Sprite_ShamanLeader_WhisperIdle_1" type="Node2D" parent="Scenery" unique_id=1444071305]
+z_index = 46
+position = Vector2(-93.28, -112.496)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [1.0, 1.0, 1.0, 1.0],
+"flip": [false, false],
+"go": 150.0,
+"layer_id": 731537051.0,
+"material": "Player _Cutscene",
+"mode": 0.0,
+"name": "Kurori",
+"size": [96.0, 96.0],
+"sort": [4.0, 2.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -93.28, -112.496]
+},
+"sprite": "sharedassets14_76",
+"transform": [1.0, 0.0, 0.0, 1.0, -93.28, -112.496],
+"visible": true
+}
+
+[node name="Sprite_0093_props_TenshinLand_4" type="Node2D" parent="Scenery" unique_id=881186356]
+modulate = Color(0.5660378, 0.5660378, 0.5660378, 1)
+z_index = 48
+position = Vector2(-239.5392, -80)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.5660378, 0.5660378, 0.5660378, 1.0],
+"flip": [false, false],
+"go": 48.0,
+"layer_id": 731537051.0,
+"material": "Mat_Default",
+"mode": 2.0,
+"name": "Platform",
+"size": [21179.2, 28.47988],
+"sort": [4.0, 10.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.0, 0.0, 0.0, 1.0, -239.5392000079155, -80.00000143051147]
+},
+"sprite": "sharedassets25_142",
+"transform": [1.0, 0.0, 0.0, 1.0, -239.5392000079155, -80.00000143051147],
+"visible": true
+}
+
+[node name="Sprite_0094_texture_CircleLight" type="Node2D" parent="Scenery" unique_id=1358841161]
+modulate = Color(0, 1, 0.8355696, 0.07058824)
+z_index = 50
+position = Vector2(2.7392273, -276)
+scale = Vector2(10.941737, 10.941737)
+script = ExtResource("2_0bwfk")
+source_item = {
+"blend": "normal",
+"color": [0.0, 1.0, 0.8355696, 0.07058824],
+"flip": [false, false],
+"go": 5.0,
+"layer_id": -232159969.0,
+"material": "Mat_Default",
+"mode": 0.0,
+"name": "Circle",
+"size": [163.84, 163.84],
+"sort": [5.0, 6.0],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [10.941737174987791, 0.0, 0.0, 10.941737174987791, 2.7392273, -276.0]
+},
+"sprite": "sharedassets0_458",
+"transform": [10.941737174987791, 0.0, 0.0, 10.941737174987791, 2.7392273, -276.0],
+"visible": true
+}
+
+[node name="Terrain" type="Node2D" parent="." unique_id=1337095269]
+
+[node name="SpawnPoint" type="StaticBody2D" parent="Terrain" unique_id=1501131993]
+position = Vector2(-5657.92, -120)
+collision_layer = 35825
+collision_mask = 2
+metadata/source_layer = "Ground"
+metadata/source_go = 28.0
+metadata/climbable = true
+
+[node name="Collision" type="CollisionShape2D" parent="Terrain/SpawnPoint" unique_id=1417456521]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_mrida")
+
+[node name="Tilemap_Ground" type="StaticBody2D" parent="Terrain" unique_id=1476571788]
+collision_layer = 35825
+collision_mask = 2
+metadata/source_layer = "Ground"
+metadata/source_go = -1
+metadata/climbable = true
+
+[node name="Collision" type="CollisionShape2D" parent="Terrain/Tilemap_Ground" unique_id=1248970744]
+position = Vector2(8, -24)
+shape = SubResource("RectangleShape2D_7836k")
+
+[node name="Collision2" type="CollisionShape2D" parent="Terrain/Tilemap_Ground" unique_id=292449352]
+position = Vector2(8, -40)
+shape = SubResource("RectangleShape2D_6qmo1")
+
+[node name="Collision3" type="CollisionShape2D" parent="Terrain/Tilemap_Ground" unique_id=831374927]
+position = Vector2(8, -56)
+shape = SubResource("RectangleShape2D_bgk6y")
+
+[node name="Collision4" type="CollisionShape2D" parent="Terrain/Tilemap_Ground" unique_id=202846867]
+position = Vector2(8, -72)
+shape = SubResource("RectangleShape2D_gb3tr")
+
+[node name="Tilemap_HardWall" type="StaticBody2D" parent="Terrain" unique_id=1736284318]
+collision_layer = 3057
+collision_mask = 2
+metadata/source_layer = "HardWall"
+metadata/source_go = -1
+metadata/climbable = false
+
+[node name="Collision" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=659697397]
+position = Vector2(-6400, 8)
+shape = SubResource("RectangleShape2D_4xtfk")
+
+[node name="Collision2" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1007049963]
+position = Vector2(-6400, -8)
+shape = SubResource("RectangleShape2D_68ecq")
+
+[node name="Collision3" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=84326540]
+position = Vector2(-6408, -24)
+shape = SubResource("RectangleShape2D_el1bi")
+
+[node name="Collision4" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=844755890]
+position = Vector2(-6408, -40)
+shape = SubResource("RectangleShape2D_btqbk")
+
+[node name="Collision5" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1102239899]
+position = Vector2(-6408, -56)
+shape = SubResource("RectangleShape2D_bs3j8")
+
+[node name="Collision6" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=890056990]
+position = Vector2(-6408, -72)
+shape = SubResource("RectangleShape2D_vj6ed")
+
+[node name="Collision7" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=754592125]
+position = Vector2(-6408, -88)
+shape = SubResource("RectangleShape2D_avcsk")
+
+[node name="Collision8" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=56303606]
+position = Vector2(-6408, -104)
+shape = SubResource("RectangleShape2D_5h5hw")
+
+[node name="Collision9" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=500751960]
+position = Vector2(-6408, -120)
+shape = SubResource("RectangleShape2D_3x4id")
+
+[node name="Collision10" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1798035810]
+position = Vector2(-6408, -136)
+shape = SubResource("RectangleShape2D_cafcm")
+
+[node name="Collision11" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1024525343]
+position = Vector2(-6408, -152)
+shape = SubResource("RectangleShape2D_536ni")
+
+[node name="Collision12" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1248665885]
+position = Vector2(-6408, -168)
+shape = SubResource("RectangleShape2D_5jxvo")
+
+[node name="Collision13" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=931919373]
+position = Vector2(-6408, -184)
+shape = SubResource("RectangleShape2D_dgmkc")
+
+[node name="Collision14" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1722258112]
+position = Vector2(-6408, -200)
+shape = SubResource("RectangleShape2D_yfm5j")
+
+[node name="Collision15" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=33614032]
+position = Vector2(-6408, -216)
+shape = SubResource("RectangleShape2D_q00sn")
+
+[node name="Collision16" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=403180165]
+position = Vector2(-6408, -232)
+shape = SubResource("RectangleShape2D_lppyl")
+
+[node name="Collision17" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=663609158]
+position = Vector2(-6408, -248)
+shape = SubResource("RectangleShape2D_xe5h7")
+
+[node name="Collision18" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1378582489]
+position = Vector2(-6408, -264)
+shape = SubResource("RectangleShape2D_d1ngy")
+
+[node name="Collision19" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1649884129]
+position = Vector2(-6408, -280)
+shape = SubResource("RectangleShape2D_uut5t")
+
+[node name="Collision20" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=230977002]
+position = Vector2(-6408, -296)
+shape = SubResource("RectangleShape2D_2hsgp")
+
+[node name="Collision21" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1066605318]
+position = Vector2(-6408, -312)
+shape = SubResource("RectangleShape2D_ws2vc")
+
+[node name="Collision22" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1253621048]
+position = Vector2(-6408, -328)
+shape = SubResource("RectangleShape2D_80kfa")
+
+[node name="Collision23" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=737084476]
+position = Vector2(-6408, -344)
+shape = SubResource("RectangleShape2D_5osda")
+
+[node name="Collision24" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1713153655]
+position = Vector2(-6408, -360)
+shape = SubResource("RectangleShape2D_kwfeq")
+
+[node name="Collision25" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=958673355]
+position = Vector2(-6408, -376)
+shape = SubResource("RectangleShape2D_p0vow")
+
+[node name="Collision26" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1855640150]
+position = Vector2(-6408, -392)
+shape = SubResource("RectangleShape2D_fac13")
+
+[node name="Collision27" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1941041463]
+position = Vector2(-6408, -408)
+shape = SubResource("RectangleShape2D_grv6l")
+
+[node name="Collision28" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1597977989]
+position = Vector2(-6408, -424)
+shape = SubResource("RectangleShape2D_77fsj")
+
+[node name="Collision29" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=566982293]
+position = Vector2(-6408, -440)
+shape = SubResource("RectangleShape2D_2lp0u")
+
+[node name="Collision30" type="CollisionShape2D" parent="Terrain/Tilemap_HardWall" unique_id=1639343528]
+position = Vector2(-6408, -456)
+shape = SubResource("RectangleShape2D_b0phf")
+
+[node name="Lights" type="Node2D" parent="." unique_id=1592212435]
+
+[node name="Light_000_Light 2D" type="Marker2D" parent="Lights" unique_id=819414760]
+position = Vector2(-5657.2417, -78.926544)
+scale = Vector2(1.4889048, 1.3868)
+script = ExtResource("3_4qr5a")
+definition = {
+"color": [1.0, 0.09789270162582396, 0.06132078, 1.0],
+"energy": 6.6,
+"layers": [-1571601643.0, -1995695179.0, 1857066909.0, 1239170855.0, 0.0, -256207055.0, 1990846875.0, 517122237.0, -232159969.0, -788304379.0, 1623535667.0, -509756463.0, -289282193.0, 319597873.0, -1947939969.0, 1519272619.0, 1010222073.0],
+"name": "Light 2D",
+"radius": 896.0,
+"settings": {
+"blend_style": 0.0,
+"falloff": 1.0,
+"inner_angle": 360.0,
+"inner_radius": 0.0,
+"normal_distance": 3.0,
+"normal_quality": 2.0,
+"order": 100.0,
+"outer_angle": 360.0,
+"overlap": 0.0,
+"shadows": false
+},
+"shape": [{
+"x": -0.5,
+"y": -0.5,
+"z": 0.0
+}, {
+"x": 0.5,
+"y": -0.5,
+"z": 0.0
+}, {
+"x": 0.5,
+"y": 0.5,
+"z": 0.0
+}, {
+"x": -0.5,
+"y": 0.5,
+"z": 0.0
+}],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -78.92654673894867]
+},
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -78.92654673894867],
+"type": 3.0
+}
+light_color = Color(1, 0.0978927, 0.06132078, 1)
+energy = 6.6
+radius = 896.0
+
+[node name="Light_001_Light 2D (1)" type="Marker2D" parent="Lights" unique_id=2080917799]
+position = Vector2(-5657.2417, -78.92665)
+scale = Vector2(1.4889048, 1.3868)
+script = ExtResource("3_4qr5a")
+definition = {
+"color": [1.0, 0.09789270162582396, 0.06132078, 1.0],
+"energy": 121.0,
+"layers": [-1571601643.0, -1995695179.0, 1857066909.0, 1239170855.0, 0.0, -256207055.0, 1990846875.0, 517122237.0, -232159969.0, -788304379.0, 1623535667.0, -509756463.0, -289282193.0, 319597873.0, -1947939969.0, 1519272619.0, 1010222073.0, 731537051.0],
+"name": "Light 2D (1)",
+"radius": 304.64,
+"settings": {
+"blend_style": 0.0,
+"falloff": 1.0,
+"inner_angle": 360.0,
+"inner_radius": 0.0,
+"normal_distance": 0.0,
+"normal_quality": 1.0,
+"order": 100.0,
+"outer_angle": 360.0,
+"overlap": 0.0,
+"shadows": false
+},
+"shape": [{
+"x": -0.5,
+"y": -0.5,
+"z": 0.0
+}, {
+"x": 0.5,
+"y": -0.5,
+"z": 0.0
+}, {
+"x": 0.5,
+"y": 0.5,
+"z": 0.0
+}, {
+"x": -0.5,
+"y": 0.5,
+"z": 0.0
+}],
+"spatial": {
+"depth": 0.0,
+"parallel": true,
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -78.9266525433959]
+},
+"transform": [1.48890483379364, 0.0, 0.0, 1.3868, -5657.241630554199, -78.9266525433959],
+"type": 3.0
+}
+light_color = Color(1, 0.0978927, 0.06132078, 1)
+energy = 121.0
+radius = 304.64
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=881994999]
+
+[node name="WindStations" type="Node2D" parent="." unique_id=2059167415]
+
+[node name="Route" type="Node2D" parent="." unique_id=2011535922 node_paths=PackedStringArray("spawn_marker", "objective_root", "checkpoint_root")]
+script = ExtResource("4_wsqh0")
+spawn_marker = NodePath("PlayerSpawn")
+objective_root = NodePath("Objectives")
+checkpoint_root = NodePath("Checkpoints")
+
+[node name="PlayerSpawn" type="Marker2D" parent="Route" unique_id=1518157479]
+position = Vector2(2.72, -80.799995)
+
+[node name="Objectives" type="Node2D" parent="Route" unique_id=1032998432]
+
+[node name="Waypoint_00" type="Marker2D" parent="Route/Objectives" unique_id=949843735]
+position = Vector2(-240, -80)
+script = ExtResource("5_j6sv2")
+label = "经过左侧鸟居"
+radius = 50.0
+
+[node name="Waypoint_01" type="Marker2D" parent="Route/Objectives" unique_id=1143280883]
+position = Vector2(0, -80)
+script = ExtResource("5_j6sv2")
+label = "抵达圆印下方"
+radius = 50.0
+
+[node name="Waypoint_02" type="Marker2D" parent="Route/Objectives" unique_id=1375643181]
+position = Vector2(240, -80)
+script = ExtResource("5_j6sv2")
+label = "穿过右侧鸟居"
+radius = 50.0
+
+[node name="Checkpoints" type="Node2D" parent="Route" unique_id=129650124]
+
+[node name="Checkpoint_00" type="Marker2D" parent="Route/Checkpoints" unique_id=1627630262]
+position = Vector2(0, -95)
+
+[node name="OriginalCameraRig" type="Node" parent="." unique_id=523907714 node_paths=PackedStringArray("camera_2d", "fixed_target")]
+process_priority = 300
+script = ExtResource("6_1w0fi")
+camera_2d = NodePath("InariOriginalCamera")
+fixed_target = NodePath("ShotPoint")
+
+[node name="InariOriginalCamera" type="Camera2D" parent="OriginalCameraRig" unique_id=643926319]
+position = Vector2(0, -184)
+zoom = Vector2(0.161121, 0.161121)
+
+[node name="ShotPoint" type="Node2D" parent="OriginalCameraRig" unique_id=753528456]
+position = Vector2(0, -184)

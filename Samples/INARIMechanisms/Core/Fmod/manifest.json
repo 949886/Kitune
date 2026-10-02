@@ -1,0 +1,26 @@
+{
+  "platform": "Windows x86_64",
+  "godot_minimum": "4.2",
+  "fmod_version": "2.02.33",
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/AMB.bank": "fbfc5b7b7cb9852f752884e7e8f5b7ee33146ece36d93fd382a202716c1fcad7",
+    "StreamingAssets/BGM.bank": "0fc59f285eac45bf0bbda9f1a6268bdc4a183748a64b2c8de642ace0b79caf34",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b"
+  },
+  "bridge_inputs": {
+    "inari_fmod.cpp": "0ccc7ee020b87cdd0d0a9a5be84a2fbc5bd3e17b93feab26dbf393a9c84eaa3e",
+    "gdextension_interface.h": "640b48188708ba0016f8d7ace9e0e1d3279a41fa1226c59ff3193b15538bd254"
+  },
+  "copied_files": {
+    "Core/Fmod/bin/inari_fmod.dll": "0e7a7cb71932b8648408ea41cc921fe901077ccfa3faf3959354c70324c10874",
+    "Core/Fmod/bin/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Assets/EnvironmentAudio/Banks/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "Assets/EnvironmentAudio/Banks/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "Assets/EnvironmentAudio/Banks/AMB.bank": "fbfc5b7b7cb9852f752884e7e8f5b7ee33146ece36d93fd382a202716c1fcad7",
+    "Assets/EnvironmentAudio/Banks/BGM.bank": "0fc59f285eac45bf0bbda9f1a6268bdc4a183748a64b2c8de642ace0b79caf34",
+    "Assets/EnvironmentAudio/Banks/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b"
+  }
+}

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="RewardSettings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+reward_amount = 1
+currency_per_fragment = 1

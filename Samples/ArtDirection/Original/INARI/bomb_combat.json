@@ -1,0 +1,31 @@
+{
+  "chase_sound_frames": [
+    4.0,
+    11.0
+  ],
+  "arrival_distance": 0.5,
+  "chase_path_distance": 1.0,
+  "targeted_time_scale": 0.7,
+  "hit_limit": 4,
+  "player_damage": 1.0,
+  "wall_damage": 100.0,
+  "ready_glow": 1.0,
+  "effect": "Eff_Enemy_BamBoom_Explosion",
+  "door": {
+    "damage": 10.0,
+    "chase_skip_ready": false,
+    "chase_skip_confirm": false,
+    "retreat_skip_ready": false,
+    "retreat_skip_confirm": false
+  },
+  "source_sha256": {
+    "Enemy/EnemyBombMan.cs": "bf07b1745d2a5ad3e67def493cde54a736bca72fa674e8cc6998d457e8199449",
+    "Enemy.State/EnemyEventChasePattern.cs": "7b13453bd059c92f8f35f86e0b5d981c59e3adf22afb10a315d9eea0019d9942",
+    "Enemy.State/EnemyChasePattern.cs": "82228f8a2b590ad16d87bc69b623acefda9bd090d3a52c58a6c31ce14130230d",
+    "Enemy.State/EnemyAttackReadyPattern.cs": "4be9569e46ca41c709e81a5532d417cf3a5c01f55f6600c1937250a041812005",
+    "Enemy.State/EnemyAttackConfirmPattern.cs": "92860c8ae7022e208371bac89693340db91aa10d51bb95dbec6396c3718a7786",
+    "EnemyCheckDoorPattern.cs": "81568267114a23d07f5ef453b071686db930cd0761b97826f80e0bbb8d12c670",
+    "StateMachine.cs": "0f3896c51afc9becb11a9a1c0846ab0ada76e46034dab521c8d2432ec59e563b",
+    "Managed/Assembly-CSharp.dll": "71a0ad30fd90595684bbf00a682933a86beb4cea94f451da2bbbb483c2a098b0"
+  }
+}

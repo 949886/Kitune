@@ -1,0 +1,3 @@
+# Preserve the hashed native-method layout across Windows checkouts.
+replaced_post_layout.json text eol=lf
+replaced_bloom_layout.json text eol=lf

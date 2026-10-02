@@ -1,0 +1,40 @@
+{
+  "gravity": {
+    "x": 0.0,
+    "y": -9.8100004196167
+  },
+  "launch_speed": 50.0,
+  "angle_min": -90.0,
+  "angle_max": 90.0,
+  "collision_layers": [
+    "Default",
+    "TransparentFX",
+    "Ignore Raycast",
+    "BackEffect",
+    "Water",
+    "UI",
+    "Ground",
+    "Wall",
+    "HardWall",
+    "Area",
+    "Platform",
+    "InteractiveWall",
+    "WeakRange",
+    "Effect",
+    "Steam",
+    "Spike",
+    "Front Props",
+    "MovingPlatform",
+    "InteractiveObject",
+    "OilBackground",
+    "ForceRender",
+    ""
+  ],
+  "physics_sha256": "b12fa8d378f5dfd580970f819ee0264c7a08c8f15f4c38175097e2d40c24b6e4",
+  "door_code_sha256": "77e5e987bf0e3b50e1b2628c7f975d0b3c6620cc2d857e67a65afaf0247aa747",
+  "fallback_material": {
+    "friction": 0.4,
+    "bounce": 0.0,
+    "verified_in_game": false
+  }
+}

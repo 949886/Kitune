@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="RewardWorkshop.gd" id="1"]
+[ext_resource type="Script" path="WindRunner.gd" id="2"]
+[ext_resource type="PackedScene" path="../Devices/WindStation/WindStation.tscn" id="3"]
+[ext_resource type="PackedScene" path="../Devices/WindStation/WindBuff.tscn" id="4"]
+
+[sub_resource type="RectangleShape2D" id="actor"]
+size = Vector2(18, 32)
+
+[sub_resource type="RectangleShape2D" id="floor"]
+size = Vector2(984, 56)
+
+[node name="RewardWorkshop" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Station" parent="." instance=ExtResource("3")]
+position = Vector2(560, 365)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(100, 400)
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("2")
+
+[node name="Body" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -16)
+shape = SubResource("actor")
+
+[node name="WindBuff" parent="Player" instance=ExtResource("4")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(512, 428)
+
+[node name="Body" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("floor")

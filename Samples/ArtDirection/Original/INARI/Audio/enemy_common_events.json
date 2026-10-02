@@ -1,0 +1,155 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "enemy_common_death": [
+      "enemy_common_death_01.wav",
+      "enemy_common_death_02.wav",
+      "enemy_common_death_03.wav",
+      "enemy_common_death_04.wav",
+      "enemy_common_death_05.wav",
+      "enemy_common_death_06.wav",
+      "enemy_common_death_07.wav",
+      "enemy_common_death_08.wav"
+    ]
+  },
+  "renders": {
+    "enemy_common_death_01.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 0,
+      "sha256": "c893dc30099971c3659fba715e6ebce1ba2e8cc634dd119d2344e18e29a767f1",
+      "pcm_sha256": "af1f0a7566198fdfc072d36cd1fbd641853a1cbb1c682dbaa9f37b7da0486b38",
+      "frames": 41984
+    },
+    "enemy_common_death_02.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 1,
+      "sha256": "6320499e6f4f5d8d90ff8eed3eab962251233ae593fc4f2a502db38b9de18df9",
+      "pcm_sha256": "a181e050a5da5afc3737f7e7c176c5b6047e03628f25e7b2d7f1895aff608618",
+      "frames": 41984
+    },
+    "enemy_common_death_03.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 2,
+      "sha256": "fb0fe2fbddaa6129e59d2bd4b210b7e2b877d70031c60721e22333cc4345acca",
+      "pcm_sha256": "331241e942291ed4d3d408e477dcab76dfe04c339c010500fa5247904d13b643",
+      "frames": 41984
+    },
+    "enemy_common_death_04.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 3,
+      "sha256": "4d2b0271c3b4dd2e52a12a5c641ae56103086741d43d7e6a8fdb784b80178a23",
+      "pcm_sha256": "f8bd7e5afbe6287af120fb0abff635d8856abd0390078c0d8a30942890eee01f",
+      "frames": 41984
+    },
+    "enemy_common_death_05.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 4,
+      "sha256": "dc4080b33f3d77c67e549d07c464df6cff35b690e096bda9e8343cb9312d2ff7",
+      "pcm_sha256": "6cb59047291a7bf2d94b8c6c6341eb8d21b6400ca8bdad8c29bd52ea446b9ccc",
+      "frames": 41984
+    },
+    "enemy_common_death_06.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 5,
+      "sha256": "e312ecc967f86fc4fc1fe1a0bf9d4c3c2b85067565e286b33bbe72bd8d08031d",
+      "pcm_sha256": "62979eaf363fe8360c1cb7a803af6a85efba81266df2d15635296a772e363abd",
+      "frames": 41984
+    },
+    "enemy_common_death_07.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 6,
+      "sha256": "207a6332992974be12bf79f3a1448175cb97be904fb488e04c41211792746c5a",
+      "pcm_sha256": "e5da5872f68ee644ad0ef6a7e81d0b4aa9c02a3fd547bd4b839a750bbc474307",
+      "frames": 41984
+    },
+    "enemy_common_death_08.wav": {
+      "guid": "ff49f423-c232-459a-8696-26e8880d0222",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Death",
+      "timeline_ms": 835,
+      "one_shot": true,
+      "samples": [
+        "Monster_Death"
+      ],
+      "pre_start_frames": 6144,
+      "playback_frames": 41984,
+      "random_seed": 7,
+      "sha256": "b9c6dafab526e1801797b5e92ce1b3ea3857a40cc8f12a541d6dbbd3a98dea9b",
+      "pcm_sha256": "e02d839aed8215aaf7ea8ea67b20c85246874b9bb348d4ada8dae5548aa1f673",
+      "frames": 41984
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Monster.bank": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039",
+    "StreamingAssets/SFX_Voice.bank": "070ff69430e8970c1d13ce9175ca0722835826b74dc014fe2f9776063be97ded",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy.StateMachine/EnemyStateMachine.cs": "9f39be24dcfafe7aafb09d5836580a387f0c7f6fb1598c9d1fbc2415a5ecfa00"
+  }
+}

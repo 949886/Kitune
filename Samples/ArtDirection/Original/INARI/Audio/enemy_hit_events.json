@@ -1,0 +1,674 @@
+{
+  "profile": {
+    "file": "sharedassets1.assets",
+    "object_id": 1873,
+    "sha256": "a3d6283a5cc86d96ba39e9b594296092fdce526063918ca0e143b15c4c015a66"
+  },
+  "sample_rate": 48000,
+  "distance_volume": 1.0,
+  "groups": {
+    "enemy_hit": [
+      "enemy_hit_01.wav",
+      "enemy_hit_02.wav",
+      "enemy_hit_03.wav",
+      "enemy_hit_04.wav",
+      "enemy_hit_05.wav",
+      "enemy_hit_06.wav",
+      "enemy_hit_07.wav",
+      "enemy_hit_08.wav"
+    ],
+    "enemy_stack_hit_1": [
+      "enemy_stack_hit_1_01.wav",
+      "enemy_stack_hit_1_02.wav",
+      "enemy_stack_hit_1_03.wav",
+      "enemy_stack_hit_1_04.wav",
+      "enemy_stack_hit_1_05.wav",
+      "enemy_stack_hit_1_06.wav",
+      "enemy_stack_hit_1_07.wav",
+      "enemy_stack_hit_1_08.wav"
+    ],
+    "enemy_stack_hit_2": [
+      "enemy_stack_hit_2_01.wav",
+      "enemy_stack_hit_2_02.wav",
+      "enemy_stack_hit_2_03.wav",
+      "enemy_stack_hit_2_04.wav",
+      "enemy_stack_hit_2_05.wav",
+      "enemy_stack_hit_2_06.wav",
+      "enemy_stack_hit_2_07.wav",
+      "enemy_stack_hit_2_08.wav"
+    ],
+    "enemy_stack_hit_3": [
+      "enemy_stack_hit_3_01.wav",
+      "enemy_stack_hit_3_02.wav",
+      "enemy_stack_hit_3_03.wav",
+      "enemy_stack_hit_3_04.wav",
+      "enemy_stack_hit_3_05.wav",
+      "enemy_stack_hit_3_06.wav",
+      "enemy_stack_hit_3_07.wav",
+      "enemy_stack_hit_3_08.wav"
+    ]
+  },
+  "renders": {
+    "enemy_hit_01.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_1",
+        "Player_AttackHit_3"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 0,
+      "sha256": "e719e38f3ba8d4bd18588cf9a702e20c77355c4117ae695cabed3ba916748753",
+      "pcm_sha256": "b49cf55c48149503d8f297ee4f24f18782e6109776dca512a64294c914517c3d",
+      "frames": 48640
+    },
+    "enemy_hit_02.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_3",
+        "Player_AttackHit_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 1,
+      "sha256": "7539a3de890ba426904516029ac57ef04f17c36cfa6a53b30f5253523fcd65ff",
+      "pcm_sha256": "8eb12f26f0033d239b7fa93e570cbc3889e7ceed2ca5d586d5be6831f9687d86",
+      "frames": 48640
+    },
+    "enemy_hit_03.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_1",
+        "Player_AttackHit_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 2,
+      "sha256": "2d330ebcabd9bcf8961872bfdda20de4a10de4e5315fa1c4320db7cf73e21e8a",
+      "pcm_sha256": "3800d105dad562fd054cd1ddb67f0d02c07ab247473efaeff61369685f6b2618",
+      "frames": 48640
+    },
+    "enemy_hit_04.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_1",
+        "Player_AttackHit_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 3,
+      "sha256": "b0405e34f0feef567a44ff4371233a5be53ec3a8925a90a13aac20240ad09d49",
+      "pcm_sha256": "2585d8cb0e812e6f40fe90e0d40500afd7ab8bf1c41d92b4943fb73fb0c804fa",
+      "frames": 48640
+    },
+    "enemy_hit_05.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_3",
+        "Player_AttackHit_3"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 4,
+      "sha256": "42720ffaf566ade101f7716b0e01fbb6244d665922989a3d1eacb1cf852ebeed",
+      "pcm_sha256": "565c02873abc38f2970b42cf0037289703a24ee020afd2afd59cdb8ed9ae0c16",
+      "frames": 48640
+    },
+    "enemy_hit_06.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_1",
+        "Player_AttackHit_3"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 5,
+      "sha256": "7da0d7098af0c05a1be0f9bb98401af274e1f02af6e1d0d71e108a20f9ce5411",
+      "pcm_sha256": "1a02b45f45e2db72ffd9764d9efd3db423b4e542b5a62dd792f02f6f786e8180",
+      "frames": 48640
+    },
+    "enemy_hit_07.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_1",
+        "Player_AttackHit_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 6,
+      "sha256": "81f862ea33e18d544f6c4783fb5664ef2afcc0989914b70835d2cb76402ab85f",
+      "pcm_sha256": "263b9365577f61512d21e32b83b0114a44aa3476b344abafc7b6b1ae90550811",
+      "frames": 48640
+    },
+    "enemy_hit_08.wav": {
+      "guid": "7e6bc938-9460-44e1-9219-b2fe57238936",
+      "path": "event:/SFX/Monster/Monster_Common/Monster_Common_Hit",
+      "timeline_ms": 959,
+      "one_shot": true,
+      "distance_parameter": true,
+      "samples": [
+        "Monster_Hit_2",
+        "Player_AttackHit_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 48640,
+      "random_seed": 7,
+      "sha256": "310289c0b3336b6c2264f7a8f21b68bbafb4a03e2347b3e2b170412e5195b98e",
+      "pcm_sha256": "f8c2c8b4b6b90aa68580a02b649f9abe535c9ccd1e4ceef8b8e21c5b554f6fc7",
+      "frames": 48640
+    },
+    "enemy_stack_hit_1_01.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 0,
+      "sha256": "4bb5c501d6f292b067811c9ed75fc1ebf857edb8bc5c0014316a4dec14cc8825",
+      "pcm_sha256": "ee40b69a39877a14ad46ecb01fc805b2b778b085ab0472d50a5c6d56c94e6422",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_02.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_2",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 1,
+      "sha256": "680784d82845c2205952b5a2d1cad00214dffecd3e1777e4ee47444bf09e7ee1",
+      "pcm_sha256": "2987d39609f2bb24b5d1fdb1337cd116628d73509df34c6bc5967b35e314c396",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_03.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 2,
+      "sha256": "9d754c8a900d62b239e493aeccd23582c6a01202919d04f273355cc0c3a9c86f",
+      "pcm_sha256": "e1731e1557f2e1a78ed989b7e2bad09cd8940a4cb386bc96d6262d294c6d5450",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_04.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 3,
+      "sha256": "da1e21ac80d5a46171ac8044c913585fdc85e95e786052b2ebd74d81d1b032d8",
+      "pcm_sha256": "418e01a1a5357ed82cfaca385f315b30d5e703ff3d5a8c70045134fe672f327c",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_05.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_2",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 4,
+      "sha256": "b69aa3d94ca688c9a337424d07ba707c37fb65b47285ea1cc45c9ceee9670258",
+      "pcm_sha256": "0a52bfd3cebf6fe2fc184662a3526566eab553d94d2aa2683e6e8768c05ad249",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_06.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 5,
+      "sha256": "272a53cc7698ce144a500536dbcfa0e42b54be3b6baf8b613506de6c008b66f6",
+      "pcm_sha256": "766a50eedf03eb6a47e5a4e05d1be90ed3b70b8e0ef0dc69c1f3bef1a963395a",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_07.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 6,
+      "sha256": "6ee32984d8131a56dd3043365548d6a3cdcd4c13b33b1cfab0528a6a6c93fdff",
+      "pcm_sha256": "b27c60893a62d8507c6d7c6bfe735499343081a895ee128d5c64be93b595a153",
+      "frames": 54784
+    },
+    "enemy_stack_hit_1_08.wav": {
+      "guid": "a309f13f-4e0d-4e42-90d2-d8f5fd42f72e",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_1",
+      "timeline_ms": 1080,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 54784,
+      "random_seed": 7,
+      "sha256": "f1ae7dc6a4daf3add8afda06296309f58358ea84275b4a2b2d04b248603cf31e",
+      "pcm_sha256": "1af124ccd0de02dbe38e5661e7a1938806f6d36ebacd664117a8e75a7e9fc77a",
+      "frames": 54784
+    },
+    "enemy_stack_hit_2_01.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_2",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 0,
+      "sha256": "5b785a32afcecb0d836c5905a624035e3df066e3c2245cf8093d2bb49bfd18c1",
+      "pcm_sha256": "9f5cc77ca249d5292a386fc9ffaa0d01c3c9a37a5ec8b4ba566be4b45e44aa7d",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_02.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_3",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 1,
+      "sha256": "e29a359d663bedfa628d080c75392fe67cc50103a9ddcd08d448a1ab646d1366",
+      "pcm_sha256": "f2b8eb38c6bc066c21c6a5c8f3ced3d24a4e47fb729faf8be8b90f1e92889ec1",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_03.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_1",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 2,
+      "sha256": "ade2796856884965fce053b5b2f85adbcf7b6b1be4102704c71febb8cef7c133",
+      "pcm_sha256": "bd6cbdb5679f92c47b9b625d247f4a2af1449ce7d75d320c11bdd90003e9d6ae",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_04.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_1",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 3,
+      "sha256": "197edfc076544e7359adb825aff8c7915ef10275df2020b85e1cb6df0a061753",
+      "pcm_sha256": "6a22a9d086a045d536b422f0cf3c4338c07c1188bbacad17d311e075c9831b49",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_05.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_4",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 4,
+      "sha256": "f0753170d1ac087e4b90fc8e2c9bf54c37a80eef26798f6e0e1a92d5ff635718",
+      "pcm_sha256": "d1a20362d6ec491308477c8a676c5a7f53636131545b2628926f5703c5ff3ddc",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_06.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_1",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 5,
+      "sha256": "ceedc738d172431d890b291dc5342a025e84f9d111b21b8a2c806e0da31763a5",
+      "pcm_sha256": "a46ea4ab76be2de1b8aea8539ade7a9d16ac12f45fe05f7c9fdac3457ce9e24b",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_07.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_1",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_2"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 6,
+      "sha256": "107188ca41cd91e98b4cfe0f8762086f8f2fad22627509c8812dc8852b859c5c",
+      "pcm_sha256": "aa5540949d8ba946e798c0fb9978d4a16e764437a384d7a7c7d83865c4cc74bf",
+      "frames": 70144
+    },
+    "enemy_stack_hit_2_08.wav": {
+      "guid": "78c8e509-45c2-49b3-b5cc-3ca2c70d7d4d",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_2",
+      "timeline_ms": 1400,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_2_2",
+        "Monster_StackHit_1_3",
+        "Player_Shuriken_StackHit_4",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_1_1"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 70144,
+      "random_seed": 7,
+      "sha256": "31c2f45e96a7889943f565b9aa70c0cf24d7d206078d99adcd2615b79da1aaf4",
+      "pcm_sha256": "18a6f71f8d99216ba5dfcf6904833897d9ab80e1093c6652288e0a2249db490e",
+      "frames": 70144
+    },
+    "enemy_stack_hit_3_01.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_2",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 0,
+      "sha256": "057d07d16fad8b92467e7e32d06d212ac080db86084bfb33a6f1aebabf8bd654",
+      "pcm_sha256": "a2c8ad675da7f81916725f62b1b65a1e72fc3aa4aab5da21fb803c128d639021",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_02.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_2",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_4",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 1,
+      "sha256": "15cee7c32d3968d07eebf21b02bba3a0165e6ed32d4e157076a0a761dbb6f9c6",
+      "pcm_sha256": "217bb21a8e210b5426d564e9e331bacc9a897b2e1b3d135c9455428fa11cd257",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_03.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_1",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 2,
+      "sha256": "b718a878c7bb33c590bdf9d0a1ee11d16180554b6f671d69d3274d9717d1635a",
+      "pcm_sha256": "7668d5eacd27c6ba69da6cab11410acf523523db7d25c2d316915568807eaf5f",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_04.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_2",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 3,
+      "sha256": "df04fb3f2413ad87f73985dff0de2c848b8f3fceee5cfc0d49fb2d3ef9b7c7ea",
+      "pcm_sha256": "3b7501b3c4b229f95ee9fc3cb8e97d747a1c85369d3dfe0bb316bcad7e9ded72",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_05.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_2",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_4",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 4,
+      "sha256": "07fc92c01b1999cf3a7c9e5ed7e7bcce8d3490e3e8e249866fb0643dd4a84eda",
+      "pcm_sha256": "7312dc1c96854c1f3589994d5c27f21b86351eaea9d96530a5781530dd5b340d",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_06.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_3",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 5,
+      "sha256": "9e600d560629e9bd86ab599a895317b4d6c35c12fb803e1910f4c1d4ae6550e4",
+      "pcm_sha256": "b3ffa357a88624c8bfad793b88ba902f0e80b855c4c4bdb7875c022b5ef6c030",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_07.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_3",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 6,
+      "sha256": "e71d37be3224819c59c3d5e48f42fdbfc1f36d79c7f1f28389a1348e39c342e7",
+      "pcm_sha256": "d62fa6f54397faa95e90cfa336192c500e6a161aae504113387be7f8f2dece4d",
+      "frames": 113152
+    },
+    "enemy_stack_hit_3_08.wav": {
+      "guid": "96587224-3829-4b63-9afd-6ca009f7fd30",
+      "path": "event:/SFX/Player/Player_Shuriken/Player_Shuriken_StackHit_3",
+      "timeline_ms": 2300,
+      "one_shot": true,
+      "distance_parameter": false,
+      "samples": [
+        "Monster_StackHit_1_1_1",
+        "Monster_StackHit_1_2",
+        "Monster_StackHit_1_3",
+        "Monster_StackHit_3",
+        "Monster_StackHit_2_1",
+        "Player_Shuriken_StackHit_5"
+      ],
+      "pre_start_frames": 7168,
+      "playback_frames": 113152,
+      "random_seed": 7,
+      "sha256": "24e51e993bcd1436d63f6f4cbc88db6c810591474acdc954f5bd2ebafeb695e2",
+      "pcm_sha256": "7552c7f703424a7d1c436ccb5b3f6a447931a60c57d3c78ff5338d3a101ebb8f",
+      "frames": 113152
+    }
+  },
+  "source_sha256": {
+    "Plugins/x86_64/fmodstudio.dll": "a6f0f5e4bda17451f51b8db8f05dbf481a09c47f3690b7f258704fc1047c3448",
+    "Managed/FMODUnity.dll": "5954023f3dfd7cc44e4435dd1f452ada9cd661233e44cb063d0605c1306675fa",
+    "StreamingAssets/Master.bank": "fd210db088cffdf3e122369aa06299b0d47fa02d8538072c4b985dccad553ce1",
+    "StreamingAssets/Master.strings.bank": "a839e4397fb7b01a234511d13c2cf2b742882ab161ac85f2fe5d186ddf2fff41",
+    "StreamingAssets/SFX_Monster.bank": "56440e9a07072834a56426c22d6c370d44c64f00f5a7775db4572d52a61dd039",
+    "StreamingAssets/SFX_Voice.bank": "070ff69430e8970c1d13ce9175ca0722835826b74dc014fe2f9776063be97ded",
+    "StreamingAssets/Snapshot.bank": "48c54d28b614f58c39d078bcec0b466a75caa8b3f2455c7657caffb3ea15ad2b",
+    "StreamingAssets/SFX_Player.bank": "7d239268f4905b62fc2ef473f89889f5760d607af20ee4a0cf54c9cc02e68042",
+    "SFXSoundProfile.cs": "4c940dc5b4fd414f17b363117f8b2b1246b2ddf0c606b2c944cdfbe09cf24ba3",
+    "FmodSfxPool.cs": "27cd74b75a478f133fffaa53035fba875c2f9288cf77c18c8417243ad9991e18",
+    "Enemy.StateMachine/EnemyStateMachine.cs": "9f39be24dcfafe7aafb09d5836580a387f0c7f6fb1598c9d1fbc2415a5ecfa00"
+  }
+}
