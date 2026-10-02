@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tmp", "tmp", "{673F7596-2BC2-664D-6776-E4576D2AFEE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "art-direction", "art-direction", "{3CCAD9DB-087A-A454-6B4D-7A2C9EEF34CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "decompiled", "decompiled", "{3E602FE8-A3F7-86FB-F401-8E605B3BA3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "tmp\art-direction\decompiled\Assembly-CSharp.csproj", "{05E0C203-7D58-3AB7-2A84-59F38444CC14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05E0C203-7D58-3AB7-2A84-59F38444CC14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E0C203-7D58-3AB7-2A84-59F38444CC14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E0C203-7D58-3AB7-2A84-59F38444CC14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E0C203-7D58-3AB7-2A84-59F38444CC14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CCAD9DB-087A-A454-6B4D-7A2C9EEF34CE} = {673F7596-2BC2-664D-6776-E4576D2AFEE0}
+		{3E602FE8-A3F7-86FB-F401-8E605B3BA3EA} = {3CCAD9DB-087A-A454-6B4D-7A2C9EEF34CE}
+		{05E0C203-7D58-3AB7-2A84-59F38444CC14} = {3E602FE8-A3F7-86FB-F401-8E605B3BA3EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EC4F14E-5E13-4BD1-98A5-DC6A2C2032D7}
+	EndGlobalSection
+EndGlobal
