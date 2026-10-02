@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbbcmnm18t1lx" path="res://Game/Tutorial/TutorialPromptLayer.gd" id="1_4bsh7"]
 [ext_resource type="Script" uid="uid://c67f4r8yop3tj" path="res://Game/Tutorial/TutorialProgressController.gd" id="2_h7g52"]
-[ext_resource type="Script" uid="uid://dwdl4xcb1jog3" path="res://Game/Tutorial/SimpleSolid.gd" id="3_qn3ij"]
+[ext_resource type="Script" uid="uid://dwdl4xcb1jog3" path="res://addons/custom/collision_rect2d.gd" id="3_qn3ij"]
 [ext_resource type="PackedScene" uid="uid://cp7soa40msiek" path="res://Game/Characters/Shiro/Shiro.tscn" id="4_a0d6y"]
 [ext_resource type="Script" uid="uid://bsxm83ggw1m5i" path="res://Game/Tutorial/PromptTrigger.gd" id="6_prompt"]
 [ext_resource type="Script" uid="uid://rtq637fh6wls" path="res://Game/Tutorial/TutorialEventTrigger.gd" id="7_event"]

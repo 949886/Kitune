@@ -21,4 +21,5 @@ temp
 tmp
 /addons/*
 !/addons/cherry
+!/addons/custom
 docs/

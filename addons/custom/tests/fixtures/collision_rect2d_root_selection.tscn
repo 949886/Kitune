@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/custom/collision_rect2d.gd" id="1_rect"]
+
+[node name="CollisionRectRootSelectionFixture" type="StaticBody2D"]
+position = Vector2(250, 200)
+script = ExtResource("1_rect")
+size = Vector2(320, 100)

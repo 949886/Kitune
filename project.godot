@@ -30,7 +30,7 @@ mouse_cursor/custom_image="uid://cvsxhiaotg04e"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/simple_solid_editor/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/cherry/plugin.cfg", "res://addons/custom/plugin.cfg")
 
 [global_group]
 
