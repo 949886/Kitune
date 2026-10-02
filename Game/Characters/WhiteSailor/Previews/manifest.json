@@ -1,0 +1,31 @@
+{
+  "levels": [
+    {
+      "camera": "res://Samples/ArtDirection/Runtime/InariCameraRig.gd",
+      "fidelity": "原版场景贴图、坐标与碰撞；白发水手服主角与新序列帧；灯光和关卡逻辑仍在校准。",
+      "id": "inari_factory",
+      "image": "res://Game/Characters/WhiteSailor/Previews/inari_factory.png",
+      "player_position": [
+        -5820.0,
+        5439.99462890625
+      ],
+      "reference": "inari_shaft.jpg",
+      "scene_hdr": true
+    },
+    {
+      "camera": "res://Samples/ArtDirection/Runtime/InariCameraRig.gd",
+      "fidelity": "原版 TenshinLand 场景；白发水手服主角与新序列帧；水面、灯光和过场仍在校准。",
+      "id": "inari_seal",
+      "image": "res://Game/Characters/WhiteSailor/Previews/inari_seal.png",
+      "player_position": [
+        2.72000002861023,
+        -80.2306671142578
+      ],
+      "reference": "inari_seal.jpg",
+      "scene_hdr": true
+    }
+  ],
+  "png_color_space": "sRGB",
+  "renderer": "forward_plus",
+  "settle_frames": 90
+}

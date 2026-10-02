@@ -1,0 +1,585 @@
+{
+  "version": 1,
+  "id": "white_sailor",
+  "display_name": "白发水手服少女",
+  "reference": "Source/character_reference.png",
+  "registration": "Source/registration.json",
+  "cell_size": [
+    256,
+    256
+  ],
+  "grid": [
+    4,
+    6
+  ],
+  "display_scale": 0.25,
+  "keying": {
+    "green_min": 0.1,
+    "dominance_min": 0.08
+  },
+  "sheets": {
+    "locomotion": {
+      "source": "Source/locomotion_key.png",
+      "texture": "Sheets/locomotion.png",
+      "grid": [4, 4]
+    },
+    "movement": {
+      "source": "Source/movement_key.png",
+      "texture": "Sheets/movement.png"
+    },
+    "combat": {
+      "source": "Source/combat_key.png",
+      "texture": "Sheets/combat.png"
+    },
+    "throw": {
+      "source": "Source/throw_key.png",
+      "texture": "Sheets/throw.png"
+    },
+    "climb": {
+      "source": "Source/climb_key.png",
+      "texture": "Sheets/climb.png"
+    },
+    "special": {
+      "source": "Source/special_key.png",
+      "texture": "Sheets/special.png"
+    }
+  },
+  "sequences": {
+    "run_start": {
+      "sheet": "locomotion",
+      "cells": [1, 2],
+      "anchor": "feet"
+    },
+    "idle": {
+      "sheet": "movement",
+      "cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": "feet"
+    },
+    "run": {
+      "sheet": "locomotion",
+      "cells": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchor": "feet"
+    },
+    "jump": {
+      "sheet": "locomotion",
+      "cells": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "anchor": "feet"
+    },
+    "fall": {
+      "sheet": "locomotion",
+      "cells": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "anchor": "feet"
+    },
+    "landing": {
+      "sheet": "movement",
+      "cells": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "anchor": "feet"
+    },
+    "attack1": {
+      "sheet": "combat",
+      "cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": "feet"
+    },
+    "attack2": {
+      "sheet": "combat",
+      "cells": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchor": "feet"
+    },
+    "attack3": {
+      "sheet": "combat",
+      "cells": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "anchor": "feet"
+    },
+    "heavy_attack": {
+      "sheet": "combat",
+      "cells": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "anchor": "feet"
+    },
+    "jump_attack": {
+      "sheet": "combat",
+      "cells": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "anchor": "feet"
+    },
+    "dead": {
+      "sheet": "combat",
+      "cells": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "anchor": "feet"
+    },
+    "throw_level": {
+      "sheet": "throw",
+      "cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": "feet"
+    },
+    "throw_up": {
+      "sheet": "throw",
+      "cells": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchor": "feet"
+    },
+    "throw_down": {
+      "sheet": "throw",
+      "cells": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "anchor": "feet"
+    },
+    "throw_air": {
+      "sheet": "throw",
+      "cells": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "anchor": "feet"
+    },
+    "throw_forward": {
+      "sheet": "throw",
+      "cells": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "anchor": "feet"
+    },
+    "throw_backward": {
+      "sheet": "throw",
+      "cells": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "anchor": "feet"
+    },
+    "climb": {
+      "sheet": "climb",
+      "cells": [
+        0
+      ],
+      "anchor": "wall"
+    },
+    "climb_up": {
+      "sheet": "climb",
+      "cells": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchor": "wall"
+    },
+    "climb_ceiling": {
+      "sheet": "climb",
+      "cells": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "anchor": "ceiling"
+    },
+    "climb_corner": {
+      "sheet": "climb",
+      "cells": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "anchor": "feet"
+    },
+    "wall_throw": {
+      "sheet": "climb",
+      "cells": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "anchor": "wall"
+    },
+    "ceiling_throw": {
+      "sheet": "climb",
+      "cells": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "anchor": "ceiling"
+    },
+    "dash": {
+      "sheet": "special",
+      "cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": "feet"
+    },
+    "run_brake": {
+      "sheet": "special",
+      "cells": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchor": "feet"
+    },
+    "double_jump": {
+      "sheet": "special",
+      "cells": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "anchor": "feet"
+    },
+    "sit": {
+      "sheet": "special",
+      "cells": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "anchor": "feet"
+    },
+    "sit_idle": {
+      "sheet": "special",
+      "cells": [
+        16,
+        17,
+        18,
+        19,
+        18,
+        17
+      ],
+      "anchor": "feet"
+    },
+    "spawn": {
+      "sheet": "special",
+      "cells": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "anchor": "feet"
+    },
+    "sit_finish": {
+      "sheet": "special",
+      "cells": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "anchor": "feet"
+    },
+    "climb_down": {
+      "sheet": "climb",
+      "cells": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "anchor": "wall"
+    }
+  },
+  "clips": {
+    "ceiling_throw": {
+      "sequence": "ceiling_throw"
+    },
+    "climb_down": {
+      "sequence": "climb_down"
+    },
+    "climb_up": {
+      "sequence": "climb_up"
+    },
+    "weak_dash_ready": {
+      "sequence": "dash"
+    },
+    "dead": {
+      "sequence": "dead"
+    },
+    "sit": {
+      "sequence": "sit"
+    },
+    "sit_finish": {
+      "sequence": "sit_finish"
+    },
+    "sit_idle": {
+      "sequence": "sit_idle"
+    },
+    "spawn": {
+      "sequence": "spawn"
+    },
+    "wall_throw": {
+      "sequence": "wall_throw"
+    },
+    "landing": {
+      "sequence": "landing"
+    },
+    "attack2": {
+      "sequence": "attack2",
+      "frame_times": [
+        0,
+        0.11538461432654479,
+        0.1923076905442413,
+        0.75
+      ]
+    },
+    "attack3": {
+      "sequence": "attack3",
+      "frame_times": [
+        0,
+        0.054545456909936424,
+        0.09090909484989404,
+        0.75
+      ]
+    },
+    "attack1": {
+      "sequence": "attack1",
+      "frame_times": [
+        0,
+        0.08333333830038736,
+        0.13888889716731226,
+        0.75
+      ]
+    },
+    "heavy_attack": {
+      "sequence": "heavy_attack",
+      "frame_times": [
+        0,
+        0.35714286322496386,
+        0.8333333475249157,
+        0.9133333475249157
+      ]
+    },
+    "weak_dash_fall": {
+      "sequence": "fall"
+    },
+    "weak_dash_idle": {
+      "sequence": "run_brake"
+    },
+    "climb": {
+      "sequence": "climb"
+    },
+    "climb_ceiling": {
+      "sequence": "climb_ceiling"
+    },
+    "climb_corner": {
+      "sequence": "climb_corner"
+    },
+    "dash": {
+      "sequence": "dash"
+    },
+    "double_jump": {
+      "sequence": "double_jump"
+    },
+    "fall": {
+      "sequence": "fall"
+    },
+    "fall_start": {
+      "sequence": "fall"
+    },
+    "idle": {
+      "sequence": "idle"
+    },
+    "dash_idle": {
+      "sequence": "run_brake"
+    },
+    "jump": {
+      "sequence": "jump"
+    },
+    "jump_attack": {
+      "sequence": "jump_attack",
+      "frame_times": [
+        0,
+        0.4285714267467966,
+        0.85,
+        0.96
+      ]
+    },
+    "run": {
+      "sequence": "run"
+    },
+    "run_brake": {
+      "sequence": "run_brake"
+    },
+    "dash_run": {
+      "sequence": "run"
+    },
+    "run_ready": {
+      "sequence": "run_start"
+    },
+    "teleport": {
+      "sequence": "dash"
+    },
+    "throw_jump_up": {
+      "sequence": "throw_air"
+    },
+    "throw_jump_level": {
+      "sequence": "throw_air"
+    },
+    "throw_jump_down": {
+      "sequence": "throw_air"
+    },
+    "throw_runback_level": {
+      "sequence": "throw_backward"
+    },
+    "throw_runback_down": {
+      "sequence": "throw_backward"
+    },
+    "throw_runback_up": {
+      "sequence": "throw_backward"
+    },
+    "throw_runfront_level": {
+      "sequence": "throw_forward"
+    },
+    "throw_runfront_down": {
+      "sequence": "throw_forward"
+    },
+    "throw_runfront_up": {
+      "sequence": "throw_forward"
+    },
+    "throw_stand_level": {
+      "sequence": "throw_level"
+    },
+    "throw_stand_down": {
+      "sequence": "throw_down"
+    },
+    "throw_stand_up": {
+      "sequence": "throw_up"
+    },
+    "BackIDLE": {
+      "sequence": "idle"
+    }
+  },
+  "notes": [
+    "Built-in imagegen reference-conditioned artwork; chroma-key source compiled to RGBA.",
+    "Source gameplay clip lengths, speeds, events and collision sizes are unchanged.",
+    "Direction variants sharing a sequence are listed explicitly; airborne/run throws use their own poses."
+  ],
+  "packed_cell_size": [
+    320,
+    320
+  ],
+  "timing_source": "res://Samples/ArtDirection/Original/INARI/player.json",
+  "preview_actions": [
+    {
+      "clip": "run",
+      "title": "奔跑",
+      "phase": 0.42
+    },
+    {
+      "clip": "attack1",
+      "title": "剑击",
+      "phase": 0.11
+    },
+    {
+      "clip": "throw_stand_up",
+      "title": "苦无投掷",
+      "phase": 0.58
+    },
+    {
+      "clip": "dash",
+      "title": "冲刺",
+      "phase": 0.28
+    },
+    {
+      "clip": "climb_ceiling",
+      "title": "悬挂",
+      "phase": 0.4
+    },
+    {
+      "clip": "sit_idle",
+      "title": "待机休息",
+      "phase": 0.48
+    }
+  ],
+  "extra_timing_sources": [
+    {
+      "path": "res://Samples/ArtDirection/Original/INARI/shrine_ambient.json",
+      "key": "player_idle"
+    }
+  ]
+}

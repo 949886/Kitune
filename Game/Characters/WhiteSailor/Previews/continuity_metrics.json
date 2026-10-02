@@ -1,0 +1,44 @@
+{
+  "measurement": "Maximum adjacent face-pixel centroid distance, including the loop seam; source-pixel units (world scale 0.25).",
+  "baseline_commit": "dd89491",
+  "before": {
+    "fall": {
+      "face_area_ratio": 1.08591065292096,
+      "max_face_step_pixels": 12.1474208831787
+    },
+    "idle": {
+      "face_area_ratio": 1.16981132075472,
+      "max_face_step_pixels": 40.1223487854004
+    },
+    "run": {
+      "face_area_ratio": 1.21900826446281,
+      "max_face_step_pixels": 38.6993103027344
+    }
+  },
+  "after": {
+    "fall": {
+      "face_area_ratio": 1.15339233038348,
+      "max_face_step_pixels": 3.84780359268188
+    },
+    "idle": {
+      "face_area_ratio": 1.21100917431193,
+      "max_face_step_pixels": 3.71702909469604
+    },
+    "run": {
+      "face_area_ratio": 1.17522658610272,
+      "max_face_step_pixels": 6.92802906036377
+    }
+  },
+  "scope": [
+    "idle",
+    "run",
+    "fall"
+  ],
+  "validation": [
+    "WHITE_SAILOR_PASS frames=136 actions=46",
+    "CHARACTER_CONTINUITY_PASS",
+    "INARI_CONTROLLER_PASS",
+    "ROUTE_PROBE_PASS",
+    "PLAYER_RENDERING_PASS samples=10144 max_error=0.0"
+  ]
+}
