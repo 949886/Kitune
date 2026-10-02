@@ -61,7 +61,9 @@ func open_gate() -> void:
 
 	_is_open = true
 	if _collision_shape != null:
-		_collision_shape.disabled = true
+		# Step completion can be emitted from Area2D.body_entered while the
+		# physics server flushes overlaps. Disable only after those queries finish.
+		_collision_shape.set_deferred("disabled", true)
 
 	var tween := create_tween()
 	tween.set_parallel(true)
