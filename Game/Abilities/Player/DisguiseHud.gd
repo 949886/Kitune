@@ -11,6 +11,9 @@ var _menu_center := Vector2.ZERO
 
 
 func _ready() -> void:
+	# The scene also starts hidden so its full-viewport Controls cannot be picked
+	# through the player instance in the 2D editor, where this script does not run.
+	# Runtime visibility follows the ability's menu state in _process().
 	visible = false
 	_resolve_ability()
 

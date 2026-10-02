@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Game/Abilities/Player/DisguiseRadialMenu.gd" id="2_wheel"]
 
 [node name="DisguiseHud" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_script")
 layer = 20
 
