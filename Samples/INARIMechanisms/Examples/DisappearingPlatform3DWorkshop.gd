@@ -6,6 +6,7 @@ extends Node2D
 @onready var platforms: Array[Node] = [$PlatformA, $PlatformB, $PlatformC]
 var label: Label
 var inspecting := false
+var _player_process_mode: ProcessMode = Node.PROCESS_MODE_INHERIT
 
 
 func _ready() -> void:
@@ -38,7 +39,8 @@ func _process(_delta: float) -> void:
 		var text: String = ["可踩踏", "收起倒计时", "等待恢复"][platform.state]
 		var remaining: float = platform.disappear_after - platform.elapsed if platform.state == 1 else platform.recover_after - platform.elapsed
 		lines.append("%s · %s%s" % [char(65 + index), text, " %.2f s" % maxf(remaining, 0.0) if platform.state != 0 else ""])
-	label.text = "INARI · 3D 限时消失平台\nA / D 移动 · 空格跳跃 · R 重试 · V 侧视检查 3D 厚度\n踩踏后约 1.82 秒收起，1.25 秒后恢复\n" + "    ".join(lines)
+	var controls := "自由观察全部平台 · 鼠标拖动旋转 · 滚轮缩放 · V 返回 · R 重试并返回" if inspecting else "A / D 移动 · 空格跳跃 · R 重试 · V 自由观察 3D"
+	label.text = "INARI · 3D 限时消失平台\n%s\n踩踏后约 1.82 秒收起，1.25 秒后恢复\n" % controls + "    ".join(lines)
 
 
 func _draw() -> void:
@@ -51,14 +53,59 @@ func _draw() -> void:
 	draw_line(Vector2(0, 570), Vector2(1024, 570), Color("b75645"), 2)
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_R:
-		player.position = Vector2(120, 500)
-		player.velocity = Vector2.ZERO
+# _input runs before WorkshopPlayer's _unhandled_key_input. Do not place this
+# gate in another unhandled callback, where sibling dispatch can leak a jump.
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_V:
+			set_inspecting(not inspecting)
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode == KEY_R:
+			set_inspecting(false)
+			_clear_player_input()
+			player.position = Vector2(120, 500)
+			player.velocity = Vector2.ZERO
+			for platform: Node in platforms:
+				platform.reset()
+			get_viewport().set_input_as_handled()
+			return
+	if inspecting:
 		for platform: Node in platforms:
-			platform.reset()
+			platform.handle_inspection_input(event)
+		get_viewport().set_input_as_handled()
 
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_V:
-		inspecting = not inspecting
-		for platform: Node in platforms:
-			platform.set_inspection_angle(35.0 if inspecting else 0.0)
+
+## All three cameras orbit independently around their own platform origins.
+## Only the actor is frozen; device animation/activation/recovery keep running.
+func set_inspecting(enabled: bool) -> void:
+	if inspecting == enabled:
+		return
+	inspecting = enabled
+	if is_instance_valid(player):
+		_clear_player_input()
+		if enabled:
+			_player_process_mode = player.process_mode
+			player.process_mode = Node.PROCESS_MODE_DISABLED
+		else:
+			player.process_mode = _player_process_mode
+	for platform: Node in platforms:
+		if is_instance_valid(platform):
+			if enabled:
+				platform.enter_inspection()
+			else:
+				platform.exit_inspection()
+
+
+func _clear_player_input() -> void:
+	# A key held on entry or released while inspecting must never remain stuck.
+	player.left = false
+	player.right = false
+	player.pending_jump = false
+	player.pending_attack = false
+	player.attack_remaining = 0.0
+	player.queue_redraw()
+
+
+func _exit_tree() -> void:
+	set_inspecting(false)

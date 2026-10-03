@@ -36,6 +36,19 @@ var _animation_time := 0.0
 var _recover_blend := 0.0
 var _pending_active := false
 
+# Inspection owns no extra nodes and never changes the model or 2D collision.
+# Each instance retains its own gameplay camera snapshot and orbit coordinates.
+const ORBIT_SENSITIVITY := 0.008
+const ORBIT_PITCH_LIMIT := deg_to_rad(80.0)
+const ORBIT_MIN_ZOOM := 0.15
+const ORBIT_MAX_ZOOM := 4.0
+var _inspecting := false
+var _orbit_saved: Dictionary = {}
+var _orbit_yaw := 0.0
+var _orbit_pitch := 0.0
+var _orbit_zoom := 1.0
+var _orbit_drag_button := MOUSE_BUTTON_NONE
+
 
 func _ready() -> void:
 	# Relative to this script, so renaming/nesting the copied folder is safe.
@@ -151,6 +164,7 @@ func advance(delta: float) -> void:
 
 
 func reset() -> void:
+	exit_inspection()
 	state = State.READY
 	elapsed = 0.0
 	_pending_active = false
@@ -286,11 +300,116 @@ func _build_projection() -> void:
 	add_child(display)
 
 
-## Visual inspection only: rotate the 3D camera around the same local origin.
-## Gameplay collision remains the original 2D polygon. Use 0 for pixel alignment.
-func set_inspection_angle(degrees: float) -> void:
-	var center := Vector3(display.position.x + viewport.size.x * 0.5, -(display.position.y + viewport.size.y * 0.5), 0.0)
-	var angle := deg_to_rad(clampf(degrees, -70.0, 70.0))
-	camera.position = center + Vector3(sin(angle) * 500.0, 0.0, cos(angle) * 500.0)
-	camera.look_at(center, Vector3.UP)
+## Free visual inspection around the device origin, not the oversized halo's
+## image bounds. The host chooses when to enter and routes its input here before
+## its gameplay controller. Calling enter twice never overwrites the snapshot.
+func enter_inspection() -> void:
+	if _inspecting or not is_instance_valid(camera):
+		return
+	_orbit_saved = {
+		"transform": camera.transform,
+		"size": camera.size,
+		"projection": camera.projection,
+		"display_position": display.position,
+		"shadow_visibility": {},
+	}
+	# The oversized ambient shadow is a front-view presentation layer, not part
+	# of the platform's solid body. Hide it in orbit so rear views stay readable.
+	for item: Dictionary in record.visuals:
+		if item.sprite == "sharedassets0_446":
+			var shadow: MeshInstance3D = visuals[item.go]
+			_orbit_saved.shadow_visibility[item.go] = shadow.visible
+			shadow.visible = false
+	_inspecting = true
+	_orbit_drag_button = MOUSE_BUTTON_NONE
+	_orbit_yaw = deg_to_rad(35.0)
+	_orbit_pitch = deg_to_rad(20.0)
+	_orbit_zoom = 1.0
+	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
+	# Keep the orbit target at this Node2D's origin on screen even when the halo
+	# is asymmetric. This presentation-only adjustment is restored on exit.
+	display.position = -Vector2(viewport.size) * 0.5
+	_update_inspection_camera()
+
+
+## Restore the exact snapshot, rather than reconstructing a nominal front view.
+## No timer, mesh, animation, collision or actor state is changed here.
+func exit_inspection() -> void:
+	if not _inspecting:
+		return
+	_inspecting = false
+	_orbit_drag_button = MOUSE_BUTTON_NONE
+	if is_instance_valid(camera):
+		camera.projection = _orbit_saved.projection
+		camera.size = _orbit_saved.size
+		camera.transform = _orbit_saved.transform
+	if is_instance_valid(display):
+		display.position = _orbit_saved.display_position
+	for go: Variant in _orbit_saved.shadow_visibility:
+		if is_instance_valid(visuals[go]):
+			visuals[go].visible = _orbit_saved.shadow_visibility[go]
+	_orbit_saved.clear()
+	if is_instance_valid(viewport):
+		viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+
+
+func is_inspecting() -> bool:
+	return _inspecting
+
+
+## Returns true for every event while inspecting so hosts can consume it before
+## gameplay input. V/reset ownership stays in the host; this API is reusable.
+## Any mouse button can drag. Wheel up/down zooms with hard, positive bounds.
+func handle_inspection_input(event: InputEvent) -> bool:
+	if not _inspecting:
+		return false
+	if event is InputEventMouseButton:
+		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_RIGHT]:
+			if event.pressed:
+				_orbit_drag_button = event.button_index
+			elif event.button_index == _orbit_drag_button:
+				_orbit_drag_button = MOUSE_BUTTON_NONE
+		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+			var direction := -1.0 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0
+			var steps := maxf(0.0, event.factor)
+			_orbit_zoom = clampf(_orbit_zoom * pow(1.12, direction * steps), ORBIT_MIN_ZOOM, ORBIT_MAX_ZOOM)
+			_update_inspection_camera()
+	elif event is InputEventMouseMotion and _orbit_drag_button != MOUSE_BUTTON_NONE:
+		# Ignore stale drags after a missed release (for example focus changes).
+		var mask := 1 << (_orbit_drag_button - 1)
+		if event.button_mask & mask == 0:
+			_orbit_drag_button = MOUSE_BUTTON_NONE
+		else:
+			_orbit_yaw = wrapf(_orbit_yaw - event.relative.x * ORBIT_SENSITIVITY, -PI, PI)
+			_orbit_pitch = clampf(_orbit_pitch + event.relative.y * ORBIT_SENSITIVITY, -ORBIT_PITCH_LIMIT, ORBIT_PITCH_LIMIT)
+			_update_inspection_camera()
+	return true
+
+
+func _update_inspection_camera() -> void:
+	var radius := 500.0
+	camera.position = Vector3(sin(_orbit_yaw) * cos(_orbit_pitch), sin(_orbit_pitch), cos(_orbit_yaw) * cos(_orbit_pitch)) * radius
+	camera.look_at(Vector3.ZERO, Vector3.UP)
+	camera.size = maxf(0.01, float(_orbit_saved.size) * _orbit_zoom)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		_orbit_drag_button = MOUSE_BUTTON_NONE
+
+
+func _exit_tree() -> void:
+	exit_inspection()
+
+
+## Backward-compatible fixed-angle helper. New hosts should use enter/exit and
+## handle_inspection_input. A zero angle restores the exact gameplay snapshot.
+func set_inspection_angle(degrees: float) -> void:
+	if is_zero_approx(degrees):
+		exit_inspection()
+		return
+	enter_inspection()
+	_orbit_yaw = deg_to_rad(degrees)
+	_orbit_pitch = 0.0
+	_update_inspection_camera()

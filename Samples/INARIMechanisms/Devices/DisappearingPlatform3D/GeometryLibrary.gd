@@ -1,45 +1,67 @@
 @tool
 extends RefCounted
-## Exact-color, closed, six-face solids. Front projection reproduces the art;
-## the back and side walls remain real geometry when inspected from an angle.
+## Native Blender asset is the single geometry source. Godot's editor imports
+## .blend through its standard glTF pipeline; exported games need no Blender.
+## Names identify the 13 poses and 3 supporting meshes. Meshes are immutable
+## shared resources; per-instance tint/alpha stay on GeometryVisual materials.
+const MODEL: PackedScene = preload("Assets/DisappearingPlatform3D.blend")
 static var _meshes: Dictionary = {}
-static var _recipe: Dictionary = {}
-const QUADS = [[0, 1, 2, 3], [5, 4, 7, 6], [4, 0, 3, 7], [1, 5, 6, 2], [4, 5, 1, 0], [3, 2, 6, 7]]
+static var _watching_import := false
 
-static func recipe(folder: String) -> Dictionary:
-	if _recipe.is_empty():
-		_recipe = JSON.parse_string(FileAccess.get_file_as_string(folder + "/Assets/geometry.json"))
-	return _recipe
+static func _invalidate() -> void:
+	_meshes.clear()
 
-static func get_mesh(key: String, folder: String) -> ArrayMesh:
-	if _meshes.has(key):
-		return _meshes[key]
-	var entry: Dictionary = recipe(folder)[key]
+static func _collect(node: Node) -> void:
+	if node is MeshInstance3D and node.mesh != null:
+		_meshes[String(node.name)] = _merge_palette_surfaces(node.mesh)
+	for child in node.get_children():
+		_collect(child)
+
+static func get_mesh(key: String, _folder: String = "") -> ArrayMesh:
+	if not _watching_import:
+		MODEL.changed.connect(_invalidate)
+		_watching_import = true
+	if _meshes.is_empty():
+		var source := MODEL.instantiate()
+		_collect(source)
+		source.free()
+	assert(_meshes.has(key), "Missing named mesh in DisappearingPlatform3D.blend: " + key)
+	return _meshes.get(key)
+
+
+## glTF vertex colors are linear and Godot stores vertex channels in 8 bits.
+## Keeping the authored colors as palette materials during import avoids losing
+## dark sRGB steps. Merge those imported surfaces once into one draw surface;
+## positions/indices are copied from Blender, never reconstructed from pixels.
+static func _merge_palette_surfaces(source: Mesh) -> ArrayMesh:
 	var vertices := PackedVector3Array()
-	var colors := PackedColorArray()
 	var indices := PackedInt32Array()
-	# Platform poses have substantial volume. Backplate and halo are thinner
-	# relief layers, also closed solids, not textured billboards.
-	var depth := 8.0 if key.begins_with("sharedassets2_") else 2.0
-	for box: Array in entry.boxes:
-		var x: float = box[0] + entry.offset[0]
-		var y: float = -(box[1] + entry.offset[1])
-		var w: float = box[2]
-		var h: float = box[3]
-		var tint := Color(float(box[4]) / 255.0, float(box[5]) / 255.0, float(box[6]) / 255.0, float(box[7]) / 255.0)
-		var corners := [Vector3(x,y,0), Vector3(x+w,y,0), Vector3(x+w,y-h,0), Vector3(x,y-h,0), Vector3(x,y,-depth), Vector3(x+w,y,-depth), Vector3(x+w,y-h,-depth), Vector3(x,y-h,-depth)]
-		for quad: Array in QUADS:
-			var start := vertices.size()
-			for corner: int in quad:
-				vertices.append(corners[corner])
-				colors.append(tint)
-			indices.append_array(PackedInt32Array([start,start+1,start+2,start,start+2,start+3]))
-	var arrays := []
-	arrays.resize(Mesh.ARRAY_MAX)
-	arrays[Mesh.ARRAY_VERTEX] = vertices
-	arrays[Mesh.ARRAY_COLOR] = colors
-	arrays[Mesh.ARRAY_INDEX] = indices
-	var result := ArrayMesh.new()
-	result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	_meshes[key] = result
-	return result
+	var colors := PackedColorArray()
+	for surface in source.get_surface_count():
+		var arrays := source.surface_get_arrays(surface)
+		var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var triangles: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		var material := source.surface_get_material(surface) as BaseMaterial3D
+		assert(material != null, "Blender palette surface needs a material")
+		# sRGB -> linear -> sRGB import has float roundoff. Snap the palette
+		# back to its authored 8-bit grid before Godot packs vertex channels.
+		var color := material.albedo_color
+		color = Color8(roundi(color.r*255), roundi(color.g*255), roundi(color.b*255), roundi(color.a*255))
+		var offset := vertices.size()
+		vertices.append_array(positions)
+		for _vertex in positions.size():
+			colors.append(color)
+		if triangles.is_empty():
+			for index in positions.size():
+				indices.append(offset + index)
+		else:
+			for index in triangles:
+				indices.append(offset + index)
+	var merged := []
+	merged.resize(Mesh.ARRAY_MAX)
+	merged[Mesh.ARRAY_VERTEX] = vertices
+	merged[Mesh.ARRAY_COLOR] = colors
+	merged[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, merged)
+	return mesh

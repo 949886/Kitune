@@ -1,22 +1,22 @@
-# Verification record
+# Native Blender model + free orbit verification
 
-Base: Inari `6134c742f98b3726fe06db66d8c98039ceb9e5d2`.
-Engine available: Godot 4.6.3 stable; upstream project targets 4.7.
+Base: published feature commit `7ad3bb950aefcdd53369a9df7b5daad7ac97b4a3`, based on Inari `6134c742f98b3726fe06db66d8c98039ceb9e5d2`.
+Tools: Godot 4.6.3 stable + Blender 4.3.2. The upstream project targets Godot 4.7.
 
 Passed:
-- Clean isolated project import and runtime parse.
-- StandaloneProbe: 20,604 checks with a legacy sibling, including 3,840 sampled lifecycle parity points.
-- StandaloneProbe: 628 checks with only this device, moved and renamed to a nested folder.
-- All 16 geometry recipes match original nontransparent RGBA pixels exactly, including per-pixel alpha and no overlaps.
-- Real transformed 2D physics contacts: top activation, underside and sides excluded, dead actor excluded, fall through on disappearance, weak-reference teardown.
-- Independent World3D, camera/material/mesh ownership, geometry thickness, no source textures in 3D materials.
-- CaptureProjection explicitly exits 2 with an explanatory error on dummy headless renderer.
-- New repository workshop loads and runs headless; unrelated existing Linux FMOD extension emits load warnings.
-- Original device and original workshop bytes unchanged.
+- Real native `Assets/DisappearingPlatform3D.blend` saved and reopened by Blender: 16 editable meshes, closed/manifold box surfaces, all front RGBA cells exactly match original nontransparent artwork.
+- Clean direct `.blend` import into Godot, with all hidden poses, named palette materials, no textures and no lossy mesh compression.
+- CPU front projection of all 16 actual imported meshes exactly matches source RGBA after transparent RGB normalization. This checks imported geometry/palette data, not GPU rendering.
+- `geometry.json` deleted; loader preloads `.blend` and merges its imported surfaces, with no pixel-driven runtime geometry generation.
+- StandaloneProbe with legacy sibling: 20,604 checks, including 3,840 lifecycle parity samples and transformed real 2D contacts.
+- OrbitProbe: 1,230 checks in minimal real-workshop setup; 1,077 in relocated device-only setup. Repeated V, button drags, wheel limits, reset, teardown, per-instance isolation, exact camera/display/shadow restoration, continuing animation and blocked actor movement/attack covered.
+- Original 2D device, old workshop and shared WorkshopPlayer remain unchanged.
 
-Blocked / not claimed:
-- Godot GPU-rendered visual QA, exact final pixels/alpha and performance. This machine has no active X11/Wayland display and headless supports only dummy rendering.
-- Full repository import is not a clean pass: existing FMOD extension has no Linux binary and TouchUI references missing Game/UI/Joystick scripts. These existing files were not changed for this device.
-- Blender inspection output is a real geometry render, with thresholded alpha and no large soft shadow. It is not a screenshot of the game.
+Limits:
+- No X11/Wayland service here; Godot headless uses dummy rendering. Actual Godot GPU visuals/alpha composition, mouse feel and target-device performance are not verified.
+- Blender preview renders load the checked-in model and use Blender lighting. They are not game screenshots.
+- Editing/importing `.blend` requires Blender configured in Godot Editor Settings. Exported games do not need Blender. Pillow is only used by optional developer regeneration/verification scripts.
+- This is editable extruded pixel-relief geometry with 13 discrete mesh poses, not a continuous mechanical rig.
+- Existing repository-wide Linux FMOD extension and missing Joystick-script import issues remain outside this change.
 
-Run CaptureProjection and the workshop in the target Godot 4.7 graphics environment before approving final visual equivalence.
+Publication policy for this revision: an explicitly approved `[skip ci]` marker avoids the repository's automatic build-and-deploy workflow. A skipped CI run is not a passing CI result. No workflow settings or branch protections are changed.
