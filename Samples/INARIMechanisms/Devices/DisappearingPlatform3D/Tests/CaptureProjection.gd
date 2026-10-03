@@ -1,6 +1,7 @@
 extends SceneTree
 ## Real-engine visual regression capture; requires a rendering display driver.
 const Platform = preload("../DisappearingPlatform3D.tscn")
+var reference: Node2D
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -24,7 +25,18 @@ func run() -> void:
 	background.color = Color("23383e")
 	root.add_child(background)
 	var device := Platform.instantiate()
-	device.position = Vector2(512,330)
+	var legacy_path: String = get_script().resource_path.get_base_dir().get_base_dir().get_base_dir().path_join("DisappearingPlatform/DisappearingPlatform.tscn")
+	if ResourceLoader.exists(legacy_path):
+		reference = load(legacy_path).instantiate()
+		reference.position = Vector2(256,330)
+		reference.scale = Vector2(3,3)
+		root.add_child(reference)
+		reference.set_physics_process(false)
+		var label := Label.new()
+		label.text = "Godot capture: original 2D (left) / solid 3D (right), same 3x scale"
+		label.position = Vector2(24,24)
+		root.add_child(label)
+	device.position = Vector2(768 if reference != null else 512,330)
 	device.scale = Vector2(3,3)
 	root.add_child(device)
 	device.set_physics_process(false)
@@ -34,16 +46,23 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(folder)
 	await capture(device,"ready",folder)
 	device.activate()
+	if reference != null: reference.activate()
 	device.advance(0.22)
+	if reference != null: reference.advance(0.22)
 	await capture(device,"alarm",folder)
 	device.advance(1.6)
+	if reference != null: reference.advance(1.6)
 	await capture(device,"folding",folder)
 	device.advance(0.3)
+	if reference != null: reference.advance(0.3)
 	await capture(device,"hidden",folder)
 	device.advance(0.95)
+	if reference != null: reference.advance(0.95)
 	device.advance(0.16)
+	if reference != null: reference.advance(0.16)
 	await capture(device,"recovering",folder)
 	device.reset()
+	if reference != null: reference.reset()
 	device.set_inspection_angle(35)
 	await capture(device,"angled-geometry",folder)
 	print("PLATFORM_3D_CAPTURE_PASS: ",folder)

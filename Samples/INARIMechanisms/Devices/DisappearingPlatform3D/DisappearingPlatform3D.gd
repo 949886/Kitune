@@ -360,6 +360,7 @@ func enter_inspection() -> void:
 			_orbit_saved.shadow_visibility[item.go] = shadow.visible
 			shadow.visible = false
 	_inspecting = true
+	mechanism.set_inspection_materials(true)
 	_orbit_drag_button = MOUSE_BUTTON_NONE
 	_orbit_yaw = deg_to_rad(35.0)
 	_orbit_pitch = deg_to_rad(20.0)
@@ -377,6 +378,7 @@ func exit_inspection() -> void:
 	if not _inspecting:
 		return
 	_inspecting = false
+	mechanism.set_inspection_materials(false)
 	_orbit_drag_button = MOUSE_BUTTON_NONE
 	if is_instance_valid(camera):
 		camera.projection = _orbit_saved.projection

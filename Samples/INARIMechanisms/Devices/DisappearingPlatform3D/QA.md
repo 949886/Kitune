@@ -1,3 +1,30 @@
+# Front appearance correction: local checks passed, graphical verification pending
+
+The user-supplied actual gameplay screenshot demonstrated that the prior full-device alpha IoU was insufficient. It hid incorrect backplate RGB/detail, undersized gears and missing local rail color bands. Historical results below describe the previous published assets, not acceptance of the revised appearance.
+
+- Source READY is an edge-on 96x9 visible rail, not the opaque-looking hidden RGB above/below the alpha mask. Axis conversion and per-preset hinge registration were correct.
+- Source gears are 8x42 projected units; previous actual imported gears were 6.4x24.9726.
+- Source backplate has 9,812 black opaque pixels and very dark outlined compartments, modulated by 0.7264; previous model incorrectly reused tread charcoal and PBR lighting.
+- Gameplay now uses per-instance unshaded palette copies. V inspection restores native lit materials. Exit and R restore the same gameplay palette resources.
+- Idle warning alpha is zero in the original. A missing red lamp in READY is expected; the first lit event is approximately 0.2167 seconds after activation.
+- Existing Xorg cannot create local/unix listening sockets in this environment. Explicit headless + opengl3 still calls dummy texture storage and returns no image. No software was installed and no network/security settings were altered. Blender references are not Godot captures.
+- CaptureProjection now records original2D and revised3D side-by-side when the original device exists in the same project. Actual graphical validation remains required.
+
+- Revised native assets use one 13-component backplate and one 15-component tread. The source-colored rail remains one closed, 2-unit-deep structural lip with per-face materials; frame compartment marks are merged closed raised struts, not sprites or per-pixel nodes.
+- New gameplay/orbit material checks verify shared imports are never mutated, repeated enter/exit returns identical palette resources, reset restores palette, and another instance stays unchanged.
+
+## Revised local validation
+
+- Clean native import in legacy/workshop and renamed device-only projects: no import/script errors.
+- Legacy/workshop: Mechanical 3,528; Standalone 22,096; Orbit 1,254 checks passed.
+- Renamed/nested device-only: Mechanical 3,528; Standalone 2,120; Orbit 1,101 checks passed.
+- Mechanical checks now assert imported black frame RGB, 96x9 rail bounds, source silver/teal bands, 42-unit solid gear diameter and 8-unit axial width. These are resource/geometry assertions, not GPU image comparisons.
+- Original 59-file DisappearingPlatform remains byte-identical to Inari.
+- Final Backplate 146,505 bytes; Tread 173,471 bytes. Native reload/manifold-positive-volume checks pass. 13 sampled hinge poses have no moving/fixed BVH triangle intersections; intended bearing/shaft mating excluded.
+- Blender unlit front reference is materially closer to source local proportions and colors. It still has renderer-specific antialiasing, and neither it nor historical alpha IoU establishes Godot gameplay appearance.
+
+## Historical published-version QA (superseded appearance)
+
 # Single-hinge mechanical revision QA
 
 Base: `af5bcfee95d4bd8ad9cef1efff2b87623325e1e7`, feature based on Inari `6134c742`.

@@ -14,6 +14,8 @@ var fold_amount := -1.0
 # Source frame identity retained for host diagnostics, never used to swap meshes.
 var current_key := ""
 var _fold_clip: StringName
+var _surface_materials: Array[Dictionary] = []
+var inspection_materials := false
 
 func setup() -> void:
 	if backplate != null:
@@ -37,6 +39,9 @@ func setup() -> void:
 	# Physics owns the clock. Never let an imported AnimationPlayer race it.
 	animation.set_process(false)
 	animation.set_physics_process(false)
+	_collect_front_materials(backplate)
+	_collect_front_materials(tread)
+	set_inspection_materials(false)
 	set_fold(0.0)
 
 func set_fold(value: float) -> void:
@@ -68,3 +73,29 @@ static func _animation_player(node: Node) -> AnimationPlayer:
 		if found != null:
 			return found
 	return null
+
+
+## Gameplay uses authored palette colors rather than environment-dependent PBR.
+## Geometry, thickness, normals and Fold animation stay identical in both modes.
+## Inspection restores imported lit materials so depth remains easy to inspect.
+func _collect_front_materials(node: Node) -> void:
+	if node is MeshInstance3D and node != alarm:
+		var mesh_node := node as MeshInstance3D
+		for surface in range(mesh_node.mesh.get_surface_count()):
+			var imported := mesh_node.get_active_material(surface) as StandardMaterial3D
+			if imported == null:
+				continue
+			var palette := imported.duplicate() as StandardMaterial3D
+			palette.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			palette.metallic = 0.0
+			palette.emission_enabled = false
+			_surface_materials.append({"mesh": mesh_node, "surface": surface, "lit": imported, "palette": palette})
+	for child in node.get_children():
+		_collect_front_materials(child)
+
+func set_inspection_materials(enabled: bool) -> void:
+	inspection_materials = enabled
+	for entry: Dictionary in _surface_materials:
+		entry.mesh.set_surface_override_material(entry.surface, entry.lit if enabled else entry.palette)
+	if is_inside_tree():
+		get_viewport().render_target_update_mode = SubViewport.UPDATE_ONCE

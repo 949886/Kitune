@@ -56,6 +56,7 @@ func run() -> void:
 	check_imported_animation(platform)
 	check_gear_geometry(named(platform.mechanism.tread, "GearLeft"))
 	check_gear_geometry(named(platform.mechanism.tread, "GearRight"))
+	check_palette_materials(platform, other)
 	check_hinge_motion(platform, other)
 	await check_lifecycle(platform)
 	platform.queue_free()
@@ -137,8 +138,8 @@ func check_gear_geometry(gear: MeshInstance3D) -> void:
 	if gear == null or gear.mesh == null:
 		return
 	var bounds := gear.mesh.get_aabb()
-	check(bounds.size.x > 6.0 and bounds.size.x < 6.6, "Gear lacks its authored axial thickness")
-	check(bounds.size.y > 24.0 and bounds.size.z > 24.0, "Gear is not a radial wheel in the YZ plane")
+	check(bounds.size.x > 7.7 and bounds.size.x < 8.2, "Gear lacks its authored axial thickness")
+	check(bounds.size.y > 41.0 and bounds.size.y <= 42.1 and bounds.size.z > 41.0 and bounds.size.z <= 42.1, "Gear is not a radial wheel in the YZ plane")
 	var minimum_radius := INF
 	var maximum_radius := 0.0
 	var angular_outline: Dictionary = {}
@@ -170,7 +171,7 @@ func check_gear_geometry(gear: MeshInstance3D) -> void:
 			if radii.x < 3.8 and radii.y < 3.8 and radii.z < 3.8 and maxf(a.x, maxf(b.x, c.x)) - minf(a.x, minf(b.x, c.x)) > 5.5:
 				bore_wall_triangles += 1
 	check(minimum_radius > 3.3 and minimum_radius < 3.7, "Gear has no real centered axle opening")
-	check(maximum_radius > 12.3 and maximum_radius < 12.8, "Gear tooth crest radius differs from authored solid")
+	check(maximum_radius > 20.7 and maximum_radius < 21.2, "Gear tooth crest radius differs from authored solid")
 	check(axis_crossings == 0, "A gear face fills the axle opening")
 	check(bore_wall_triangles > 0, "Gear bore is missing its solid axial walls")
 	var angles: Array = angular_outline.keys()
@@ -179,7 +180,7 @@ func check_gear_geometry(gear: MeshInstance3D) -> void:
 	for index in angles.size():
 		var previous: float = angular_outline[angles[(index + angles.size() - 1) % angles.size()]]
 		var current: float = angular_outline[angles[index]]
-		if current > 11.35 and previous <= 11.35:
+		if current > 19.0 and previous <= 19.0:
 			peaks += 1
 	check(peaks == 16, "Gear must have 16 real tooth crests, found " + str(peaks))
 
@@ -296,3 +297,38 @@ func check_lifecycle(platform: Node2D) -> void:
 	check(assembly.fold_amount == 0.0 and assembly.hinge.basis.is_equal_approx(Basis.IDENTITY), "Paused source clock moved the physical hinge")
 	platform.settings.time_scale = 1.0
 	platform.reset()
+
+
+func check_palette_materials(platform: Node2D, other: Node2D) -> void:
+	var records: Array = platform.mechanism._surface_materials
+	check(not records.is_empty(), "Gameplay palette has no imported solid surfaces")
+	var frame := named(platform.mechanism.backplate, "FrameBody") as MeshInstance3D
+	var frame_material := frame.get_active_material(0) as StandardMaterial3D
+	check(frame_material.albedo_color.r < 0.005 and frame_material.albedo_color.g < 0.005 and frame_material.albedo_color.b < 0.005, "Source black backplate became gray")
+	var rail := named(platform.mechanism.tread, "TreadEdgeRails") as MeshInstance3D
+	var rail_bounds := rail.mesh.get_aabb()
+	check(absf(rail_bounds.size.x - 96.0) < 0.01 and absf(rail_bounds.size.y - 9.0) < 0.01, "READY rail lost its source96x9 profile")
+	var silver := false
+	var teal := false
+	for surface in rail.mesh.get_surface_count():
+		var material := rail.get_active_material(surface) as StandardMaterial3D
+		var color := material.albedo_color
+		silver = silver or (absf(color.r - 169.0/255.0) < 0.002 and absf(color.g - color.r) < 0.002)
+		teal = teal or (absf(color.r - 40.0/255.0) < 0.002 and absf(color.g - 79.0/255.0) < 0.002 and absf(color.b - 74.0/255.0) < 0.002)
+	check(silver and teal, "Imported rail lost source silver/teal palette bands")
+	for entry: Dictionary in records:
+		check(entry.palette.shading_mode == BaseMaterial3D.SHADING_MODE_UNSHADED, "Gameplay color still depends on scene lighting")
+		check(entry.palette.albedo_color == entry.lit.albedo_color, "Palette override changed imported source albedo")
+		check(entry.palette != entry.lit, "Palette mutated shared native material")
+		check(entry.mesh.get_active_material(entry.surface) == entry.palette, "Gameplay solid is using lit material")
+	for iteration in 4:
+		platform.enter_inspection()
+		for entry: Dictionary in records:
+			check(entry.mesh.get_active_material(entry.surface) == entry.lit, "Orbit failed to restore native lit surface")
+		check(not other.mechanism.inspection_materials, "Orbit changed a second instance palette")
+		platform.exit_inspection()
+		for entry: Dictionary in records:
+			check(entry.mesh.get_active_material(entry.surface) == entry.palette, "Exit failed to restore exact palette resource")
+	platform.enter_inspection()
+	platform.reset()
+	check(not platform.mechanism.inspection_materials, "Reset left gameplay with orbit materials")
