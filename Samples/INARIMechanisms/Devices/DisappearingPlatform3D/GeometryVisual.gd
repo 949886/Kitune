@@ -1,6 +1,6 @@
 @tool
 extends MeshInstance3D
-## One mesh per source layer, never one scene node per pixel.
+## Per-instance alarm material; the solid lamp geometry comes from Backplate.blend.
 var current_key := ""
 var modulate := Color.WHITE:
 	set(value):

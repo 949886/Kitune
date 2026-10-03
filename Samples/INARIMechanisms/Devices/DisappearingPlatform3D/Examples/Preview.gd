@@ -7,7 +7,7 @@ var inspecting := false
 
 func _process(_delta: float) -> void:
 	var controls := "V: return | Mouse drag: orbit | Wheel: zoom | R: reset + return" if inspecting else "Space: activate | R: reset | V: free orbit view"
-	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed]
+	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f | Hinge: %.1f deg" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed, device.mechanism.fold_amount * 90.0]
 
 
 # Handle inspection at the input stage, before any host gameplay's unhandled

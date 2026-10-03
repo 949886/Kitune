@@ -105,19 +105,18 @@ func check_device_camera() -> void:
 	var original := snapshot(platform)
 	var original_nodes := node_count(platform)
 	var polygon: PackedVector2Array = platform.shape.polygon.duplicate()
-	var shadows: Array[MeshInstance3D] = []
-	for item: Dictionary in platform.record.visuals:
-		if item.sprite == "sharedassets0_446":
-			shadows.append(platform.visuals[item.go])
+	var physical_parts: Array[Node3D] = [platform.mechanism.backplate, platform.mechanism.tread]
+	var part_transforms: Array[Transform3D] = []
+	for part: Node3D in physical_parts:
+		part_transforms.append(part.transform)
 	check(not platform.handle_inspection_input(button(MOUSE_BUTTON_LEFT)), "Normal gameplay input was consumed by inactive orbit API")
 	for cycle in 12:
-		# Preserve both originally visible and host-hidden shadow states.
-		var shadow_visible := cycle % 2 == 0
-		for shadow in shadows:
-			shadow.visible = shadow_visible
+		# Inspection changes only the camera; real geometry/lighting is shared
+		# with gameplay. A host-hidden imported part must stay host-hidden.
+		var part_visible := cycle % 2 == 0
+		physical_parts[0].visible = part_visible
 		platform.enter_inspection()
-		for shadow in shadows:
-			check(not shadow.visible, "Ambient shadow obscures orbit inspection")
+		check(physical_parts[0].visible == part_visible and physical_parts[1].visible, "Inspection changed imported-part visibility")
 		check(platform.is_inspecting(), "Enter did not activate inspection")
 		check(platform.camera.projection == Camera3D.PROJECTION_ORTHOGONAL, "Inspection projection is not orthographic")
 		check(platform.display.position == -Vector2(platform.viewport.size) * 0.5, "Orbit origin drifts with halo viewport bounds")
@@ -164,9 +163,11 @@ func check_device_camera() -> void:
 		platform.exit_inspection()
 		platform.exit_inspection()
 		check_restored(platform, original)
-		for shadow in shadows:
-			check(shadow.visible == shadow_visible, "Exit did not preserve the ambient shadow's prior visibility")
+		check(physical_parts[0].visible == part_visible and physical_parts[1].visible, "Exit did not preserve imported-part visibility")
+		for index in physical_parts.size():
+			check(physical_parts[index].transform == part_transforms[index], "Inspection transformed a physical part")
 		check(node_count(platform) == original_nodes, "Inspection enter/exit leaked scene nodes")
+	physical_parts[0].visible = true
 	platform.enter_inspection()
 	other.enter_inspection()
 	var other_orbit := snapshot(other)

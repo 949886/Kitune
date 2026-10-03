@@ -67,7 +67,7 @@ func run() -> void:
 func check_timing_and_reset(platform: Node2D) -> void:
 	check(is_equal_approx(platform.disappear_after, 109.0 / 60.0), "Source disappear timing changed")
 	check(is_equal_approx(platform.recover_after, 1.25), "Source recover timing changed")
-	check(platform.visuals.size() == 4, "All four source visual layers are required")
+	check(platform.visuals.size() == 2, "Only the physical mechanism and alarm should map source visual tracks")
 	var emission = platform.visuals[platform.record.states[0].alpha.go]
 	check(emission.modulate.a == 0.0, "Idle emission must be off")
 	platform.activated.connect(func(): _activation_count += 1)
@@ -147,55 +147,80 @@ func check_geometry_and_isolation(platform: Node2D) -> void:
 	check(platform.viewport.own_world_3d, "Each viewport must own its isolated 3D world")
 	check(platform.camera is Camera3D and platform.camera.projection == Camera3D.PROJECTION_ORTHOGONAL, "Pixel-plane output requires an orthographic camera")
 	check(platform.display is Sprite2D and platform.display.texture is ViewportTexture, "Final 2D output must be the viewport texture")
+	check(platform.mechanism is Node3D and not platform.mechanism is MeshInstance3D, "Physical assembly needs its persistent native model hierarchy")
+	check(platform.visuals[platform.record.states[0].track.go] == platform.mechanism, "Source frame clock must address the shared physical assembly")
+	check(platform.visuals[platform.record.states[0].alpha.go] == platform.mechanism.alarm, "Source alpha clock must address the alarm")
+	check(platform.mechanism.backplate.scene_file_path.ends_with("/Backplate.blend"), "Backplate must be a native Blender scene instance")
+	check(platform.mechanism.tread.scene_file_path.ends_with("/Tread.blend"), "Tread must be a native Blender scene instance")
 	var second := make_platform()
 	check(platform.viewport.find_world_3d() != second.viewport.find_world_3d(), "Instances share a 3D world")
 	check(platform.viewport.get_texture() != second.viewport.get_texture(), "Instances share their rendered texture")
+	check(platform.camera != second.camera and platform.mechanism.hinge != second.mechanism.hinge, "Instances share camera or hinge nodes")
 	platform.activate()
 	platform.advance(0.22)
 	var other_emission = second.visuals[second.record.states[0].alpha.go]
 	check(second.state == second.State.READY and other_emission.modulate.a == 0.0, "One instance changed another's state or material alpha")
-	for go in platform.visuals:
-		var visual = platform.visuals[go]
-		check(visual is MeshInstance3D, "Source artwork must be actual MeshInstance3D geometry")
-		check(visual.material_override != second.visuals[go].material_override, "Mutable materials must be per-instance")
-		check_mesh(visual)
-	check_only_viewport_sprite(platform, platform.display)
-	# Exercise every source key, including the 13 animated poses and 3 overlays.
-	check(platform._library.size() == 16, "The complete source geometry library must contain 16 keys")
-	var target = platform.visuals[platform.record.states[0].track.go]
+	var meshes := collect_meshes(platform.model)
+	check(not meshes.is_empty(), "Physical assembly has no imported solid meshes")
 	var mesh_ids: Dictionary = {}
-	for key: String in platform._library:
-		platform._set_sprite(target, key)
-		check(target.current_key == key, "Visual did not retain the selected source frame key")
-		check_mesh(target)
-		mesh_ids[target.mesh.get_instance_id()] = true
-	check(mesh_ids.size() == 16, "All 16 source artworks need their own geometry")
+	for visual: MeshInstance3D in meshes:
+		var path: NodePath = platform.model.get_path_to(visual)
+		check_mesh(visual)
+		mesh_ids[path] = visual.mesh.get_instance_id()
+	check(platform.mechanism.alarm.material_override != second.mechanism.alarm.material_override, "Mutable alarm materials must be per-instance")
+	check(platform.camera.environment != second.camera.environment, "Instances share mutable world environment")
+	var lights: Array[Node] = platform.viewport.find_children("*", "Light3D", true, false)
+	check(not lights.is_empty(), "Mechanical model requires real local 3D lighting")
+	for light: Light3D in lights:
+		var other: Light3D = second.viewport.get_node(platform.viewport.get_path_to(light))
+		var energy := other.light_energy
+		light.light_energy += 0.1
+		check(other != light and other.light_energy == energy, "Instances share mutable lights")
+		light.light_energy -= 0.1
+	check_only_viewport_sprite(platform, platform.display)
+	# Source frame keys remain useful provenance, but must never allocate or swap
+	# complete physical poses. Every original state samples the same assembly.
+	var target = platform.visuals[platform.record.states[0].track.go]
+	for state_index in platform.record.states.size():
+		var state_record: Dictionary = platform.record.states[state_index]
+		for frame: Array in state_record.track.frames:
+			platform._animation_index = state_index
+			platform._animation_time = float(frame[0]) / float(state_record.track.speed)
+			platform._recover_blend = 0.0
+			platform._sample_animation()
+			var expected := str(frame[1]) if frame[1] != null else ""
+			check(target.current_key == expected, "Assembly did not retain the selected source frame key")
+			check(collect_meshes(platform.model).size() == meshes.size(), "A source key added or removed physical meshes")
+			for path: NodePath in mesh_ids:
+				var visual: MeshInstance3D = platform.model.get_node(path)
+				check(visual.mesh.get_instance_id() == mesh_ids[path], "Source frame selection swapped a physical mesh")
 	platform.reset()
 	second.queue_free()
 	await process_frame
 
 
+func collect_meshes(node: Node) -> Array[MeshInstance3D]:
+	var result: Array[MeshInstance3D] = []
+	if node is MeshInstance3D:
+		result.append(node)
+	for child: Node in node.get_children():
+		result.append_array(collect_meshes(child))
+	return result
+
+
 func check_mesh(visual: MeshInstance3D) -> void:
 	check(visual.mesh != null and visual.mesh.get_surface_count() > 0, "Missing 3D geometry")
-	check(visual.mesh.get_aabb().size.z >= 1.99, "Artwork is a flat textured plane rather than a solid extrusion")
-	var has_side_faces := false
+	var bounds := visual.mesh.get_aabb().size
+	check(bounds.x > 0.001 and bounds.y > 0.001 and bounds.z > 0.001, "Physical component is a flat plane rather than solid geometry: " + str(visual.name))
+	var triangles := 0
 	for surface in visual.mesh.get_surface_count():
 		var arrays: Array = visual.mesh.surface_get_arrays(surface)
 		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
-		check(vertices.size() >= 8 and indices.size() >= 12, "Extruded geometry needs vertices and triangle faces")
-		# Unshaded materials need no stored normals. Inspect the actual triangles.
-		for index in range(0, indices.size(), 3):
-			var a := vertices[indices[index]]
-			var b := vertices[indices[index + 1]]
-			var c := vertices[indices[index + 2]]
-			var normal := (b - a).cross(c - a).normalized()
-			if normal.length_squared() > 0.5 and absf(normal.z) < 0.5:
-				has_side_faces = true
-				break
-		check_material(visual.mesh.surface_get_material(surface))
-	check(has_side_faces, "Geometry has no thickness-defining side faces")
-	check_material(visual.material_override)
+		check(vertices.size() >= 3, "Physical geometry needs triangle vertices")
+		triangles += (indices.size() if not indices.is_empty() else vertices.size()) / 3
+		check_material(visual.get_active_material(surface))
+	check(triangles >= 12, "Physical component needs solid faces")
 
 
 func check_material(material: Material) -> void:

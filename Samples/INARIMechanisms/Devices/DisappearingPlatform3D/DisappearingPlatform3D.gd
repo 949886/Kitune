@@ -23,8 +23,11 @@ var audio: AudioStreamPlayer
 var record: Dictionary
 var visuals: Dictionary = {}
 var _library: Dictionary
-const Geometry = preload("GeometryLibrary.gd")
-const Visual = preload("GeometryVisual.gd")
+const Mechanism = preload("MechanicalModel.gd")
+var mechanism: Node3D
+var _fold_start := 1.75
+var _fold_end := 1.95
+var _recover_pose_end := 0.2
 var viewport: SubViewport
 var camera: Camera3D
 var display: Sprite2D
@@ -58,19 +61,20 @@ func _ready() -> void:
 	record = document.records[settings.source_key]
 	_library = document.sprites
 	_build_projection()
-	var sorted: Array = record.visuals.duplicate()
-	sorted.sort_custom(func(a, b): return a.sort[0] < b.sort[0] or (a.sort[0] == b.sort[0] and a.sort[1] < b.sort[1]))
-	for order in sorted.size():
-		var item: Dictionary = sorted[order]
-		var visual := Visual.new()
-		var pose: Array = item.transform
-		var factor := 16.0 / float(_library[item.sprite].ppu)
-		visual.transform = Transform3D(Basis(Vector3(pose[0], -pose[1], 0) * factor, Vector3(-pose[2], pose[3], 0) * factor, Vector3(0,0,1)), Vector3(pose[4], -pose[5], order * 0.25))
-		visual.configure(Color(item.color[0], item.color[1], item.color[2], item.color[3]), order)
-		visual.visible = item.visible
-		model.add_child(visual)
-		visuals[item.go] = visual
-		_set_sprite(visual, item.sprite)
+	mechanism = Mechanism.new()
+	mechanism.name = "MechanicalAssembly"
+	# Authored backplate contour uses PNG-space anchor (82, 42). Preserve
+	# each original preset's subpixel artwork offset without moving physics.
+	for item: Dictionary in record.visuals:
+		if item.sprite == "sharedassets2_2519":
+			var offset: Array = _library[item.sprite].offset
+			mechanism.position = Vector3(float(item.transform[4]) + float(offset[0]) + 82.0, -(float(item.transform[5]) + float(offset[1])) - 42.0, 0.0)
+			break
+	model.add_child(mechanism)
+	mechanism.setup()
+	visuals[record.states[0].track.go] = mechanism
+	visuals[record.states[0].alpha.go] = mechanism.alarm
+	_configure_hinge_timing()
 	var active: Dictionary = record.states[1].track
 	disappear_after = settings.disappear_delay if settings.disappear_delay >= 0.0 else float(record.fields.targetFrame) / float(active.frame_rate) / float(active.speed)
 	recover_after = settings.hidden_seconds if settings.hidden_seconds >= 0.0 else float(record.fields.appearTerm)
@@ -210,7 +214,8 @@ func _sample_animation() -> void:
 		if float(frame[0]) > time + 0.000001:
 			break
 		key = frame[1]
-	_set_sprite(visuals[track.go], key)
+	mechanism.current_key = str(key) if key != null else ""
+	mechanism.set_fold(_fold_fraction(index, time))
 	# Emission alpha is a separate streamed curve, including increasingly fast
 	# alarm flashes and the cubic fade during recovery. It is not in sprite pixels.
 	var alpha: Dictionary = record.states[_animation_index].alpha
@@ -235,13 +240,38 @@ func _sample_curve(keys: Array, time: float) -> float:
 	return ((float(c[0]) * t + float(c[1])) * t + float(c[2])) * t + float(c[3])
 
 
-func _set_sprite(visual: MeshInstance3D, key: Variant) -> void:
-	var next_key := str(key) if key != null else ""
-	if visual.current_key == next_key:
-		return
-	visual.current_key = next_key
-	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
-	visual.mesh = Geometry.get_mesh(str(key), get_script().resource_path.get_base_dir()) if key != null else null
+## Read the source fold interval rather than allowing the imported animation
+## duration to change gameplay timing. The Blender action defines the motion.
+func _configure_hinge_timing() -> void:
+	var active: Array = record.states[1].track.frames
+	var ready_key: String = record.states[0].track.frames[0][1]
+	var hidden_key: String = record.states[2].track.frames[0][1]
+	for frame: Array in active:
+		if frame[1] != ready_key:
+			break
+		_fold_start = float(frame[0])
+	for frame: Array in active:
+		if frame[1] == hidden_key:
+			_fold_end = float(frame[0])
+			break
+	for frame: Array in record.states[3].track.frames:
+		if frame[1] == ready_key:
+			_recover_pose_end = float(frame[0])
+			break
+
+
+func _fold_fraction(index: int, time: float) -> float:
+	match index:
+		1:
+			return clampf(inverse_lerp(_fold_start, _fold_end, time), 0.0, 1.0)
+		2:
+			return 1.0
+		3:
+			# Hold the outgoing pose through the source blend, then unfold
+			# continuously to the same source end time (no angle discontinuity).
+			var start := _recover_blend * float(record.states[3].track.speed)
+			return 1.0 - clampf(inverse_lerp(minf(start, _recover_pose_end - 0.000001), _recover_pose_end, time), 0.0, 1.0)
+	return 0.0
 
 
 func _build_projection() -> void:
@@ -289,8 +319,17 @@ func _build_projection() -> void:
 	var environment := Environment.new()
 	environment.background_mode = Environment.BG_CLEAR_COLOR
 	environment.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color(0.68, 0.74, 0.8)
+	environment.ambient_light_energy = 0.8
 	camera.environment = environment
 	viewport.add_child(camera)
+	var key_light := DirectionalLight3D.new()
+	key_light.name = "MechanicalKeyLight"
+	key_light.rotation_degrees = Vector3(-25, -30, 0)
+	key_light.light_energy = 1.1
+	key_light.shadow_enabled = false
+	viewport.add_child(key_light)
 	display = Sprite2D.new()
 	display.name = "Projected3D"
 	display.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -316,7 +355,7 @@ func enter_inspection() -> void:
 	# The oversized ambient shadow is a front-view presentation layer, not part
 	# of the platform's solid body. Hide it in orbit so rear views stay readable.
 	for item: Dictionary in record.visuals:
-		if item.sprite == "sharedassets0_446":
+		if item.sprite == "sharedassets0_446" and visuals.has(item.go):
 			var shadow: MeshInstance3D = visuals[item.go]
 			_orbit_saved.shadow_visibility[item.go] = shadow.visible
 			shadow.visible = false

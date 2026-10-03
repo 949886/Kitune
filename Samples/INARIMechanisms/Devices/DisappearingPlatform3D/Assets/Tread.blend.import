@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qtqhl38gj43e"
-path="res://.godot/imported/DisappearingPlatform3D.blend-85da256c8c6732d4a7f92c07d94b4e32.scn"
+path="res://.godot/imported/Tread.blend-cad85fd7980cc23152445f8b5d8c7635.scn"
 
 [deps]
 
-source_file="res://Samples/INARIMechanisms/Devices/DisappearingPlatform3D/Assets/DisappearingPlatform3D.blend"
-dest_files=["res://.godot/imported/DisappearingPlatform3D.blend-85da256c8c6732d4a7f92c07d94b4e32.scn"]
+source_file="res://Samples/INARIMechanisms/Devices/DisappearingPlatform3D/Assets/Tread.blend"
+dest_files=["res://.godot/imported/Tread.blend-cad85fd7980cc23152445f8b5d8c7635.scn"]
 
 [params]
 
@@ -28,8 +27,8 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=true
 skins/use_named_skins=true
-animation/import=false
-animation/fps=30
+animation/import=true
+animation/fps=60
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
