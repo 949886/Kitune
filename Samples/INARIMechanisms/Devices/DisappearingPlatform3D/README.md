@@ -1,75 +1,79 @@
-# DisappearingPlatform3D · 双模型机械铰链版
+# DisappearingPlatform3D
 
-原 `DisappearingPlatform` 保持不变。这个独立 3D 装置由**共用固定机框 + 单个活动踏板**组成，通过透明 SubViewport 在 2D 场景显示，继续使用原 2D 碰撞和倒计时。
+独立的「固定机框 + 单个活动踏板」装置。真实 3D 模型经透明 SubViewport 显示在 2D 场景，游戏碰撞仍为原版 2D 逻辑。原 `DisappearingPlatform` 不需要修改。
 
-## 两个独立原生模型
+## 模型与导入
 
-- **`Assets/Backplate.blend`**：固定机框和支撑、轴承、报警灯及空心轴护罩。它有真实结构厚度、凹槽和近黑色背衬，外轮廓从原背板的透明通道描出。
-- **`Assets/Tread.blend`**：一个踏板、同一转轴、左右两个有厚度的实体齿轮。所有活动零件属于 `TreadHinge`，原生 `Fold` 动画驱动该铰链。踏板真实表面使用一张打包在 `.blend` 内的源面板色彩纹理，配合实体两级凹框，恢复细纹、边缘磨损和周边铆点。
+- `Assets/Backplate.blend`：固定机框、支撑、轴承、警示灯及空心轴护罩；内嵌一张 96×8 源色纹理。
+- `Assets/Tread.blend`：一个活动厚板、双层凹框、转轴及两个 16 齿实体齿轮；内嵌一张 96×58 面板纹理。所有活动部件属于 `TreadHinge`，原生 `Fold` 动画驱动它。
+- 26 个组件网格都有厚度。纹理承担细纹、铆点、边缘磨损的颜色；没有逐帧替换网格、13 张姿态贴图或面向相机的精灵平面。
 
-可以分别用 Blender 打开和编辑，再在 Godot 重新导入。保留 `TreadHinge`、`AlarmLamp` 和 `Fold` 名称以便运行时识别。Blender Z 向上、正面朝 -Y；Godot 转换为 Y 向上、正面朝 +Z。
+开发时需安装 Blender（验证版本 4.3.2），在 Godot 的 `Editor Settings > Filesystem > Import > Blender > Blender Path` 指定程序。Godot 验证版本为 4.6.3；导出游戏不依赖 Blender。[官方导入说明](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html)。
 
-已移除先前的 13 套姿态网格、旧合并 `.blend`、`geometry.json` 和逐帧几何生成代码。现在整个生命周期始终使用同一套踏板网格，变化的是铰链变换。不是隐藏/显示复制的踏板，也不是换精灵或贴图平面。
+保留 `.blend.import`：UV 开启、纹理不解包为外部依赖、踏板动画优化关闭以保留全部 13 个角度键。编辑模型时保留 `TreadHinge`、`AlarmLamp`、`HingeCover`、`Fold` 名称。Blender 为 Z 向上、-Y 正面；Godot 导入后为 Y 向上、+Z 正面。
 
-齿轮是带轴孔、齿顶、齿根、侧壁与轴向厚度的闭合网格。左右齿轮随同一转轴转动；它们不模拟额外的齿轮传动或 3D 刚体物理。
+## 实例化与行为
 
-## 动画、外观和碰撞
+1. 在 2D 场景实例化 `DisappearingPlatform3D.tscn`。根节点对应原碰撞面顶部中心。
+2. 设置 `actor_path`，或调用 `bind_actor(player, alive_predicate)`；角色碰撞掩码须包含 `solid_layers`。
+3. `PlatformSettings` 提供 14 个原始 `source_key` 预设、延迟、隐藏时长、时间倍率及音效开关。每实例修改设置前复制资源。
+4. 自定义宿主可调用 `activate()`；`reset()` 恢复待机并退出观察。
 
-- 待机踏板为水平，宽 96、最深 60 个局部单位，绕 X 轴向下折叠到 90°；恢复时沿同一运动反向展开。
-- 用 Blender 导入的真实 `Fold` 关键帧动画，在原动画收起区间（约 1.75–1.95 秒）按确定性时钟取样。13 个角度关键帧按原素材的下缘位置调整先慢、后快、再停的进度，关键帧之间连续插值。不是运行时生成 13 个模型。
-- 踩踏 109/60 秒后取消碰撞，隐藏 1.25 秒后立即恢复碰撞；红灯、警报、重复激活与恢复排队延续原行为。**恢复碰撞仍早于展开结束**，这是原游戏逻辑。恢复过渡保持结束后，转轴连续回转至原结束时刻，避免突然跳角。
-- 碰撞为 `CollisionPolygon2D`，角色依然是 `CharacterBody2D`，不会让 2D 角色依赖 3D 物理。
-- 这一版是重新制作的机械模型，保留深灰/青绿配色和基本轮廓，但**不再宣称逐像素复刻旧精灵**。游戏正面使用源调色的无光照材质，V自由视角恢复实体光照，退出/重置后还原；实体厚度、齿轮和连续转动仍会带来视觉差异；旧软阴影浮雕已移除。
+默认踩踏 109/60 秒后取消碰撞，隐藏 1.25 秒后恢复碰撞。恢复碰撞仍早于展开动画结束，保持原逻辑。重复激活、恢复排队、警报和灯光 alpha 使用同一确定性时钟；待机红灯 alpha 为 0。
 
-## 首次导入与使用
+踏板宽 96、最深 60，绕 X 轴折下 90°。原生动画在约 1.75–1.95 秒取样，13 个角度键按源图下缘位置缓动；恢复沿同一曲线反向展开。固定空心轴护罩自然露出青绿上沿，活动板/连接片的圆弧槽提供转动间隙。齿轮随轴转动，不模拟额外齿轮传动或 3D 刚体物理。
 
-开发电脑需安装 Blender（本次验证 4.3.2）并在 Godot 编辑器设置 `Filesystem > Import > Blender > Blender Path` 指定程序。Godot 标准 Blender → glTF 导入处理两份 `.blend`；导出游戏不需要 Blender。
+每实例有独立 World3D、相机、SubViewport、灯光及可变警示灯材质。游戏正面采用 nearest 采样的无光照源色材质；自由视角切回实体光照，退出还原。根节点的移动、旋转、缩放由 2D 宿主控制。
 
-保留附带 `.blend.import` 设置，尤其是踏板动画导入。官方说明：[Godot Blender 导入](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html)。
+## 示例与自由视角
 
-1. 在 2D 场景实例化 `DisappearingPlatform3D.tscn`；根节点对应碰撞面顶部中心。
-2. 设置 `actor_path`，或调用 `bind_actor(player, alive_predicate)`。角色碰撞掩码包含 `solid_layers`。
-3. 保留原 14 个 `settings.source_key` 预设、延迟、隐藏时长、时间倍率和音效开关。每实例修改设置前复制资源。
-4. 自定义角色可调用 `activate()`；`reset()` 恢复待机。
+- `Examples/Preview.tscn`：F6 运行；空格激活。
+- `Samples/INARIMechanisms/Examples/DisappearingPlatform3DWorkshop.tscn`：F6 运行；A/D 移动，空格跳跃。
+- **V** 开关自由视角；鼠标主按钮拖拽旋转，滚轮缩放，俯仰范围 ±80°。
+- **R** 重置并退出。观察中动画继续；练习场角色冻结，移动/跳跃/攻击不会穿透。
+- 窗口 resize 后，场景等比适配、背景铺满 viewport，HUD 独立缩放/换行，不改变碰撞单位或鼠标 delta。
 
-每实例有独立 World3D、正交相机、透明 SubViewport、灯光和可变报警灯材质；静态模型资源只读共享。生产正面用 nearest 过滤，根节点移动/旋转/缩放由 2D 宿主控制。
+宿主调用 `enter_inspection()`、`exit_inspection()`、`is_inspecting()`、`handle_inspection_input(event)`，并在 `_input` 中消费观察输入。装置不会自行冻结任意外部角色。退出恢复相机变换、显示位置和缩放。
 
-## 预览与自由视角
+## 文件用途
 
-- 自包含预览：`Examples/Preview.tscn`，F6；空格激活，界面显示当前铰链角度。
-- 角色练习场：`Samples/INARIMechanisms/Examples/DisappearingPlatform3DWorkshop.tscn`，F6；A/D 移动、空格跳跃。
-- **V** 开关自由观察；鼠标任意主按钮拖拽旋转，滚轮缩放，俯仰 ±80°。
-- **R** 重置并退出观察。
+| 目录/文件 | 保留原因 |
+| --- | --- |
+| `Assets/*.blend` 与 `.import` | 当前模型、内嵌纹理和必要导入设置 |
+| `Assets/activate_01.wav` 与 `.import` | 动态加载的激活音效 |
+| `Assets/device.json` | 预设、碰撞、动画/灯光曲线、布局及源提取审计信息；不是旧几何生成数据 |
+| `Presets/`、`DefaultSettings.tres`、`PlatformSettings.gd` | 14 个可选预设和宿主配置 |
+| 主场景、`DisappearingPlatform3D.gd`、`MechanicalModel.gd` | 状态机、2D 碰撞、3D 装配、投影和视角 |
+| `GeometryVisual.gd` | 当前实体警示灯的独立 alpha 材质，不是旧网格生成器 |
+| `Examples/` | 自包含交互示例及被 3D Workshop 共用的窗口布局 |
+| `Tests/` | 行为、机械模型、视角、resize 回归及图形采集/轮廓辅助诊断 |
+| `Tools/` | 可编辑模型的重生成、Blender 结构/运动预览 |
+| `.gd.uid` | Godot 脚本资源身份，不应当作缓存删除 |
 
-观察时装置动画继续，练习场角色冻结，移动/跳跃/攻击输入不会穿透。退出恢复原相机、显示位置及缩放。三个练习场装置分别有独立相机，同时响应观察输入。
+## 维护与回归
 
-宿主可用 `enter_inspection()`、`exit_inspection()`、`is_inspecting()` 和 `handle_inspection_input(event)`；应先在 `_input` 中消费观察输入。示例实现完整输入隔离，装置不会擅自冻结任意外部角色。
+以下命令在装置目录执行；输出目录应选在项目之外：
 
-## 验证和图像来源
+```sh
+blender -b --python Tools/build_mechanical_models.py -- /absolute/output
+blender -b --python Tools/render_mechanical_preview.py -- /absolute/output
+```
 
-`Tests/StandaloneProbe.gd` 检查源时间轴、报警灯、真实接触和独立实例；`Tests/MechanicalProbe.gd` 检查双模型、原生动画、铰链、踏板网格不变及实体齿轮；`Tests/OrbitProbe.gd` 检查自由视角和输入隔离。
+生成器会覆盖两份模型的手工修改。再生成需要同仓库原 `DisappearingPlatform/Assets` 及 Blender Python 的 Pillow；正常使用已打包模型不需要原素材或 Pillow。生成器输出重新加载、闭合性验证及 GLB 供检查。渲染器加 `--motion` 生成标为 Blender 检查的慢放视频（需 ffmpeg）；加 `--only=footprints --footprint-sequence` 输出 13 个小尺寸轮廓图。
 
-Blender 渲染用于展示拆分、结构和运动，标注为 Blender 模型检查；并不冒充 Godot 游戏截图。当前云环境没有 X11/Wayland，Godot headless 只使用 dummy renderer，实际 Godot GPU 视觉、透明度、鼠标手感与设备性能仍需图形环境复核。`Tests/CaptureProjection.gd` 可在图形环境采集游戏图像。
+先运行 Godot `--headless --editor --import`，再分别以 `--headless --script` 运行：
 
+- `Tests/MechanicalProbe.gd`：双模型、13 个原生角度键、实体齿轮/轴护罩、UV、两张静态纹理和材质隔离。
+- `Tests/StandaloneProbe.gd`：状态/报警灯时序、实际接触、多实例和原版对照。
+- `Tests/OrbitProbe.gd`：重复 V/R、拖拽、缩放、相机恢复和输入隔离。
+- `Tests/DemoResizeProbe.gd`：9 种尺寸、横竖/超宽窗口、拖拽中 resize、HUD、背景和世界坐标。
 
-### 可复现的外形比较
+最新完整/Workshop 项目的检查数分别为 **4170 / 21249 / 1254 / 2415**；改名嵌套的独立副本为 **4170 / 1273 / 1101 / 1019**，全部通过、干净导入无错误。独立副本缺少原版/Workshop 时会明确跳过对应对照。当前 26 个组件的闭合正体积验证及 101 个姿态间隙检查也通过；这些不是连续运动的数学证明。
 
-`Tests/compare_mechanical_footprints.py <渲染目录>` 比较原装置与 Blender 正交渲染的 alpha 轮廓。条件为 1 单位/像素、alpha > 128、默认预设，排除原软阴影与未亮报警灯，按原位移近似整数对齐并补足画布。
+## 视觉证据与限制
 
-上一轮模型的待机轮廓 IoU 为 **98.17%**，两者外包框均为 160×80；全折叠轮廓 IoU 为 **98.34%**，外包框分别为原图 160×100、新模型 160×99。这只是轮廓比较，**不代表 RGB、灯光或 Godot GPU 图像一致**。13 个对应位置的整机轮廓 IoU 范围为 93.72%–98.36%，中间位置下缘最大相差 7 像素；统计包含静止背板，并不代表踏板局部细节准确率。中间动画采用真实线性转轴而不是旧手绘换帧，因此可见角度与细节不同。
+Blender 图像必须标为模型参考，不能当作 Godot 游戏截图。当前自动化运行环境仅能使用 Godot dummy/headless 渲染；实际 GPU 色彩、透明合成、交互手感和设备性能仍需图形环境验证。`Tests/CaptureProjection.gd` 在图形环境中采集同尺度的原 2D/新 3D 对照（原装置不在项目内时仅采新装置）。
 
-开发工具：`Tools/build_mechanical_models.py` 再生成两份初始模型（会覆盖手工编辑）；`Tools/render_mechanical_preview.py` 直接加载模型渲染。加 `--motion` 生成明确标注的慢放运动视频；加 `--only=footprints --footprint-sequence` 生成 13 个小尺寸正面轮廓图。开发再生成/对比需要 Blender Python 中的 Pillow，正常使用资产不需要。
+13 帧的源图/Blender 面板下缘均对齐，但早期条纹位置及逐帧手绘明暗仍有差异。中央活动区域 RGB 平均误差在待机/末帧约 0.40/0.42（0–255），早期帧可到 46.51；这不包含齿轮或静止背板，也不是 Godot GPU 验收结果。
 
-### 正面外观修正（本地验证中）
-
-用户实机截图暴露出整机轮廓统计不能检验颜色与局部零件：背板错误使用踏板灰色、实体齿轮直径不足、横条厚度/色层不足。此次按源RGBA的可见像素校准，而不是使用透明区域残留RGB。待机中央横条源尺寸为96×9；齿轮宽8、高42；铰链原点和前视轴向原本正确，保持不变。原Idle红灯alpha=0，保持待机熄灭。修正后的游戏GPU图像尚未验证，请勿把Blender参考图当作Godot验收结果。
-
-### 活动面板表面修正
-
-原版折到底的主框为96×57像素、侧框宽4像素、两层1像素窄框，内场84×49像素，并带78个周边铆点。现在使用该源表面图绘制真实厚板的UV材质，原生文件内打包一张纹理；不切换13张姿态图，不增加面向相机的平面。贴图只承担表面色彩与细纹，凹框、厚度、轮廓和齿轮仍是实体几何。
-
-13帧逐一比较表面颜色/局部分区与下缘位置，而非仅统计整机透明轮廓。近乎固定的青绿上沿归属机框的实体空心轴护罩，活动板靠轴处有圆弧避让槽；待机前缘遮住护罩，折下后自然露出。原素材逐帧绘制的亮度变化仍可能与静态表面不同；相应差异保留在对照图中，不宣称逐像素一致。
-
-### Demo窗口尺寸
-
-独立Preview和3DWorkshop在窗口resize时按宽高较小的适配比例等比更新2D相机。独立背景层铺满整个viewport，HUD单独缩放/换行；不改变世界碰撞单位、装置3D视口像素大小或鼠标拖拽灵敏度。没有修改项目全局显示设置或原2D示例。
+`Tests/compare_mechanical_footprints.py <渲染目录>` 仍可辅助比较 alpha 轮廓：默认预设、1 像素/单位、alpha >128，排除软阴影和未亮警示灯，按整数近似原位移。**轮廓吻合不代表面板细节、RGB 或动画视觉一致**。不再保留已被新模型取代的历史轮廓分数作为当前结论。

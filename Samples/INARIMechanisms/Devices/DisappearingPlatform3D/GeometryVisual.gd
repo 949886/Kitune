@@ -1,7 +1,6 @@
 @tool
 extends MeshInstance3D
 ## Per-instance alarm material; the solid lamp geometry comes from Backplate.blend.
-var current_key := ""
 var modulate := Color.WHITE:
 	set(value):
 		if modulate == value:

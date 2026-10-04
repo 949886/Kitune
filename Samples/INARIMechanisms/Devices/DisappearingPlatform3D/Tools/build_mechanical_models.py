@@ -36,7 +36,6 @@ PALETTE = {
     'Edges_BrushedSteel': ('4b5f5c', .35, .38),
     'Gears_Gunmetal': ('434343', .35, .40),
     'Bolts_PaleSteel': ('6b6b6b', .35, .38),
-    'Warning_MutedBrass': ('a39052', .30, .40),
     'Alarm_Red': ('d33c34', .25, .27),
 }
 MATS = {}

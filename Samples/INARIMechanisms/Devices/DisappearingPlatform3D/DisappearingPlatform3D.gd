@@ -1,6 +1,6 @@
 @tool
 extends Node2D
-## Independent 3D relief device projected into a host 2D world.
+## Independent 3D mechanical device projected into a host 2D world.
 ## Self-contained copy boundary; original DisappearingPlatform is untouched.
 signal activated
 signal disappeared
@@ -350,15 +350,7 @@ func enter_inspection() -> void:
 		"size": camera.size,
 		"projection": camera.projection,
 		"display_position": display.position,
-		"shadow_visibility": {},
 	}
-	# The oversized ambient shadow is a front-view presentation layer, not part
-	# of the platform's solid body. Hide it in orbit so rear views stay readable.
-	for item: Dictionary in record.visuals:
-		if item.sprite == "sharedassets0_446" and visuals.has(item.go):
-			var shadow: MeshInstance3D = visuals[item.go]
-			_orbit_saved.shadow_visibility[item.go] = shadow.visible
-			shadow.visible = false
 	_inspecting = true
 	mechanism.set_inspection_materials(true)
 	_orbit_drag_button = MOUSE_BUTTON_NONE
@@ -386,9 +378,6 @@ func exit_inspection() -> void:
 		camera.transform = _orbit_saved.transform
 	if is_instance_valid(display):
 		display.position = _orbit_saved.display_position
-	for go: Variant in _orbit_saved.shadow_visibility:
-		if is_instance_valid(visuals[go]):
-			visuals[go].visible = _orbit_saved.shadow_visibility[go]
 	_orbit_saved.clear()
 	if is_instance_valid(viewport):
 		viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
