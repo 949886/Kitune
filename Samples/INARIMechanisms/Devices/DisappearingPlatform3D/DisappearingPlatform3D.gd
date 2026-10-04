@@ -8,20 +8,43 @@ signal recovered
 signal state_changed(value: int)
 
 enum State { READY, COUNTDOWN, HIDDEN }
-const Configuration = preload("PlatformSettings.gd")
-@export var settings: Configuration
-@export var source_data: JSON
-## Presets apply only when switching to a different source. Disable for fully
-## manual authoring; apply_source_layout() explicitly restores preset geometry.
-@export var auto_apply_source_layout := true
-@export var layout_source_key := "level7_18316_0"
-@export_tool_button("Apply source preset layout") var apply_layout_button := apply_source_layout
+enum AnimationState { IDLE, ACTIVE, ACTIVE_IDLE, RECOVER }
+@export_group("Gameplay")
+@export_range(0.0, 30.0, 0.01, "or_greater") var disappear_delay := 109.0 / 60.0
+@export_range(0.0, 30.0, 0.01, "or_greater") var hidden_seconds := 1.25
+@export_range(0.0, 4.0, 0.01, "or_greater") var time_scale := 1.0
+@export var sound_enabled := true
+
+@export_group("Folding")
+@export_range(0.0, 30.0, 0.001, "or_greater") var fold_start := 1.75
+@export_range(0.0, 30.0, 0.001, "or_greater") var fold_end := 1.9500000476837158
+@export_range(0.0, 30.0, 0.001, "or_greater") var active_animation_end := 1.9895836353525738
+@export_range(0.0, 30.0, 0.001, "or_greater") var recovery_hold := 0.11356039345264435
+@export_range(0.0, 30.0, 0.001, "or_greater") var recovery_end := 0.20000000298023224
+@export_range(0.0, 30.0, 0.001, "or_greater") var recovery_animation_end := 0.21699076692560482
+
+@export_group("Alarm Lamp")
+## Seconds from activation. The lamp starts dark and flips at every entry.
+@export var lamp_toggle_times := PackedFloat32Array([
+	0.21666666865348816, 0.4166666567325592, 0.6166666746139526,
+	0.800000011920929, 0.9666666388511658, 1.1166666746139526,
+	1.2333333492279053, 1.3333333730697632, 1.4166666269302368,
+	1.4500000476837158, 1.4833333492279053, 1.5166666507720947,
+	1.5499999523162842, 1.5833333730697632, 1.6166666746139526,
+	1.649999976158142, 1.6833332777023315, 1.7166666984558105, 1.75,
+]):
+	set(value):
+		lamp_toggle_times = value.duplicate()
+## Normalized recovery time (0–1) to opacity (1–0), sampled without baking.
+@export var recovery_alpha: Curve
+
 var solid_layers: int:
 	get:
 		return solid.collision_layer if is_instance_valid(solid) else 1
 	set(value):
 		if is_instance_valid(solid):
 			solid.collision_layer = value
+@export_group("Scene Bindings")
 @export_node_path("CharacterBody2D") var actor_path: NodePath
 
 var state := State.READY
@@ -31,26 +54,21 @@ var recover_after := 0.0
 @export var solid: StaticBody2D
 @export var shape: CollisionPolygon2D
 @export var audio: AudioStreamPlayer
-var record: Dictionary
-var visuals: Dictionary = {}
-var _library: Dictionary
 const Mechanism = preload("MechanicalModel.gd")
 const ProjectionNode = preload("Components/Projection3D/Projection3D.gd")
 @export var projection: ProjectionNode
 var mechanism: Mechanism
+var _configuration_ready := false
 var _projection_ready := false
 var _binding_projection := false
 var _initialized := false
-var _fold_start := 1.75
-var _fold_end := 1.95
-var _recover_pose_end := 0.2
 var viewport: SubViewport
 var camera: Camera3D
 var display: Sprite2D
 var model: Node3D
 var _actor: WeakRef
 var _alive := Callable()
-var _animation_index := 0
+var _animation_index := AnimationState.IDLE
 var _animation_time := 0.0
 var _recover_blend := 0.0
 var _pending_active := false
@@ -69,10 +87,15 @@ var _orbit_zoom := 1.0
 var _orbit_drag_button := MOUSE_BUTTON_NONE
 
 
+func _init() -> void:
+	# Isolate script defaults as well as values assigned by a PackedScene.
+	lamp_toggle_times = lamp_toggle_times.duplicate()
+
+
 func _ready() -> void:
 	if _initialized:
 		return
-	if not _load_source_record():
+	if not _configure():
 		set_physics_process(false)
 		return
 	for required: String in ["projection", "solid", "shape", "audio"]:
@@ -83,8 +106,6 @@ func _ready() -> void:
 	if not projection.rebuilding.is_connected(_on_projection_rebuilding):
 		projection.rebuilding.connect(_on_projection_rebuilding)
 		projection.rebuilt.connect(_on_projection_rebuilt)
-	if auto_apply_source_layout and layout_source_key != settings.source_key:
-		apply_source_layout()
 	_binding_projection = true
 	var built := projection.ensure_built()
 	_binding_projection = false
@@ -96,10 +117,8 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		set_physics_process(false)
 		return
-	_configure_hinge_timing()
-	var active: Dictionary = record.states[1].track
-	disappear_after = settings.disappear_delay if settings.disappear_delay >= 0.0 else float(record.fields.targetFrame) / float(active.frame_rate) / float(active.speed)
-	recover_after = settings.hidden_seconds if settings.hidden_seconds >= 0.0 else float(record.fields.appearTerm)
+	disappear_after = disappear_delay
+	recover_after = hidden_seconds
 	_initialized = true
 	set_physics_process(not Engine.is_editor_hint())
 	_sample_animation()
@@ -122,16 +141,12 @@ func _bind_projection() -> bool:
 	if not mechanism.setup():
 		return false
 	_projection_ready = true
-	if not Engine.is_editor_hint():
-		visuals[record.states[0].track.go] = mechanism
-		visuals[record.states[0].alpha.go] = mechanism.alarm
 	return true
 
 
 func _on_projection_rebuilding() -> void:
 	_projection_ready = false
 	set_physics_process(false)
-	visuals.clear()
 	viewport = null
 	camera = null
 	display = null
@@ -140,7 +155,7 @@ func _on_projection_rebuilding() -> void:
 
 
 func _on_projection_rebuilt() -> void:
-	if _binding_projection or record.is_empty():
+	if _binding_projection or not _configuration_ready:
 		return
 	if not _initialized:
 		_ready()
@@ -159,23 +174,55 @@ func _on_projection_rebuilt() -> void:
 	set_physics_process(not Engine.is_editor_hint())
 
 
-func _load_source_record() -> bool:
-	if settings == null or source_data == null or not source_data.data is Dictionary:
-		push_error("DisappearingPlatform3D: assign Settings and Source Data resources in the scene.")
+func _configure() -> bool:
+	_configuration_ready = false
+	var errors := validate_configuration()
+	if not errors.is_empty():
+		for error: String in errors:
+			push_error("DisappearingPlatform3D: " + error)
 		return false
-	var document: Dictionary = source_data.data
-	if not document.get("records", {}).has(settings.source_key) or not document.has("sprites"):
-		push_error("DisappearingPlatform3D: unknown or invalid source preset '%s'." % settings.source_key)
-		return false
-	record = document.records[settings.source_key]
-	_library = document.sprites
+	_configuration_ready = true
 	return true
+
+
+func validate_configuration() -> PackedStringArray:
+	var errors := PackedStringArray()
+	for property: String in ["disappear_delay", "hidden_seconds", "time_scale", "fold_start", "fold_end", "active_animation_end", "recovery_hold", "recovery_end", "recovery_animation_end"]:
+		var value: float = get(property)
+		if not is_finite(value) or value < 0.0:
+			errors.append("%s must be finite and nonnegative." % property)
+	if fold_end <= fold_start:
+		errors.append("fold_end must be later than fold_start.")
+	if active_animation_end < fold_end:
+		errors.append("active_animation_end must be at or after fold_end.")
+	if recovery_end <= recovery_hold:
+		errors.append("recovery_end must be later than recovery_hold.")
+	if recovery_animation_end < recovery_end:
+		errors.append("recovery_animation_end must be at or after recovery_end.")
+	var previous := -1.0
+	for time: float in lamp_toggle_times:
+		if not is_finite(time) or time < 0.0 or time <= previous or time > active_animation_end:
+			errors.append("lamp_toggle_times must increase strictly from zero through active_animation_end.")
+			break
+		previous = time
+	if recovery_alpha == null or recovery_alpha.point_count < 2:
+		errors.append("Assign recovery_alpha with at least two points from (0, 1) to (1, 0).")
+	else:
+		if not recovery_alpha.get_point_position(0).is_equal_approx(Vector2(0.0, 1.0)) or not recovery_alpha.get_point_position(recovery_alpha.point_count - 1).is_equal_approx(Vector2(1.0, 0.0)):
+			errors.append("recovery_alpha must start at (0, 1) and end at (1, 0).")
+		previous = -1.0
+		for index in recovery_alpha.point_count:
+			var point := recovery_alpha.get_point_position(index)
+			if not point.is_finite() or point.x <= previous or point.x < 0.0 or point.x > 1.0 or point.y < 0.0 or point.y > 1.0 or not is_finite(recovery_alpha.get_point_left_tangent(index)) or not is_finite(recovery_alpha.get_point_right_tangent(index)):
+				errors.append("recovery_alpha needs ordered finite points in the unit square and finite tangents.")
+				break
+			previous = point.x
+	return errors
 
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()
-	if settings == null or source_data == null:
-		warnings.append("Assign Settings and Source Data resources.")
+	warnings.append_array(validate_configuration())
 	for required: String in ["projection", "solid", "shape", "audio"]:
 		if not is_instance_valid(get(required)):
 			warnings.append("Assign the '%s' scene node reference." % required)
@@ -210,12 +257,12 @@ func activate() -> bool:
 		return false
 	elapsed = 0.0
 	state = State.COUNTDOWN
-	if _animation_index == 3:
-		# Unity keeps Active pending during Recover until the transition to Idle.
+	if _animation_index == AnimationState.RECOVER:
+		# Keep a new activation pending until the recovery animation finishes.
 		_pending_active = true
 	else:
-		_play_animation(1)
-	if settings.sound_enabled:
+		_play_animation(AnimationState.ACTIVE)
+	if sound_enabled:
 		audio.play()
 	activated.emit()
 	state_changed.emit(state)
@@ -227,7 +274,7 @@ func activate() -> bool:
 func advance(delta: float) -> void:
 	if not _initialized or not _projection_ready:
 		return
-	var step := maxf(0.0, delta) * settings.time_scale
+	var step := maxf(0.0, delta) * time_scale
 	_advance_animation(step)
 	if state == State.COUNTDOWN:
 		elapsed += step
@@ -245,8 +292,8 @@ func advance(delta: float) -> void:
 			# Original tile restoration is immediate at Recover, before the visible
 			# opening animation finishes. Do not delay solidity to the last frame.
 			shape.set_deferred("disabled", false)
-			_recover_blend = float(record.states[2].transitions[0].data.m_TransitionDuration)
-			_play_animation(3)
+			_recover_blend = recovery_hold
+			_play_animation(AnimationState.RECOVER)
 			recovered.emit()
 			state_changed.emit(state)
 
@@ -261,7 +308,7 @@ func reset() -> void:
 	_recover_blend = 0.0
 	shape.set_deferred("disabled", false)
 	audio.stop()
-	_play_animation(0)
+	_play_animation(AnimationState.IDLE)
 	state_changed.emit(state)
 
 
@@ -273,140 +320,58 @@ func _play_animation(index: int) -> void:
 
 func _advance_animation(delta: float) -> void:
 	_animation_time += delta
-	if _animation_index in [1, 3]:
-		var entry: Dictionary = record.states[_animation_index]
-		var transition: Dictionary = entry.transitions[0].data
-		var end: float = float(entry.track.length) / float(entry.track.speed) * float(transition.m_ExitTime) + float(transition.m_TransitionDuration)
-		if _animation_time >= end:
-			var next: int = int(transition.m_DestinationState)
-			if next == 0 and _pending_active:
-				next = 1
+	match _animation_index:
+		AnimationState.ACTIVE:
+			if _animation_time >= active_animation_end:
+				_play_animation(AnimationState.ACTIVE_IDLE)
+		AnimationState.RECOVER:
+			if _animation_time >= recovery_animation_end:
+				var next := AnimationState.ACTIVE if _pending_active else AnimationState.IDLE
 				_pending_active = false
-			_play_animation(next)
+				_play_animation(next)
 	_sample_animation()
 
 
 func _sample_animation() -> void:
 	if not _projection_ready or Engine.is_editor_hint():
 		return
-	var index := _animation_index
-	# Sprite object curves retain the outgoing pose during the Recover blend.
-	if index == 3 and _animation_time < _recover_blend:
-		index = 2
-	var track: Dictionary = record.states[index].track
-	var time: float = _animation_time * float(track.speed)
-	if track.loop:
-		time = fposmod(time, float(track.length))
-	var key: Variant = track.frames[0][1]
-	for frame: Array in track.frames:
-		if float(frame[0]) > time + 0.000001:
-			break
-		key = frame[1]
-	mechanism.current_key = str(key) if key != null else ""
-	mechanism.set_fold(_fold_fraction(index, time))
-	# Emission alpha is a separate streamed curve, including increasingly fast
-	# alarm flashes and the cubic fade during recovery. It is not in sprite pixels.
-	var alpha: Dictionary = record.states[_animation_index].alpha
-	var alpha_time: float = _animation_time * float(record.states[_animation_index].track.speed)
-	var alpha_track: Dictionary = record.states[_animation_index].track
-	if alpha_track.loop:
-		alpha_time = fposmod(alpha_time, float(alpha_track.length))
-	var value := _sample_curve(alpha.keys, alpha_time)
-	if _animation_index == 3 and _recover_blend > 0 and _animation_time < _recover_blend:
-		value = lerpf(1.0, value, _animation_time / _recover_blend)
-	visuals[alpha.go].modulate.a = clampf(value, 0.0, 1.0)
+	mechanism.set_fold(_fold_fraction(_animation_index, _animation_time))
+	var alpha := _lamp_alpha(_animation_index, _animation_time)
+	if _animation_index == AnimationState.RECOVER and _recover_blend > 0.0 and _animation_time < _recover_blend:
+		alpha = lerpf(1.0, alpha, _animation_time / _recover_blend)
+	mechanism.alarm.modulate.a = clampf(alpha, 0.0, 1.0)
 
 
-func _sample_curve(keys: Array, time: float) -> float:
-	var selected: Array = keys[0]
-	for key: Array in keys:
-		if float(key[0]) > time + 0.000001:
-			break
-		selected = key
-	var t := maxf(0.0, time - float(selected[0]))
-	var c: Array = selected[1]
-	return ((float(c[0]) * t + float(c[1])) * t + float(c[2])) * t + float(c[3])
-
-
-## Read the source fold interval rather than allowing the imported animation
-## duration to change gameplay timing. The Blender action defines the motion.
-func _configure_hinge_timing() -> void:
-	var active: Array = record.states[1].track.frames
-	var ready_key: String = record.states[0].track.frames[0][1]
-	var hidden_key: String = record.states[2].track.frames[0][1]
-	for frame: Array in active:
-		if frame[1] != ready_key:
-			break
-		_fold_start = float(frame[0])
-	for frame: Array in active:
-		if frame[1] == hidden_key:
-			_fold_end = float(frame[0])
-			break
-	for frame: Array in record.states[3].track.frames:
-		if frame[1] == ready_key:
-			_recover_pose_end = float(frame[0])
-			break
+## The lamp starts dark and flips at each authored countdown flash time.
+## Recovery is a normalized editable Curve, independent of model geometry.
+func _lamp_alpha(index: int, time: float) -> float:
+	match index:
+		AnimationState.ACTIVE:
+			var on := false
+			for toggle: float in lamp_toggle_times:
+				if toggle > time + 0.000001:
+					break
+				on = not on
+			return 1.0 if on else 0.0
+		AnimationState.ACTIVE_IDLE:
+			return 1.0
+		AnimationState.RECOVER:
+			if time + 0.000001 >= recovery_end:
+				return 0.0
+			return recovery_alpha.sample(clampf(time / recovery_end, 0.0, 1.0))
+	return 0.0
 
 
 func _fold_fraction(index: int, time: float) -> float:
 	match index:
-		1:
-			return clampf(inverse_lerp(_fold_start, _fold_end, time), 0.0, 1.0)
-		2:
+		AnimationState.ACTIVE:
+			return clampf(inverse_lerp(fold_start, fold_end, time), 0.0, 1.0)
+		AnimationState.ACTIVE_IDLE:
 			return 1.0
-		3:
-			# Hold the outgoing pose through the source blend, then unfold
-			# continuously to the same source end time (no angle discontinuity).
-			var start := _recover_blend * float(record.states[3].track.speed)
-			return 1.0 - clampf(inverse_lerp(minf(start, _recover_pose_end - 0.000001), _recover_pose_end, time), 0.0, 1.0)
+		AnimationState.RECOVER:
+			# Hold the outgoing pose through the blend, then unfold continuously.
+			return 1.0 - clampf(inverse_lerp(_recover_blend, recovery_end, time), 0.0, 1.0)
 	return 0.0
-
-
-## Explicit authoring operation: changes projection framing, collision polygon,
-## and assembly alignment only. Other node/resource edits remain untouched.
-func apply_source_layout() -> void:
-	if not _load_source_record():
-		return
-	for required: String in ["projection", "shape"]:
-		if not is_instance_valid(get(required)):
-			push_error("DisappearingPlatform3D: cannot apply layout without '%s'." % required)
-			return
-	# Bounds include EVERY pose and halo, rather than only the ready pose.
-	var bounds := Rect2()
-	var first := true
-	for item: Dictionary in record.visuals:
-		var pose: Array = item.transform
-		var transform_2d := Transform2D(Vector2(pose[0],pose[1]), Vector2(pose[2],pose[3]), Vector2(pose[4],pose[5]))
-		var keys: Array = [item.sprite]
-		if item.go == record.states[0].track.go:
-			for state_record: Dictionary in record.states:
-				for frame: Array in state_record.track.frames:
-					if frame[1] != null and not keys.has(frame[1]):
-						keys.append(frame[1])
-		for key: String in keys:
-			var entry: Dictionary = _library[key]
-			var factor := 16.0 / float(entry.ppu)
-			var rect := Rect2(Vector2(entry.offset[0],entry.offset[1])*factor, Vector2(entry.size[0],entry.size[1])*factor)
-			var transformed := transform_2d * rect
-			bounds = transformed if first else bounds.merge(transformed)
-			first = false
-	bounds = Rect2(bounds.position.floor() - Vector2(2,2), bounds.end.ceil() - bounds.position.floor() + Vector2(4,4))
-	projection.viewport_size = Vector2i(bounds.size)
-	projection.camera_size = bounds.size.y
-	projection.camera_position = Vector3(bounds.get_center().x, -bounds.get_center().y, 500.0)
-	projection.sprite_position = bounds.position
-	for item: Dictionary in record.visuals:
-		if item.sprite == "sharedassets2_2519":
-			var offset: Array = _library[item.sprite].offset
-			var placement: Transform3D = projection.scene_transform
-			placement.origin = Vector3(float(item.transform[4]) + float(offset[0]) + 82.0, -(float(item.transform[5]) + float(offset[1])) - 42.0, 0.0)
-			projection.scene_transform = placement
-			break
-	var points := PackedVector2Array()
-	for point: Array in record.polygon:
-		points.append(Vector2(point[0], point[1]))
-	shape.polygon = points
-	layout_source_key = settings.source_key
 
 
 ## Free visual inspection around the device origin, not the oversized halo's

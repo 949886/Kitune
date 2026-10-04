@@ -9,8 +9,6 @@ var hinge: Node3D
 var animation: AnimationPlayer
 var alarm: MeshInstance3D
 var fold_amount := -1.0
-# Source frame identity retained for host diagnostics, never used to swap meshes.
-var current_key := ""
 var _fold_clip: StringName
 var _surface_materials: Array[Dictionary] = []
 var inspection_materials := false
