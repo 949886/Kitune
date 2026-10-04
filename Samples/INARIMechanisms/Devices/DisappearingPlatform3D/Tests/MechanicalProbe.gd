@@ -36,7 +36,7 @@ func make_platform() -> Node2D:
 
 func all_nodes(node: Node) -> Array[Node]:
 	var result: Array[Node] = [node]
-	for child: Node in node.get_children():
+	for child: Node in node.get_children(true):
 		result.append_array(all_nodes(child))
 	return result
 

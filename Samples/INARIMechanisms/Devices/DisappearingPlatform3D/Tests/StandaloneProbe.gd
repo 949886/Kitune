@@ -203,7 +203,7 @@ func collect_meshes(node: Node) -> Array[MeshInstance3D]:
 	var result: Array[MeshInstance3D] = []
 	if node is MeshInstance3D:
 		result.append(node)
-	for child: Node in node.get_children():
+	for child: Node in node.get_children(true):
 		result.append_array(collect_meshes(child))
 	return result
 
@@ -239,7 +239,7 @@ func check_only_viewport_sprite(node: Node, display: Sprite2D) -> void:
 	check(not node is Sprite3D, "Sprite3D billboards cannot replace extruded artwork")
 	if node is Sprite2D:
 		check(node == display and node.texture is ViewportTexture, "Only the final viewport-output Sprite2D is allowed")
-	for child in node.get_children():
+	for child in node.get_children(true):
 		check_only_viewport_sprite(child, display)
 
 

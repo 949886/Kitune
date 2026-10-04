@@ -15,7 +15,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var controls := "V: return | Mouse drag: orbit | Wheel: zoom | R: reset + return" if inspecting else "Space: activate | R: reset | V: free orbit view"
-	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f | Hinge: %.1f deg" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed, rad_to_deg(device.mechanism.hinge.rotation.x)]
+	var hinge_text := "content unavailable"
+	if is_instance_valid(device.mechanism) and is_instance_valid(device.mechanism.hinge):
+		hinge_text = "%.1f deg" % rad_to_deg(device.mechanism.hinge.rotation.x)
+	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f | Hinge: %s" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed, hinge_text]
 
 
 # Handle inspection at the input stage, before any host gameplay's unhandled

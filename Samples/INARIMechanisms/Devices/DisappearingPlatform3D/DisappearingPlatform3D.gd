@@ -35,15 +35,19 @@ var record: Dictionary
 var visuals: Dictionary = {}
 var _library: Dictionary
 const Mechanism = preload("MechanicalModel.gd")
-@export var mechanism: Mechanism
+const ProjectionNode = preload("Components/Projection3D/Projection3D.gd")
+@export var projection: ProjectionNode
+var mechanism: Mechanism
+var _projection_ready := false
+var _binding_projection := false
 var _initialized := false
 var _fold_start := 1.75
 var _fold_end := 1.95
 var _recover_pose_end := 0.2
-@export var viewport: SubViewport
-@export var camera: Camera3D
-@export var display: Sprite2D
-@export var model: Node3D
+var viewport: SubViewport
+var camera: Camera3D
+var display: Sprite2D
+var model: Node3D
 var _actor: WeakRef
 var _alive := Callable()
 var _animation_index := 0
@@ -71,25 +75,27 @@ func _ready() -> void:
 	if not _load_source_record():
 		set_physics_process(false)
 		return
-	for required: String in ["viewport", "camera", "display", "model", "mechanism", "solid", "shape", "audio"]:
+	for required: String in ["projection", "solid", "shape", "audio"]:
 		if not is_instance_valid(get(required)):
 			push_error("DisappearingPlatform3D: assign the '%s' scene node reference." % required)
 			set_physics_process(false)
 			return
+	if not projection.rebuilding.is_connected(_on_projection_rebuilding):
+		projection.rebuilding.connect(_on_projection_rebuilding)
+		projection.rebuilt.connect(_on_projection_rebuilt)
 	if auto_apply_source_layout and layout_source_key != settings.source_key:
 		apply_source_layout()
-	# Editing must not serialize generated palette overrides, lamp scripts or
-	# animation poses into imported Editable Children. F6 enables gameplay.
+	_binding_projection = true
+	var built := projection.ensure_built()
+	_binding_projection = false
+	if not built or not _bind_projection():
+		set_physics_process(false)
+		return
+	# Editing validates the injected mechanical scene without writing palettes,
+	# lamp scripts or gameplay poses into authored model resources.
 	if Engine.is_editor_hint():
-		mechanism.setup() # Validation/binding only in the editor.
-		viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 		set_physics_process(false)
 		return
-	if not mechanism.setup():
-		set_physics_process(false)
-		return
-	visuals[record.states[0].track.go] = mechanism
-	visuals[record.states[0].alpha.go] = mechanism.alarm
 	_configure_hinge_timing()
 	var active: Dictionary = record.states[1].track
 	disappear_after = settings.disappear_delay if settings.disappear_delay >= 0.0 else float(record.fields.targetFrame) / float(active.frame_rate) / float(active.speed)
@@ -101,6 +107,56 @@ func _ready() -> void:
 	process_physics_priority = 100
 	if not actor_path.is_empty():
 		bind_actor(get_node_or_null(actor_path) as CharacterBody2D)
+
+
+func _bind_projection() -> bool:
+	viewport = projection.viewport
+	camera = projection.camera
+	display = projection.sprite
+	model = projection.scene_container
+	mechanism = projection.scene_instance as Mechanism
+	_projection_ready = false
+	if mechanism == null:
+		push_error("DisappearingPlatform3D: Projection.scene must reference a MechanicalModel scene.")
+		return false
+	if not mechanism.setup():
+		return false
+	_projection_ready = true
+	if not Engine.is_editor_hint():
+		visuals[record.states[0].track.go] = mechanism
+		visuals[record.states[0].alpha.go] = mechanism.alarm
+	return true
+
+
+func _on_projection_rebuilding() -> void:
+	_projection_ready = false
+	set_physics_process(false)
+	visuals.clear()
+	viewport = null
+	camera = null
+	display = null
+	model = null
+	mechanism = null
+
+
+func _on_projection_rebuilt() -> void:
+	if _binding_projection or record.is_empty():
+		return
+	if not _initialized:
+		_ready()
+		return
+	if not _bind_projection():
+		return
+	_sample_animation()
+	if _inspecting:
+		# Replacement preserves the inspection state and angles but restores the
+		# replacement's configured front camera when inspection ends.
+		_orbit_saved = {"transform": camera.transform, "size": camera.size,
+			"projection": camera.projection, "display_position": display.position}
+		mechanism.set_inspection_materials(true)
+		display.position = -Vector2(viewport.size) * 0.5
+		_update_inspection_camera()
+	set_physics_process(not Engine.is_editor_hint())
 
 
 func _load_source_record() -> bool:
@@ -120,7 +176,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()
 	if settings == null or source_data == null:
 		warnings.append("Assign Settings and Source Data resources.")
-	for required: String in ["viewport", "camera", "display", "model", "mechanism", "solid", "shape", "audio"]:
+	for required: String in ["projection", "solid", "shape", "audio"]:
 		if not is_instance_valid(get(required)):
 			warnings.append("Assign the '%s' scene node reference." % required)
 	return warnings
@@ -134,7 +190,7 @@ func bind_actor(actor: CharacterBody2D, alive := Callable()) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint() or not _initialized:
+	if Engine.is_editor_hint() or not _initialized or not _projection_ready:
 		return
 	advance(delta)
 	var actor: CharacterBody2D = _actor.get_ref() if _actor != null else null
@@ -150,7 +206,7 @@ func _physics_process(delta: float) -> void:
 ## Explicit host activation is also supported (e.g. a custom physics controller).
 ## Repeated contacts never restart a running timer; stepping off never cancels it.
 func activate() -> bool:
-	if not _initialized or state != State.READY:
+	if not _initialized or not _projection_ready or state != State.READY:
 		return false
 	elapsed = 0.0
 	state = State.COUNTDOWN
@@ -169,7 +225,7 @@ func activate() -> bool:
 ## Physics and animation share one clock; SceneTree pause stops both. Advancing
 ## explicitly is useful for deterministic verification without real-time sleeps.
 func advance(delta: float) -> void:
-	if not _initialized:
+	if not _initialized or not _projection_ready:
 		return
 	var step := maxf(0.0, delta) * settings.time_scale
 	_advance_animation(step)
@@ -231,6 +287,8 @@ func _advance_animation(delta: float) -> void:
 
 
 func _sample_animation() -> void:
+	if not _projection_ready or Engine.is_editor_hint():
+		return
 	var index := _animation_index
 	# Sprite object curves retain the outgoing pose during the Recover blend.
 	if index == 3 and _animation_time < _recover_blend:
@@ -309,7 +367,7 @@ func _fold_fraction(index: int, time: float) -> float:
 func apply_source_layout() -> void:
 	if not _load_source_record():
 		return
-	for required: String in ["viewport", "camera", "display", "mechanism", "shape"]:
+	for required: String in ["projection", "shape"]:
 		if not is_instance_valid(get(required)):
 			push_error("DisappearingPlatform3D: cannot apply layout without '%s'." % required)
 			return
@@ -333,28 +391,29 @@ func apply_source_layout() -> void:
 			bounds = transformed if first else bounds.merge(transformed)
 			first = false
 	bounds = Rect2(bounds.position.floor() - Vector2(2,2), bounds.end.ceil() - bounds.position.floor() + Vector2(4,4))
-	viewport.size = Vector2i(bounds.size)
-	camera.size = bounds.size.y
-	camera.position = Vector3(bounds.get_center().x, -bounds.get_center().y, 500.0)
-	display.position = bounds.position
+	projection.viewport_size = Vector2i(bounds.size)
+	projection.camera_size = bounds.size.y
+	projection.camera_position = Vector3(bounds.get_center().x, -bounds.get_center().y, 500.0)
+	projection.sprite_position = bounds.position
 	for item: Dictionary in record.visuals:
 		if item.sprite == "sharedassets2_2519":
 			var offset: Array = _library[item.sprite].offset
-			mechanism.position = Vector3(float(item.transform[4]) + float(offset[0]) + 82.0, -(float(item.transform[5]) + float(offset[1])) - 42.0, 0.0)
+			var placement: Transform3D = projection.scene_transform
+			placement.origin = Vector3(float(item.transform[4]) + float(offset[0]) + 82.0, -(float(item.transform[5]) + float(offset[1])) - 42.0, 0.0)
+			projection.scene_transform = placement
 			break
 	var points := PackedVector2Array()
 	for point: Array in record.polygon:
 		points.append(Vector2(point[0], point[1]))
 	shape.polygon = points
 	layout_source_key = settings.source_key
-	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 
 
 ## Free visual inspection around the device origin, not the oversized halo's
 ## image bounds. The host chooses when to enter and routes its input here before
 ## its gameplay controller. Calling enter twice never overwrites the snapshot.
 func enter_inspection() -> void:
-	if not _initialized or _inspecting or not is_instance_valid(camera):
+	if not _initialized or not _projection_ready or _inspecting or not is_instance_valid(camera):
 		return
 	_orbit_saved = {
 		"transform": camera.transform,
@@ -381,7 +440,8 @@ func exit_inspection() -> void:
 	if not _inspecting:
 		return
 	_inspecting = false
-	mechanism.set_inspection_materials(false)
+	if is_instance_valid(mechanism):
+		mechanism.set_inspection_materials(false)
 	_orbit_drag_button = MOUSE_BUTTON_NONE
 	if is_instance_valid(camera):
 		camera.projection = _orbit_saved.projection
@@ -404,6 +464,8 @@ func is_inspecting() -> bool:
 func handle_inspection_input(event: InputEvent) -> bool:
 	if not _inspecting:
 		return false
+	if not _projection_ready:
+		return true
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_RIGHT]:
 			if event.pressed:

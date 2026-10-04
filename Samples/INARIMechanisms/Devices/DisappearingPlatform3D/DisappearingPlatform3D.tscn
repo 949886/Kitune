@@ -1,26 +1,13 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="DisappearingPlatform3D.gd" id="1"]
 [ext_resource type="Resource" path="DefaultSettings.tres" id="2"]
 [ext_resource type="JSON" path="Assets/device.json" id="3"]
-[ext_resource type="Script" path="MechanicalModel.gd" id="4"]
-[ext_resource type="PackedScene" path="Assets/Backplate.blend" id="5"]
-[ext_resource type="PackedScene" path="Assets/Tread.blend" id="6"]
-[ext_resource type="Script" path="GeometryVisual.gd" id="7"]
-[ext_resource type="AudioStream" path="Assets/activate_01.wav" id="8"]
+[ext_resource type="Script" path="Components/Projection3D/Projection3D.gd" id="4"]
+[ext_resource type="PackedScene" path="MechanicalAssembly.tscn" id="5"]
+[ext_resource type="AudioStream" path="Assets/activate_01.wav" id="6"]
 
-[sub_resource type="Environment" id="Environment_projection"]
-resource_local_to_scene = true
-background_mode = 0
-ambient_light_source = 2
-ambient_light_color = Color(0.68, 0.74, 0.8, 1)
-ambient_light_energy = 0.8
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_projection"]
-resource_local_to_scene = true
-viewport_path = NodePath("Projection3D")
-
-[node name="DisappearingPlatform3D" type="Node2D" node_paths=PackedStringArray("solid", "shape", "audio", "mechanism", "viewport", "camera", "display", "model")]
+[node name="DisappearingPlatform3D" type="Node2D" node_paths=PackedStringArray("solid", "shape", "audio", "projection")]
 texture_filter = 1
 script = ExtResource("1")
 settings = ExtResource("2")
@@ -28,50 +15,12 @@ source_data = ExtResource("3")
 solid = NodePath("SolidBody2D")
 shape = NodePath("SolidBody2D/CollisionPolygon2D")
 audio = NodePath("ActivationAudio")
-mechanism = NodePath("Projection3D/SolidGeometry/MechanicalAssembly")
-viewport = NodePath("Projection3D")
-camera = NodePath("Projection3D/Camera3D")
-display = NodePath("Projected3D")
-model = NodePath("Projection3D/SolidGeometry")
+projection = NodePath("Projection")
 
-[node name="Projection3D" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(169, 109)
-own_world_3d = true
-gui_disable_input = true
-render_target_update_mode = 1
-
-[node name="SolidGeometry" type="Node3D" parent="Projection3D"]
-
-[node name="MechanicalAssembly" type="Node3D" parent="Projection3D/SolidGeometry" node_paths=PackedStringArray("backplate", "tread")]
-position = Vector3(-2.1338387, -5.0161667, 0)
+[node name="Projection" type="Node2D" parent="."]
 script = ExtResource("4")
-backplate = NodePath("Backplate")
-tread = NodePath("Tread")
-alarm_visual_script = ExtResource("7")
-
-[node name="Backplate" parent="Projection3D/SolidGeometry/MechanicalAssembly" instance=ExtResource("5")]
-
-[node name="Tread" parent="Projection3D/SolidGeometry/MechanicalAssembly" instance=ExtResource("6")]
-
-[node name="Camera3D" type="Camera3D" parent="Projection3D"]
-position = Vector3(-2.5, -15.5, 500)
-projection = 1
-current = true
-size = 109.0
-near = 0.05
-far = 1000.0
-environment = SubResource("Environment_projection")
-
-[node name="MechanicalKeyLight" type="DirectionalLight3D" parent="Projection3D"]
-rotation = Vector3(-0.43633232, -0.5235988, 0)
-light_energy = 1.1
-
-[node name="Projected3D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-87, -39)
-texture = SubResource("ViewportTexture_projection")
-centered = false
+scene = ExtResource("5")
+scene_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1338387, -5.0161667, 0)
 
 [node name="SolidBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -80,4 +29,4 @@ collision_mask = 0
 polygon = PackedVector2Array(48.00049, 0, -48, 0, -48, 16, 48.00049, 16)
 
 [node name="ActivationAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8")
+stream = ExtResource("6")

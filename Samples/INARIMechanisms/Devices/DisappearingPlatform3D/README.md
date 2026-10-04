@@ -12,31 +12,42 @@
 
 保留 `.blend.import`：UV 开启、纹理不解包为外部依赖、踏板动画优化关闭以保留全部 13 个角度键。编辑模型时保留 `TreadHinge`、`AlarmLamp`、`HingeCover`、`Fold` 名称。Blender 为 Z 向上、-Y 正面；Godot 导入后为 Y 向上、+Z 正面。
 
-## 场景编辑与资源引用
+## 通用 Projection3D 与场景编辑
 
-主 `.tscn` 直接保存以下层级；打开场景即可编辑，运行时不再创建/替换这些节点：
+`Components/Projection3D/` 是可独立复制的通用组件，没有平台业务依赖。它是 `@tool Node2D`，Inspector 的 `scene: PackedScene` 接受任意 **Node3D 根场景**，自动生成透明、独立 World3D 的投影壳：
+
+```text
+Projection3D (Node2D，保存场景引用与投影配置)
+├── Viewport3D (SubViewport，自动生成/隐藏)
+│   ├── Scene3D (Node3D，应用 scene_transform)
+│   │   └── 注入的3D场景实例
+│   ├── Camera3D (正交投影、独立 Environment)
+│   └── DirectionalLight3D
+└── Projected3D (Sprite2D，独立 ViewportTexture)
+```
+
+生成的壳节点和注入根无 owner，使用内部节点模式，不出现在常规场景树、不保存进外层 `.tscn`。注入场景内部的 owner 关系保留，避免破坏 `%UniqueNode` 与嵌套场景语义。只有配置和 PackedScene 引用被保存。
+
+平台的可编辑主场景现在是：
 
 ```text
 DisappearingPlatform3D
-├── Projection3D (SubViewport，独立 World3D)
-│   ├── SolidGeometry
-│   │   └── MechanicalAssembly
-│   │       ├── Backplate (Assets/Backplate.blend 场景实例)
-│   │       └── Tread (Assets/Tread.blend 场景实例)
-│   ├── Camera3D (Environment 资源)
-│   └── MechanicalKeyLight
-├── Projected3D (Sprite2D，局部 ViewportTexture)
+├── Projection (Projection3D，scene 引用 MechanicalAssembly.tscn)
 ├── SolidBody2D
 │   └── CollisionPolygon2D
 └── ActivationAudio
 ```
 
-- 主场景以外部资源引用 Settings、JSON 源数据、音效、两个 Blender 导入场景及脚本。`MechanicalModel.gd` 不再按固定路径 preload 模型；其 `backplate` / `tread` 为类型化节点引用。根节点也用类型化引用绑定相机、碰撞等节点，重命名/重排时检查 Inspector 引用。
-- 可直接编辑相机、环境、灯光、viewport、显示位置、碰撞多边形、音效资源和装配变换。默认 `_ready()` 保留这些修改。需要编辑实例内部时，在 Godot 对相应实例启用 **Editable Children**；修改原始网格仍在 Blender 完成。
-- 默认 `layout_source_key` 记录当前已应用的预设。切换 `settings.source_key` 后，仅当 `auto_apply_source_layout` 开启且两者不同时，运行会按新预设应用布局。完全手工布局时关闭此开关。编辑器 **Apply source preset layout** 按钮（或 `apply_source_layout()`）明确重设画幅尺寸、相机位置/size、显示位置、装配位置及碰撞点，不改灯光、音效、碰撞层等属性。应用后再调整节点即可；重复启动不重置相同预设下的调整。
-- 替换模型：在装配下换入新的场景实例，并重新指定 `backplate` / `tread` 引用。新模型须包含唯一的 `AlarmLamp`、`TreadHinge`，以及带 `Fold` 名称的 AnimationPlayer 动画。保留尺寸/轴向约定才能保持原来的外观与碰撞配准；替换不会自动缩放或重建模型。
-- 编辑器只绑定/验证模型，显示原生材质和作者保存的姿态；不会把运行时生成的无光照材质、灯脚本或动画姿态写回 Editable Children。**F6 运行**才启用游戏配色、警报和状态动画；因此编辑器原生光照预览与游戏正面配色有差别。
-- 状态机仍拥有铰链动画、警示灯 alpha 和碰撞启用状态；这些动态值会随激活/重置变化。游戏无光照/观察光照材质切换仍属于运行行为，源材质不会被修改。缺少必要引用时会明确报错并停用运行，不会悄悄生成替代节点。
+- **编辑投影**：选择 `Projection`，修改画幅、相机位置/角度/尺寸/裁剪面、Scene3D 变换、Sprite 偏移/采样、环境模板和方向灯属性；这些参数保存并在重建时应用。无需手工维护相机和 viewport 节点。
+- **编辑模型**：打开 `MechanicalAssembly.tscn`。其中 `MechanicalModel.gd` 与 `Backplate` / `Tread` 两个真实 Blender 场景实例仍可编辑，两个模型没有脚本固定路径 preload。需要修改导入实例内部属性时启用 Editable Children；网格仍在 Blender 编辑。装配根变换与 `Projection.scene_transform` 叠加，后者不覆盖根的手工变换。
+- **替换内容**：通用组件仅要求 Node3D 根；此平台另外要求注入场景根挂载 `MechanicalModel.gd`，配置 `backplate`、`tread`、警示灯脚本引用，并包含唯一 `AlarmLamp` / `TreadHinge` 与一个 `Fold` 动画。尺寸/轴向仍须与2D碰撞配准。
+- **布局预设**：默认 `layout_source_key` 记录已应用的预设。`auto_apply_source_layout` 开启且切换 `settings.source_key` 时才自动应用新布局；完全手工布局时关闭它。Inspector 的 **Apply source preset layout** 按钮明确更新投影画幅、相机位置/size、Sprite偏移、Scene3D位置和碰撞点。其余灯光、环境、音效、碰撞层保持原配置。
+- **编辑器预览**：模型只绑定/验证，显示原生材质/作者姿态，不把运行时 palette、灯脚本或动画姿态写回资源。F6运行才启用游戏配色、警报与状态动画。
+- **运行重建**：更换引用/调用 `rebuild()` 会销毁旧投影实例；平台监听生命周期信号，重新绑定并恢复当前折叠/警报、时钟和观察角度，不重建碰撞或音效。无效内容时暂停访问和业务推进，修复后恢复。状态机仍拥有折叠、灯alpha和碰撞启用状态。
+
+通用API：`ensure_built() -> bool` 幂等构建、`rebuild() -> bool` 明确重建、`request_redraw()` 请求刷新；通过 `viewport`、`camera`、`sprite`、`scene_container`、`scene_instance`、`light` 获取当前生成实例，重建后重新获取。监听 `rebuilding` / `rebuilt` / `build_failed(message)`，不要长期持有已销毁节点引用。空 scene 对通用组件有效；非Node3D根会明确拒绝。配置更新不无故重建内容。
+
+独立最小用例：复制整个 `Components/Projection3D/` 目录到任意Godot项目，F6运行其中盒子示例；详见 [组件README](Components/Projection3D/README.md)。这不需要平台、Blender或原2D素材。可变投影资源彼此独立；注入模型本身遵守Godot正常资源共享规则，需要运行修改的自定义资源应设为 `resource_local_to_scene`。
 
 ## 实例化与行为
 
@@ -69,7 +80,8 @@ DisappearingPlatform3D
 | `Assets/activate_01.wav` 与 `.import` | 场景直接引用的激活音效 |
 | `Assets/device.json` | 预设、碰撞、动画/灯光曲线、布局及源提取审计信息；不是旧几何生成数据 |
 | `Presets/`、`DefaultSettings.tres`、`PlatformSettings.gd` | 14 个可选预设和宿主配置 |
-| 主场景、`DisappearingPlatform3D.gd`、`MechanicalModel.gd` | 状态机、2D 碰撞、3D 装配、投影和视角 |
+| 主场景、`DisappearingPlatform3D.gd`、`MechanicalModel.gd`、`MechanicalAssembly.tscn` | 状态机、2D碰撞、可编辑3D装配和观察控制 |
+| `Components/Projection3D/` | 可独立复制的通用投影壳、最小盒子示例与生命周期测试 |
 | `GeometryVisual.gd` | 当前实体警示灯的独立 alpha 材质，不是旧网格生成器 |
 | `Examples/` | 自包含交互示例及被 3D Workshop 共用的窗口布局 |
 | `Tests/` | 行为、机械模型、视角、resize 回归及图形采集/轮廓辅助诊断 |
@@ -93,11 +105,17 @@ blender -b --python Tools/render_mechanical_preview.py -- /absolute/output
 - `Tests/StandaloneProbe.gd`：状态/报警灯时序、实际接触、多实例和原版对照。
 - `Tests/OrbitProbe.gd`：重复 V/R、拖拽、缩放、相机恢复和输入隔离。
 - `Tests/DemoResizeProbe.gd`：9 种尺寸、横竖/超宽窗口、拖拽中 resize、HUD、背景和世界坐标。
-- `Tests/SceneAuthoringProbe.gd`：序列化层级/资源引用、节点及资源手工调整的保存重载、预设布局选择、重复初始化和观察恢复。
-- `Tests/MissingReferenceProbe.gd`：缺引用/无效模型的停用、明确报错与修复恢复；14 条配置错误是刻意触发的预期输出，不应把它当成普通零错误日志。
-- `Tests/EditorAuthoringProbe.gd`：额外加 `--editor` 运行，确认真实 `editor_hint=true` 下 Editable Children 的变换、材质、脚本与动画姿态不被污染，保存重载后仍一致。
+- `Tests/SceneAuthoringProbe.gd`：投影配置/场景引用、业务节点及模型手工调整的保存重载、预设布局选择和观察恢复。
+- `Tests/MissingReferenceProbe.gd`：缺引用/无效模型的停用、明确报错与修复恢复；12 条配置错误是刻意触发的预期输出，不应把它当成普通零错误日志。
+- `Tests/EditorAuthoringProbe.gd`：额外加 `--editor` 运行，确认配置与模型资源保存后不含生成投影壳、运行时材质/脚本/姿态污染。
+- `Tests/ProjectionIntegrationProbe.gd`：活动/恢复/观察期间重建、替换与失效修复，不重启平台时序或泄露输入。
+- `Components/Projection3D/Tests/ProjectionProbe.gd`：通用组件独立实例、替换、空/非法场景、配置更新、隐藏序列化、释放及重新入树；也以 `--editor` 运行。
 
-最新完整/Workshop 项目的检查数分别为 **4170 / 21249 / 1254 / 2415**；改名嵌套的独立副本为 **4170 / 1273 / 1101 / 1019**，全部通过、两套干净导入无错误。新增场景编辑/缺引用/编辑器检查在两套项目分别为 **373 / 168 / 2975**，合计 14 组通过。普通运行探针无意外错误；缺引用探针每组有 14 条预期诊断。`--editor --script` 退出时出现的 RID/ObjectDB 清理告警与空编辑器脚本基线完全相同，不能将其声称为零告警的图形编辑器验收。独立副本缺少原版/Workshop 时会明确跳过对应对照。本轮序列化前后默认投影/相机/环境/灯光/碰撞/音效的 27 项参数指纹完全一致，模型二进制未变。当前 26 个组件的闭合正体积验证及 101 个姿态间隙检查也通过；这些不是连续运动的数学证明。
+完整/Workshop 项目的机械/时序/观察/resize 检查数分别为 **4170 / 21250 / 1254 / 2415**；改名嵌套的独立副本为 **4170 / 1274 / 1101 / 1019**。两套项目的场景配置/缺引用/投影集成检查分别为 **718 / 179 / 84**，通用组件运行/编辑器各 **968** 项，平台真实编辑器模式 **4475** 项；合计 **20 组**通过，两套干净导入无错误。
+
+缺引用探针每组刻意产生12条配置诊断；通用/集成探针分别刻意产生2条非法根警告，其他运行日志无意外错误。`--editor --script` 的退出RID/ObjectDB清理告警与空编辑器脚本基线一致，不代表真实GPU编辑器验收。通用组件还在仅有组件本身及改名嵌套目录的独立项目中通过运行/编辑器测试。缺少原版/Workshop的便携副本会明确跳过对应对照。
+
+抽象前后默认投影/相机/环境/灯光/碰撞/音效及装配世界位置的27项参数指纹一致，模型二进制未变。此前26组件闭合正体积及101姿态间隙验证仍适用于相同模型；这些不是连续运动的数学证明。
 
 ## 视觉证据与限制
 

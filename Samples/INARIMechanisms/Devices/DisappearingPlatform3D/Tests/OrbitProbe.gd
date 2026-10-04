@@ -79,7 +79,7 @@ func check_restored(platform: Node2D, original: Dictionary) -> void:
 
 func node_count(node: Node) -> int:
 	var count := 1
-	for child: Node in node.get_children():
+	for child: Node in node.get_children(true):
 		count += node_count(child)
 	return count
 
