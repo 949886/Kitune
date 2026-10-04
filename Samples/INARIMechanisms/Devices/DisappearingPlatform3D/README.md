@@ -12,10 +12,36 @@
 
 保留 `.blend.import`：UV 开启、纹理不解包为外部依赖、踏板动画优化关闭以保留全部 13 个角度键。编辑模型时保留 `TreadHinge`、`AlarmLamp`、`HingeCover`、`Fold` 名称。Blender 为 Z 向上、-Y 正面；Godot 导入后为 Y 向上、+Z 正面。
 
+## 场景编辑与资源引用
+
+主 `.tscn` 直接保存以下层级；打开场景即可编辑，运行时不再创建/替换这些节点：
+
+```text
+DisappearingPlatform3D
+├── Projection3D (SubViewport，独立 World3D)
+│   ├── SolidGeometry
+│   │   └── MechanicalAssembly
+│   │       ├── Backplate (Assets/Backplate.blend 场景实例)
+│   │       └── Tread (Assets/Tread.blend 场景实例)
+│   ├── Camera3D (Environment 资源)
+│   └── MechanicalKeyLight
+├── Projected3D (Sprite2D，局部 ViewportTexture)
+├── SolidBody2D
+│   └── CollisionPolygon2D
+└── ActivationAudio
+```
+
+- 主场景以外部资源引用 Settings、JSON 源数据、音效、两个 Blender 导入场景及脚本。`MechanicalModel.gd` 不再按固定路径 preload 模型；其 `backplate` / `tread` 为类型化节点引用。根节点也用类型化引用绑定相机、碰撞等节点，重命名/重排时检查 Inspector 引用。
+- 可直接编辑相机、环境、灯光、viewport、显示位置、碰撞多边形、音效资源和装配变换。默认 `_ready()` 保留这些修改。需要编辑实例内部时，在 Godot 对相应实例启用 **Editable Children**；修改原始网格仍在 Blender 完成。
+- 默认 `layout_source_key` 记录当前已应用的预设。切换 `settings.source_key` 后，仅当 `auto_apply_source_layout` 开启且两者不同时，运行会按新预设应用布局。完全手工布局时关闭此开关。编辑器 **Apply source preset layout** 按钮（或 `apply_source_layout()`）明确重设画幅尺寸、相机位置/size、显示位置、装配位置及碰撞点，不改灯光、音效、碰撞层等属性。应用后再调整节点即可；重复启动不重置相同预设下的调整。
+- 替换模型：在装配下换入新的场景实例，并重新指定 `backplate` / `tread` 引用。新模型须包含唯一的 `AlarmLamp`、`TreadHinge`，以及带 `Fold` 名称的 AnimationPlayer 动画。保留尺寸/轴向约定才能保持原来的外观与碰撞配准；替换不会自动缩放或重建模型。
+- 编辑器只绑定/验证模型，显示原生材质和作者保存的姿态；不会把运行时生成的无光照材质、灯脚本或动画姿态写回 Editable Children。**F6 运行**才启用游戏配色、警报和状态动画；因此编辑器原生光照预览与游戏正面配色有差别。
+- 状态机仍拥有铰链动画、警示灯 alpha 和碰撞启用状态；这些动态值会随激活/重置变化。游戏无光照/观察光照材质切换仍属于运行行为，源材质不会被修改。缺少必要引用时会明确报错并停用运行，不会悄悄生成替代节点。
+
 ## 实例化与行为
 
 1. 在 2D 场景实例化 `DisappearingPlatform3D.tscn`。根节点对应原碰撞面顶部中心。
-2. 设置 `actor_path`，或调用 `bind_actor(player, alive_predicate)`；角色碰撞掩码须包含 `solid_layers`。
+2. 设置 `actor_path`，或调用 `bind_actor(player, alive_predicate)`；角色碰撞掩码须包含 `SolidBody2D.collision_layer`。脚本的 `solid_layers` 兼容属性直接读写该节点。
 3. `PlatformSettings` 提供 14 个原始 `source_key` 预设、延迟、隐藏时长、时间倍率及音效开关。每实例修改设置前复制资源。
 4. 自定义宿主可调用 `activate()`；`reset()` 恢复待机并退出观察。
 
@@ -40,7 +66,7 @@
 | 目录/文件 | 保留原因 |
 | --- | --- |
 | `Assets/*.blend` 与 `.import` | 当前模型、内嵌纹理和必要导入设置 |
-| `Assets/activate_01.wav` 与 `.import` | 动态加载的激活音效 |
+| `Assets/activate_01.wav` 与 `.import` | 场景直接引用的激活音效 |
 | `Assets/device.json` | 预设、碰撞、动画/灯光曲线、布局及源提取审计信息；不是旧几何生成数据 |
 | `Presets/`、`DefaultSettings.tres`、`PlatformSettings.gd` | 14 个可选预设和宿主配置 |
 | 主场景、`DisappearingPlatform3D.gd`、`MechanicalModel.gd` | 状态机、2D 碰撞、3D 装配、投影和视角 |
@@ -67,8 +93,11 @@ blender -b --python Tools/render_mechanical_preview.py -- /absolute/output
 - `Tests/StandaloneProbe.gd`：状态/报警灯时序、实际接触、多实例和原版对照。
 - `Tests/OrbitProbe.gd`：重复 V/R、拖拽、缩放、相机恢复和输入隔离。
 - `Tests/DemoResizeProbe.gd`：9 种尺寸、横竖/超宽窗口、拖拽中 resize、HUD、背景和世界坐标。
+- `Tests/SceneAuthoringProbe.gd`：序列化层级/资源引用、节点及资源手工调整的保存重载、预设布局选择、重复初始化和观察恢复。
+- `Tests/MissingReferenceProbe.gd`：缺引用/无效模型的停用、明确报错与修复恢复；14 条配置错误是刻意触发的预期输出，不应把它当成普通零错误日志。
+- `Tests/EditorAuthoringProbe.gd`：额外加 `--editor` 运行，确认真实 `editor_hint=true` 下 Editable Children 的变换、材质、脚本与动画姿态不被污染，保存重载后仍一致。
 
-最新完整/Workshop 项目的检查数分别为 **4170 / 21249 / 1254 / 2415**；改名嵌套的独立副本为 **4170 / 1273 / 1101 / 1019**，全部通过、干净导入无错误。独立副本缺少原版/Workshop 时会明确跳过对应对照。当前 26 个组件的闭合正体积验证及 101 个姿态间隙检查也通过；这些不是连续运动的数学证明。
+最新完整/Workshop 项目的检查数分别为 **4170 / 21249 / 1254 / 2415**；改名嵌套的独立副本为 **4170 / 1273 / 1101 / 1019**，全部通过、两套干净导入无错误。新增场景编辑/缺引用/编辑器检查在两套项目分别为 **373 / 168 / 2975**，合计 14 组通过。普通运行探针无意外错误；缺引用探针每组有 14 条预期诊断。`--editor --script` 退出时出现的 RID/ObjectDB 清理告警与空编辑器脚本基线完全相同，不能将其声称为零告警的图形编辑器验收。独立副本缺少原版/Workshop 时会明确跳过对应对照。本轮序列化前后默认投影/相机/环境/灯光/碰撞/音效的 27 项参数指纹完全一致，模型二进制未变。当前 26 个组件的闭合正体积验证及 101 个姿态间隙检查也通过；这些不是连续运动的数学证明。
 
 ## 视觉证据与限制
 

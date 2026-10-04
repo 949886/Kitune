@@ -2,7 +2,6 @@ extends SceneTree
 ## Verifies the actual imported assets and transforms, not diagnostic frame keys.
 ## Run after a clean .blend import in a project containing only this device.
 const Platform = preload("../DisappearingPlatform3D.tscn")
-const Mechanism = preload("../MechanicalModel.gd")
 var checks := 0
 var failed := false
 # Source panel bottom-cell edges fit to one rigid hinge, then settle to90 degrees.
@@ -78,17 +77,17 @@ func run() -> void:
 
 
 func check_native_sources(platform: Node2D) -> void:
-	check(Mechanism.BACKPLATE.resource_path.ends_with("/Backplate.blend"), "Backplate source must be native .blend")
-	check(Mechanism.TREAD.resource_path.ends_with("/Tread.blend"), "Tread source must be native .blend")
-	check(Mechanism.BACKPLATE != Mechanism.TREAD, "Backplate and Tread must be separate model resources")
-	var folder: String = Mechanism.TREAD.resource_path.get_base_dir()
+	check(platform.mechanism.backplate.scene_file_path.ends_with("/Backplate.blend"), "Backplate source must be native .blend")
+	check(platform.mechanism.tread.scene_file_path.ends_with("/Tread.blend"), "Tread source must be native .blend")
+	check(platform.mechanism.backplate.scene_file_path != platform.mechanism.tread.scene_file_path, "Backplate and Tread must be separate model resources")
+	var folder: String = platform.mechanism.tread.scene_file_path.get_base_dir()
 	var blend_files: Array[String] = []
 	for filename: String in DirAccess.get_files_at(folder):
 		if filename.ends_with(".blend"):
 			blend_files.append(filename)
 	blend_files.sort()
 	check(blend_files == ["Backplate.blend", "Tread.blend"], "Device must contain exactly the two physical native models")
-	for path: String in [Mechanism.BACKPLATE.resource_path, Mechanism.TREAD.resource_path]:
+	for path: String in [platform.mechanism.backplate.scene_file_path, platform.mechanism.tread.scene_file_path]:
 		var settings := ConfigFile.new()
 		check(settings.load(path + ".import") == OK, "Native model import configuration missing")
 		check(settings.get_value("params", "blender/meshes/colors", true) == false, "Imported palette must use materials, not lossy vertex colors")
@@ -112,7 +111,7 @@ func check_native_sources(platform: Node2D) -> void:
 
 
 func check_imported_animation(platform: Node2D) -> void:
-	var source: Node = Mechanism.TREAD.instantiate()
+	var source: Node = load(platform.mechanism.tread.scene_file_path).instantiate()
 	var source_player: AnimationPlayer
 	for item: Node in all_nodes(source):
 		if item is AnimationPlayer:
