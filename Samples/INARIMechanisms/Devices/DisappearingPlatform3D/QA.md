@@ -1,3 +1,26 @@
+# Panel surface and demo resize revision: local validation complete
+
+This revision evaluates all 13 source poses, not only READY. Source main panel:96x57;4px side frame; two1px inset rings;84x49 mottled field;78 perimeter rivet pixels. The previous untextured inset/five ribs omitted those features.
+
+The real closed tread now uses one packed surface albedo and physical inset geometry. Source-derived easing changes the13 native hinge angle keys while preserving state/collision timings. The default palette copy uses nearest sampling. No sprite plane or per-pose mesh/image swapping is introduced.
+
+Actual graphical Godot rendering remains unavailable in this execution environment. Source-vs-Blender reference sheets are labelled explicitly and contain no user screenshots. Prior results below apply to their corresponding historical revision.
+
+## Current verification
+
+- Fixed HingeCover is a closed 96-wide annular sleeve (outer radius 4, bore 3.4); moving body/hinge leaves have a 4.15-radius coaxial clearance notch. It remains under Backplate while the tread rotates. The original READY front edge naturally occludes it, then the teal cover is exposed.
+- One opaque packed image per native file: Backplate 96x8 source strip; Tread 96x58 source panel. No external image dependency or per-pose image swapping. Import UVs are enabled, image unpacking disabled, and animation optimizer disabled to retain all 13 native keys.
+- Clean legacy/workshop project import: no errors. Mechanical 4,170; Standalone 21,249; Orbit 1,254; DemoResize 2,415 checks pass.
+- Clean renamed/nested standalone import: no errors. Mechanical 4,170; Standalone 1,273; Orbit 1,101; DemoResize 1,019 pass.
+- Resize probe covers 9 sizes (including 1478x831,1920x1080,800x1200,2560x720 and 160x120), repeated changes, dragging during resize, release/V/R, HUD bounds, opaque full-view background, world aspect/center and node teardown. Headless geometry/input validation only.
+- All 26 base/evaluated component meshes are closed with positive volume. 101 sampled hinge poses have zero moving-vs-fixed-cover intersections, including shaft/leaves/gears. Existing frame clearance checks pass.
+- All 862 opaque READY rail pixels retain their source positions/RGB. Full-fold central region RGB MAE 0.417/255 in the actual Blender unlit reference; READY 0.404. Early moving-frame MAE reaches 46.507/255 due remaining stripe placement/handdrawn brightness differences. These are local panel figures, excluding gears and static backplate; they are not Godot GPU results or whole-animation equivalence.
+- The 13 source/model bottom-cell edges match at 1 pixel/unit:5,7,9,19,34,43,53,56,59,60,60,60,60. All 13 source-vs-model poses were viewed.
+- Original DisappearingPlatform 59 files, old workshop and shared player remain unchanged.
+- Final Backplate 162,289 bytes; Tread 204,800 bytes. Actual graphical Godot output and target-device interaction feel remain to be verified.
+
+## Previous front-only correction
+
 # Front appearance correction: local checks passed, graphical verification pending
 
 The user-supplied actual gameplay screenshot demonstrated that the prior full-device alpha IoU was insufficient. It hid incorrect backplate RGB/detail, undersized gears and missing local rail color bands. Historical results below describe the previous published assets, not acceptance of the revised appearance.

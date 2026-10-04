@@ -28,8 +28,8 @@ for obj in target.objects:
 clearance = {'frames': [], 'intersection_pairs': 0,
              'scope': 'Gears and tread/deck meshes versus recessed frame, backing and face mounting bolts'}
 moving_names = ['GearLeft', 'GearRight', 'TreadBody', 'TreadEdgeRails',
-                'TreadInset', 'TreadGripRibs', 'TreadUndersidePanel', 'TreadUndersideRibs']
-fixed_names = ['FrameBody', 'RecessedBacking', 'MountingBolts']
+                'TreadUndersidePanel', 'TreadUndersideRibs']
+fixed_names = ['FrameBody', 'RecessedBacking', 'MountingBolts', 'FrameSourceDetails', 'HingeCover']
 for frame in range(13):
     bpy.context.scene.frame_set(frame)
     graph = bpy.context.evaluated_depsgraph_get()
@@ -47,7 +47,7 @@ for frame in range(13):
             overlap = trees[moving].overlap(trees[fixed])
             if overlap:
                 hits.append({'moving': moving, 'fixed': fixed, 'triangles': len(overlap)})
-    clearance['frames'].append({'frame': frame, 'degrees': frame*7.5, 'intersections': hits})
+    clearance['frames'].append({'frame': frame, 'degrees': math.degrees(bpy.data.objects['TreadHinge'].rotation_euler.x), 'intersections': hits})
     clearance['intersection_pairs'] += len(hits)
 (OUT / 'mechanical-sweep-clearance.json').write_text(json.dumps(clearance, indent=2))
 assert clearance['intersection_pairs'] == 0, clearance

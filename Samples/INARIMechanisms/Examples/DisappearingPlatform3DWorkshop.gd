@@ -1,10 +1,12 @@
 extends Node2D
 ## Practice geometry belongs to the host. The device scenes contain only source
 ## platform data and do not know this layout, player controller, UI or retry key.
+const DemoLayout = preload("../Devices/DisappearingPlatform3D/Examples/DemoLayout.gd")
 @export var ledges: Array[Rect2] = [Rect2(32, 500, 148, 60), Rect2(870, 230, 130, 330)]
 @onready var player: CharacterBody2D = $Player
 @onready var platforms: Array[Node] = [$PlatformA, $PlatformB, $PlatformC]
 var label: Label
+var demo_layout: Node
 var inspecting := false
 var _player_process_mode: ProcessMode = Node.PROCESS_MODE_INHERIT
 
@@ -19,16 +21,11 @@ func _ready() -> void:
 		body.position = ledge.get_center()
 		body.add_child(collision)
 		add_child(body)
-	var camera := Camera2D.new()
-	camera.position = Vector2(512, 288)
-	camera.zoom = Vector2.ONE * get_viewport_rect().size.y / 576.0
-	add_child(camera)
-	var ui := CanvasLayer.new()
-	add_child(ui)
 	label = Label.new()
-	label.position = Vector2(24, 24)
 	label.add_theme_font_size_override("font_size", 20)
-	ui.add_child(label)
+	demo_layout = DemoLayout.new()
+	add_child(demo_layout)
+	demo_layout.configure(Vector2(1024, 576), Color("101b22"), label)
 	queue_redraw()
 
 
@@ -44,7 +41,6 @@ func _process(_delta: float) -> void:
 
 
 func _draw() -> void:
-	draw_rect(Rect2(0, 0, 1024, 576), Color("101b22"))
 	for x in range(40, 1024, 120):
 		draw_line(Vector2(x, 175), Vector2(x, 560), Color("243239"), 2)
 	for ledge in ledges:
@@ -71,6 +67,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if inspecting:
+		# Pass screen-space drag deltas unchanged at every camera/window scale.
 		for platform: Node in platforms:
 			platform.handle_inspection_input(event)
 		get_viewport().set_input_as_handled()

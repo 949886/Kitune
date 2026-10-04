@@ -5,6 +5,14 @@ const Platform = preload("../DisappearingPlatform3D.tscn")
 const Mechanism = preload("../MechanicalModel.gd")
 var checks := 0
 var failed := false
+# Source panel bottom-cell edges fit to one rigid hinge, then settle to90 degrees.
+const SOURCE_HINGE_DEGREES := [0.0, 1.912875373, 3.833259316, 13.631756387, 29.618462760, 40.813306538, 56.912768389, 63.688229172, 73.739795292, 80.472716619, 84.0, 88.0, 90.0]
+
+func expected_hinge_basis(progress: float) -> Basis:
+	var sample := clampf(progress, 0.0, 1.0) * 12.0
+	var left := mini(floori(sample), 12)
+	var right := mini(left + 1, 12)
+	return Basis(Vector3.RIGHT, deg_to_rad(lerpf(SOURCE_HINGE_DEGREES[left], SOURCE_HINGE_DEGREES[right], sample - left)))
 
 
 func _initialize() -> void:
@@ -56,6 +64,8 @@ func run() -> void:
 	check_imported_animation(platform)
 	check_gear_geometry(named(platform.mechanism.tread, "GearLeft"))
 	check_gear_geometry(named(platform.mechanism.tread, "GearRight"))
+	check_fixed_hinge_cover(platform)
+	check_packed_panel_material(platform)
 	check_palette_materials(platform, other)
 	check_hinge_motion(platform, other)
 	await check_lifecycle(platform)
@@ -127,7 +137,7 @@ func check_imported_animation(platform: Node2D) -> void:
 			check(clip.track_get_type(track) in [Animation.TYPE_POSITION_3D, Animation.TYPE_ROTATION_3D, Animation.TYPE_SCALE_3D], "Fold uses a visibility/resource swap instead of a physical transform")
 			if clip.track_get_type(track) == Animation.TYPE_ROTATION_3D:
 				rotation_tracks += 1
-				check(clip.track_get_key_count(track) >= 2, "Fold needs authored rotation endpoints")
+				check(clip.track_get_key_count(track) == 13, "Fold must preserve all13 source-eased native keys without importer optimization")
 		check(rotation_tracks == 1, "Fold must drive one common rotation track")
 	check(fold_count == 1, "Expected one native Fold clip")
 	source.free()
@@ -214,8 +224,8 @@ func check_hinge_motion(platform: Node2D, other: Node2D) -> void:
 	for step in 101:
 		var fraction := float(step) / 100.0
 		assembly.set_fold(fraction)
-		var expected := Basis(Vector3.RIGHT, fraction * PI * 0.5)
-		check(hinge.basis.is_equal_approx(expected), "Imported hinge is not +X 0 to 90 degrees at " + str(fraction))
+		var expected := expected_hinge_basis(fraction)
+		check(hinge.basis.is_equal_approx(expected), "Imported hinge differs from the source-eased +X curve at " + str(fraction))
 		check(hinge.position.length() < 0.001, "Fold translated the physical pivot")
 		if step > 0:
 			check(hinge.basis.y.distance_to(previous_normal) > 0.001, "Intermediate pose repeated instead of moving continuously")
@@ -246,7 +256,7 @@ func check_lifecycle(platform: Node2D) -> void:
 	for data: Array in [[1, 1.70, 0.0], [1, 1.75, 0.0], [1, 1.80, 0.25], [1, 1.85, 0.5], [1, 1.90, 0.75], [1, 1.95, 1.0], [2, 0.2, 1.0], [3, 0.05, 0.75], [3, 0.1, 0.5], [3, 0.2, 0.0], [0, 0.0, 0.0]]:
 		sample(platform, data[0], data[1])
 		check(is_equal_approx(assembly.fold_amount, data[2]), "Physical fold timing differs from the source timeline")
-		check(assembly.hinge.basis.is_equal_approx(Basis(Vector3.RIGHT, data[2] * PI * 0.5)), "Timeline updated a value without moving the actual hinge")
+		check(assembly.hinge.basis.is_equal_approx(expected_hinge_basis(data[2])), "Timeline updated a value without moving the actual hinge")
 	var blend: float = platform.record.states[2].transitions[0].data.m_TransitionDuration
 	sample(platform, 3, blend * 0.5, blend)
 	check(assembly.fold_amount == 1.0, "Recovery did not hold the source outgoing pose during transition")
@@ -332,3 +342,52 @@ func check_palette_materials(platform: Node2D, other: Node2D) -> void:
 	platform.enter_inspection()
 	platform.reset()
 	check(not platform.mechanism.inspection_materials, "Reset left gameplay with orbit materials")
+
+
+func check_packed_panel_material(platform: Node2D) -> void:
+	var textures: Dictionary = {}
+	var textured_surfaces := 0
+	for part: MeshInstance3D in meshes(platform.mechanism.tread):
+		for surface in part.mesh.get_surface_count():
+			var material := part.get_active_material(surface) as StandardMaterial3D
+			if material.albedo_texture == null:
+				continue
+			textured_surfaces += 1
+			check(part.name in [&"TreadBody", &"TreadEdgeRails"], "Source albedo is applied outside the real panel solids")
+			textures[material.albedo_texture.get_instance_id()] = true
+			check(material.albedo_texture.get_size() == Vector2(96,58), "Packed source surface crop has wrong dimensions")
+			check(material.texture_filter == BaseMaterial3D.TEXTURE_FILTER_NEAREST, "Source surface uses blurry filtering")
+			var arrays := part.mesh.surface_get_arrays(surface)
+			check(arrays[Mesh.ARRAY_TEX_UV] != null, "Blender import discarded panel UVs")
+			if arrays[Mesh.ARRAY_TEX_UV] == null:
+				continue
+			var uv: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+			check(not uv.is_empty(), "Packed panel material has no geometry UVs")
+			for coordinate: Vector2 in uv:
+				check(coordinate.x >= -0.0001 and coordinate.x <= 1.0001 and coordinate.y >= -0.0001 and coordinate.y <= 1.0001, "Panel UV samples outside the source crop")
+	check(textured_surfaces >= 2 and textures.size() == 1, "Panel must reuse one static packed image, not per-pose sprites")
+	check(named(platform.mechanism.tread, "TreadGripRibs") == null, "Invented five-rib surface remains")
+
+
+func check_fixed_hinge_cover(platform: Node2D) -> void:
+	var cover := named(platform.mechanism.backplate, "HingeCover") as MeshInstance3D
+	check(cover != null, "Fixed source hinge strip is missing its real shaft cover")
+	if cover == null:
+		return
+	check(not platform.mechanism.hinge.is_ancestor_of(cover), "Fixed source strip rotates with the tread")
+	var bounds := cover.mesh.get_aabb()
+	check(bounds.size.x > 95.9 and bounds.size.x < 96.1 and bounds.size.y > 7.5 and bounds.size.z > 7.5, "Hinge cover is not an actual thick radial sleeve")
+	var cover_textures: Dictionary = {}
+	for surface in cover.mesh.get_surface_count():
+		var material := cover.get_active_material(surface) as StandardMaterial3D
+		if material.albedo_texture != null:
+			cover_textures[material.albedo_texture.get_instance_id()] = true
+			check(material.albedo_texture.get_size() == Vector2(96,8), "Hinge cover packed strip has wrong dimensions")
+			check(material.texture_filter == BaseMaterial3D.TEXTURE_FILTER_NEAREST, "Hinge cover source image is blurred")
+	check(cover_textures.size() == 1, "Hinge cover lost its single packed source strip")
+	var minimum_radius := INF
+	for surface in cover.mesh.get_surface_count():
+		var arrays := cover.mesh.surface_get_arrays(surface)
+		for point: Vector3 in arrays[Mesh.ARRAY_VERTEX]:
+			minimum_radius = minf(minimum_radius, Vector2(point.y, point.z).length())
+	check(minimum_radius > 3.25 and minimum_radius < 3.5, "Hinge cover has no clearance around the real shaft")

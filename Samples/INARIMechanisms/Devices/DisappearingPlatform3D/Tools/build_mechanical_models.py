@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Author two editable mechanical assets, without reading the old frame library.
+"""Author two editable mechanical assets from the original source artwork.
 
 Run with Blender 4.3+: blender -b --python Tools/build_mechanical_models.py
 Optional: append -- /absolute/inspection/output for a validation JSON and GLBs.
+Add --tread-only after that path to preserve Backplate.blend byte-for-byte.
 Regeneration replaces manual changes to Backplate.blend and Tread.blend.
 Units match the original 2D artwork; Blender Z up / -Y forward becomes
 Godot Y up / +Z forward. Native .blend files are the runtime model sources.
@@ -11,6 +12,7 @@ from pathlib import Path
 import bpy
 import bmesh
 import hashlib
+import io
 import json
 import math
 import sys
@@ -39,6 +41,11 @@ PALETTE = {
 }
 MATS = {}
 PARTS = []
+TOP_IMAGE = None
+TOP_CROP = (13, 25, 109, 83)
+FOLD_BOTTOMS = [5, 7, 9, 19, 34, 43, 53, 56, 59, 60]
+FOLD_DEGREES = [math.degrees(math.asin(bottom / math.hypot(60, 5)) - math.atan2(5, 60))
+                for bottom in FOLD_BOTTOMS] + [84.0, 88.0, 90.0]
 
 
 def linear(v):
@@ -74,10 +81,10 @@ def source_material(prefix, rgb, modulation=1.0):
 
 
 def new_scene(name):
-    global MATS, PARTS
+    global MATS, PARTS, TOP_IMAGE
     bpy.ops.wm.read_factory_settings(use_empty=True)
     bpy.context.preferences.filepaths.save_version = 0
-    MATS, PARTS = {}, []
+    MATS, PARTS, TOP_IMAGE = {}, [], None
     scene = bpy.context.scene
     scene.name = name
     scene.unit_settings.system = 'NONE'
@@ -205,29 +212,187 @@ def annular_gear(name, x, parent):
     return obj
 
 
+def fixed_hinge_cover(parent):
+    """A fixed, closed annular shaft sleeve carrying the stationary teal strip.
+
+    It surrounds the rotating 3.25-radius shaft with a 3.4-radius bore. Its
+    4-radius outside is real curved geometry; no camera-facing plane is used.
+    """
+    steps, outer, inner, width = 96, 4.0, 3.4, 96.0
+    vertices = [(x, radius*math.cos(i*2*math.pi/steps), radius*math.sin(i*2*math.pi/steps))
+                for x, radius in [(-width/2, outer), (width/2, outer),
+                                  (-width/2, inner), (width/2, inner)] for i in range(steps)]
+    faces = []
+    for i in range(steps):
+        j = (i+1) % steps
+        faces.extend([(i, j, steps+j, steps+i),
+                      (i, 2*steps+i, 2*steps+j, j),
+                      (steps+i, steps+j, 3*steps+j, 3*steps+i),
+                      (2*steps+i, 3*steps+i, 3*steps+j, 2*steps+j)])
+    obj = mesh('HingeCover', vertices, faces, 'Hardware_Charcoal', parent, 0)
+    source = Image.open(SOURCE/'sharedassets2_373.png').convert('RGBA').crop((13, 19, 109, 27))
+    for y in range(source.height):
+        for x in range(source.width):
+            pixel = source.getpixel((x, y))
+            source.putpixel((x, y), (*pixel[:3], 255) if y < 6 and pixel[3] > 128 else (0, 0, 0, 255))
+    encoded = io.BytesIO()
+    source.save(encoded, format='PNG')
+    png = encoded.getvalue()
+    image = bpy.data.images.new('HingeCover_Source373_Packed', 96, 8, alpha=True)
+    image.source = 'FILE'
+    image.filepath = '//HingeCover_Source373_Packed.png'
+    image.colorspace_settings.name = 'sRGB'
+    image.pack(data=png, data_len=len(png))
+    image['source_file'] = 'sharedassets2_373.png'
+    image['source_crop_xyxy_exclusive'] = [13, 19, 109, 27]
+    image['authoring'] = 'Opaque source RGB rows19..24; lower rows25..26 black to avoid painting moving panel on fixed cover; alpha-hidden RGB discarded.'
+    mat = bpy.data.materials.new('HingeCover_SourceAlbedo')
+    mat.use_nodes = True
+    mat.diffuse_color = (1, 1, 1, 1)
+    shader = mat.node_tree.nodes.get('Principled BSDF')
+    shader.inputs['Base Color'].default_value = (1, 1, 1, 1)
+    shader.inputs['Metallic'].default_value = .25
+    shader.inputs['Roughness'].default_value = .45
+    node = mat.node_tree.nodes.new('ShaderNodeTexImage')
+    node.name = 'Original stationary hinge strip, nearest pixels'
+    node.image, node.interpolation, node.extension = image, 'Closest', 'EXTEND'
+    mat.node_tree.links.new(node.outputs['Color'], shader.inputs['Base Color'])
+    mat['source_profile'] = 'Stationary original green header x13..108 y19..24 on fixed curved sleeve; bottom2rows black, no texture alpha.'
+    obj.data.materials.append(mat)
+    uv = obj.data.uv_layers.new(name='SourceHingeCoverUV')
+    for face in obj.data.polygons:
+        for loop in face.loop_indices:
+            point = obj.data.vertices[obj.data.loops[loop].vertex_index].co
+            uv.data[loop].uv = ((point.x+48)/96, (point.z+4)/8)
+        # The outside uses source colors. Bore and end faces remain gunmetal.
+        if face.index % 4 == 0:
+            face.material_index = 1
+    obj['shaft_bore_radius'] = inner
+    obj['outer_radius'] = outer
+    obj['shaft_width'] = width
+    obj['mechanical_role'] = 'Fixed coaxial hinge cover. Moving body/leaves have a4.15-radius clearance notch; rotating shaft radius3.25 fits inside bore3.4.'
+    return obj
+
+
+def cut_fixed_hinge_clearance(objects):
+    """Remove the sleeve's swept volume from moving deck and attachment leaves."""
+    bpy.ops.mesh.primitive_cylinder_add(vertices=96, radius=4.15, depth=98, rotation=(0, math.pi/2, 0))
+    cutter = bpy.context.object
+    cutter.name = 'Authoring fixed sleeve clearance cutter'
+    cutter.data.materials.append(material('Hardware_Charcoal'))
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+    for obj in objects:
+        bpy.context.view_layer.objects.active = obj
+        # Preserve the existing leaf bevel before making the structural notch.
+        for modifier in list(obj.modifiers):
+            bpy.ops.object.modifier_apply(modifier=modifier.name)
+        modifier = obj.modifiers.new('Fixed hinge sleeve radial clearance', 'BOOLEAN')
+        modifier.operation, modifier.solver, modifier.object = 'DIFFERENCE', 'EXACT', cutter
+        modifier.material_mode = 'TRANSFER'
+        bpy.ops.object.modifier_apply(modifier=modifier.name)
+        obj['hinge_sleeve_clearance_radius'] = 4.15
+        obj['hinge_sleeve_clearance'] = 'Coaxial through-notch, invariant under X-axis rotation; shaft itself is unchanged.'
+    bpy.data.objects.remove(cutter, do_unlink=True)
+
+
+def source_top_material():
+    """One packed nearest-filter albedo, on the actual closed plank's top faces.
+
+    RGB is taken only from opaque pixels in the fully folded original frame.
+    Transparent pixels are cleared, never sampled for their hidden RGB. The
+    native geometry supplies silhouette and depth; texture alpha is not used.
+    """
+    global TOP_IMAGE
+    name = 'Panel_SourceAlbedo'
+    if name in MATS:
+        return MATS[name]
+    source = Image.open(SOURCE / 'sharedassets2_373.png').convert('RGBA').crop(TOP_CROP)
+    source.putdata([(*rgb[:3], 255) if rgb[3] > 128 else (0, 0, 0, 255)
+                    for rgb in source.getdata()])
+    encoded = io.BytesIO()
+    source.save(encoded, format='PNG')
+    png = encoded.getvalue()
+    TOP_IMAGE = bpy.data.images.new('TreadPanel_Source373_Packed', source.width, source.height, alpha=True)
+    TOP_IMAGE.source = 'FILE'
+    TOP_IMAGE.filepath = '//TreadPanel_Source373_Packed.png'
+    TOP_IMAGE.colorspace_settings.name = 'sRGB'
+    TOP_IMAGE.pack(data=png, data_len=len(png))
+    TOP_IMAGE['source_file'] = 'sharedassets2_373.png'
+    TOP_IMAGE['source_crop_xyxy_exclusive'] = list(TOP_CROP)
+    TOP_IMAGE['authoring'] = 'Opaque source RGB only; alpha-hidden RGB discarded. Packed albedo, not a sprite plane.'
+    mat = bpy.data.materials.new(name)
+    mat.use_nodes = True
+    mat.diffuse_color = (1, 1, 1, 1)
+    shader = mat.node_tree.nodes.get('Principled BSDF')
+    shader.inputs['Base Color'].default_value = (1, 1, 1, 1)
+    shader.inputs['Metallic'].default_value = .2
+    shader.inputs['Roughness'].default_value = .5
+    image = mat.node_tree.nodes.new('ShaderNodeTexImage')
+    image.name = 'Original folded panel, nearest pixels'
+    image.image = TOP_IMAGE
+    image.interpolation = 'Closest'
+    image.extension = 'EXTEND'
+    mat.node_tree.links.new(image.outputs['Color'], shader.inputs['Base Color'])
+    mat['source_profile'] = 'sharedassets2_373.png crop x13..108 y25..82; UV locked to native X/Y surface, no alpha cutout'
+    MATS[name] = mat
+    return mat
+
+
+def paint_source_top(obj):
+    """Continuous source-pixel UVs across the real rim, recess and front lip."""
+    index = len(obj.data.materials)
+    obj.data.materials.append(source_top_material())
+    uv = obj.data.uv_layers.new(name='SourcePanelUV')
+    painted = 0
+    for face in obj.data.polygons:
+        for loop in face.loop_indices:
+            point = obj.data.vertices[obj.data.loops[loop].vertex_index].co
+            uv.data[loop].uv = ((point.x + 48) / 96, (point.y + 60) / 58)
+        if face.normal.z > .5:
+            face.material_index = index
+            painted += 1
+    obj['source_top_faces'] = painted
+    obj['source_uv_mapping'] = 'PNG(x,y)=(X+61,23-Y); packed crop (13,25)-(109,83), nearest'
+    return obj
+
+
 def recessed_tread(parent):
-    """A single closed plank, with an actual shallow pocket for the inset panel."""
+    """One closed plank with two actual one-pixel-wide recessed border steps."""
     def rectangle(x0, x1, y0, y1, z):
         return [(x0, y0, z), (x1, y0, z), (x1, y1, z), (x0, y1, z)]
-    vertices = (rectangle(-48, 48, -57, -2, -3.6) + rectangle(-48, 48, -57, -2, 4)
-                + rectangle(-43, 43, -54.6, -6, 4) + rectangle(-43, 43, -54.6, -6, 3.75))
-    faces = [(3, 2, 1, 0), (12, 13, 14, 15)]
+    # A 0.001-unit closure land avoids a zero-area edge where the source inset's
+    # bottom border meets the structural front lip. It is far below one pixel.
+    vertices = (rectangle(-48, 48, -56, -2, -3.6) + rectangle(-48, 48, -56, -2, 4)
+                + rectangle(-44, 44, -55.999, -3, 4)
+                + rectangle(-43, 43, -55, -4, 3.76)
+                + rectangle(-42, 42, -54, -5, 3.6))
+    faces = [(3, 2, 1, 0), (16, 17, 18, 19)]
     for i in range(4):
         j = (i + 1) % 4
-        faces.extend([(i, j, j+4, i+4), (i+4, j+4, j+8, i+8), (i+8, j+8, j+12, i+12)])
-    return mesh('TreadBody', vertices, faces, 'Tread_DeepTeal', parent, .18)
+        faces.append((i, j, j+4, i+4))
+        for start in (4, 8, 12):
+            faces.append((i+start, j+start, j+start+4, i+start+4))
+    obj = mesh('TreadBody', vertices, faces, 'Tread_DeepTeal', parent, 0)
+    obj['source_panel_bounds'] = 'outer pocket PNG x17..104 y26..78; inner border x18..103 y27..77; field x19..102 y28..76'
+    obj['recess_depth'] = .4
+    return paint_source_top(obj)
 
 
 def source_front_lip(parent):
-    """One closed 2-unit-deep rail; front faces carry the nine opaque source rows.
+    """One closed rail with the exact nine READY rows and folded corner profile.
 
     A shared-vertex surface grid keeps each groove/highlight editable and manifold.
     Only READY pixels x13..108/y19..27 are used. Transparent pixels at the two
     bottom corners are omitted; transparent grey/teal shapes are never modeled.
+    Its stepped 1..4-unit depth matches the folded panel's bottom corner cuts,
+    without changing any front-projected X/Z pixel or source RGB at READY.
     """
     image = Image.open(SOURCE / 'sharedassets2_1700.png').convert('RGBA')
     pixels = {(x, y): image.getpixel((x, y))[:3] for y in range(19, 28) for x in range(13, 109)
               if image.getpixel((x, y))[3] > 128}
+    front_depth = lambda x: -min(60, 57 + min(x-13, 108-x))
+    cells = {(x, depth, y): rgb for (x, y), rgb in pixels.items()
+             for depth in range(front_depth(x), -56)}
     vertices, indices, faces, palettes = [], {}, [], []
     def vertex(x, depth, y):
         key = (x, depth, y)
@@ -235,14 +400,16 @@ def source_front_lip(parent):
             indices[key] = len(vertices)
             vertices.append((x-61, depth, 23-y))
         return indices[key]
-    for (x, y), rgb in pixels.items():
-        front = [vertex(xx, -59, yy) for xx, yy in [(x,y),(x+1,y),(x+1,y+1),(x,y+1)]]
-        back = [vertex(xx, -57, yy) for xx, yy in [(x,y),(x+1,y),(x+1,y+1),(x,y+1)]]
-        faces.extend([tuple(front), tuple(reversed(back))])
-        palettes.extend([source_material('Rail_Source', rgb)] * 2)
-        for neighbor, a, b in [((x,y-1),0,1), ((x+1,y),1,2), ((x,y+1),2,3), ((x-1,y),3,0)]:
-            if neighbor not in pixels:
-                faces.append((front[a], back[a], back[b], front[b]))
+    sides = [((-1,0,0), [(0,0,0),(0,1,0),(0,1,1),(0,0,1)]),
+             ((1,0,0), [(1,0,0),(1,0,1),(1,1,1),(1,1,0)]),
+             ((0,-1,0),[(0,0,0),(0,0,1),(1,0,1),(1,0,0)]),
+             ((0,1,0), [(0,1,0),(1,1,0),(1,1,1),(0,1,1)]),
+             ((0,0,-1),[(0,0,0),(1,0,0),(1,1,0),(0,1,0)]),
+             ((0,0,1), [(0,0,1),(0,1,1),(1,1,1),(1,0,1)])]
+    for (x, depth, y), rgb in cells.items():
+        for (dx, dd, dy), corners in sides:
+            if (x+dx, depth+dd, y+dy) not in cells:
+                faces.append(tuple(vertex(x+xx, depth+dd, y+yy) for xx, dd, yy in corners))
                 palettes.append(source_material('Rail_Source', rgb))
     obj = mesh('TreadEdgeRails', vertices, faces, 'Tread_DeepTeal', parent, 0)
     slots = {'Tread_DeepTeal': 0}
@@ -255,7 +422,8 @@ def source_front_lip(parent):
     obj['source_profile'] = 'sharedassets2_1700.png; alpha>128 x13..108 y19..27; exact opaque RGB faces'
     obj['ready_bounds_xz'] = [-48, 48, -5, 4]
     obj['opaque_source_pixels'] = len(pixels)
-    return obj
+    obj['folded_corner_profile'] = 'PNG rows79/80/81/82 widths96/94/92/90; native Y[-60,-56]'
+    return paint_source_top(obj)
 
 
 def traced_backplate(parent):
@@ -419,29 +587,22 @@ def make_backplate():
     box('AlarmBezel', (9, 4, 8), (60, 6.1, 36), 'Frame_DeepShadow', root, .7)
     lamp = box('AlarmLamp', (5.2, 1.4, 4.8), (60, -.65, 36), 'Alarm_Red', root, .7)
     lamp['runtime_control'] = 'Duplicate material before changing alpha/emission; source warning keyframes drive this mesh only.'
+    fixed_hinge_cover(root)
     return save_asset(root, 'Backplate')
 
 
 def make_tread():
     root = new_scene('Tread')
     root['pivot'] = 'X-axis at (0,0,0); +90 degrees lowers the tread toward Blender -Z / Godot -Y.'
-    root['standing_surface'] = 'X[-48,48], Blender Y[-59,-2], Z=4. Godot Z[2,59], Y=4, relative to the source hinge at PNG(61,23).'
+    root['standing_surface'] = 'X[-48,48], Blender Y[-60,-2], rim Z=4, recessed field Z=3.6. Godot Z[2,60], rim Y=4, source hinge PNG(61,23).'
     root['source_pose_count_replaced'] = 13
     root['tread_width'] = 96.0
-    root['tread_depth'] = 59.0
+    root['tread_depth'] = 60.0
+    root['source_panel_material'] = 'One packed nearest-filter source-derived albedo on actual closed top faces; no image planes or texture alpha cutout.'
+    root['source_fold_bottoms'] = FOLD_BOTTOMS + [60, 60, 60]
+    root['fold_angle_degrees'] = FOLD_DEGREES
     recessed_tread(root)
-    box('TreadInset', (86, 48.6, .7), (0, -30.3, 3.57), 'Tread_InsetTeal', root, .25)
-    edges = [
-        source_front_lip(root),
-        box('RearEdge', (88, 1.6, 1), (0, -3.2, 3.4), 'Edges_BrushedSteel', root, .2),
-        box('SideEdgeL', (1.5, 53, .8), (-46.5, -30.4, 3.5), 'Edges_BrushedSteel', root, .15),
-        box('SideEdgeR', (1.5, 53, .8), (46.5, -30.4, 3.5), 'Edges_BrushedSteel', root, .15),
-    ]
-    merge(edges, 'TreadEdgeRails')
-    strips = []
-    for x in [-28, -14, 0, 14, 28]:
-        strips.append(box('GripRib', (.8, 43, .24), (x, -30.5, 3.98-.12), 'Tread_DeepTeal', root, .09))
-    merge(strips, 'TreadGripRibs')
+    source_front_lip(root)
     box('TreadUndersidePanel', (85, 46, .6), (0, -30.5, -3.7), 'Hardware_Charcoal', root, .25)
     braces = []
     for x in [-38, 38]:
@@ -451,22 +612,19 @@ def make_tread():
     links = []
     for x in [-42, 42]:
         links.append(box('HingeLeaf', (7.2, 9, 3.4), (x, -3, -2), 'Gears_Gunmetal', root, .45))
-    merge(links, 'TreadHingeLeaves')
+    leaves = merge(links, 'TreadHingeLeaves')
+    cut_fixed_hinge_clearance([bpy.data.objects['TreadBody'], leaves])
     for side, s in [('L', -1), ('R', 1)]:
         annular_gear('GearLeft' if side == 'L' else 'GearRight', s*55, root)
         cylinder('GearHub_' + side, 6.5, 7.2, (s*55, 0, 0), 'Hardware_Charcoal', root, vertices=32, bevel=.25)
         cylinder('GearHubCap_' + side, 3.6, 7.8, (s*55, 0, 0), 'Bolts_PaleSteel', root, vertices=8, bevel=.22)
-    screws = []
-    for x in [-43.5, 43.5]:
-        for y in [-6.3, -54.7]:
-            screws.append(cylinder('TreadBolt', .95, .28, (x, y, 3.86), 'Bolts_PaleSteel', root, axis='Z', vertices=6, bevel=.06))
-    merge(screws, 'TreadFasteners')
     root.rotation_mode = 'XYZ'
-    for frame in range(13):
-        root.rotation_euler.x = frame * math.pi / 24
+    for frame, degrees in enumerate(FOLD_DEGREES):
+        root.rotation_euler.x = math.radians(degrees)
         root.keyframe_insert(data_path='rotation_euler', index=0, frame=frame, group='X hinge fold')
     root.animation_data.action.name = 'Fold'
-    root.animation_data.action['description'] = '13 authored keys; 0 to 90 degrees around +X, 0..12 at 60 fps (0.2 s).'
+    root.animation_data.action['description'] = '13 source-silhouette-fitted +X hinge keys, 0..90 degrees over 0..12 at 60 fps (0.2 s), continuous linear interpolation between keys.'
+    root.animation_data.action['source_fold_fit'] = 'Frames0..9 invert bottom=60*sin(angle)+5*cos(angle); frames10..12 continue monotonically84,88,90 degrees.'
     for curve in root.animation_data.action.fcurves:
         for key in curve.keyframe_points:
             key.interpolation = 'LINEAR'
@@ -479,7 +637,20 @@ def inspect_asset(name):
     meshes = [o for o in scene.objects if o.type == 'MESH']
     report = {'file': name + '.blend', 'scene': scene.name, 'mesh_objects': len(meshes),
               'mesh_names': sorted(o.name for o in meshes), 'materials': sorted(m.name for m in bpy.data.materials if m.users),
-              'actions': [a.name for a in bpy.data.actions], 'objects': [], 'all_base_meshes_closed': True}
+              'actions': [a.name for a in bpy.data.actions], 'objects': [], 'all_base_meshes_closed': True,
+              'packed_images': [{'name': i.name, 'size': list(i.size), 'packed': bool(i.packed_file),
+                                 'colorspace': i.colorspace_settings.name}
+                                for i in bpy.data.images if i.name not in ('Render Result', 'Viewer Node')],
+              'image_materials': []}
+    for mat in bpy.data.materials:
+        if not mat.users or not mat.use_nodes:
+            continue
+        for node in mat.node_tree.nodes:
+            if node.type == 'TEX_IMAGE':
+                report['image_materials'].append({'material': mat.name, 'image': node.image.name,
+                                                'filter': node.interpolation, 'alpha_linked': bool(node.outputs['Alpha'].links)})
+                assert node.image.packed_file and node.interpolation == 'Closest'
+                assert not node.outputs['Alpha'].links, 'Native mesh opacity must not come from sprite alpha.'
     depsgraph = bpy.context.evaluated_depsgraph_get()
     for obj in meshes:
         bm = bmesh.new()
@@ -500,7 +671,8 @@ def inspect_asset(name):
                'vertices': len(obj.data.vertices), 'faces': len(obj.data.polygons),
                'nonmanifold_edges': bad, 'nonmanifold_vertices': badverts,
                'volume': round(volume, 5), 'evaluated_nonmanifold_edges': eval_bad,
-               'evaluated_volume': round(eval_volume, 5)}
+               'evaluated_volume': round(eval_volume, 5),
+               'uv_layers': list(obj.data.uv_layers.keys())}
         if 'gear_teeth' in obj:
             row.update(teeth=obj['gear_teeth'], axial_width=obj['gear_axial_width'],
                        bore_diameter=obj['gear_bore_diameter'], outer_diameter=obj['gear_outer_diameter'])
@@ -512,8 +684,12 @@ def inspect_asset(name):
 def save_asset(root, name):
     scene = bpy.context.scene
     for image in bpy.data.images:
-        assert image.name in ('Render Result', 'Viewer Node'), 'No image textures allowed.'
-    source_names = ['sharedassets2_2519.png'] if name == 'Backplate' else ['sharedassets2_1700.png', 'sharedassets2_373.png']
+        assert image.name in ('Render Result', 'Viewer Node', 'TreadPanel_Source373_Packed', 'HingeCover_Source373_Packed')
+        if image.name == 'TreadPanel_Source373_Packed':
+            assert name == 'Tread' and image.packed_file
+        if image.name == 'HingeCover_Source373_Packed':
+            assert name == 'Backplate' and image.packed_file
+    source_names = ['sharedassets2_2519.png', 'sharedassets2_373.png'] if name == 'Backplate' else ['sharedassets2_1700.png', 'sharedassets2_373.png']
     scene['source_artwork_sha256'] = json.dumps({n: hashlib.sha256((SOURCE/n).read_bytes()).hexdigest() for n in source_names})
     scene['asset_contract'] = 'One static frame / one moving plank. No sprites, hidden poses, frame meshes or geometry JSON.'
     scene['native_axes'] = 'Z up; -Y front; X hinge axis. glTF/Godot: Y up; +Z front.'
@@ -522,10 +698,15 @@ def save_asset(root, name):
                'Every mesh is a closed, editable solid. Bevel and weighted-normal modifiers remain editable.\n'
                'Blender X-right / Z-up / -Y-front imports to Godot X-right / Y-up / +Z-front.\n'
                'Root and hinge origin are (0,0,0), source pixel (61,23). Tread top is Z=4 at rest.\n'
-               'TreadHinge +X 90 degrees lowers the 96-wide, 59-deep plank.\n'
-               'Fold: frames 0..12 at 60 fps, 0.2 s. Only the hinge is animated.\n'
+               'TreadHinge +X 90 degrees lowers the 96-wide, 60-deep plank.\n'
+               'Fold: 13 silhouette-fitted keys over frames 0..12 at 60 fps, 0.2 s. Only the hinge is animated.\n'
                'AlarmLamp in Backplate has its own material for runtime warning flashes.\n'
-               'Source PNGs informed palette and silhouette; no raster images are used by these models.\n'
+               'Backplate and READY front rail use source-colored native solids.\n'
+               'The stationary teal hinge strip is painted onto a real closed shaft sleeve in Backplate.blend.\n'
+               'Its packed nearest albedo uses original source RGB; the moving deck/leaves have radial clearance.\n'
+               'Tread top uses one packed nearest-filter albedo authored from opaque original folded-frame pixels.\n'
+               'Its frame, double recessed border, thickness and clipped corners are real closed geometry.\n'
+               'There are no sprite planes, alpha-cutout silhouettes, per-pose meshes or runtime geometry JSON.\n'
                'To inspect both files together, use Tools/render_mechanical_preview.py.\n')
     bpy.ops.object.select_all(action='DESELECT')
     root.select_set(True)
@@ -556,6 +737,7 @@ def save_asset(root, name):
 
 
 if __name__ == '__main__':
-    result = {'Backplate': make_backplate(), 'Tread': make_tread()}
+    result = {} if '--tread-only' in sys.argv else {'Backplate': make_backplate()}
+    result['Tread'] = make_tread()
     (OUT/'mechanical-model-validation.json').write_text(json.dumps(result, indent=2))
     print('MECHANICAL_BLEND_BUILD_PASS', json.dumps({k: {'meshes': v['mesh_objects'], 'bytes': v['file_bytes']} for k, v in result.items()}))

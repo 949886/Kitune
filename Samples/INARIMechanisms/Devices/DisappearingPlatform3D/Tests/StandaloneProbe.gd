@@ -219,18 +219,20 @@ func check_mesh(visual: MeshInstance3D) -> void:
 		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
 		check(vertices.size() >= 3, "Physical geometry needs triangle vertices")
 		triangles += (indices.size() if not indices.is_empty() else vertices.size()) / 3
-		check_material(visual.get_active_material(surface))
+		check_material(visual.get_active_material(surface), visual.name)
 	check(triangles >= 12, "Physical component needs solid faces")
 
 
-func check_material(material: Material) -> void:
+func check_material(material: Material, component: StringName) -> void:
 	if material == null:
 		return
-	check(material is BaseMaterial3D, "Geometry materials must expose their non-textured color source")
+	check(material is BaseMaterial3D, "Geometry materials must expose their authored surface material")
 	if material is BaseMaterial3D:
 		for property: Dictionary in material.get_property_list():
 			if property.name.ends_with("_texture"):
-				check(not material.get(property.name) is Texture, "Geometry material uses a sprite/image texture: " + property.name)
+				var texture: Variant = material.get(property.name)
+				if texture is Texture:
+					check(property.name == "albedo_texture" and component in [&"TreadBody", &"TreadEdgeRails", &"HingeCover"], "Only the real closed tread top and fixed hinge cover may use their packed source albedo: " + str(component) + "/" + property.name)
 
 
 func check_only_viewport_sprite(node: Node, display: Sprite2D) -> void:

@@ -87,6 +87,7 @@ func _collect_front_materials(node: Node) -> void:
 				continue
 			var palette := imported.duplicate() as StandardMaterial3D
 			palette.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			palette.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 			palette.metallic = 0.0
 			palette.emission_enabled = false
 			_surface_materials.append({"mesh": mesh_node, "surface": surface, "lit": imported, "palette": palette})

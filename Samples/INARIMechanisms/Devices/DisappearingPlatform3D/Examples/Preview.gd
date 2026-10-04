@@ -1,13 +1,21 @@
 extends Node2D
 ## Self-contained visual preview, no host player or project input map required.
+const DemoLayout = preload("DemoLayout.gd")
 @onready var device: Node2D = $Device
 @onready var label: Label = $Label
+var demo_layout: Node
 var inspecting := false
+
+
+func _ready() -> void:
+	demo_layout = DemoLayout.new()
+	add_child(demo_layout)
+	demo_layout.configure(Vector2(1024, 720), Color(0.12, 0.2, 0.23, 1), label)
 
 
 func _process(_delta: float) -> void:
 	var controls := "V: return | Mouse drag: orbit | Wheel: zoom | R: reset + return" if inspecting else "Space: activate | R: reset | V: free orbit view"
-	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f | Hinge: %.1f deg" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed, device.mechanism.fold_amount * 90.0]
+	label.text = "DisappearingPlatform3D\n%s\nState: %s | Timer: %.2f | Hinge: %.1f deg" % [controls, ["READY", "COUNTDOWN", "HIDDEN"][device.state], device.elapsed, rad_to_deg(device.mechanism.hinge.rotation.x)]
 
 
 # Handle inspection at the input stage, before any host gameplay's unhandled
@@ -24,6 +32,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if inspecting:
+		# Orbit deltas stay in viewport pixels; never transform them by world zoom.
 		device.handle_inspection_input(event)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_SPACE:
